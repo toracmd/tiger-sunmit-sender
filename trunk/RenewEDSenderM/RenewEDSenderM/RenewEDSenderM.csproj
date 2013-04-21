@@ -78,6 +78,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Support\DataPackage.cs" />
+    <Compile Include="Support\DataPackageException.cs" />
     <Compile Include="Support\Encryption.cs" />
     <Compile Include="Support\MessageDatagram.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
