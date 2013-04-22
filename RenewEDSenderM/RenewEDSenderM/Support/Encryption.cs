@@ -75,7 +75,7 @@ namespace RenewEDSenderM.Support
         /// <param name="input"></param>
         /// <param name="hash"></param>
         /// <returns></returns>
-        static bool verifyMd5Hash(string input, string hash)
+        public static bool verifyMd5Hash(string input, string hash)
         {
             // Hash the input.
             string hashOfInput = getMd5Hash(input);
@@ -99,7 +99,7 @@ namespace RenewEDSenderM.Support
         /// <param name="Key">AES密钥</param>
         /// <param name="IV">AES初始向量</param>
         /// <returns>AES加密密文</returns>
-        static byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
+        public static byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
         {
             // Check arguments.
             if (plainText == null || plainText.Length <= 0)
@@ -138,7 +138,91 @@ namespace RenewEDSenderM.Support
             return encrypted;
 
         }
+        public static void testcDes_aes()
+        {
+            int i;
+            string s;
+            s = DecryptStringFromBytes_Aes(DataPackage.GetBytes("AD4E729DCD81551ABC7C2983C86D3C6A58A862EAB7762371A0F6A3C83FBDC8EC79D54004F3249D83EE1D8BBE3C906270C99C44D6CF4C7B049B643A7DA312DCC0C5600F18FBB91ADF460802532B9FD2C766EC60477242D78F9CAA0092DA2F1B0492D92951E9EF1E68096B7EA76C41ABF30EB177D316196693D66C3C8AB2C767ED461BABF65A472C57DE9C972B10EDE61E916F38D678C48ED447928E77EF77798D71F71B29AA4A2542C866B4A623FDC6F8838B2D3AD851EC9091C029072A49BB9DDFCCF2831858E339FE73534A65432E5AC65F3E0DF735510BCD64F8B7C2B1F264", out i),
+                Encoding.ASCII.GetBytes("0000000000123456"), Encoding.ASCII.GetBytes("0000000000123456"));
+            s = DecryptStringFromBytes_Aes(DataPackage.GetBytes("AD4E729DCD81551ABC7C2983C86D3C6A58A862EAB7762371A0F6A3C83FBDC8ECB9D1BAFF2DB3F42557CAA390744DE28F3B9AB0A9B6440DEE139F4FAC3DFD275530E9FF04CB855447AB82D440167FADF0D238DB8E6BC8A06FD801570E6277632085CCA41809E7DEB74E9728283F88FE789532DF9595DC9DC752FB16FE613D4CA41C1A004EBD8D15BB2EE9E6C4252D7CC4C5B506B3B2CBBE017C4B0DA380E2757F67AA5DD5CE46E1091116BBD66D8420AA1EFD4009051F7BC483741DED1388CCAC9FA2AFAB46D73ED582D8F68BB96F0E3E36C6DB5EB47ED5B0E9ADD5B5F47C5B69E31610DD8F4E9C1FEB57C6E9A5EB967C88950536D936FB6D0541542394B6D82DB0976663320587C0A4FFE8EE918B784B", out i),
+                Encoding.ASCII.GetBytes("0000000000123456"), Encoding.ASCII.GetBytes("0000000000123456"));
 
+        }
+        public static byte[] EncryptStringToBytes_Aes__(string plainText, byte[] Key, byte[] IV)
+        {
+            // Check arguments.
+            if (plainText == null || plainText.Length <= 0)
+                throw new ArgumentNullException("plainText");
+            if (Key == null || Key.Length <= 0)
+                throw new ArgumentNullException("Key");
+            if (IV == null || IV.Length <= 0)
+                throw new ArgumentNullException("Key");
+            byte[] encrypted;
+            RijndaelManaged rijndaelCipher = new RijndaelManaged();
+            rijndaelCipher.Mode = CipherMode.CBC;
+            rijndaelCipher.Padding = PaddingMode.None;
+            rijndaelCipher.KeySize = 128;
+            rijndaelCipher.BlockSize = 128;
+            rijndaelCipher.Key = Key;
+            rijndaelCipher.IV = IV;
+            ICryptoTransform transform = rijndaelCipher.CreateEncryptor();
+
+            // Create the streams used for encryption.
+            using (MemoryStream msEncrypt = new MemoryStream())
+            {
+                using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, transform, CryptoStreamMode.Write))
+                {
+                    using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                    {
+
+                        //Write all data to the stream.
+                        swEncrypt.Write(plainText);
+                    }
+                    encrypted = msEncrypt.ToArray();
+                }
+            }
+            return encrypted;
+        }
+        /// <summary>
+        /// AES 128位
+        /// 加密模式：CBC
+        /// 填充模式采用：NoPadding
+        /// </summary>
+        /// <param name="cipherText"></param>
+        /// <param name="Key"></param>
+        /// <param name="IV"></param>
+        /// <returns></returns>
+        public static string DecryptStringFromBytes_Aes(byte[] cipherText, byte[] Key, byte[] IV)
+        {
+            RijndaelManaged rijndaelCipher = new RijndaelManaged();
+            rijndaelCipher.Mode = CipherMode.CBC;
+            rijndaelCipher.Padding = PaddingMode.None;
+            rijndaelCipher.KeySize = 128;
+           
+            //rijndaelCipher.BlockSize = 128;
+            rijndaelCipher.Key = Key;
+            rijndaelCipher.IV = IV;
+            
+            ICryptoTransform transform = rijndaelCipher.CreateDecryptor();
+            string plaintext = null;
+
+            byte[] bplain = transform.TransformFinalBlock(cipherText, 0, cipherText.Length);
+            plaintext = Encoding.UTF8.GetString(bplain);
+
+            //using (MemoryStream msDecrypt = new MemoryStream(cipherText))
+            //{
+            //    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, transform, CryptoStreamMode.Read))
+            //    {
+            //        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+            //        {
+
+            //            // Read the decrypted bytes from the decrypting stream and place them in a string.
+            //            plaintext = srDecrypt.ReadToEnd();
+            //        }
+            //    }
+            //}
+            return plaintext;
+        }
         /// <summary>
         /// 解密AES：字节数组解密为字符数组
         /// </summary>
@@ -146,7 +230,7 @@ namespace RenewEDSenderM.Support
         /// <param name="Key">AES密钥</param>
         /// <param name="IV">AES密钥向量</param>
         /// <returns>明文，明文为字符串</returns>
-        static string DecryptStringFromBytes_Aes(byte[] cipherText, byte[] Key, byte[] IV)
+        public static string DecryptStringFromBytes_Aes__(byte[] cipherText, byte[] Key, byte[] IV)
         {
             // Check arguments.
             if (cipherText == null || cipherText.Length <= 0)
@@ -164,12 +248,13 @@ namespace RenewEDSenderM.Support
             // with the specified key and IV.
             using (Aes aesAlg = Aes.Create())
             {
+         
                 aesAlg.Key = Key;
                 aesAlg.IV = IV;
 
                 // Create a decrytor to perform the stream transform.
                 ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
-
+                
                 // Create the streams used for decryption.
                 using (MemoryStream msDecrypt = new MemoryStream(cipherText))
                 {
