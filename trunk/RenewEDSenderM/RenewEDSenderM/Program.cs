@@ -16,7 +16,7 @@ namespace RenewEDSenderM
             {
                 Support.TestEncrpt.TestGetKeyMd5("40dfbc87592be8a");
                 Support.TestEncrpt.TestGetMd5("40dfbc87592be8a0000000000123456");
-                Support.TestEncrpt.TestGetKeyMd5_Error("40dfbc87592be8a");
+                //Support.TestEncrpt.TestGetKeyMd5_Error("40dfbc87592be8a");
                 Support.TestEncrpt.testcDes_aes();
 
                 int i;

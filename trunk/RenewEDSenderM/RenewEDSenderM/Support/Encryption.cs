@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Security.Cryptography;
 using System.IO;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace RenewEDSenderM.Support
 {
@@ -163,7 +163,8 @@ namespace RenewEDSenderM.Support
             byte[] encrypted;
             RijndaelManaged rijndaelCipher = new RijndaelManaged();
             rijndaelCipher.Mode = CipherMode.CBC;
-            rijndaelCipher.Padding = PaddingMode.None;
+            //rijndaelCipher.Padding = PaddingMode.None;
+            rijndaelCipher.Padding = PaddingMode.Zeros;
             rijndaelCipher.KeySize = 128;
             rijndaelCipher.BlockSize = 128;
             rijndaelCipher.Key = Key;
@@ -210,7 +211,8 @@ namespace RenewEDSenderM.Support
         {
             RijndaelManaged rijndaelCipher = new RijndaelManaged();
             rijndaelCipher.Mode = CipherMode.CBC;
-            rijndaelCipher.Padding = PaddingMode.None;
+            //rijndaelCipher.Padding = PaddingMode.None;
+            rijndaelCipher.Padding = PaddingMode.Zeros;
             rijndaelCipher.KeySize = 128;
            
             //rijndaelCipher.BlockSize = 128;
@@ -254,6 +256,13 @@ namespace RenewEDSenderM.Support
             }
             return (UInt16)crc;
         }
+        public static string RemoveZeroPaddings(string input)
+        {
+            if (input.EndsWith(">"))
+                return input;
+            string result = input.Remove(input.LastIndexOf('>') + 1);
+            return result;
+        }
     }
     class TestEncrpt
     {
@@ -283,11 +292,20 @@ namespace RenewEDSenderM.Support
         {
             int i;
             string s;
-            s = Encryption.DecryptStringFromBytes_Aes(DataPackage.GetBytes("AD4E729DCD81551ABC7C2983C86D3C6A58A862EAB7762371A0F6A3C83FBDC8EC79D54004F3249D83EE1D8BBE3C906270C99C44D6CF4C7B049B643A7DA312DCC0C5600F18FBB91ADF460802532B9FD2C766EC60477242D78F9CAA0092DA2F1B0492D92951E9EF1E68096B7EA76C41ABF30EB177D316196693D66C3C8AB2C767ED461BABF65A472C57DE9C972B10EDE61E916F38D678C48ED447928E77EF77798D71F71B29AA4A2542C866B4A623FDC6F8838B2D3AD851EC9091C029072A49BB9DDFCCF2831858E339FE73534A65432E5AC65F3E0DF735510BCD64F8B7C2B1F264", out i),
-                Encoding.ASCII.GetBytes("0000000000123456"), Encoding.ASCII.GetBytes("0000000000123456"));
-            s = Encryption.DecryptStringFromBytes_Aes(DataPackage.GetBytes("AD4E729DCD81551ABC7C2983C86D3C6A58A862EAB7762371A0F6A3C83FBDC8ECB9D1BAFF2DB3F42557CAA390744DE28F3B9AB0A9B6440DEE139F4FAC3DFD275530E9FF04CB855447AB82D440167FADF0D238DB8E6BC8A06FD801570E6277632085CCA41809E7DEB74E9728283F88FE789532DF9595DC9DC752FB16FE613D4CA41C1A004EBD8D15BB2EE9E6C4252D7CC4C5B506B3B2CBBE017C4B0DA380E2757F67AA5DD5CE46E1091116BBD66D8420AA1EFD4009051F7BC483741DED1388CCAC9FA2AFAB46D73ED582D8F68BB96F0E3E36C6DB5EB47ED5B0E9ADD5B5F47C5B69E31610DD8F4E9C1FEB57C6E9A5EB967C88950536D936FB6D0541542394B6D82DB0976663320587C0A4FFE8EE918B784B", out i),
-                Encoding.ASCII.GetBytes("0000000000123456"), Encoding.ASCII.GetBytes("0000000000123456"));
+            string ss;
 
+            //设置key iv
+            Encryption.AES_KEY = Encoding.ASCII.GetBytes("0000000000123456");
+            Encryption.AES_IV = Encoding.ASCII.GetBytes("0000000000123456");
+            //解密
+            s = Encryption.DecryptStringFromBytes_Aes(DataPackage.GetBytes("AD4E729DCD81551ABC7C2983C86D3C6A58A862EAB7762371A0F6A3C83FBDC8EC79D54004F3249D83EE1D8BBE3C906270C99C44D6CF4C7B049B643A7DA312DCC0C5600F18FBB91ADF460802532B9FD2C766EC60477242D78F9CAA0092DA2F1B0492D92951E9EF1E68096B7EA76C41ABF30EB177D316196693D66C3C8AB2C767ED461BABF65A472C57DE9C972B10EDE61E916F38D678C48ED447928E77EF77798D71F71B29AA4A2542C866B4A623FDC6F8838B2D3AD851EC9091C029072A49BB9DDFCCF2831858E339FE73534A65432E5AC65F3E0DF735510BCD64F8B7C2B1F264", out i));
+            //截去多余paddings
+            string sss = Encryption.RemoveZeroPaddings(s);
+            //s = Encryption.DecryptStringFromBytes_Aes(DataPackage.GetBytes("AD4E729DCD81551ABC7C2983C86D3C6A58A862EAB7762371A0F6A3C83FBDC8ECB9D1BAFF2DB3F42557CAA390744DE28F3B9AB0A9B6440DEE139F4FAC3DFD275530E9FF04CB855447AB82D440167FADF0D238DB8E6BC8A06FD801570E6277632085CCA41809E7DEB74E9728283F88FE789532DF9595DC9DC752FB16FE613D4CA41C1A004EBD8D15BB2EE9E6C4252D7CC4C5B506B3B2CBBE017C4B0DA380E2757F67AA5DD5CE46E1091116BBD66D8420AA1EFD4009051F7BC483741DED1388CCAC9FA2AFAB46D73ED582D8F68BB96F0E3E36C6DB5EB47ED5B0E9ADD5B5F47C5B69E31610DD8F4E9C1FEB57C6E9A5EB967C88950536D936FB6D0541542394B6D82DB0976663320587C0A4FFE8EE918B784B", out i),
+            //    Encoding.ASCII.GetBytes("0000000000123456"), Encoding.ASCII.GetBytes("0000000000123456"));
+            byte[] cyp = Encryption.EncryptStringToBytes_Aes("<?xml version=\"1.0\" encoding=\"utf-8\" ?><root><common><project_id>110000015</project_id><gateway_id>1100000140202</gateway_id><type>request</type></common><id_validate operation=\"request\" ></id_validate></root>");
+            ss = cyp.ToString();
+            
         }
     }
 }
