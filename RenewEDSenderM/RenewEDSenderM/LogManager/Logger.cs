@@ -9,12 +9,11 @@ namespace RenewEDSenderM.LogManager
 {
     class Test
     {
-        private static readonly String connstring = System.Configuration.ConfigurationManager.AppSettings["Test"];
+        private static readonly String connstring = System.Configuration.ConfigurationManager.AppSettings["ConnDBstring"];
 
         private static string x;
         public static String getConnString()
         {
-            //x = System.Configuration.ConfigurationManager.AppSettings["Test"];
             string tmp = connstring;
             Logger.WriteInfoLog("AppSettings['Test'] get ok, is {0}", tmp);
             return tmp;
