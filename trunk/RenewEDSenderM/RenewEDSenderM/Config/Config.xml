@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<config>
+  
+  <Server_Information>
+    <IP>183.243.189.162</IP>
+    <Port>13145</Port>
+  </Server_Information>
+  
+  <Client_Information>
+    <Project_id>110000015</Project_id>         
+    <Gateway_id>1100000140202</Gateway_id>
+    <NotifyTime></NotifyTime>           <!--心跳数据包发送间隔-->
+    <ReportTime></ReportTime>           <!--数据包定时发送间隔-->
+    <VerifyTime></VerifyTime>           <!--认证数据超时发送间隔-->
+    <Times></Times>                     <!--失败后尝试次数-->
+    <Period></Period>                   <!--周期-->
+    <Key></Key>                         <!--AES的密钥-->
+  </Client_Information>
+  
+</config>

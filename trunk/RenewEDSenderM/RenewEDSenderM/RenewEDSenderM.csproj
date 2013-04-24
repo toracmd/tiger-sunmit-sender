@@ -66,6 +66,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommManager\Configuration.cs" />
+    <Compile Include="CommManager\Client.cs" />
     <Compile Include="CtrlManager\PipeServer.cs" />
     <Compile Include="DbManager\ConnectDB.cs" />
     <Compile Include="SenderUI.cs">
@@ -81,6 +83,9 @@
     <Compile Include="Support\DataPackageException.cs" />
     <Compile Include="Support\Encryption.cs" />
     <Compile Include="Support\MessageDatagram.cs" />
+    <Compile Include="XmlProcessManager\Order.cs" />
+    <Compile Include="XmlProcessManager\XMLRead.cs" />
+    <Compile Include="XmlProcessManager\XMLWrite.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -107,10 +112,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CommManager\" />
-    <Folder Include="XmlProcessManager\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
@@ -129,6 +131,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\Config.xml" />
     <Content Include="dll\MySql.Data.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
