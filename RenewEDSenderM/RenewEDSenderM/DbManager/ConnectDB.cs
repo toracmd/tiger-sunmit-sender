@@ -16,17 +16,33 @@ using System.Data.Common;
 /// </summary>
 namespace RenewEDSenderM.DbManager
 {
+    public class  Test
+    {
+        public static void connect()
+        {
+            ConnectAccess conn = new ConnectAccess();
+            conn.conn.Open();
+            conn.conn.Close();
+        }
+
+    }
     public class AbstractConnect
     {
         //connection
         public DbConnection conn;
         //connectionstring
+       
         //open
         //close
         //command
     }
     public class ConnectAccess : AbstractConnect
     {
+        private static readonly string connStr = ConfigurationManager.AppSettings["ConnAccdb1"];
+
+        public DbConnection conn = new OleDbConnection(connStr);
+
+        //public DbCommand dbcmd = new OleDbCommand(
 
     }
     public class Connect
