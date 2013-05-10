@@ -7,12 +7,28 @@ using MySql.Data;
 using System.Configuration;
 using MySql.Data.MySqlClient;
 
+using System.Data.OleDb;
+using System.Data.Common;
+
 
 /// <summary>
 ///Connect类的摘要说明
 /// </summary>
 namespace RenewEDSenderM.DbManager
 {
+    public class AbstractConnect
+    {
+        //connection
+        public DbConnection conn;
+        //connectionstring
+        //open
+        //close
+        //command
+    }
+    public class ConnectAccess : AbstractConnect
+    {
+
+    }
     public class Connect
     {
         #region 成员变量
