@@ -69,7 +69,9 @@
   <ItemGroup>
     <Compile Include="CommManager\Configuration.cs" />
     <Compile Include="CommManager\Client.cs" />
+    <Compile Include="CommManager\DataInfo.cs" />
     <Compile Include="CtrlManager\PipeServer.cs" />
+    <Compile Include="CtrlManager\SendWorker.cs" />
     <Compile Include="dataDataSet.cs">
       <DependentUpon>dataDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>

@@ -11,3 +11,17 @@ D:\workspace\sunmit\project\0.00\RenewEDSenderM\RenewEDSenderM\bin\Debug\MySql.D
 D:\workspace\sunmit\project\0.00\RenewEDSenderM\RenewEDSenderM\bin\Debug\log4net.xml
 D:\workspace\sunmit\project\0.00\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.exe
 D:\workspace\sunmit\project\0.00\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.pdb
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\bin\Debug\data.accdb
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\bin\Debug\RenewEDSenderM.exe.config
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\bin\Debug\RenewEDSenderM.exe
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\bin\Debug\RenewEDSenderM.pdb
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\bin\Debug\log4net.dll
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\bin\Debug\MySql.Data.dll
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\bin\Debug\log4net.xml
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.Properties.Resources.resources
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.SenderUI.resources
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\ResGen.read.1.tlog
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\ResGen.write.1.tlog
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.exe
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.pdb

@@ -20,14 +20,16 @@ namespace RenewEDSenderM.XmlProcessManager
         private static string keytype = "";
         private static string key = "";
         private static string type = "";
-        private static string order = "";
+
         private static XmlDocument xmlDoc;
 
-        public void BInput(byte [] rByte)
+        public void BInput(byte[] rByte)
         {
             Support.DataPackage dp = new Support.DataPackage() { Package = rByte };
-            string rStr = Support.Encryption.DecryptStringFromBytes_Aes(dp.DataBlock, Encoding.ASCII.GetBytes("0000000000123456"), Encoding.ASCII.GetBytes("0000000000123456"));
-            string rStr1 = rStr.Substring(0, rStr.Length - 10);
+            Support.Encryption.AES_KEY = Encoding.ASCII.GetBytes("0000000000123456");
+            Support.Encryption.AES_IV = Encoding.ASCII.GetBytes("0000000000123456");
+            string rStr = Support.Encryption.DecryptStringFromBytes_Aes(dp.DataBlock);
+            string rStr1 = Support.Encryption.RemoveZeroPaddings(rStr);
             Input(rStr1);
         }
         public void Input(string str)
@@ -44,9 +46,9 @@ namespace RenewEDSenderM.XmlProcessManager
             XmlNode root = xmlDoc.SelectSingleNode("root");
             XmlNodeList rList = root.ChildNodes;
 
-            foreach(XmlNode xr in rList)
+            foreach (XmlNode xr in rList)
             {
-                if(xr.Name == "common")
+                if (xr.Name == "common")
                 {
                     XmlNodeList cList = xr.ChildNodes;
                     foreach (XmlNode xc in cList)
@@ -63,9 +65,9 @@ namespace RenewEDSenderM.XmlProcessManager
                 if (type == "sequence" && xr.Name == "id_validate")
                 {
                     XmlNodeList iList = xr.ChildNodes;
-                    foreach(XmlNode xi in iList)
+                    foreach (XmlNode xi in iList)
                     {
-                        if (xi.Name=="sequence")
+                        if (xi.Name == "sequence")
                         {
                             sequence = xi.InnerText;
                             break;
@@ -85,9 +87,9 @@ namespace RenewEDSenderM.XmlProcessManager
                             time = xi.InnerText;
                     }
                 }
-                
+
                 //获取心跳结果
-                if(type == "heart_result" && xr.Name == "id_validate")
+                if (type == "heart_result" && xr.Name == "id_validate")
                 {
                     XmlNodeList iList = xr.ChildNodes;
                     foreach (XmlNode xi in iList)
@@ -106,7 +108,7 @@ namespace RenewEDSenderM.XmlProcessManager
                         if (xi.Name == "beginTime")
                             beginTime = xi.InnerText;
                         if (xi.Name == "endTime")
-                            endTime = xi.InnerText;                    
+                            endTime = xi.InnerText;
                     }
                 }
 
@@ -143,14 +145,15 @@ namespace RenewEDSenderM.XmlProcessManager
         {
             Order order = new Order();
             order.sequence = sequence;
-            order.result=result;
+            order.result = result;
             order.time = time;
-            order.heart_result=heart_result;
+            order.heart_result = heart_result;
             order.beginTime = beginTime;
-            order.endTime= endTime;
+            order.endTime = endTime;
             order.period = period;
             order.keytype = keytype;
             order.key = key;
+            order.order = type;
 
             return order;
         }

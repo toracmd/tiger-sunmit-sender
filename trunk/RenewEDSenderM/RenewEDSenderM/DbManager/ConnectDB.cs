@@ -20,7 +20,7 @@ namespace RenewEDSenderM.DbManager
     {
         public static void connect()
         {
-            ConnectAccess conn = new ConnectAccess();
+            ConnectAccessMDB conn = new ConnectAccessMDB();
             conn.conn.Open();
             conn.conn.Close();
         }
@@ -44,6 +44,54 @@ namespace RenewEDSenderM.DbManager
 
         //public DbCommand dbcmd = new OleDbCommand(
 
+    }
+    public class ConnectAccessMDB
+    {
+        private static readonly string connectionString = ConfigurationManager.AppSettings["ConnMDB1"];
+        public OleDbConnection conn;
+        public ConnectAccessMDB()
+        {
+            conn = new OleDbConnection(connectionString);
+        }
+        public int ExecuteSql(string cmdText)
+        {
+            int iret = -1;
+            if (conn == null)
+            {
+                return -1;
+            }
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+            OleDbCommand cmd = new OleDbCommand(cmdText, conn);
+            if (cmd != null)
+            {
+                return -1;
+            }
+            iret = cmd.ExecuteNonQuery();
+            return iret;
+        }
+        public DataSet GetDataSet(string cmdText)
+        {
+            LogManager.Logger.FuncEntryLog(cmdText);
+            if (conn == null)
+            {
+                LogManager.Logger.WriteErrorLog("Connect DB failed!");
+                return null;
+            }
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            DataSet dataset = new DataSet();
+            OleDbDataAdapter adapter = new OleDbDataAdapter();
+            OleDbCommand cmd = new OleDbCommand(cmdText);
+            cmd.Connection = conn;
+            adapter.SelectCommand = cmd;
+            adapter.Fill(dataset);
+            LogManager.Logger.WriteDebugLog("Have get the dataset！");
+            LogManager.Logger.FuncExitLog();
+            return dataset;
+        }
     }
     public class Connect
     {

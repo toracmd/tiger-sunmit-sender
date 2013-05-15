@@ -2,7 +2,7 @@
 <config>
   
   <Server_Information>
-    <IP>183.243.189.162</IP>
+    <IP>10.6.0.115</IP>
     <Port>13145</Port>
   </Server_Information>
   
@@ -15,6 +15,8 @@
     <Times></Times>                     <!--失败后尝试次数-->
     <Period></Period>                   <!--周期-->
     <Key></Key>                         <!--AES的密钥-->
+    <MD5></MD5>                         <!--MD5值-->
+    <IV></IV>                           <!--AES初始向量值-->
   </Client_Information>
   
 </config>

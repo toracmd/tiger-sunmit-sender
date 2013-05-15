@@ -104,7 +104,11 @@ namespace RenewEDSenderM.Support
                 //解析得到待校验数据[包头到有效数据段]，AES加密后的指令内容：CRC16校验码
                 Array.Copy(value, 0, data_crc, 0, DataLength + 10);
                 //CRC校验
-                if (Support.Encryption.CRC16(data_crc) != 0)
+                byte tmp;
+                tmp = data_crc[data_crc.Length - 1];
+                data_crc[data_crc.Length - 1] = data_crc[data_crc.Length - 2];
+                data_crc[data_crc.Length - 2] = tmp;
+                if (Encryption.CRC16(data_crc) != 0)
                     throw new DataPackageException(DataPackageException.ex_msg4_crc);
                     Array.Copy(value, 12 + DataLength - 4, m_crc16, 0, 2);
                     Array.Copy(value, 12 + DataLength - 4 + 2, m_tail, 0, 2);
@@ -148,7 +152,7 @@ namespace RenewEDSenderM.Support
             {
                 if (m_dataLength.Length != 4)
                 {
-                    LogManager.Logger.WriteWarnLog("数据长度字段出错{0} != 4", m_dataLength.Length);
+                   // LogManager.Logger.WriteWarnLog("数据长度字段出错{0} != 4", m_dataLength.Length);
                     return 0;
                 }
                 return BitConverter.ToUInt32(m_dataLength, 0);
@@ -164,7 +168,7 @@ namespace RenewEDSenderM.Support
             {
                 if (m_seq.Length != 4)
                 {
-                    LogManager.Logger.WriteWarnLog("序号长度字段出错{0} != 4", m_seq.Length);
+                   // LogManager.Logger.WriteWarnLog("序号长度字段出错{0} != 4", m_seq.Length);
                 }
                 return BitConverter.ToUInt32(m_seq, 0);
             }
@@ -183,7 +187,7 @@ namespace RenewEDSenderM.Support
             {
                 if ((value.Length) != DataLength - 4)
                 { 
-                    LogManager.Logger.WriteErrorLog("数据长度字段为{0}, 数据部分大小为{1} ", DataLength, m_data.Length);
+                  //  LogManager.Logger.WriteErrorLog("数据长度字段为{0}, 数据部分大小为{1} ", DataLength, m_data.Length);
                     return;
                 }
                 m_data = value;
@@ -202,7 +206,7 @@ namespace RenewEDSenderM.Support
             {
                 if (m_crc16.Length != 2)
                 {
-                    LogManager.Logger.WriteWarnLog("CRC字段出错{0} != 2", m_crc16.Length);
+                    //LogManager.Logger.WriteWarnLog("CRC字段出错{0} != 2", m_crc16.Length);
                 }
                 return BitConverter.ToUInt16(m_crc16, 0);
             }
@@ -451,7 +455,7 @@ namespace RenewEDSenderM.Support
             };
             byte[] output = DataPackage1.Serialize(dp);
             
-            LogManager.Logger.WriteDebugLog("{0}", output);    
+            //LogManager.Logger.WriteDebugLog("{0}", output);    
         }
         public static void TestUnPack()
         {
