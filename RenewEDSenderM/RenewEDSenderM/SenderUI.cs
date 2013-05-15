@@ -16,27 +16,29 @@ namespace RenewEDSenderM
         /// <summary>
         /// 创建发送数据工作线程对象，未启动
         /// </summary>
-        private static CtrlManager.SendWorker sendWorkerObj = new CtrlManager.SendWorker();
-        private static Thread sendThread = new Thread(sendWorkerObj.DoWork);
+        private static CtrlManager.SendWorker sendWorkerObj;
+        private static Thread sendThread;
         public SenderUI()
         {
             InitializeComponent();
         }
 
-        private void btnStartSender_Click(object sender, EventArgs e)
-        {
-            LogManager.Logger.FuncEntryLog(sender, e);
-            sendThread.IsBackground = true;
-            //启动收集线程
-            sendThread.Start();
-            //等待线程启动成功
-            while (!sendThread.IsAlive) ;
-            LogManager.Logger.FuncExitLog();
-        }
+        //private void btnStartSender_Click(object sender, EventArgs e)
+        //{
+        //    LogManager.Logger.FuncEntryLog(sender, e);
+        //    sendWorkerObj = new CtrlManager.SendWorker();
+        //    sendThread = new Thread(sendWorkerObj.DoWork);
+        //    sendThread.IsBackground = true;
+        //    //启动收集线程
+        //    sendThread.Start();
+        //    //等待线程启动成功
+        //    while (!sendThread.IsAlive) ;
+        //    LogManager.Logger.FuncExitLog();
+        //}
 
-        private void btnStopSender_Click(object sender, EventArgs e)
-        {
-            sendWorkerObj.RequestStop();
-        }
+        //private void btnStopSender_Click(object sender, EventArgs e)
+        //{
+        //    sendWorkerObj.RequestStop();
+        //}
     }
 }
