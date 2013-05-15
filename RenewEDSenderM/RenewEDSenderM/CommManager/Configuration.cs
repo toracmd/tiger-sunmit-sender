@@ -26,7 +26,9 @@ namespace RenewEDSenderM.CommManager
         private static string m_client_times = "";
         private static string m_client_period = "";
         private static string m_client_key = "";
-        private static string config_path = "../Config/Config.xml";
+        private static string m_client_md5 = "";
+        private static string m_client_iv = "";
+        private static string config_path = "Config.xml";
 
         public Configuration ReadConfig()
         {
@@ -129,6 +131,22 @@ namespace RenewEDSenderM.CommManager
                         {
                             m_client_key = xc.InnerText;
                             config.key = m_client_key;
+                            continue;
+                        }
+
+                        //获取客户端MD5 值
+                        if (xc.Name == "MD5")
+                        {
+                            m_client_md5 = xc.InnerText;
+                            config.md5 = m_client_md5;
+                            continue;
+                        }
+
+                        //获取客户端AES初始向量
+                        if (xc.Name == "IV")
+                        {
+                            m_client_iv = xc.InnerText;
+                            config.iv = m_client_iv;
                             continue;
                         }
                     }
@@ -248,6 +266,24 @@ namespace RenewEDSenderM.CommManager
                             XmlElement xct = (XmlElement)xc;
                             m_client_key = config.key;
                             xct.InnerText = m_client_key;
+                            continue;
+                        }
+
+                        //设置客户端MD5值
+                        if (xc.Name == "MD5")
+                        {
+                            XmlElement xct = (XmlElement)xc;
+                            m_client_md5 = config.md5;
+                            xct.InnerText = m_client_md5;
+                            continue;
+                        }
+
+                        //设置客户端AES初始向量
+                        if (xc.Name == "IV")
+                        {
+                            XmlElement xct = (XmlElement)xc;
+                            m_client_iv = config.iv;
+                            xct.InnerText = m_client_iv;
                             continue;
                         }
                     }
@@ -383,6 +419,26 @@ namespace RenewEDSenderM.CommManager
                                 xmlDoc.Save(config_path);
                                 return;
                             }
+
+                            // 只修改MD5
+                            if (valueName == "md5" && xc.Name == "MD5")
+                            {
+                                XmlElement xct = (XmlElement)xc;
+                                m_client_md5 = config.md5;
+                                xct.InnerText = m_client_md5;
+                                xmlDoc.Save(config_path);
+                                return;
+                            }
+
+                            // 只修改key
+                            if (valueName == "iv" && xc.Name == "IV")
+                            {
+                                XmlElement xct = (XmlElement)xc;
+                                m_client_iv = config.iv;
+                                xct.InnerText = m_client_iv;
+                                xmlDoc.Save(config_path);
+                                return;
+                            }
                         }
                     }
                 }
@@ -408,5 +464,7 @@ namespace RenewEDSenderM.CommManager
         public string times="";
         public string period="";
         public string key="";
+        public string md5 = "";
+        public string iv = "";
     }
 }

@@ -15,6 +15,9 @@ namespace RenewEDSenderM.XmlProcessManager
         public string period ="";
         public string keytype ="";
         public string key ="";
+        public string md5 = "";
+        public string iv = "";
         public string order="";
+
     } 
 }

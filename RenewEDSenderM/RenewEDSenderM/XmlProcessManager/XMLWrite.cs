@@ -11,9 +11,9 @@ namespace RenewEDSenderM.XmlProcessManager
     {
         private static XmlDocument xmlDoc;
         private static string result;
-        
+
         //读入xml文件
-        public  void Input(string str,string project_id,string gatewawy_id)
+        public void Input(string str, string project_id, string gatewawy_id)
         {
             xmlDoc = new XmlDocument();
             //判断是否成功
@@ -57,7 +57,7 @@ namespace RenewEDSenderM.XmlProcessManager
                 }
 
             }
-            
+
         }
 
         //输出形成的xml文件
@@ -74,7 +74,7 @@ namespace RenewEDSenderM.XmlProcessManager
             return dp.Package;
         }
         //生成身份认证请求
-        public  void Request()
+        public void Request()
         {
             XmlNode root = xmlDoc.SelectSingleNode("root");
             XmlNodeList rList = root.ChildNodes;
@@ -95,7 +95,7 @@ namespace RenewEDSenderM.XmlProcessManager
                         }
                     }
                 }
-                
+
             }
 
             XmlElement id_validate = xmlDoc.CreateElement("id_validate");
@@ -113,7 +113,7 @@ namespace RenewEDSenderM.XmlProcessManager
 
 
         //校验身份，发送md5
-        public  void SendMD5(string md5)
+        public void SendMD5(string md5)
         {
             XmlNode root = xmlDoc.SelectSingleNode("root");
             XmlNodeList rList = root.ChildNodes;
@@ -160,7 +160,7 @@ namespace RenewEDSenderM.XmlProcessManager
         }
 
         //心跳验证
-        public  void Notify()
+        public void Notify()
         {
             XmlNode root = xmlDoc.SelectSingleNode("root");
             XmlNodeList rList = root.ChildNodes;
@@ -191,108 +191,210 @@ namespace RenewEDSenderM.XmlProcessManager
                 return;
             }
             heart_beat.SetAttribute("operation", "notify");
+            heart_beat.InnerText = "";
             root.AppendChild(heart_beat);
         }
 
-        ////数据定时发送
-        //public  void Report(string input_squence, string input_parse, string input_time, Meter[] input_meter, Information[] input_info)
-        //{
-        //    XmlNode root = xmlDoc.SelectSingleNode("root");
-        //    XmlNodeList rList = root.ChildNodes;
+        //数据定时发送
+        public void Report(string input_squence, string input_parse, string input_time, CommManager.DataInfo[] input_info)
+        {
+            XmlNode root = xmlDoc.SelectSingleNode("root");
+            XmlNodeList rList = root.ChildNodes;
 
-        //    foreach (XmlNode xr in rList)
-        //    {
-        //        if (xr.Name == "common")
-        //        {
-        //            XmlNodeList common = xr.ChildNodes;
-        //            foreach (XmlNode xc in common)
-        //            {
-        //                //修改type类型内容
-        //                if (xc.Name == "type")
-        //                {
-        //                    XmlElement xct = (XmlElement)xc;
-        //                    xct.InnerText = "report";
-        //                    break;
-        //                }
-        //            }
-        //        }
-        //    }
+            foreach (XmlNode xr in rList)
+            {
+                if (xr.Name == "common")
+                {
+                    XmlNodeList common = xr.ChildNodes;
+                    foreach (XmlNode xc in common)
+                    {
+                        //修改type类型内容
+                        if (xc.Name == "type")
+                        {
+                            XmlElement xct = (XmlElement)xc;
+                            xct.InnerText = "report";
+                            break;
+                        }
+                    }
+                }
+            }
 
-        //    //生成data元素
-        //    XmlElement data = xmlDoc.CreateElement("data");
-        //    //*******可用log来代替
-        //    if (data == null)
-        //    {
-        //        Console.Write("Create new xml element failed!");
-        //        return;
-        //    }
-        //    data.SetAttribute("operation", "report");
+            //生成data元素
+            XmlElement data = xmlDoc.CreateElement("data");
+            //*******可用log来代替
+            if (data == null)
+            {
+                Console.Write("Create new xml element failed!");
+                return;
+            }
+            data.SetAttribute("operation", "report");
 
-        //    //生成sequence元素
-        //    XmlElement sequence = xmlDoc.CreateElement("sequence");
-        //    //*******可用log来代替
-        //    if (sequence == null)
-        //    {
-        //        Console.Write("Create new xml element failed!");
-        //        return;
-        //    }
-        //    sequence.InnerText = input_squence;
-        //    data.AppendChild(sequence);
+            //生成sequence元素
+            XmlElement sequence = xmlDoc.CreateElement("sequence");
+            //*******可用log来代替
+            if (sequence == null)
+            {
+                Console.Write("Create new xml element failed!");
+                return;
+            }
+            sequence.InnerText = input_squence;
+            data.AppendChild(sequence);
 
-        //    //生成parse元素
-        //    XmlElement parse = xmlDoc.CreateElement("parse");
-        //    //*******可用log来代替
-        //    if (parse == null)
-        //    {
-        //        Console.Write("Create new xml element failed!");
-        //        return;
-        //    }
-        //    parse.InnerText = input_parse;
-        //    data.AppendChild(parse);
+            //生成parse元素
+            XmlElement parse = xmlDoc.CreateElement("parse");
+            //*******可用log来代替
+            if (parse == null)
+            {
+                Console.Write("Create new xml element failed!");
+                return;
+            }
+            parse.InnerText = input_parse;
+            data.AppendChild(parse);
 
-        //    //生成time元素
-        //    XmlElement time = xmlDoc.CreateElement("time");
-        //    //*******可用log来代替
-        //    if (time == null)
-        //    {
-        //        Console.Write("Create new xml element failed!");
-        //        return;
-        //    }
-        //    time.InnerText = input_time;
-        //    data.AppendChild(time);
+            //生成time元素
+            XmlElement time = xmlDoc.CreateElement("time");
+            //*******可用log来代替
+            if (time == null)
+            {
+                Console.Write("Create new xml element failed!");
+                return;
+            }
+            time.InnerText = input_time;
+            data.AppendChild(time);
 
-        //    //生成具体数据meter，这部分代码不完整
-        //    for (int i = 0; i < length(input_meter); i++)
-        //    {
-        //        XmlElement meter = xmlDoc.CreateElement("meter");
-        //        //*******可用log来代替
-        //        if (meter == null)
-        //        {
-        //            Console.Write("Create new xml element failed!");
-        //            return;
-        //        }
-        //        meter.SetAttribute("id", input_meter[i].id);
-        //        meter.SetAttribute("conn", input_meter[i].conn);
+            //生成具体数据meter，这部分代码不完整
+            foreach (CommManager.DataInfo data_info in input_info)
+            {
+                XmlElement meter = xmlDoc.CreateElement("meter");
+                //*******可用log来代替
+                if (meter == null)
+                {
+                    Console.Write("Create new xml element failed!");
+                    return;
+                }
+                meter.SetAttribute("id", data_info.id);
+                meter.SetAttribute("conn", data_info.conn);
 
-        //        XmlElement functions = xmlDoc.CreateElement("function");
-        //        //*******可用log来代替
-        //        if (functions == null)
-        //        {
-        //            Console.Write("Create new xml element failed!");
-        //            return;
-        //        }
-        //        functions.SetAttribute("id", input_info[i].id);
-        //        functions.SetAttribute("coding", input_info[i].coding);
-        //        functions.SetAttribute("error", input_info[i].error);
-        //        functions.SetAttribute("sample_time", input_info[i].sample_time);
-        //        functions.InnerText = input_info[i].data;
-        //        meter.AppendChild(functions);
+                XmlElement functions = xmlDoc.CreateElement("function");
+                //*******可用log来代替
+                if (functions == null)
+                {
+                    Console.Write("Create new xml element failed!");
+                    return;
+                }
+                functions.SetAttribute("id", data_info.id);
+                functions.SetAttribute("coding", data_info.coding);
+                functions.SetAttribute("error", data_info.error);
+                functions.SetAttribute("sample_time", data_info.sample_time);
+                functions.InnerText = data_info.data;
+                meter.AppendChild(functions);
 
-        //        data.AppendChild(meter);
-        //    }
+                data.AppendChild(meter);
+            }
 
-        //    root.AppendChild(data);
-        //}
+            root.AppendChild(data);
+        }
+
+        //数据查询操作
+        public void Query(string input_squence, string input_parse, string input_time, CommManager.DataInfo[] input_info)
+        {
+            XmlNode root = xmlDoc.SelectSingleNode("root");
+            XmlNodeList rList = root.ChildNodes;
+
+            foreach (XmlNode xr in rList)
+            {
+                if (xr.Name == "common")
+                {
+                    XmlNodeList common = xr.ChildNodes;
+                    foreach (XmlNode xc in common)
+                    {
+                        //修改type类型内容
+                        if (xc.Name == "type")
+                        {
+                            XmlElement xct = (XmlElement)xc;
+                            xct.InnerText = "reply";
+                            break;
+                        }
+                    }
+                }
+            }
+
+            //生成data元素
+            XmlElement data = xmlDoc.CreateElement("data");
+            //*******可用log来代替
+            if (data == null)
+            {
+                Console.Write("Create new xml element failed!");
+                return;
+            }
+            data.SetAttribute("operation", "reply");
+
+            //生成sequence元素
+            XmlElement sequence = xmlDoc.CreateElement("sequence");
+            //*******可用log来代替
+            if (sequence == null)
+            {
+                Console.Write("Create new xml element failed!");
+                return;
+            }
+            sequence.InnerText = input_squence;
+            data.AppendChild(sequence);
+
+            //生成parse元素
+            XmlElement parse = xmlDoc.CreateElement("parse");
+            //*******可用log来代替
+            if (parse == null)
+            {
+                Console.Write("Create new xml element failed!");
+                return;
+            }
+            parse.InnerText = input_parse;
+            data.AppendChild(parse);
+
+            //生成time元素
+            XmlElement time = xmlDoc.CreateElement("time");
+            //*******可用log来代替
+            if (time == null)
+            {
+                Console.Write("Create new xml element failed!");
+                return;
+            }
+            time.InnerText = input_time;
+            data.AppendChild(time);
+
+
+            foreach (CommManager.DataInfo data_info in input_info)
+            {
+                XmlElement meter = xmlDoc.CreateElement("meter");
+                //*******可用log来代替
+                if (meter == null)
+                {
+                    Console.Write("Create new xml element failed!");
+                    return;
+                }
+                meter.SetAttribute("id", data_info.id);
+                meter.SetAttribute("conn", data_info.conn);
+
+                XmlElement functions = xmlDoc.CreateElement("function");
+                //*******可用log来代替
+                if (functions == null)
+                {
+                    Console.Write("Create new xml element failed!");
+                    return;
+                }
+                functions.SetAttribute("id", data_info.id);
+                functions.SetAttribute("coding", data_info.coding);
+                functions.SetAttribute("error", data_info.error);
+                functions.SetAttribute("sample_time", data_info.sample_time);
+                functions.InnerText = data_info.data;
+                meter.AppendChild(functions);
+
+                data.AppendChild(meter);
+            }
+
+            root.AppendChild(data);
+        }
+
         public void Period_Ack()
         {
             XmlNode root = xmlDoc.SelectSingleNode("root");
@@ -327,7 +429,7 @@ namespace RenewEDSenderM.XmlProcessManager
             config.SetAttribute("operation", "period_ack");
             root.AppendChild(config);
         }
-        
+
     }
 }
 

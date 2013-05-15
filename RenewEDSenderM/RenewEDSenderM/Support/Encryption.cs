@@ -78,7 +78,7 @@ namespace RenewEDSenderM.Support
             //System.Security.Cryptography.HMACMD5 md5 = new HMACMD5();
             //md5.Key = Encoding.Default.GetBytes(MD5_KEY_STR);
             byte[] result = md5.ComputeHash(data);
-            
+
             return result;
         }
         /// <summary>
@@ -93,7 +93,7 @@ namespace RenewEDSenderM.Support
             //    throw new DataPackageException("MD5 密钥未初始化");
             //}
             // concat the input string and key
-            string newinput =  string.Concat(input, MD5_KEY_STR);
+            string newinput = string.Concat(input, MD5_KEY_STR);
             // Convert the input string to a byte array and compute the hash.
             byte[] data = MD5_Encrypt(Encoding.Default.GetBytes(newinput));
 
@@ -214,11 +214,11 @@ namespace RenewEDSenderM.Support
             //rijndaelCipher.Padding = PaddingMode.None;
             rijndaelCipher.Padding = PaddingMode.Zeros;
             rijndaelCipher.KeySize = 128;
-           
+
             //rijndaelCipher.BlockSize = 128;
             rijndaelCipher.Key = Key;
             rijndaelCipher.IV = IV;
-            
+
             ICryptoTransform transform = rijndaelCipher.CreateDecryptor();
             string plaintext = null;
 
@@ -244,7 +244,7 @@ namespace RenewEDSenderM.Support
         /// </summary>
         /// <param name="buffer">a byte array which to be calculated</param>
         /// <returns>The 16 bits length crc value</returns>
-        public static  UInt16 CRC16(byte[] buffer)
+        public static UInt16 CRC16(byte[] buffer)
         {
             UInt32 crc = 0;
             int l = buffer.Length;
@@ -305,7 +305,7 @@ namespace RenewEDSenderM.Support
             //    Encoding.ASCII.GetBytes("0000000000123456"), Encoding.ASCII.GetBytes("0000000000123456"));
             byte[] cyp = Encryption.EncryptStringToBytes_Aes("<?xml version=\"1.0\" encoding=\"utf-8\" ?><root><common><project_id>110000015</project_id><gateway_id>1100000140202</gateway_id><type>request</type></common><id_validate operation=\"request\" ></id_validate></root>");
             ss = cyp.ToString();
-            
+
         }
     }
 }
