@@ -152,7 +152,7 @@ namespace RenewEDSenderM.CommManager
             }
 
             xmlwrite.Input(xmlStr, project_id, gateway_id);
-            Support.Encryption.MD5_KEY_STR = "0000000000123456";
+            Support.Encryption.MD5_KEY_STR = config.md5;
             string md5Str = Support.Encryption.getMd5Hash(order.sequence);
             xmlwrite.SendMD5(md5Str);
             verifyStr = xmlwrite.Output();
