@@ -23,11 +23,11 @@ namespace RenewEDSenderM.XmlProcessManager
 
         private static XmlDocument xmlDoc;
 
-        public void BInput(byte[] rByte)
+        public void BInput(byte[] rByte,string AES_KEY,string AES_IV)
         {
             Support.DataPackage dp = new Support.DataPackage() { Package = rByte };
-            Support.Encryption.AES_KEY = Encoding.ASCII.GetBytes("0000000000123456");
-            Support.Encryption.AES_IV = Encoding.ASCII.GetBytes("0000000000123456");
+            Support.Encryption.AES_KEY = Encoding.ASCII.GetBytes(AES_KEY);
+            Support.Encryption.AES_IV = Encoding.ASCII.GetBytes(AES_IV);
             string rStr = Support.Encryption.DecryptStringFromBytes_Aes(dp.DataBlock);
             string rStr1 = Support.Encryption.RemoveZeroPaddings(rStr);
             Input(rStr1);

@@ -25,16 +25,21 @@ namespace RenewEDSenderM.CommManager
 
         static void Main(string[] args)
         {
+            LogManager.Logger.FuncEntryLog(args);
             try
             {
+                LogManager.Logger.WriteDebugLog("进入try");
                 Initial();
                 //int port = 13145;
                 //string host = "10.6.0.115";
                 int port = int.Parse(config.port);
+                
                 string host = config.ip;
+                LogManager.Logger.WriteDebugLog("准备ip：" + host);
                 project_id = config.project_id;
                 gateway_id = config.gateway_id;
                 /**/
+                
                 ///创建终结点EndPoint
                 IPAddress ip = IPAddress.Parse(host);
                 IPEndPoint ipe = new IPEndPoint(ip, port);//把ip和端口转化为IPEndpoint实例
@@ -69,15 +74,18 @@ namespace RenewEDSenderM.CommManager
             }
             catch (ArgumentNullException e)
             {
+                LogManager.Logger.WriteWarnLog("argumentNullException: {0}", e);
                 Console.WriteLine("argumentNullException: {0}", e);
             }
             catch (SocketException e)
             {
+                LogManager.Logger.WriteWarnLog("SocketException:{0}", e);
                 Console.WriteLine("SocketException:{0}", e);
             }
             c.Close();
-            Console.ReadLine();
+            //Console.ReadLine();
             Console.WriteLine("Press Enter to Exit");
+            LogManager.Logger.FuncExitLog();
         }
         //进行初始化操作，主要是读取配置文件中的参数
         private static void Initial()
@@ -112,9 +120,9 @@ namespace RenewEDSenderM.CommManager
             //包括传输认证数据，超时重传和错误重传
 
             //发起身份认证
-            xmlwrite.Input(xmlStr, project_id, gateway_id);
+            xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             xmlwrite.Request();
-            verifyStr = xmlwrite.Output();
+            SendMsgB(xmlwrite.BOutput());
             aTimer.Enabled = true;
 
 
@@ -145,13 +153,13 @@ namespace RenewEDSenderM.CommManager
                 int i;
                 byte[] rByte = new byte[bytes];
                 Array.Copy(recvBytes, rByte, bytes);
-                xmlread.BInput(rByte);
+                xmlread.BInput(rByte,config.key,config.iv);
                 //xmlread.Input(rStr1);
                 order = xmlread.Output();
                 input_sequence = order.sequence;
             }
 
-            xmlwrite.Input(xmlStr, project_id, gateway_id);
+            xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             Support.Encryption.MD5_KEY_STR = config.md5;
             string md5Str = Support.Encryption.getMd5Hash(order.sequence);
             xmlwrite.SendMD5(md5Str);
@@ -187,7 +195,7 @@ namespace RenewEDSenderM.CommManager
                 int i;
                 byte[] rByte1 = new byte[bytes];
                 Array.Copy(recvBytes, rByte1, bytes);
-                xmlread.BInput(rByte1);
+                xmlread.BInput(rByte1,config.key,config.iv);
                 order = xmlread.Output();
             }
 
@@ -254,7 +262,7 @@ namespace RenewEDSenderM.CommManager
                 int i;
                 byte[] rByte = new byte[bytes];
                 Array.Copy(recvBytes, rByte, bytes);
-                xmlread.BInput(rByte);
+                xmlread.BInput(rByte,config.key,config.iv);
                 order = xmlread.Output();
 
                 //对于服务器端的查询命令进行回应
@@ -312,7 +320,7 @@ namespace RenewEDSenderM.CommManager
         {
             timeout = 1;
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-            xmlwrite.Input(xmlStr, project_id, gateway_id);
+            xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             xmlwrite.Notify();
             SendMsgB(xmlwrite.BOutput());
         }
@@ -321,7 +329,7 @@ namespace RenewEDSenderM.CommManager
         private static void ReportEvent(object sender, ElapsedEventArgs e)
         {
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-            xmlwrite.Input(xmlStr, project_id, gateway_id);
+            xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             //这部分需要采集数据进行数据录入
             DataInfo[] input_info = new DataInfo[2];
     
@@ -347,7 +355,7 @@ namespace RenewEDSenderM.CommManager
         private static void Period_ack(XmlProcessManager.Order order)
         {
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-            xmlwrite.Input(xmlStr, project_id, gateway_id);
+            xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             xmlwrite.Period_Ack();
             string period_string = xmlwrite.Output();
             SendMsg(period_string);
