@@ -2,7 +2,7 @@
 <config>
   
   <Server_Information>
-    <IP>10.6.0.115</IP>
+    <IP>210.77.14.218</IP>
     <Port>13145</Port>
   </Server_Information>
   
@@ -14,9 +14,9 @@
     <VerifyTime></VerifyTime>           <!--认证数据超时发送间隔-->
     <Times></Times>                     <!--失败后尝试次数-->
     <Period></Period>                   <!--周期-->
-    <Key></Key>                         <!--AES的密钥-->
-    <MD5></MD5>                         <!--MD5值-->
-    <IV></IV>                           <!--AES初始向量值-->
+    <Key>0000000000123456</Key>                         <!--AES的密钥-->
+    <MD5>0000000000123456</MD5>                         <!--MD5值-->
+    <IV>0000000000123456</IV>                           <!--AES初始向量值-->
   </Client_Information>
   
 </config>

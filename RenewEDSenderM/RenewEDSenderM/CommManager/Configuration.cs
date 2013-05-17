@@ -28,7 +28,7 @@ namespace RenewEDSenderM.CommManager
         private static string m_client_key = "";
         private static string m_client_md5 = "";
         private static string m_client_iv = "";
-        private static string config_path = "Config.xml";
+        private static string config_path = "./Config/Config.xml";
 
         public Configuration ReadConfig()
         {
@@ -159,7 +159,7 @@ namespace RenewEDSenderM.CommManager
         public void WriteConfig(Configuration config)
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("../Config/Config.xml");
+            xmlDoc.Load(config_path);
             XmlNode root = xmlDoc.SelectSingleNode("config");
             XmlNodeList rList = root.ChildNodes;
 
@@ -297,7 +297,7 @@ namespace RenewEDSenderM.CommManager
         public void WriteSpecailConfig(Configuration config, string valueName)
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("../Config/Config.xml");
+            xmlDoc.Load(config_path);
             XmlNode root = xmlDoc.SelectSingleNode("config");
             XmlNodeList rList = root.ChildNodes;
 

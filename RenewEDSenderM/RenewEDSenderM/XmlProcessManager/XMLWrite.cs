@@ -11,10 +11,14 @@ namespace RenewEDSenderM.XmlProcessManager
     {
         private static XmlDocument xmlDoc;
         private static string result;
+        private string AES_KEY;
+        private string AES_IV;
 
         //读入xml文件
-        public void Input(string str, string project_id, string gatewawy_id)
+        public void Input(string str, string project_id, string gatewawy_id,string key,string iv)
         {
+            AES_KEY = key;
+            AES_IV = iv;
             xmlDoc = new XmlDocument();
             //判断是否成功
             if (xmlDoc == null)
@@ -69,7 +73,7 @@ namespace RenewEDSenderM.XmlProcessManager
         public byte[] BOutput()
         {
             result = xmlDoc.OuterXml;
-            byte[] sendBytes = Support.Encryption.EncryptStringToBytes_Aes(result, Encoding.ASCII.GetBytes("0000000000123456"), Encoding.ASCII.GetBytes("0000000000123456"));
+            byte[] sendBytes = Support.Encryption.EncryptStringToBytes_Aes(result, Encoding.ASCII.GetBytes(AES_KEY), Encoding.ASCII.GetBytes(AES_IV));
             Support.DataPackage dp = new Support.DataPackage() { DataLength = ((uint)sendBytes.Length + 4), Seq = 0x1692ec43, DataBlock = sendBytes, CRC = Support.Encryption.CRC16(sendBytes) };
             return dp.Package;
         }
