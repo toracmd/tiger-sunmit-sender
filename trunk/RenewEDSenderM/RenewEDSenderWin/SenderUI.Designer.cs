@@ -33,6 +33,10 @@
             this.btnSenderRestart = new System.Windows.Forms.Button();
             this.groupBoxCtrl = new System.Windows.Forms.GroupBox();
             this.groupBoxKey = new System.Windows.Forms.GroupBox();
+            this.txtBoxPort = new System.Windows.Forms.TextBox();
+            this.txtBoxIP = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtBoxMd5Key = new System.Windows.Forms.TextBox();
@@ -41,10 +45,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblAesKey = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtBoxIP = new System.Windows.Forms.TextBox();
-            this.txtBoxPort = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtBoxGateId = new System.Windows.Forms.TextBox();
+            this.txtBoxProId = new System.Windows.Forms.TextBox();
             this.groupBoxCtrl.SuspendLayout();
             this.groupBoxKey.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +97,10 @@
             // 
             // groupBoxKey
             // 
+            this.groupBoxKey.Controls.Add(this.txtBoxProId);
+            this.groupBoxKey.Controls.Add(this.txtBoxGateId);
+            this.groupBoxKey.Controls.Add(this.label6);
+            this.groupBoxKey.Controls.Add(this.label5);
             this.groupBoxKey.Controls.Add(this.txtBoxPort);
             this.groupBoxKey.Controls.Add(this.txtBoxIP);
             this.groupBoxKey.Controls.Add(this.label4);
@@ -111,6 +119,40 @@
             this.groupBoxKey.TabIndex = 4;
             this.groupBoxKey.TabStop = false;
             this.groupBoxKey.Text = "配置管理";
+            // 
+            // txtBoxPort
+            // 
+            this.txtBoxPort.Location = new System.Drawing.Point(104, 144);
+            this.txtBoxPort.Name = "txtBoxPort";
+            this.txtBoxPort.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxPort.TabIndex = 11;
+            this.txtBoxPort.Text = "13145";
+            // 
+            // txtBoxIP
+            // 
+            this.txtBoxIP.Location = new System.Drawing.Point(104, 113);
+            this.txtBoxIP.Name = "txtBoxIP";
+            this.txtBoxIP.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxIP.TabIndex = 10;
+            this.txtBoxIP.Text = "210.77.14.218";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(23, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Server Port:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 122);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Server IP:";
             // 
             // btnCancel
             // 
@@ -137,6 +179,7 @@
             this.txtBoxMd5Key.Name = "txtBoxMd5Key";
             this.txtBoxMd5Key.Size = new System.Drawing.Size(182, 21);
             this.txtBoxMd5Key.TabIndex = 5;
+            this.txtBoxMd5Key.Text = "0000000000123456";
             // 
             // txtBoxAesIV
             // 
@@ -144,6 +187,7 @@
             this.txtBoxAesIV.Name = "txtBoxAesIV";
             this.txtBoxAesIV.Size = new System.Drawing.Size(182, 21);
             this.txtBoxAesIV.TabIndex = 4;
+            this.txtBoxAesIV.Text = "0000000000123456";
             // 
             // txtBoxAesKey
             // 
@@ -151,6 +195,7 @@
             this.txtBoxAesKey.Name = "txtBoxAesKey";
             this.txtBoxAesKey.Size = new System.Drawing.Size(182, 21);
             this.txtBoxAesKey.TabIndex = 3;
+            this.txtBoxAesKey.Text = "0000000000123456";
             // 
             // label2
             // 
@@ -179,37 +224,39 @@
             this.lblAesKey.TabIndex = 0;
             this.lblAesKey.Text = "AES Key:";
             // 
-            // label3
+            // label5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 122);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Server IP:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 12);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "项目编号:";
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 144);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 12);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Server Port:";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 12);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "采集装置编号:";
             // 
-            // txtBoxIP
+            // txtBoxGateId
             // 
-            this.txtBoxIP.Location = new System.Drawing.Point(104, 113);
-            this.txtBoxIP.Name = "txtBoxIP";
-            this.txtBoxIP.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxIP.TabIndex = 10;
+            this.txtBoxGateId.Location = new System.Drawing.Point(104, 61);
+            this.txtBoxGateId.Name = "txtBoxGateId";
+            this.txtBoxGateId.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxGateId.TabIndex = 14;
+            this.txtBoxGateId.Text = "1100000140202";
             // 
-            // txtBoxPort
+            // txtBoxProId
             // 
-            this.txtBoxPort.Location = new System.Drawing.Point(104, 144);
-            this.txtBoxPort.Name = "txtBoxPort";
-            this.txtBoxPort.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxPort.TabIndex = 11;
+            this.txtBoxProId.Location = new System.Drawing.Point(104, 26);
+            this.txtBoxProId.Name = "txtBoxProId";
+            this.txtBoxProId.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxProId.TabIndex = 15;
+            this.txtBoxProId.Text = "110000015";
             // 
             // SenderUI
             // 
@@ -247,6 +294,10 @@
         private System.Windows.Forms.TextBox txtBoxIP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtBoxProId;
+        private System.Windows.Forms.TextBox txtBoxGateId;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
 
