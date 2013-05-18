@@ -98,6 +98,7 @@
     <Compile Include="CommManager\DataInfo.cs" />
     <Compile Include="CtrlManager\PipeServer.cs" />
     <Compile Include="CtrlManager\SendWorker.cs" />
+    <Compile Include="DbManager\AccessData.cs" />
     <Compile Include="DbManager\ConnectDB.cs" />
     <Compile Include="SenderUI.cs">
       <SubType>Form</SubType>
