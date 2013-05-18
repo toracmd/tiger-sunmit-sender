@@ -6,9 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
-using RenewEDSenderM;
-
-using System.Runtime.InteropServices;
+using System.Threading;
+using RenewEDSenderM.CommManager;
 
 namespace RenewEDSenderWin
 {
@@ -56,6 +55,9 @@ namespace RenewEDSenderWin
         /// MD5密钥
         /// </summary>
         private static string strMd5Key;
+        
+        // 新建的代理
+        private delegate void btnDisableDelegate();
         public SenderUI()
         {
             InitializeComponent();
@@ -87,8 +89,15 @@ namespace RenewEDSenderWin
                     //设置使用操作系统外壳程序启动
                     p.StartInfo.UseShellExecute = true;
                     p.StartInfo.CreateNoWindow = true;
+  
+                    //设置进程退出时触发此事件
+                    p.EnableRaisingEvents = true;
+                    //添加进程退出消息处理函数
+                    p.Exited += new EventHandler(myProcess_Exited);
                     //启动进程
                     p.Start();
+                    //p.WaitForInputIdle(200);
+                    
                     //启动成功后，获取发送服务的进程号
                     pid_sender = p.Id;
                     //设置发送服务进程状态
@@ -110,7 +119,7 @@ namespace RenewEDSenderWin
             catch (Exception ex)
             {
                 //进程启动异常信息
-                MessageBox.Show(ex.Source + " " + ex.Message);
+                MessageBox.Show("Exception:" + ex.Source + " " + ex.Message);
             }
         }
         /// <summary>
@@ -150,11 +159,12 @@ namespace RenewEDSenderWin
                 p.Kill();
                 //释放资源
                 p.Close();
+                
             }
             catch (Exception ex)
             {
                 //进程关闭异常信息
-                MessageBox.Show(ex.Source + " " + ex.Message);
+                MessageBox.Show("Exception:" + ex.Source + " " + ex.Message);
             }
             //正确关闭后设置相关信息
             if (!CheckProcessExists())
@@ -164,6 +174,41 @@ namespace RenewEDSenderWin
                 btnSenderStop.Enabled = false;
                 btnSenderRestart.Enabled = false;
             }
+        }
+
+        /// <summary>
+        /// 进程退出消息处理函数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void myProcess_Exited(object sender, System.EventArgs e)
+        {
+            isStart = false;
+            btnStopDisableDelegate(btnStopDisable);
+        }
+        /// <summary>
+        /// 按钮开关切换代理函数
+        /// </summary>
+        /// <param name="myDelegate"></param>
+        private void btnStopDisableDelegate(btnDisableDelegate myDelegate)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(myDelegate);
+            }
+            else
+            {
+                myDelegate();
+            }
+        }
+        /// <summary>
+        /// 按钮开关切换函数
+        /// </summary>
+        private void btnStopDisable()
+        {
+            btnSenderStart.Enabled = true;
+            btnSenderStop.Enabled = false;
+            btnSenderRestart.Enabled = false;
         }
 
         private void btnSenderRestart_Click(object sender, EventArgs e)
@@ -200,11 +245,26 @@ namespace RenewEDSenderWin
                 MessageBox.Show("修改密钥请停止发送服务");
                 return;
             }
+            SetConfig setconfig = new SetConfig();
+            Configuration config = setconfig.ReadConfig();
+            //Configuration config = new Configuration();
+            project_id = txtBoxProId.Text;
+            gateway_id = txtBoxGateId.Text;
             strIp = txtBoxIP.Text;
             strPort = txtBoxPort.Text;
             strAesKey = txtBoxAesKey.Text;
             strAesIV = txtBoxAesIV.Text;
             strMd5Key = txtBoxMd5Key.Text;
+
+            config.project_id = project_id;
+            config.gateway_id = gateway_id;
+            config.ip = strIp;
+            config.port = strPort;
+            config.key = strAesKey;
+            config.iv = strAesIV;
+            config.md5 = strMd5Key;
+
+            setconfig.WriteConfig(config);
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Xml;
 namespace RenewEDSenderM.CommManager
 {   
     //读取配置文件中的配置参数，并可以实时修改配置参数
-    class SetConfig
+    public class SetConfig
     {
         private static string m_server_ip = "";
         private static string m_server_port = "";
@@ -28,8 +28,8 @@ namespace RenewEDSenderM.CommManager
         private static string m_client_key = "";
         private static string m_client_md5 = "";
         private static string m_client_iv = "";
-        private static string config_path = "./Config/Config.xml";
-
+        //private static string config_path = "./Config/Config.xml";
+        private static string config_path = "../../../RenewEDSenderM/bin/Debug/Config/Config.xml";
         public Configuration ReadConfig()
         {
             Configuration config = new Configuration();
@@ -452,7 +452,7 @@ namespace RenewEDSenderM.CommManager
 
     }
 
-    class Configuration
+    public class Configuration
     {
         public string ip="";
         public string port="";
