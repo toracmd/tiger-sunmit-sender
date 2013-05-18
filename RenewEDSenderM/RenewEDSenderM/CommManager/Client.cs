@@ -25,6 +25,7 @@ namespace RenewEDSenderM.CommManager
 
         static void Main(string[] args)
         {
+            //DbManager.TestAccessData.Test();
             LogManager.Logger.FuncEntryLog(args);
             try
             {
