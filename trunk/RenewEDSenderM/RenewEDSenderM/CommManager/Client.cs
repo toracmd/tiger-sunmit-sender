@@ -4,6 +4,9 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Timers;
+using System.Threading;
+using System.Runtime.InteropServices;
+
 
 
 namespace RenewEDSenderM.CommManager
@@ -17,73 +20,93 @@ namespace RenewEDSenderM.CommManager
         private static string xmlStr = "<?xml version=\"1.0\" encoding=\"utf-8\" ?><root><common><project_id><!-- 项目编号 --></project_id><gateway_id><!-- 采集装置编号 --></gateway_id><type>request</type></common></root>";
         private static string project_id = "110000015";
         private static string gateway_id = "1100000140202";
-        private static string input_sequence = "";
+        private static string input_sequence = "000000";
         private static string input_parse = "";
         private static string input_time = "";
         private static int try_count = 0;
         private static Configuration config = null;
+        private static bool synchronize = false;
+        private static bool isConnected = false;
 
         static void Main(string[] args)
         {
-            //DbManager.TestAccessData.Test();
+            DbManager.TestAccessData.Test();
             LogManager.Logger.FuncEntryLog(args);
-            try
-            {
-                LogManager.Logger.WriteDebugLog("进入try");
-                Initial();
-                //int port = 13145;
-                //string host = "10.6.0.115";
-                int port = int.Parse(config.port);
+			while(true)
+			{
+			//T.B.D. 连接失败后重试停顿点时间
+	            try
+	            {
+	                LogManager.Logger.WriteDebugLog("进入try");
+	                Initial();
+	                //int port = 13145;
+	                //string host = "10.6.0.115";
+	                int port = int.Parse(config.port);
                 
-                string host = config.ip;
-                LogManager.Logger.WriteDebugLog("准备ip：" + host);
-                project_id = config.project_id;
-                gateway_id = config.gateway_id;
-                /**/
+	                string host = config.ip;
+	                LogManager.Logger.WriteDebugLog("准备ip：" + host);
+	                project_id = config.project_id;
+	                gateway_id = config.gateway_id;
+	                /**/
                 
-                ///创建终结点EndPoint
-                IPAddress ip = IPAddress.Parse(host);
-                IPEndPoint ipe = new IPEndPoint(ip, port);//把ip和端口转化为IPEndpoint实例
+	                ///创建终结点EndPoint
+	                IPAddress ip = IPAddress.Parse(host);
+	                IPEndPoint ipe = new IPEndPoint(ip, port);//把ip和端口转化为IPEndpoint实例
 
-                /**/
-                ///创建socket并连接到服务器
-                c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
-                Console.WriteLine("Conneting…");
-                c.Connect(ipe);//连接到服务器
+	                /**/
+	                ///创建socket并连接到服务器
+	                c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
+	                Console.WriteLine("Conneting…");
+	                c.Connect(ipe);//连接到服务器
 
-                //进行发送相关操作
-                while (true)
-                {
+	                //Rereport();
+	                //失败数据重传
+	                Thread oThread = new Thread(new ThreadStart(Rereport));
+	                oThread.Start();
 
-                    if (Verify()) //进行认证
-                        Send();//如果认证成功，则进行发送数据，包括心跳数据包等，如果连接失败，则总send状态跳出，重新进行认证
-                    else
-                    {
-                        //先关闭已经打开的链接
-                        if (c != null)
-                        {
-                            c.Close();
-                            Console.Write("Closing Used Link....");
-                        }
-                        ///创建socket并连接到服务器
-                        c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
-                        Console.WriteLine("Conneting…");
-                        c.Connect(ipe);//连接到服务器
-                    }
-                }
 
-            }
-            catch (ArgumentNullException e)
-            {
-                LogManager.Logger.WriteWarnLog("argumentNullException: {0}", e);
-                Console.WriteLine("argumentNullException: {0}", e);
-            }
-            catch (SocketException e)
-            {
-                LogManager.Logger.WriteWarnLog("SocketException:{0}", e);
-                Console.WriteLine("SocketException:{0}", e);
-            }
-            c.Close();
+	                //定时上报数据，30分钟发一次
+	                System.Timers.Timer reportTimer = new System.Timers.Timer();
+	                reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
+	                reportTimer.Interval = Convert.ToInt32(config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
+	                reportTimer.Enabled = true;
+
+	                //进行发送相关操作
+	                while (true)
+	                {
+
+	                    if (Verify()) //进行认证
+	                        Send();//如果认证成功，则进行发送数据，包括心跳数据包等，如果连接失败，则总send状态跳出，重新进行认证
+	                    else
+	                    {
+	                        isConnected = false;
+	                        //先关闭已经打开的链接
+	                        if (c != null)
+	                        {
+	                            c.Close();
+	                            Console.Write("Closing Used Link....");
+	                        }
+	                        ///创建socket并连接到服务器
+	                        c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
+	                        Console.WriteLine("Conneting…");
+	                        c.Connect(ipe);//连接到服务器
+
+	                    }
+	                }
+
+	            }
+	            catch (ArgumentNullException e)
+	            {
+	                LogManager.Logger.WriteWarnLog("argumentNullException: {0}", e);
+	                Console.WriteLine("argumentNullException: {0}", e);
+	            }
+	            catch (SocketException e)
+	            {
+	                LogManager.Logger.WriteWarnLog("SocketException:{0}", e);
+	                Console.WriteLine("SocketException:{0}", e);
+	            }
+	            c.Close();
+			}
             //Console.ReadLine();
             Console.WriteLine("Press Enter to Exit");
             LogManager.Logger.FuncExitLog();
@@ -94,6 +117,24 @@ namespace RenewEDSenderM.CommManager
             SetConfig set_config = new SetConfig();
             config = set_config.ReadConfig();
         }
+
+        //imports SetLocalTime function from kernel32.dll 
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern int SetLocalTime(ref SystemTime lpSystemTime);
+
+        //struct for date/time apis 
+        public struct SystemTime
+        {
+            public short wYear;
+            public short wMonth;
+            public short wDayOfWeek;
+            public short wDay;
+            public short wHour;
+            public short wMinute;
+            public short wSecond;
+            public short wMilliseconds;
+        } 
+
 
         //解析并判断接收数据是否正确，若正确，则分离出相应的命令和参数
         private static bool Verify()
@@ -111,7 +152,7 @@ namespace RenewEDSenderM.CommManager
             string recvStr = "";
             byte[] recvBytes = new byte[1024];
             int bytes;
-            Timer aTimer = new Timer();
+            System.Timers.Timer aTimer = new System.Timers.Timer();
             aTimer.Elapsed += new ElapsedEventHandler(VerifyEvent);
             aTimer.Interval = 3 * 1000;    //配置文件中配置的秒数
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
@@ -202,7 +243,25 @@ namespace RenewEDSenderM.CommManager
 
             //判断是否认证成功
             if (order.result == "pass")
+            {
+                synchronize = true;
+                isConnected = true;
+                SystemTime systNew = new SystemTime();
+                string years = order.time.Substring(0,4);
+                string months = order.time.Substring(4, 2);
+                string days = order.time.Substring(6,2);
+                string hours = order.time.Substring(8, 2);
+                string minutes = order.time.Substring(10, 2);
+                string seconds = order.time.Substring(12, 2);
+                systNew.wDay = short.Parse(days);
+                systNew.wMonth = short.Parse(months);
+                systNew.wYear = short.Parse(years);
+                systNew.wHour = short.Parse(hours);
+                systNew.wMinute = short.Parse(minutes);
+                systNew.wSecond = short.Parse(seconds);
+                SetLocalTime(ref systNew);
                 return true;
+            }
             else
                 return false;
 
@@ -216,15 +275,13 @@ namespace RenewEDSenderM.CommManager
             byte[] recvBytes = new byte[1024];
 
             //心跳数据包，30秒发一次
-            Timer notifyTimer = new Timer();
+            System.Timers.Timer notifyTimer = new System.Timers.Timer();
             notifyTimer.Elapsed += new ElapsedEventHandler(NotifyEvent);
             notifyTimer.Interval = 60 * 1000;    //配置文件中配置的秒数,60秒一次
 
-            //定时上报数据，30分钟发一次
-            Timer reportTimer = new Timer();
-            reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
-            reportTimer.Interval = 30 * 60 * 1000; //配置文件中配置的秒数,30分钟一次
-            reportTimer.Enabled = true;
+            //新建线程来进行失败数据重传
+            Thread oThread = new Thread(new ThreadStart(Rereport));
+            oThread.Start();
 
             XmlProcessManager.XMLRead xmlread = new XmlProcessManager.XMLRead();
             XmlProcessManager.Order order;
@@ -254,7 +311,7 @@ namespace RenewEDSenderM.CommManager
                 //如果超时，则跳出循环进入重新认证链接
                 if (timeout == 1)
                 {
-                    reportTimer.Enabled = false;    //心跳包超时，需要重新连接服务器端，停止继续发送数据
+                    notifyTimer.Enabled = false;    //心跳包超时，需要重新连接服务器端，停止继续发送数据
                     Console.Write("HeartBeat Time out!");//可以写入log，进行记录
                     return;                         //直接返回，重新认证
                 }
@@ -290,10 +347,18 @@ namespace RenewEDSenderM.CommManager
         }
 
         //单纯发送相应的比特流数据
-        private static void SendMsgB(byte[] sendByte)
+		//true 发送成功
+		//false 发送失败
+		//T.B.D. 发送异常？
+        private static bool SendMsgB(byte[] sendByte)
         {
             Console.WriteLine("Send Message");
-            c.Send(sendByte, sendByte.Length, 0);//发送信息
+            int sendLength;
+            sendLength = c.Send(sendByte, sendByte.Length, 0);//发送信息
+            if (sendLength == sendByte.Length)
+                return true;
+            else
+                return false;
 
         }
         //单纯发送相应的字符串数据
@@ -329,13 +394,26 @@ namespace RenewEDSenderM.CommManager
         //定时发送数据，需要收集数据
         private static void ReportEvent(object sender, ElapsedEventArgs e)
         {
-            XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-            xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
-            //这部分需要采集数据进行数据录入
-            DataInfo[] input_info = new DataInfo[2];
-    
-            xmlwrite.Report(input_sequence, input_parse, input_time, input_info);
-            SendMsgB(xmlwrite.BOutput());
+            //如果进行了同步则进行相关操作，否则不进行任何操作
+            if (synchronize)
+            {
+                //数据写入数据库
+
+                //如果网络状况良好，则发送数据
+                if (isConnected)
+                {
+                    XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
+                    xmlwrite.Input(xmlStr, project_id, gateway_id, config.key, config.iv);
+                    //这部分需要采集数据进行数据录入
+                    DataInfo[] input_info = new DataInfo[2];
+
+                    xmlwrite.Report(input_sequence, input_parse, input_time, input_info);
+                    SendMsgB(xmlwrite.BOutput());
+                }
+  
+            }
+            else
+                return;
         }
 
         //应答查询操作，与数据库交互
@@ -343,13 +421,61 @@ namespace RenewEDSenderM.CommManager
         {
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
             //数据库查询，并输出相关历史数据的参数
-
+            xmlwrite.Input(xmlStr, project_id, gateway_id, config.key, config.iv);
+            Support.Encryption.MD5_KEY_STR = config.md5;
 
             //其中的sequence parse time和input_info应该从数据库中读取
-            DataInfo[] input_info = new DataInfo[2];
+            DataInfo[] input_info = new DataInfo[4];
+            for (int i = 0; i < 4; i++)
+                input_info[i] = new DataInfo();
+            string input_parse = "yes";
+            //组合id
 
-            xmlwrite.Query(input_sequence, input_parse, input_time, input_info);
-            SendMsgB(xmlwrite.BOutput());
+            //提取时间
+            int start_years = int.Parse(order.beginTime.Substring(0, 4));
+            int start_months = int.Parse(order.beginTime.Substring(4, 2));
+            int start_days = int.Parse(order.beginTime.Substring(6, 2));
+            int start_hours = int.Parse(order.beginTime.Substring(8, 2));
+            int start_minutes = int.Parse(order.beginTime.Substring(10, 2));
+            int start_seconds = int.Parse(order.beginTime.Substring(12, 2));
+
+            int end_years = int.Parse(order.endTime.Substring(0, 4));
+            int end_months = int.Parse(order.endTime.Substring(4, 2));
+            int end_days = int.Parse(order.endTime.Substring(6, 2));
+            int end_hours = int.Parse(order.endTime.Substring(8, 2));
+            int end_minutes = int.Parse(order.endTime.Substring(10, 2));
+            int end_seconds = int.Parse(order.endTime.Substring(12, 2));
+
+            DateTime begin_time = new DateTime(start_years, start_months, start_days, start_hours, start_minutes, start_seconds);
+            DateTime end_time = new DateTime(end_years, end_months, end_days, end_hours, end_minutes, end_seconds);
+
+            DbManager.History_Data[] hd_array = DbManager.DataDump.FetchDataSuccess(begin_time, end_time);
+
+            if (hd_array != null)
+            {
+                string [] ids = GenerateFunID(config.areacode,config.programid,config.techtype,config.syscode);
+                int sampleCount;
+                sampleCount = hd_array.Length;
+                for (int i = 0; i < sampleCount; i++)
+                {
+
+                    input_info[0].data = Convert.ToString(hd_array[i].ValueA);
+                    input_info[0].mid = ids[0];
+                    input_info[0].fid = ids[0];
+                    input_info[1].data = Convert.ToString(hd_array[i].ValueB);
+                    input_info[1].mid = ids[1];
+                    input_info[1].fid = ids[1];
+                    input_info[2].data = Convert.ToString(hd_array[i].ValueC);
+                    input_info[2].mid = ids[2];
+                    input_info[2].fid = ids[2];
+                    input_info[3].data = Convert.ToString(hd_array[i].ValueD);
+                    input_info[3].mid = ids[3];
+                    input_info[3].fid = ids[3];
+                    xmlwrite.Query(input_sequence, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
+                    if(SendMsgB(xmlwrite.BOutput()))
+                        DbManager.DataDump.update_Upload(hd_array[i].id);
+                }
+            }
         }
 
         //发送周期配置应答信息
@@ -369,6 +495,95 @@ namespace RenewEDSenderM.CommManager
 
             set_config.WriteSpecailConfig(config, order.order);
         }
+
+        //失败数据重传
+        private static void Rereport()
+        {
+            while(true)
+            {
+                //如果网络状况良好则进行重传
+                if (/*isConnected*/true)
+                {
+                    XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
+                    xmlwrite.Input(xmlStr,project_id,gateway_id,config.key,config.iv);
+                    Support.Encryption.MD5_KEY_STR = config.md5;
+
+                    DataInfo[] input_info = new DataInfo[4];
+                    for (int i = 0;i < 4;i++)
+                        input_info[i] = new DataInfo();
+                    string input_parse = "yes";
+                    DateTime begin_time = new DateTime(1900, 1, 1, 1, 1, 1);
+                    DateTime end_time = new DateTime(3000, 1, 1, 1, 1, 1);
+                    DbManager.History_Data[] hd_array = DbManager.DataDump.FetchDataFail(begin_time, end_time);
+                    if (hd_array != null)
+                    {
+                        string[] ids = GenerateFunID(config.areacode, config.programid, config.techtype, config.syscode);
+                        int sampleCount;
+                        sampleCount = hd_array.Length;
+                        for (int i = 0; i < sampleCount; i++)
+                        {
+                            input_info[0].data = Convert.ToString(hd_array[i].ValueA);
+                            input_info[0].mid = ids[0];
+                            input_info[0].fid = ids[0];
+                            input_info[1].data = Convert.ToString(hd_array[i].ValueB);
+                            input_info[1].mid = ids[1];
+                            input_info[1].fid = ids[1];
+                            input_info[2].data = Convert.ToString(hd_array[i].ValueC);
+                            input_info[2].mid = ids[2];
+                            input_info[2].fid = ids[2];
+                            input_info[3].data = Convert.ToString(hd_array[i].ValueD);
+                            input_info[3].mid = ids[3];
+                            input_info[3].fid = ids[3];
+                            xmlwrite.Query(input_sequence, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
+                            if (SendMsgB(xmlwrite.BOutput()))
+                                DbManager.DataDump.update_Upload(hd_array[i].id);
+                        }
+                    }
+                    
+                }
+            }
+        }
+
+        /// <summary>
+        /// 采集指标编码-平行于光伏组件的太阳辐照度
+        /// </summary>
+        public static readonly string COLLECT_FACTOR_CODE_RADIATION = "01";
+        /// <summary>
+        /// 采集指标编码-室外温度
+        /// </summary>
+        public static readonly string COLLECT_FACTOR_CODE_AIRTEMP = "02";
+        /// <summary>
+        /// 采集指标编码-光伏组件背面表面温度
+        /// </summary>
+        public static readonly string COLLECT_FACTOR_CODE_LANDTEMP = "03";
+        /// <summary>
+        /// 采集指标编码-发电量
+        /// </summary>
+        public static readonly string COLLECT_FACTOR_CODE_ELECTRICITY = "14";
+
+        /// <summary>
+        /// 生成计量装置的具体采集功能编号
+        /// 1 平行于光伏组件的太阳辐照度
+        /// 2 室外温度 
+        /// 3 光伏组件背面表面温度
+        /// 4 发电量
+        /// </summary>
+        /// <param name="Area_code">行政区编码</param>
+        /// <param name="Program_id">项目编码</param>
+        /// <param name="Tech_type">技术类型</param>
+        /// <param name="Sys_code">系统编码</param>
+        /// <returns>计量装置的具体采集功能编号</returns>
+        public static string[] GenerateFunID(string Area_code, string Program_id, string Tech_type, string Sys_code)
+        {
+            string code_prefix = Area_code + Program_id + Tech_type + Sys_code;
+            string[] code_array = new string[4];
+            code_array[0] = code_prefix + COLLECT_FACTOR_CODE_RADIATION;
+            code_array[1] = code_prefix + COLLECT_FACTOR_CODE_AIRTEMP;
+            code_array[2] = code_prefix + COLLECT_FACTOR_CODE_LANDTEMP;
+            code_array[3] = code_prefix + COLLECT_FACTOR_CODE_ELECTRICITY;
+            return code_array;
+        }
+
 
     }
 }

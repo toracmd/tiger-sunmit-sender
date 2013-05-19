@@ -28,7 +28,12 @@ namespace RenewEDSenderM.CommManager
         private static string m_client_key = "";
         private static string m_client_md5 = "";
         private static string m_client_iv = "";
+		private static string m_client_areacode = "";
+        private static string m_client_programid = "";
+        private static string m_client_techtype = "";
+        private static string m_client_syscode = "";
         //private static string config_path = "./Config/Config.xml";
+		//T.B.D. 路径问题
         private static string config_path = "../../../RenewEDSenderM/bin/Debug/Config/Config.xml";
         public Configuration ReadConfig()
         {
@@ -147,6 +152,38 @@ namespace RenewEDSenderM.CommManager
                         {
                             m_client_iv = xc.InnerText;
                             config.iv = m_client_iv;
+                            continue;
+                        }
+
+                        //获取客户端行政区编码
+                        if (xc.Name == "Area_code")
+                        {
+                            m_client_areacode = xc.InnerText;
+                            config.areacode = m_client_areacode;
+                            continue;
+                        }
+
+                        //获取客户端项目编码
+                        if (xc.Name == "Program_id")
+                        {
+                            m_client_programid = xc.InnerText;
+                            config.programid = m_client_programid;
+                            continue;
+                        }
+
+                        //获取客户端技术类型
+                        if (xc.Name == "Tech_type")
+                        {
+                            m_client_techtype = xc.InnerText;
+                            config.techtype = m_client_techtype;
+                            continue;
+                        }
+
+                        //获取客户端系统编码
+                        if (xc.Name == "Sys_code")
+                        {
+                            m_client_syscode = xc.InnerText;
+                            config.syscode = m_client_syscode;
                             continue;
                         }
                     }
@@ -284,6 +321,42 @@ namespace RenewEDSenderM.CommManager
                             XmlElement xct = (XmlElement)xc;
                             m_client_iv = config.iv;
                             xct.InnerText = m_client_iv;
+                            continue;
+                        }
+
+                        ////获取客户端行政区编码
+                        if (xc.Name == "Area_code")
+                        {
+                            XmlElement xct = (XmlElement)xc;
+                            m_client_areacode = config.areacode;
+                            xct.InnerText = m_client_areacode;
+                            continue;
+                        }
+
+                        //设置客户端项目编码
+                        if (xc.Name == "Program_id")
+                        {
+                            XmlElement xct = (XmlElement)xc;
+                            m_client_programid = config.programid;
+                            xct.InnerText = m_client_programid;
+                            continue;
+                        }
+
+                        //设置客户端技术类型
+                        if (xc.Name == "Tech_type")
+                        {
+                            XmlElement xct = (XmlElement)xc;
+                            m_client_techtype = config.techtype;
+                            xct.InnerText = m_client_techtype;
+                            continue;
+                        }
+
+                        //设置客户端系统编码
+                        if (xc.Name == "Sys_code")
+                        {
+                            XmlElement xct = (XmlElement)xc;
+                            m_client_syscode = config.syscode;
+                            xct.InnerText = m_client_syscode;
                             continue;
                         }
                     }
@@ -439,6 +512,48 @@ namespace RenewEDSenderM.CommManager
                                 xmlDoc.Save(config_path);
                                 return;
                             }
+
+                            // 只修改行政区编码
+                            if (valueName == "area_code" && xc.Name == "Area_code")
+                            {
+                                XmlElement xct = (XmlElement)xc;
+                                m_client_areacode = config.areacode;
+                                xct.InnerText = m_client_areacode;
+                                xmlDoc.Save(config_path);
+                                return;
+                            }
+
+                            // 只修改行政区编码
+                            if (valueName == "program_id" && xc.Name == "Program_id")
+                            {
+                                XmlElement xct = (XmlElement)xc;
+                                m_client_programid = config.programid;
+                                xct.InnerText = m_client_programid;
+                                xmlDoc.Save(config_path);
+                                return;
+                            }
+
+
+                            // 只修改行技术类型
+                            if (valueName == "tech_type" && xc.Name == "Tech_type")
+                            {
+                                XmlElement xct = (XmlElement)xc;
+                                m_client_techtype = config.techtype;
+                                xct.InnerText = m_client_techtype;
+                                xmlDoc.Save(config_path);
+                                return;
+                            }
+
+
+                            // 只修改行技术类型
+                            if (valueName == "sys_code" && xc.Name == "Sys_code")
+                            {
+                                XmlElement xct = (XmlElement)xc;
+                                m_client_syscode = config.syscode;
+                                xct.InnerText = m_client_syscode;
+                                xmlDoc.Save(config_path);
+                                return;
+                            }
                         }
                     }
                 }
@@ -466,5 +581,9 @@ namespace RenewEDSenderM.CommManager
         public string key="";
         public string md5 = "";
         public string iv = "";
+        public string areacode = "";
+        public string programid = "";
+        public string techtype = "";
+        public  string syscode = "";
     }
 }
