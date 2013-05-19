@@ -9,8 +9,12 @@
   <Client_Information>
     <Project_id>110000015</Project_id>         
     <Gateway_id>1100000140202</Gateway_id>
+    <Area_code>10000</Area_code>             <!--行政区编码-->
+    <Program_id></Program_id>           <!--项目编码-->
+    <Tech_type></Tech_type>             <!--技术类型-->
+    <Sys_code></Sys_code>               <!--系统编码-->
     <NotifyTime></NotifyTime>           <!--心跳数据包发送间隔-->
-    <ReportTime></ReportTime>           <!--数据包定时发送间隔-->
+    <ReportTime>30</ReportTime>           <!--数据包定时发送间隔-->
     <VerifyTime></VerifyTime>           <!--认证数据超时发送间隔-->
     <Times></Times>                     <!--失败后尝试次数-->
     <Period></Period>                   <!--周期-->

@@ -14,11 +14,11 @@ namespace RenewEDSenderM.DbManager
         /// <summary>
         /// 采集数据库路径
         /// </summary>
-        private static string dbsource1 = "D:\\workspace\\sunmit\\recv\\20130428uScada1\\Database\\hisdb.mdb;";
+        private static string dbsource1 = "../../../../RenewEDSenderM/database/hisdb.mdb;";
         /// <summary>
         /// 上传数据库路径
         /// </summary>
-        private static string dbsource2 = "D:\\workspace\\sunmit\\svn\\RenewEDSenderM\\database\\info.mdb;";
+        private static string dbsource2 = "../../../../RenewEDSenderM/database/info.mdb;";
         //public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "datasource") + ";User Id=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "userid") + ";Password=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "password") + ";";
         public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource1;
         public static string CONN_STRING2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource2;

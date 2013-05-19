@@ -276,7 +276,7 @@ namespace RenewEDSenderM.XmlProcessManager
                     Console.Write("Create new xml element failed!");
                     return;
                 }
-                meter.SetAttribute("id", data_info.id);
+                meter.SetAttribute("id", data_info.mid);
                 meter.SetAttribute("conn", data_info.conn);
 
                 XmlElement functions = xmlDoc.CreateElement("function");
@@ -286,7 +286,7 @@ namespace RenewEDSenderM.XmlProcessManager
                     Console.Write("Create new xml element failed!");
                     return;
                 }
-                functions.SetAttribute("id", data_info.id);
+                functions.SetAttribute("id", data_info.fid);
                 functions.SetAttribute("coding", data_info.coding);
                 functions.SetAttribute("error", data_info.error);
                 functions.SetAttribute("sample_time", data_info.sample_time);
@@ -376,7 +376,7 @@ namespace RenewEDSenderM.XmlProcessManager
                     Console.Write("Create new xml element failed!");
                     return;
                 }
-                meter.SetAttribute("id", data_info.id);
+                meter.SetAttribute("id", data_info.mid);
                 meter.SetAttribute("conn", data_info.conn);
 
                 XmlElement functions = xmlDoc.CreateElement("function");
@@ -386,7 +386,7 @@ namespace RenewEDSenderM.XmlProcessManager
                     Console.Write("Create new xml element failed!");
                     return;
                 }
-                functions.SetAttribute("id", data_info.id);
+                functions.SetAttribute("id", data_info.fid);
                 functions.SetAttribute("coding", data_info.coding);
                 functions.SetAttribute("error", data_info.error);
                 functions.SetAttribute("sample_time", data_info.sample_time);
