@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenewEDSenderM", "RenewEDSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenewEDSenderWin", "RenewEDSenderWin\RenewEDSenderWin.csproj", "{7F000D1F-80F8-4F47-BFFF-77037734373C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMsgQue", "TestMsgQue\TestMsgQue.csproj", "{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = RenewEDSenderM.vsmdi
@@ -38,6 +40,16 @@ Global
 		{7F000D1F-80F8-4F47-BFFF-77037734373C}.Release|Mixed Platforms.Build.0 = Release|x86
 		{7F000D1F-80F8-4F47-BFFF-77037734373C}.Release|x86.ActiveCfg = Release|x86
 		{7F000D1F-80F8-4F47-BFFF-77037734373C}.Release|x86.Build.0 = Release|x86
+		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Debug|x86.ActiveCfg = Debug|x86
+		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Debug|x86.Build.0 = Debug|x86
+		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Release|Any CPU.ActiveCfg = Release|x86
+		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Release|Mixed Platforms.Build.0 = Release|x86
+		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Release|x86.ActiveCfg = Release|x86
+		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -88,6 +88,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -112,6 +113,7 @@
     <Compile Include="Support\DataPackageException.cs" />
     <Compile Include="Support\Encryption.cs" />
     <Compile Include="Support\MessageDatagram.cs" />
+    <Compile Include="Support\MsgQueManager.cs" />
     <Compile Include="XmlProcessManager\Order.cs" />
     <Compile Include="XmlProcessManager\XMLRead.cs" />
     <Compile Include="XmlProcessManager\XMLWrite.cs" />
