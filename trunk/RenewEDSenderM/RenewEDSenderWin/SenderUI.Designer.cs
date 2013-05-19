@@ -49,6 +49,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtBoxGateId = new System.Windows.Forms.TextBox();
             this.txtBoxProId = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBoxCtrl.SuspendLayout();
             this.groupBoxKey.SuspendLayout();
             this.SuspendLayout();
@@ -258,11 +259,19 @@
             this.txtBoxProId.TabIndex = 15;
             this.txtBoxProId.Text = "110000015";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(735, 57);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 5;
+            // 
             // SenderUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 366);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBoxKey);
             this.Controls.Add(this.groupBoxCtrl);
             this.Name = "SenderUI";
@@ -272,6 +281,7 @@
             this.groupBoxKey.ResumeLayout(false);
             this.groupBoxKey.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -298,6 +308,7 @@
         private System.Windows.Forms.TextBox txtBoxGateId;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

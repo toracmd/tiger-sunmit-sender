@@ -7,10 +7,19 @@ using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
+using System.Messaging;
 using RenewEDSenderM.CommManager;
+using RenewEDSenderM.Support;
 
 namespace RenewEDSenderWin
 {
+    /// <summary>
+    /// T.B.D.
+    /// 1、监视进程，一旦失败更改UI
+    /// 2、后台程序情况
+    /// 3、当前网络状态 http://social.msdn.microsoft.com/Forums/zh-CN/visualcshartzhchs/thread/c89be7e2-592e-4fec-8b72-e2f22f52319b/
+    /// 4、MsgQue还有退出不彻底
+    /// </summary>
     public partial class SenderUI : Form
     {
         /// <summary>
@@ -58,11 +67,51 @@ namespace RenewEDSenderWin
         
         // 新建的代理
         private delegate void btnDisableDelegate();
+
+
         public SenderUI()
         {
             InitializeComponent();
             btnSenderStop.Enabled = false;
             btnSenderRestart.Enabled = false;
+
+            //建立消息队列
+            //MessageQueue myQueue = new MessageQueue(RenewEDSenderM.Support.MsgQueManager.MessageQueueName);
+            //建立消息队列接收线程，另准备消息队列接收完成事件
+            Thread thread_recv_queue = new Thread(new ThreadStart(MsgQueueRecv));
+            thread_recv_queue.Start();
+        }
+
+        public void MsgQueueRecv()
+        {
+            while (true)
+            {
+                try
+                {
+                    MessageQueue msgq = MsgQueManager.getInstance();
+                    msgq.Formatter = new XmlMessageFormatter(
+                            new Type[]
+                        {
+                            typeof(MsgBody)
+                        }
+                        );
+                    msgq.ReceiveCompleted += MessageArrived;
+                    msgq.BeginReceive();
+                }
+                catch (MessageQueueException ex)
+                {
+                    MsgQueManager.Dispose();
+                    return;
+                }
+            }
+        }
+        public static void MessageArrived(object sender, ReceiveCompletedEventArgs e)
+        {
+            MessageQueue msgq = (MessageQueue)sender;
+            System.Messaging.Message msg = msgq.EndReceive(e.AsyncResult);
+            object o = msg.Body;
+            //string s = o.ToString();
+            MessageBox.Show(msg.Label + o);
         }
 
         private void btnSenderStart_Click(object sender, EventArgs e)
@@ -236,6 +285,7 @@ namespace RenewEDSenderWin
             {
                 StopProcessSend();
             }
+            MsgQueManager.Dispose();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -265,6 +315,11 @@ namespace RenewEDSenderWin
             config.md5 = strMd5Key;
 
             setconfig.WriteConfig(config);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
