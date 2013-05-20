@@ -17,8 +17,9 @@ namespace RenewEDSenderWin
     /// T.B.D.
     /// 1、监视进程，一旦失败更改UI
     /// 2、后台程序情况
-    /// 3、当前网络状态 http://social.msdn.microsoft.com/Forums/zh-CN/visualcshartzhchs/thread/c89be7e2-592e-4fec-8b72-e2f22f52319b/
+    /// 3、当前网络状态：连接可用\不可用 http://social.msdn.microsoft.com/Forums/zh-CN/visualcshartzhchs/thread/c89be7e2-592e-4fec-8b72-e2f22f52319b/：
     /// 4、MsgQue还有退出不彻底
+    /// 5、退出时其他线程的退出
     /// </summary>
     public partial class SenderUI : Form
     {
@@ -68,6 +69,9 @@ namespace RenewEDSenderWin
         // 新建的代理
         private delegate void btnDisableDelegate();
 
+        private delegate void MsgProcessDelegate(MsgBody msg);
+
+        private static MsgQueManager mm = new MsgQueManager();
 
         public SenderUI()
         {
@@ -80,23 +84,21 @@ namespace RenewEDSenderWin
             //建立消息队列接收线程，另准备消息队列接收完成事件
             Thread thread_recv_queue = new Thread(new ThreadStart(MsgQueueRecv));
             thread_recv_queue.Start();
+            //mm.MsgQStartListen(MsgQReceiveCompleted);
+
+            //发送服务进程监控
         }
 
         public void MsgQueueRecv()
         {
-            while (true)
+            if (true)
             {
                 try
                 {
                     MessageQueue msgq = MsgQueManager.getInstance();
-                    msgq.Formatter = new XmlMessageFormatter(
-                            new Type[]
-                        {
-                            typeof(MsgBody)
-                        }
-                        );
-                    msgq.ReceiveCompleted += MessageArrived;
-                    msgq.BeginReceive();
+                    msgq.ReceiveCompleted += MsgQReceiveCompleted;
+                    //msgq.BeginReceive();
+                    WaitHandle waitHandle = msgq.BeginReceive().AsyncWaitHandle;
                 }
                 catch (MessageQueueException ex)
                 {
@@ -112,8 +114,38 @@ namespace RenewEDSenderWin
             object o = msg.Body;
             //string s = o.ToString();
             MessageBox.Show(msg.Label + o);
+            //msgq.BeginReceive();
         }
-
+        /// <summary>
+        /// MessageQueue 的 ReceiveCompleted 事件的方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MsgQReceiveCompleted(object sender, System.Messaging.ReceiveCompletedEventArgs e)
+        {
+            MessageQueue msgq = (MessageQueue)sender;
+            try
+            {
+                System.Messaging.Message msg = msgq.EndReceive(e.AsyncResult);
+                msg.Formatter = new XmlMessageFormatter(
+                    new Type[] { typeof(MsgBody) }
+                    );
+                MsgBody msgbody = (MsgBody)msg.Body;
+                //MessageBox.Show(msg.Label + msgbody);
+                //textBox1.Text = msgbody.ToString();
+                //MsgProcessDelegate msgd = new MsgProcessDelegate(MsgProcess);
+                //msgd(msgbody);
+                msgProcessDelegate(msgbody);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            finally
+            {
+                msgq.BeginReceive();
+            }
+        }
         private void btnSenderStart_Click(object sender, EventArgs e)
         {
             StartProcessSend();
@@ -164,11 +196,30 @@ namespace RenewEDSenderWin
                     btnSenderStop.Enabled = false;
                     btnSenderRestart.Enabled = false;
                 }
+                //监控发送服务进程状态
+                Thread thread_monitor = new Thread(new ThreadStart(MonitorSenderProcess));
+                thread_monitor.Start();
             }
             catch (Exception ex)
             {
                 //进程启动异常信息
                 MessageBox.Show("Exception:" + ex.Source + " " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 监控发送服务进程状态，不存在则校正显示
+        /// </summary>
+        private void MonitorSenderProcess()
+        {
+            while (true)
+            {
+                Thread.Sleep(500);
+                if (!CheckProcessExists())
+                {
+                    isStart = false;
+                    btnStopDisableDelegate(btnStopDisable);
+                }
             }
         }
         /// <summary>
@@ -241,25 +292,60 @@ namespace RenewEDSenderWin
         /// <param name="myDelegate"></param>
         private void btnStopDisableDelegate(btnDisableDelegate myDelegate)
         {
-            if (this.InvokeRequired)
+            if (InvokeRequired)
             {
-                this.Invoke(myDelegate);
+                Invoke(myDelegate);
             }
             else
             {
                 myDelegate();
             }
         }
+        private void msgProcessDelegate(MsgBody msg)
+        {
+            // 判断是否需要Invoke，多线程时需要
+
+            if (/*textBox1.*/InvokeRequired)
+            {
+                // 通过委托调用写主线程控件的程序，传递参数放在object数组中
+                /*textBox1.*/Invoke(new MsgProcessDelegate(msgProcessDelegate), new object[] { msg });
+            }
+            else
+            {
+                this.MsgProcess(msg);
+                //this.msgProcessDelegate(msg);
+            }
+        }
         /// <summary>
-        /// 按钮开关切换函数
+        /// 按钮开关切换函数，由代理完成
         /// </summary>
         private void btnStopDisable()
         {
             btnSenderStart.Enabled = true;
             btnSenderStop.Enabled = false;
             btnSenderRestart.Enabled = false;
+
+            txtBoxConnStatus.Text = RUN_STATUS_MEASURE.CONNECT_STATUS[1];
+            txtBoxRunPhase.Text = RUN_STATUS_MEASURE.RUN_STAGE_ARRAY[(int)RUN_PHASE.INVALID];
         }
 
+        /// <summary>
+        /// 消息处理函数，由代理完成
+        /// </summary>
+        /// <param name="msg"></param>
+        private void MsgProcess(MsgBody msg)
+        {
+            //textBox1.Text = msg.ToString();
+            if (msg.isConnected)
+            {
+                txtBoxConnStatus.Text = RUN_STATUS_MEASURE.CONNECT_STATUS[0];
+            }
+            else
+            {
+                txtBoxConnStatus.Text = RUN_STATUS_MEASURE.CONNECT_STATUS[1];
+            }
+            txtBoxRunPhase.Text = RUN_STATUS_MEASURE.RUN_STAGE_ARRAY[(int)msg.phase];
+        }
         private void btnSenderRestart_Click(object sender, EventArgs e)
         {
             RestartProcessSend();

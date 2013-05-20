@@ -33,6 +33,10 @@
             this.btnSenderRestart = new System.Windows.Forms.Button();
             this.groupBoxCtrl = new System.Windows.Forms.GroupBox();
             this.groupBoxKey = new System.Windows.Forms.GroupBox();
+            this.txtBoxProId = new System.Windows.Forms.TextBox();
+            this.txtBoxGateId = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtBoxPort = new System.Windows.Forms.TextBox();
             this.txtBoxIP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,13 +49,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblAesKey = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtBoxGateId = new System.Windows.Forms.TextBox();
-            this.txtBoxProId = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBoxConnStatus = new System.Windows.Forms.TextBox();
+            this.txtBoxRunPhase = new System.Windows.Forms.TextBox();
             this.groupBoxCtrl.SuspendLayout();
             this.groupBoxKey.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSenderStart
@@ -120,6 +125,40 @@
             this.groupBoxKey.TabIndex = 4;
             this.groupBoxKey.TabStop = false;
             this.groupBoxKey.Text = "配置管理";
+            // 
+            // txtBoxProId
+            // 
+            this.txtBoxProId.Location = new System.Drawing.Point(104, 26);
+            this.txtBoxProId.Name = "txtBoxProId";
+            this.txtBoxProId.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxProId.TabIndex = 15;
+            this.txtBoxProId.Text = "110000015";
+            // 
+            // txtBoxGateId
+            // 
+            this.txtBoxGateId.Location = new System.Drawing.Point(104, 61);
+            this.txtBoxGateId.Name = "txtBoxGateId";
+            this.txtBoxGateId.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxGateId.TabIndex = 14;
+            this.txtBoxGateId.Text = "1100000140202";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 12);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "采集装置编号:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 12);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "项目编号:";
             // 
             // txtBoxPort
             // 
@@ -225,53 +264,59 @@
             this.lblAesKey.TabIndex = 0;
             this.lblAesKey.Text = "AES Key:";
             // 
-            // label5
+            // groupBox1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 12);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "项目编号:";
+            this.groupBox1.Controls.Add(this.txtBoxRunPhase);
+            this.groupBox1.Controls.Add(this.txtBoxConnStatus);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Location = new System.Drawing.Point(633, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(251, 315);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "服务状态";
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(25, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 12);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "采集装置编号:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 61);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 12);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "运行阶段:";
             // 
-            // txtBoxGateId
+            // label8
             // 
-            this.txtBoxGateId.Location = new System.Drawing.Point(104, 61);
-            this.txtBoxGateId.Name = "txtBoxGateId";
-            this.txtBoxGateId.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxGateId.TabIndex = 14;
-            this.txtBoxGateId.Text = "1100000140202";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 12);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "连接状态:";
             // 
-            // txtBoxProId
+            // txtBoxConnStatus
             // 
-            this.txtBoxProId.Location = new System.Drawing.Point(104, 26);
-            this.txtBoxProId.Name = "txtBoxProId";
-            this.txtBoxProId.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxProId.TabIndex = 15;
-            this.txtBoxProId.Text = "110000015";
+            this.txtBoxConnStatus.Enabled = false;
+            this.txtBoxConnStatus.Location = new System.Drawing.Point(87, 25);
+            this.txtBoxConnStatus.Name = "txtBoxConnStatus";
+            this.txtBoxConnStatus.Size = new System.Drawing.Size(146, 21);
+            this.txtBoxConnStatus.TabIndex = 2;
             // 
-            // textBox1
+            // txtBoxRunPhase
             // 
-            this.textBox1.Location = new System.Drawing.Point(735, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 5;
+            this.txtBoxRunPhase.Enabled = false;
+            this.txtBoxRunPhase.Location = new System.Drawing.Point(88, 57);
+            this.txtBoxRunPhase.Name = "txtBoxRunPhase";
+            this.txtBoxRunPhase.Size = new System.Drawing.Size(146, 21);
+            this.txtBoxRunPhase.TabIndex = 3;
             // 
             // SenderUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 366);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxKey);
             this.Controls.Add(this.groupBoxCtrl);
             this.Name = "SenderUI";
@@ -280,8 +325,9 @@
             this.groupBoxCtrl.ResumeLayout(false);
             this.groupBoxKey.ResumeLayout(false);
             this.groupBoxKey.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -308,7 +354,11 @@
         private System.Windows.Forms.TextBox txtBoxGateId;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtBoxRunPhase;
+        private System.Windows.Forms.TextBox txtBoxConnStatus;
     }
 }
 
