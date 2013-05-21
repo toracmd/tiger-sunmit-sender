@@ -112,7 +112,6 @@
     <Compile Include="Support\DataPackage.cs" />
     <Compile Include="Support\DataPackageException.cs" />
     <Compile Include="Support\Encryption.cs" />
-    <Compile Include="Support\MessageDatagram.cs" />
     <Compile Include="Support\MsgQueManager.cs" />
     <Compile Include="XmlProcessManager\Order.cs" />
     <Compile Include="XmlProcessManager\XMLRead.cs" />

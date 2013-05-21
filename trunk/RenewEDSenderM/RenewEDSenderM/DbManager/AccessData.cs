@@ -12,11 +12,11 @@ namespace RenewEDSenderM.DbManager
     public class AccessData
     {
         /// <summary>
-        /// 采集数据库路径
+        /// T.B.D.采集数据库路径
         /// </summary>
         private static string dbsource1 = "../../../../RenewEDSenderM/database/hisdb.mdb;";
         /// <summary>
-        /// 上传数据库路径
+        /// T.B.D.上传数据库路径
         /// </summary>
         private static string dbsource2 = "../../../../RenewEDSenderM/database/info.mdb;";
         //public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "datasource") + ";User Id=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "userid") + ";Password=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "password") + ";";
@@ -542,18 +542,27 @@ namespace RenewEDSenderM.DbManager
             }
         }
     }
+    /// <summary>
+    /// 上传服务数据处理逻辑类
+    /// </summary>
     public class DataDump
     {
-        public static void CalculateAverage(DateTime dt, TimeSpan nCycle, out History_Data hd)
+        /// <summary>
+        /// 计算4个指标在当前采样时间段内的平均值，并存储到发送历史数据库中
+        /// </summary>
+        /// <param name="FixedTime">定时发送时刻</param>
+        /// <param name="FixedCycleT">定时发送周期</param>
+        /// <param name="insertedHisData">刚插入的历史数据</param>
+        public static void CalculateAverage(DateTime FixedTime, TimeSpan FixedCycleT, out History_Data insertedHisData)
         {
             //从采集数据库中提取区间[dt-nCycle,dt]内的监测值
             
             //当前时间的采集值所在的表
-            string tbl_name_collect = "DAY" + dt.Date.ToString("yyyyMMdd");
+            string tbl_name_collect = "DAY" + FixedTime.Date.ToString("yyyyMMdd");
             
             //计算区间
-            DateTime dt_end = dt;
-            DateTime dt_start = dt_end - nCycle;
+            DateTime dt_end = FixedTime;
+            DateTime dt_start = dt_end - FixedCycleT;
 
             //两天之间的问题
             if (dt_end.Date > dt_start.Date)
@@ -570,8 +579,15 @@ namespace RenewEDSenderM.DbManager
             int dt_start_sec = dt_start.Second;
             
             //获取此区间的监测指标值
-            //SQL语句 计算平均值
+            //SQL语句 计算平均值 T.B.D. <=开区间问题
+            //T.B.D. 字段未确定
             string sql = @"select avg(DATA) from " + tbl_name_collect 
+                + " where VARIANTNAME=@VARIANTNAME and HOURF >= @HOUR_L and HOURF <= @HOUR_H "
+                + " and MINUTEF >= @MINUTE_L and MINUTEF <= @MINUTE_H "
+                + " and SECONDF >= @SECOND_L and SECONDF <= @SECONDF_H "
+                + ";";
+            //SQL语句 计算发电量
+            string sql2 = @"select DATA order by DATA desc from " + tbl_name_collect 
                 + " where VARIANTNAME=@VARIANTNAME and HOURF >= @HOUR_L and HOURF <= @HOUR_H "
                 + " and MINUTEF >= @MINUTE_L and MINUTEF <= @MINUTE_H "
                 + " and SECONDF >= @SECOND_L and SECONDF <= @SECONDF_H "
@@ -618,10 +634,12 @@ namespace RenewEDSenderM.DbManager
             };
             //取得平均值
             DataRow[] dr = {
+                               //平均值
                                AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_1),
                                AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_2),
                                AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_3),
-                               AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_4),
+                               //发电量
+                               AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4),
                            };
 
             //存入发送数据库，准备发送
@@ -629,7 +647,7 @@ namespace RenewEDSenderM.DbManager
             {
                 if (d == null)
                 {
-                    hd = null;
+                    insertedHisData = null;
                     return;
                 }
             }
@@ -639,25 +657,25 @@ namespace RenewEDSenderM.DbManager
                                                new OleDbParameter("@ValueB", dr[1][0]),
                                                new OleDbParameter("@ValueC", dr[2][0]),
                                                new OleDbParameter("@ValueD", dr[3][0]),
-                                               new OleDbParameter("@timestamp_sendCycle", dt),
-                                               new OleDbParameter("@timestamp_upload", dt)
+                                               new OleDbParameter("@timestamp_sendCycle", FixedTime),
+                                               new OleDbParameter("@timestamp_upload", FixedTime)
                                            };
             int id;
             if ((id = AccessData.ExecuteNonQueryScalar(sql_dump, AccessData.CONN_STRING2, params_dump)) == 0)
             {
                 //未写成功
-                hd = null;
+                insertedHisData = null;
                 return;
             }
-            hd = new History_Data();
-            hd.id = id;
-            hd.ValueA = Convert.ToInt32(dr[0][0]);
-            hd.ValueB = Convert.ToInt32(dr[1][0]);
-            hd.ValueC = Convert.ToInt32(dr[2][0]);
-            hd.ValueD = Convert.ToInt32(dr[3][0]);
-            hd.timestamp_sendCycle = dt;
-            hd.timestamp_upload = dt;
-            hd.isupload = false;
+            insertedHisData = new History_Data();
+            insertedHisData.id = id;
+            insertedHisData.ValueA = Convert.ToInt32(dr[0][0]);
+            insertedHisData.ValueB = Convert.ToInt32(dr[1][0]);
+            insertedHisData.ValueC = Convert.ToInt32(dr[2][0]);
+            insertedHisData.ValueD = Convert.ToInt32(dr[3][0]);
+            insertedHisData.timestamp_sendCycle = FixedTime;
+            insertedHisData.timestamp_upload = FixedTime;
+            insertedHisData.isupload = false;
             //存入发送数据库，准备发送
         }
         /// <summary>
@@ -747,6 +765,9 @@ namespace RenewEDSenderM.DbManager
             //ds = AccessData.ExecuteDataset("", AccessData.CONN_STRING2);
         }
     }
+    /// <summary>
+    /// 采集数据库映射类
+    /// </summary>
     public class Monitor_Data
     {
         public int ONLYNUM;
@@ -757,23 +778,42 @@ namespace RenewEDSenderM.DbManager
         public int TYPE;
         public int DATA;
     }
-    public class Upload_Data
-    {
-        public string VARIANTNAME;
-        public int Value;
-        public DateTime timestamp_collect;
-        public DateTime timestamp_upload;
-        public bool isSended ;
-    }
+    /// <summary>
+    /// 数据库历史数据表映射类
+    /// </summary>
     public class History_Data
     {
+        /// <summary>
+        /// id字段
+        /// </summary>
         public int id;
+        /// <summary>
+        /// 平行于光伏组件的太阳辐照度 总辐射
+        /// </summary>
         public int ValueA;
+        /// <summary>
+        /// 室外温度 大气温度
+        /// </summary>
         public int ValueB;
+        /// <summary>
+        /// 光伏组件背面表面温度 大地温度
+        /// </summary>
         public int ValueC;
+        /// <summary>
+        /// 发电量 1633发电量
+        /// </summary>
         public int ValueD;
+        /// <summary>
+        /// 定时发送时刻时间戳
+        /// </summary>
         public DateTime timestamp_sendCycle;
+        /// <summary>
+        /// 成功上传时间
+        /// </summary>
         public DateTime timestamp_upload;
+        /// <summary>
+        /// 是否已上传
+        /// </summary>
         public bool isupload;
 
 
