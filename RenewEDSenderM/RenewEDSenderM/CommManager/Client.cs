@@ -366,7 +366,7 @@ namespace RenewEDSenderM.CommManager
         {
             string TestStr = sendStr;
             int i;
-            byte[] dp = Support.DataPackage1.GetBytes(TestStr, out i);
+            byte[] dp = Support.DataPackage.GetBytes(TestStr, out i);
             byte[] bs = Encoding.ASCII.GetBytes(TestStr);//把字符串编码为字节
             Console.WriteLine("Send Message");
 

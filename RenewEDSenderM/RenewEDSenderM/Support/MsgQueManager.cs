@@ -21,7 +21,7 @@ namespace RenewEDSenderM.Support
         public static string MessageQueuePath = @".\private$\RenewableQueue";
 
         /// <summary>
-        /// 最大并发线程数
+        /// 最大并发线程数T.B.D.
         /// </summary>
         private static int MAX_WORKER_THREADS = 30;
         /// <summary>
@@ -30,10 +30,11 @@ namespace RenewEDSenderM.Support
         private static MessageQueue instance = getInstance();
 
         /// <summary>
-        /// 
+        /// T.B.D.
         /// </summary>
-        private static WaitHandle[] waitHandleArray = new WaitHandle[MAX_WORKER_THREADS];
+        private static WaitHandle[] waitHandleArray;// = new WaitHandle[MAX_WORKER_THREADS];
 
+        private static string MsgLabel = String.Format("Network state");
         /// <summary>
         /// 获得消息队列实体
         /// </summary>
@@ -41,9 +42,16 @@ namespace RenewEDSenderM.Support
         public static MessageQueue getInstance()
         {
             if (MessageQueue.Exists(MessageQueuePath))
+            {
+                //如果已存在则返回已有消息队列
                 instance = new MessageQueue(MessageQueuePath);
+            }
             else
+            {
+                //否则新建消息队列
                 instance = MessageQueue.Create(MessageQueuePath);
+            }
+            //返回实例
             return instance;
         }
         /// <summary>
@@ -58,28 +66,18 @@ namespace RenewEDSenderM.Support
         /// 发送消息
         /// </summary>
         /// <param name="msg"></param>
-        /// <param name="label"></param>
-        public void SendMsg(MsgBody msg, string label)
+        /// 
+        public void SendMsg(MsgBody msg)
         {
+            //序列化
             getInstance().Formatter = new XmlMessageFormatter(
                     new Type[] { typeof(MsgBody) }
                     );
-            getInstance().Send(msg, label);
+            //发送消息到消息队列
+            getInstance().Send(msg, MsgLabel);
         }
         /// <summary>
         /// 同步接收消息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// <returns></returns>
-        public MsgBody RecvMsg(MessageQueue sender, ReceiveCompletedEventArgs e)
-        {
-            MessageQueue msgq = (MessageQueue)sender;
-            System.Messaging.Message msg = msgq.EndReceive(e.AsyncResult);
-            return (MsgBody)msg.Body;
-        }
-        /// <summary>
-        /// 异步接收消息
         /// </summary>
         /// <returns></returns>
         public MsgBody RecvMsg()
@@ -100,7 +98,10 @@ namespace RenewEDSenderM.Support
             }
             return (MsgBody)msg.Body;
         }
-
+        /// <summary>
+        /// T.B.D. 删除
+        /// </summary>
+        /// <param name="myReceiveCompleted"></param>
         public void MsgQStartListen(ReceiveCompletedEventHandler myReceiveCompleted)
         {
             //while(true)
@@ -116,7 +117,9 @@ namespace RenewEDSenderM.Support
 
             //}
         }
-
+        /// <summary>
+        /// T.B.D.删除
+        /// </summary>
         public void MsgQStopListen()
         {
             for (int i = 0; i < waitHandleArray.Length; i++)
@@ -138,6 +141,9 @@ namespace RenewEDSenderM.Support
             }
         }
     }
+    /// <summary>
+    /// 消息体类
+    /// </summary>
     public class MsgBody
     {
         /// <summary>
@@ -146,14 +152,21 @@ namespace RenewEDSenderM.Support
         public bool isConnected;
 
         /// <summary>
-        /// 运行到第几步了
+        /// 发送运行阶段
         /// </summary>
-        //public int Step;
-
         public RUN_PHASE phase;
+
+        /// <summary>
+        /// 用于消息队列，必须保留
+        /// </summary>
         public MsgBody()
         {
         }
+        /// <summary>
+        /// 构造函数重载
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="r"></param>
         public MsgBody(bool conn, RUN_PHASE r)
         {
             isConnected = conn;
@@ -161,6 +174,9 @@ namespace RenewEDSenderM.Support
         }
         
     }
+    /// <summary>
+    /// 运行状态工具类
+    /// </summary>
     public class RUN_STATUS_MEASURE
     {
         private static readonly string CONNECTED = "正在连接...";
@@ -176,6 +192,9 @@ namespace RenewEDSenderM.Support
 
         public static readonly string[] RUN_STAGE_ARRAY = { CONNECTED, VERIFY, REPORT, HEARTBEAT, INVALID };
     }
+    /// <summary>
+    /// 运行阶段枚举类型
+    /// </summary>
     public enum RUN_PHASE
     {
         CONNECTED,

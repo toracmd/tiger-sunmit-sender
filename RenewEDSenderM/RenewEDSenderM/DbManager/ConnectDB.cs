@@ -16,83 +16,9 @@ using System.Data.Common;
 /// </summary>
 namespace RenewEDSenderM.DbManager
 {
-    public class  Test
-    {
-        public static void connect()
-        {
-            ConnectAccessMDB conn = new ConnectAccessMDB();
-            conn.conn.Open();
-            conn.conn.Close();
-        }
-
-    }
-    public class AbstractConnect
-    {
-        //connection
-        public DbConnection conn;
-        //connectionstring
-       
-        //open
-        //close
-        //command
-    }
-    public class ConnectAccess : AbstractConnect
-    {
-        private static readonly string connStr = ConfigurationManager.AppSettings["ConnAccdb1"];
-
-        public DbConnection conn = new OleDbConnection(connStr);
-
-        //public DbCommand dbcmd = new OleDbCommand(
-
-    }
-    public class ConnectAccessMDB
-    {
-        private static readonly string connectionString = ConfigurationManager.AppSettings["ConnMDB1"];
-        public OleDbConnection conn;
-        public ConnectAccessMDB()
-        {
-            conn = new OleDbConnection(connectionString);
-        }
-        public int ExecuteSql(string cmdText)
-        {
-            int iret = -1;
-            if (conn == null)
-            {
-                return -1;
-            }
-            if (conn.State != ConnectionState.Open)
-            {
-                conn.Open();
-            }
-            OleDbCommand cmd = new OleDbCommand(cmdText, conn);
-            if (cmd != null)
-            {
-                return -1;
-            }
-            iret = cmd.ExecuteNonQuery();
-            return iret;
-        }
-        public DataSet GetDataSet(string cmdText)
-        {
-            LogManager.Logger.FuncEntryLog(cmdText);
-            if (conn == null)
-            {
-                LogManager.Logger.WriteErrorLog("Connect DB failed!");
-                return null;
-            }
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-            DataSet dataset = new DataSet();
-            OleDbDataAdapter adapter = new OleDbDataAdapter();
-            OleDbCommand cmd = new OleDbCommand(cmdText);
-            cmd.Connection = conn;
-            adapter.SelectCommand = cmd;
-            adapter.Fill(dataset);
-            LogManager.Logger.WriteDebugLog("Have get the dataset！");
-            LogManager.Logger.FuncExitLog();
-            return dataset;
-        }
-    }
+    /// <summary>
+    /// 访问MySQL数据库类
+    /// </summary>
     public class Connect
     {
         #region 成员变量
