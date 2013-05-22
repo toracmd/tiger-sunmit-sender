@@ -1,0 +1,12 @@
+2013-5-22号。
+1、需要捕获异常信息
+XMLRead.cs 28,66 Supprot.DataPackage dp = new Supp
+2、seq段赋值问题
+
+XMLRead.cs 28,66 Supprot.DataPackage dp = new Supp
+3、异常处理
+client.cs private static void Initial()
+4、定时上传 数据时间准备好
+//>>>> T.B.D. 测试数据
+5、Configuration.cs
+XML字段封装

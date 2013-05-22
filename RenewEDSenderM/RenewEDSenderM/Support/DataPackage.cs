@@ -9,36 +9,6 @@ using System.Collections;
 
 namespace RenewEDSenderM.Support
 {
-    class Testt
-    {
-        /// <summary>
-        /// 测试初始化1
-        /// </summary>
-        public static void testInit()
-        {
-            // 收到包
-            byte[] c = { 0x01, 0x02 };
-            
-            { 
-            }
-            //Test 初始化
-
-            DataPackage dp = new DataPackage() { Package = c };
-
-        }
-        /// <summary>
-        /// 测试初始化2
-        /// </summary>
-        public static void testInit2()
-        {
-            //发送包
-            int outi;
-            string str = "AD4E729DCD81551ABC7C2983C86D3C6A58A862EAB7762371A0F6A3C83FBDC8EC79D54004F3249D83EE1D8BBE3C906270C99C44D6CF4C7B049B643A7DA312DCC0C5600F18FBB91ADF460802532B9FD2C766EC60477242D78F9CAA0092DA2F1B0492D92951E9EF1E68096B7EA76C41ABF30EB177D316196693D66C3C8AB2C767ED461BABF65A472C57DE9C972B10EDE61E916F38D678C48ED447928E77EF77798D71F71B29AA4A2542C866B4A623FDC6F8838B2D3AD851EC9091C029072A49BB9DDFCCF2831858E339FE73534A65432E5AC65F3E0DF735510BCD64F8B7C2B1F264";
-            DataPackage dp = new DataPackage() { DataLength = 0x000000e4, Seq = 0x1692ec42, CRC=0x6441, DataBlock= DataPackage.GetBytes(str, out outi)};
-            byte [] package = dp.Package;
-        }
-        
-    }
     /// <summary>
     /// 问题：收到数据包、发送数据包，透明比特流与有意义的字段转换
     /// 目的：类似C语言结构体类型强转
@@ -73,7 +43,7 @@ namespace RenewEDSenderM.Support
         /// <summary>
         /// 收到的字节流进行解析验证
         /// 验证失败抛出异常
-        /// </summary>
+        /// </summary>        
         public byte[] Package
         {
             //收到一个包之后，映射到各字段
@@ -110,13 +80,8 @@ namespace RenewEDSenderM.Support
                 data_crc[data_crc.Length - 2] = tmp;
                 if (Encryption.CRC16(data_crc) != 0)
                     throw new DataPackageException(DataPackageException.ex_msg4_crc);
-                    Array.Copy(value, 12 + DataLength - 4, m_crc16, 0, 2);
-                    Array.Copy(value, 12 + DataLength - 4 + 2, m_tail, 0, 2);
-                //}
-                //catch (ArgumentException aex)
-                //{
-                //    throw 
-                //}
+                Array.Copy(value, 12 + DataLength - 4, m_crc16, 0, 2);
+                Array.Copy(value, 12 + DataLength - 4 + 2, m_tail, 0, 2);
             }
             //发送一个包时，发送整个段
             get
@@ -133,6 +98,9 @@ namespace RenewEDSenderM.Support
                 return bytes;
             }
         }
+        /// <summary>
+        /// 数据包头
+        /// </summary>
         public byte[] Head
         {
             set
@@ -146,6 +114,9 @@ namespace RenewEDSenderM.Support
                 return m_head;
             }
         }
+        /// <summary>
+        /// 数据包长度
+        /// </summary>
         public uint DataLength
         {
             get
@@ -162,6 +133,9 @@ namespace RenewEDSenderM.Support
                 m_dataLength = BitConverter.GetBytes(value);
             }
         }
+        /// <summary>
+        /// 数据包序号
+        /// </summary>
         public uint Seq
         {
             get
@@ -177,6 +151,9 @@ namespace RenewEDSenderM.Support
                 m_seq = BitConverter.GetBytes(value);
             }
         }
+        /// <summary>
+        /// 数据包数据字段
+        /// </summary>
         public byte[] DataBlock
         {
             get
@@ -200,6 +177,9 @@ namespace RenewEDSenderM.Support
 
             }
         }
+        /// <summary>
+        /// CRC16校验码
+        /// </summary>
         public UInt16 CRC
         {
             get
@@ -215,6 +195,9 @@ namespace RenewEDSenderM.Support
                 m_crc16 = BitConverter.GetBytes(value);
             }
         }
+        /// <summary>
+        /// 数据包尾
+        /// </summary>
 		public byte[] Tail
         {
             set
@@ -231,6 +214,12 @@ namespace RenewEDSenderM.Support
         #endregion
         #region 解包
         #endregion
+        /// <summary>
+        /// 将十六进制字符串转换为字节序列
+        /// </summary>
+        /// <param name="hexString"></param>
+        /// <param name="discarded"></param>
+        /// <returns></returns>
         public static byte[] GetBytes(string hexString, out int discarded)
         {
             discarded = 0;
@@ -263,16 +252,6 @@ namespace RenewEDSenderM.Support
                 j = j + 2;
             }
             return bytes;
-        }
-        public static void test()
-        {
-            byte[] m = { 0xe4, 0x00, 0x00, 0x00 };
-            uint u = BitConverter.ToUInt32(m, 0);
-            //初始化方式
-            DataPackage dp = new DataPackage() { Head = new byte[4]};
-            //string s = m.ToString();
-            //UInt32 u = Convert.ToUInt32(s, 10);
-            //uint uu = u;
         }
     }
 }

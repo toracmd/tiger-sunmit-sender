@@ -5,6 +5,9 @@ using System.Text;
 
 namespace RenewEDSenderM.Support
 {
+    /// <summary>
+    /// 数据包异常类
+    /// </summary>
     class DataPackageException : ApplicationException
     {
         string _message;

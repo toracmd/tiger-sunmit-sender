@@ -7,18 +7,6 @@ using log4net.Core;
 
 namespace RenewEDSenderM.LogManager
 {
-    class Test
-    {
-        private static readonly String connstring = System.Configuration.ConfigurationManager.AppSettings["ConnDBstring"];
-
-        private static string x;
-        public static String getConnString()
-        {
-            string tmp = connstring;
-            Logger.WriteInfoLog("AppSettings['Test'] get ok, is {0}", tmp);
-            return tmp;
-        }
-    }
     /// <summary>
     /// @class 方法信息类
     /// @brief 被调用方法的信息
@@ -26,25 +14,25 @@ namespace RenewEDSenderM.LogManager
     class InfoMethod
     {
         /// <summary>
-        /// 被调用方法
+        /// 有关方法和构造函数信息
         /// </summary>
         private MethodBase method;
         /// <summary>
-        /// 被调用方法所在文件
+        /// 方法的源文件名
         /// </summary>
         private String fileName;
         /// <summary>
-        /// 被调用处所处文件的行
+        /// 方法在源文件的行号
         /// </summary>
         private int lineNum;
         /// <summary>
-        /// 被调用处所处文件的列
+        /// 方法在源文件的列号
         /// </summary>
         private int columnNum;
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="m">方法</param>
+        /// <param name="m">方法信息</param>
         /// <param name="s">文件名</param>
         /// <param name="l">调用行</param>
         /// <param name="c">调用列</param>
@@ -191,8 +179,8 @@ namespace RenewEDSenderM.LogManager
         private static InfoMethod getMethodFromStack(int hierarchy)
         {
             hierarchy += 1;
-            // 获取堆栈
-            StackTrace strace = new StackTrace(true);
+            // 获取堆栈,构造函数参数true输出源文件行列信息否则不输出
+            StackTrace strace = new StackTrace(false);
             // 判断堆栈中总帧数
             int nFrameIndex = strace.FrameCount > hierarchy ? hierarchy : 0;
             // 从堆栈中获取当前帧
