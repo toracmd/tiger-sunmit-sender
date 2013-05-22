@@ -10,6 +10,8 @@ using System.Threading;
 using System.Messaging;
 using RenewEDSenderM.CommManager;
 using RenewEDSenderM.Support;
+using System.Runtime.InteropServices;
+using System.Timers;
 
 namespace RenewEDSenderWin
 {
@@ -91,6 +93,36 @@ namespace RenewEDSenderWin
 
         private Thread m_thread_recv_queue = null;
 
+        private System.Timers.Timer m_moniter_timer = new System.Timers.Timer();
+
+        private bool isNetAvailable;
+
+        public string NetWorkState
+        {
+            get
+            {
+                if (IsConnected())
+                {
+                    return "网络连接可用";
+                }
+                else
+                {
+                    return "网络连接不可用";
+                }
+            }
+        }
+        [DllImport("wininet.dll")]
+        private extern static bool InternetGetConnectedState(out int connectionDescription, int reservedValue);
+        public static bool IsConnected()
+        {
+
+            int desc = 0;
+
+            bool state = InternetGetConnectedState(out desc, 0);
+
+            return state;
+
+        }
         /// <summary>
         /// SenderUI构造函数
         /// </summary>
@@ -101,15 +133,23 @@ namespace RenewEDSenderWin
             btnSenderStop.Enabled = false;
             btnSenderRestart.Enabled = false;
 
+            //Computer c = new Computer();
+            //isNetAvailable = c.Network.IsAvailable;
+            txtBoxNetState.Text = NetWorkState;
+            //c.Network.NetworkAvailabilityChanged +=new NetworkAvailableEventHandler(Network_NetworkAvailabilityChanged);
+
+            m_moniter_timer.Elapsed +=new ElapsedEventHandler(MoniterTimer_Elapsed);
+            m_moniter_timer.Interval = 5 * 1000;    //5秒一次
+            m_moniter_timer.Enabled = true;
+            MsgQueueRecv();
             //建立消息队列接收线程
-            m_thread_recv_queue = new Thread(new ThreadStart(MsgQueueRecv));
+            //m_thread_recv_queue = new Thread(new ThreadStart(MsgQueueRecv));
             //启动消息队列接收线程
-            m_thread_recv_queue.Start();
+            //m_thread_recv_queue.Start();
 
             //方法一：不进行跨线程安全检查  
             //System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;  
         }
-
         /// <summary>
         /// 消息队列异步接收函数
         /// </summary>
@@ -168,6 +208,17 @@ namespace RenewEDSenderWin
                 msgq.BeginReceive();
             }
         }
+        private void MoniterTimer_Elapsed(object sender, EventArgs e)
+        {
+            if (m_isStart)
+            {
+                if (!CheckProcessExists())
+                {
+                    ManageControllerDelegate(SetBtnStopDisable);
+                }
+            }
+            ManageControllerDelegate(setTxtNetState);
+        }
         /// <summary>
         /// 启动按钮按下事件处理函数
         /// </summary>
@@ -188,6 +239,7 @@ namespace RenewEDSenderWin
                 //判断该进程是否已经启动
                 if (!CheckProcessExists())
                 {
+                    bool b = false;
                     //实例化一个进程对象
                     Process p = new Process();
                     //设置该进程对象关联的文件为发送服务
@@ -199,45 +251,44 @@ namespace RenewEDSenderWin
                     p.StartInfo.UseShellExecute = true;
                     //不在新窗口启动
                     p.StartInfo.CreateNoWindow = true;
-  
+
                     //设置进程退出时触发此事件
                     p.EnableRaisingEvents = true;
                     //添加进程退出消息处理函数
                     p.Exited += new EventHandler(SendProc_Exited);
                     //启动进程
-                    p.Start();
-                    //T.B.D. 是否等待该进程是否成功启动
-                    while (true)
+                    b = p.Start();
+                    if (b == true)
                     {
-                        Thread.Sleep(500);
-                        //if(p.)
-                        //启动成功则break
-                        //多次超时则throw
-                        break;
+                        //启动成功后，获取发送服务的进程号
+                        m_pid_sender = p.Id;
+                        //设置发送服务进程状态
+                        m_isStart = true;
+                        //设置UI按钮状态
+                        btnSenderStart.Enabled = false;
+                        btnSenderStop.Enabled = true;
+                        btnSenderRestart.Enabled = true;
+                        //监控发送服务进程状态
+                        //m_thread_monitor = new Thread(new ThreadStart(MonitorSendProc));
+                        //启动后台服务监视线程
+                        //m_thread_monitor.Start();
                     }
-                    
-                    
-                    //启动成功后，获取发送服务的进程号
-                    m_pid_sender = p.Id;
-                    //设置发送服务进程状态
-                    m_isStart = true;
-                    //设置UI按钮状态
-                    btnSenderStart.Enabled = false;
-                    btnSenderStop.Enabled = true;
-                    btnSenderRestart.Enabled = true;
                 }
-                //if (!CheckProcessExists())
-                //{
-                //    MessageBox.Show("启动失败");
-                //    isStart = false;
-                //    btnSenderStart.Enabled = true;
-                //    btnSenderStop.Enabled = false;
-                //    btnSenderRestart.Enabled = false;
-                //}
-                //监控发送服务进程状态
-                m_thread_monitor = new Thread(new ThreadStart(MonitorSendProc));
-                //启动后台服务监视线程
-                m_thread_monitor.Start();
+                else
+                {
+                    m_isStart = true;
+                    ManageControllerDelegate(SetBtnStartDisable);
+                }
+
+            }
+            catch (ArgumentOutOfRangeException argex)
+            {
+            }
+            catch (ThreadStateException threadex)
+            {
+            }
+            catch (OutOfMemoryException ooe)
+            {
             }
             catch (Exception ex)
             {
@@ -261,7 +312,12 @@ namespace RenewEDSenderWin
                     //T.B.D.这里可能得并发
                     m_isStart = false;
                     //后台服务进程失效则切换按钮状态
-                    btnStopDisableDelegate(btnStopDisable);
+                    ManageControllerDelegate(SetBtnStopDisable);
+                }
+                else
+                {
+                    m_isStart = true;
+                    ManageControllerDelegate(SetBtnStartDisable);
                 }
             }
         }
@@ -279,7 +335,6 @@ namespace RenewEDSenderWin
             {
                 //根据关联进程的主模块信息，判定该文件名进程是否启动
                 if (p.ProcessName == m_fileNameDesp)
-                //if (System.IO.Path.Combine(filePath, fileName) == p.MainModule.FileName)
                     return true;
             }
             return false;
@@ -301,31 +356,42 @@ namespace RenewEDSenderWin
         {
             try
             {
-                //根据进程号关闭该进程
-                Process p = Process.GetProcessById(m_pid_sender);
-                //T.B.D.异常情况
-                if (p.HasExited == false && p != null)
+                //获取指定文件名的所有进程对象
+                Process[] processes = Process.GetProcessesByName(m_fileNameDesp);
+                foreach (Process p in processes)
                 {
-                    //向该进程对象发送kill信号
-                    p.Kill();
-                    //释放资源
-                    p.Close();
+                    //根据关联进程的主模块信息，判定该文件名进程是否启动
+                    if (p.ProcessName == m_fileNameDesp)
+                    {
+                        p.Kill();
+                        p.Close();
+                        //m_thread_monitor.Abort();
+                        //m_thread_monitor = null;
+                    }
                 }
-                //Thread.Sleep(500);
+            }
+            catch (ThreadAbortException threadabortex)
+            { 
+            }
+            catch (ArgumentException argex)
+            {
             }
             catch (Exception ex)
             {
                 //进程关闭异常信息
-                MessageBox.Show("Exception:" + ex.Source + " " + ex.Message);
+                //MessageBox.Show("Exception:" + ex.Source + " " + ex.Message);
             }
-            //正确关闭后设置相关信息
-            if (!CheckProcessExists())
+            finally
             {
-                m_isStart = false;
-                Thread.Sleep(500);
-                btnSenderStart.Enabled = true;
-                btnSenderStop.Enabled = false;
-                btnSenderRestart.Enabled = false;
+                //正确关闭后设置相关信息
+                if (!CheckProcessExists())
+                {
+                    m_isStart = false;
+                    //Thread.Sleep(500);
+                    btnSenderStart.Enabled = true;
+                    btnSenderStop.Enabled = false;
+                    btnSenderRestart.Enabled = false;
+                }
             }
         }
 
@@ -344,7 +410,7 @@ namespace RenewEDSenderWin
         /// 按钮开关切换代理函数，跨线程操作安全考虑
         /// </summary>
         /// <param name="ExecuteFun"></param>
-        private void btnStopDisableDelegate(btnSwitchDelegateDef ExecuteFun)
+        private void ManageControllerDelegate(btnSwitchDelegateDef ExecuteFun)
         {
             //控件是否需要invoke
             if (this.InvokeRequired)
@@ -376,8 +442,9 @@ namespace RenewEDSenderWin
         /// <summary>
         /// 按钮开关切换函数，由代理完成
         /// </summary>
-        private void btnStopDisable()
+        private void SetBtnStopDisable()
         {
+
             //设置按钮状态
             btnSenderStart.Enabled = true;
             btnSenderStop.Enabled = false;
@@ -388,7 +455,17 @@ namespace RenewEDSenderWin
 
             //T.B.D.提示框？
         }
+        private void SetBtnStartDisable()
+        {
+            btnSenderStart.Enabled = false;
+            btnSenderStop.Enabled = true;
+            btnSenderRestart.Enabled = true;
+        }
 
+        private void setTxtNetState()
+        {
+            txtBoxNetState.Text = NetWorkState;
+        }
         /// <summary>
         /// 消息处理函数，由代理完成
         /// </summary>
@@ -424,10 +501,13 @@ namespace RenewEDSenderWin
         /// </summary>
         private void RestartProcessSend()
         {
+            object o = new object();
+            Monitor.Enter(o);
             //关闭发送服务进程
             StopProcessSend();
             //启动发送服务进程
             StartProcessSend();
+            Monitor.Exit(o);
         }
         /// <summary>
         /// 主窗口退出时，自动停止未关闭的进程

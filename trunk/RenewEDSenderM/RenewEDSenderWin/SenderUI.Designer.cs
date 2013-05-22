@@ -50,10 +50,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblAesKey = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtBoxConnStatus = new System.Windows.Forms.TextBox();
+            this.txtBoxNetState = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.txtBoxRunPhase = new System.Windows.Forms.TextBox();
+            this.txtBoxConnStatus = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBoxCtrl.SuspendLayout();
             this.groupBoxKey.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -67,6 +69,7 @@
             this.btnSenderStart.TabIndex = 0;
             this.btnSenderStart.Text = "启动发送服务";
             this.btnSenderStart.UseVisualStyleBackColor = true;
+            this.btnSenderStart.UseWaitCursor = false;
             this.btnSenderStart.Click += new System.EventHandler(this.btnSenderStart_Click);
             // 
             // btnSenderStop
@@ -77,6 +80,7 @@
             this.btnSenderStop.TabIndex = 1;
             this.btnSenderStop.Text = "停止发送服务";
             this.btnSenderStop.UseVisualStyleBackColor = true;
+            this.btnSenderStop.UseWaitCursor = false;
             this.btnSenderStop.Click += new System.EventHandler(this.btnSenderStop_Click);
             // 
             // btnSenderRestart
@@ -87,6 +91,7 @@
             this.btnSenderRestart.TabIndex = 2;
             this.btnSenderRestart.Text = "重启发送服务";
             this.btnSenderRestart.UseVisualStyleBackColor = true;
+            this.btnSenderRestart.UseWaitCursor = false;
             this.btnSenderRestart.Click += new System.EventHandler(this.btnSenderRestart_Click);
             // 
             // groupBoxCtrl
@@ -100,6 +105,7 @@
             this.groupBoxCtrl.TabIndex = 3;
             this.groupBoxCtrl.TabStop = false;
             this.groupBoxCtrl.Text = "数据发送服务";
+            this.groupBoxCtrl.UseWaitCursor = false;
             // 
             // groupBoxKey
             // 
@@ -125,6 +131,7 @@
             this.groupBoxKey.TabIndex = 4;
             this.groupBoxKey.TabStop = false;
             this.groupBoxKey.Text = "配置管理";
+            this.groupBoxKey.UseWaitCursor = false;
             // 
             // txtBoxProId
             // 
@@ -133,6 +140,7 @@
             this.txtBoxProId.Size = new System.Drawing.Size(182, 21);
             this.txtBoxProId.TabIndex = 15;
             this.txtBoxProId.Text = "110000015";
+            this.txtBoxProId.UseWaitCursor = false;
             // 
             // txtBoxGateId
             // 
@@ -141,6 +149,7 @@
             this.txtBoxGateId.Size = new System.Drawing.Size(182, 21);
             this.txtBoxGateId.TabIndex = 14;
             this.txtBoxGateId.Text = "1100000140202";
+            this.txtBoxGateId.UseWaitCursor = false;
             // 
             // label6
             // 
@@ -150,6 +159,7 @@
             this.label6.Size = new System.Drawing.Size(83, 12);
             this.label6.TabIndex = 13;
             this.label6.Text = "采集装置编号:";
+            this.label6.UseWaitCursor = false;
             // 
             // label5
             // 
@@ -159,6 +169,7 @@
             this.label5.Size = new System.Drawing.Size(59, 12);
             this.label5.TabIndex = 12;
             this.label5.Text = "项目编号:";
+            this.label5.UseWaitCursor = false;
             // 
             // txtBoxPort
             // 
@@ -167,6 +178,7 @@
             this.txtBoxPort.Size = new System.Drawing.Size(182, 21);
             this.txtBoxPort.TabIndex = 11;
             this.txtBoxPort.Text = "13145";
+            this.txtBoxPort.UseWaitCursor = false;
             // 
             // txtBoxIP
             // 
@@ -175,6 +187,7 @@
             this.txtBoxIP.Size = new System.Drawing.Size(182, 21);
             this.txtBoxIP.TabIndex = 10;
             this.txtBoxIP.Text = "210.77.14.218";
+            this.txtBoxIP.UseWaitCursor = false;
             // 
             // label4
             // 
@@ -184,6 +197,7 @@
             this.label4.Size = new System.Drawing.Size(77, 12);
             this.label4.TabIndex = 9;
             this.label4.Text = "Server Port:";
+            this.label4.UseWaitCursor = false;
             // 
             // label3
             // 
@@ -193,6 +207,7 @@
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 8;
             this.label3.Text = "Server IP:";
+            this.label3.UseWaitCursor = false;
             // 
             // btnCancel
             // 
@@ -202,6 +217,7 @@
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "取消更新";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseWaitCursor = false;
             // 
             // btnUpdate
             // 
@@ -211,6 +227,7 @@
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "更新配置";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseWaitCursor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtBoxMd5Key
@@ -220,6 +237,7 @@
             this.txtBoxMd5Key.Size = new System.Drawing.Size(182, 21);
             this.txtBoxMd5Key.TabIndex = 5;
             this.txtBoxMd5Key.Text = "0000000000123456";
+            this.txtBoxMd5Key.UseWaitCursor = false;
             // 
             // txtBoxAesIV
             // 
@@ -228,6 +246,7 @@
             this.txtBoxAesIV.Size = new System.Drawing.Size(182, 21);
             this.txtBoxAesIV.TabIndex = 4;
             this.txtBoxAesIV.Text = "0000000000123456";
+            this.txtBoxAesIV.UseWaitCursor = false;
             // 
             // txtBoxAesKey
             // 
@@ -236,6 +255,7 @@
             this.txtBoxAesKey.Size = new System.Drawing.Size(182, 21);
             this.txtBoxAesKey.TabIndex = 3;
             this.txtBoxAesKey.Text = "0000000000123456";
+            this.txtBoxAesKey.UseWaitCursor = false;
             // 
             // label2
             // 
@@ -245,6 +265,7 @@
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "MD5 Key:";
+            this.label2.UseWaitCursor = false;
             // 
             // label1
             // 
@@ -254,6 +275,7 @@
             this.label1.Size = new System.Drawing.Size(47, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "AES IV:";
+            this.label1.UseWaitCursor = false;
             // 
             // lblAesKey
             // 
@@ -263,9 +285,12 @@
             this.lblAesKey.Size = new System.Drawing.Size(53, 12);
             this.lblAesKey.TabIndex = 0;
             this.lblAesKey.Text = "AES Key:";
+            this.lblAesKey.UseWaitCursor = false;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtBoxNetState);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtBoxRunPhase);
             this.groupBox1.Controls.Add(this.txtBoxConnStatus);
             this.groupBox1.Controls.Add(this.label8);
@@ -276,24 +301,35 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "服务状态";
+            this.groupBox1.UseWaitCursor = false;
             // 
-            // label7
+            // txtBoxNetState
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 61);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 12);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "运行阶段:";
+            this.txtBoxNetState.Enabled = false;
+            this.txtBoxNetState.Location = new System.Drawing.Point(88, 91);
+            this.txtBoxNetState.Name = "txtBoxNetState";
+            this.txtBoxNetState.Size = new System.Drawing.Size(146, 21);
+            this.txtBoxNetState.TabIndex = 5;
+            this.txtBoxNetState.UseWaitCursor = false;
             // 
-            // label8
+            // label9
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 34);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 12);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "连接状态:";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(23, 94);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 12);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "网络状态:";
+            this.label9.UseWaitCursor = false;
+            // 
+            // txtBoxRunPhase
+            // 
+            this.txtBoxRunPhase.Enabled = false;
+            this.txtBoxRunPhase.Location = new System.Drawing.Point(88, 57);
+            this.txtBoxRunPhase.Name = "txtBoxRunPhase";
+            this.txtBoxRunPhase.Size = new System.Drawing.Size(146, 21);
+            this.txtBoxRunPhase.TabIndex = 3;
+            this.txtBoxRunPhase.UseWaitCursor = false;
             // 
             // txtBoxConnStatus
             // 
@@ -303,13 +339,25 @@
             this.txtBoxConnStatus.Size = new System.Drawing.Size(146, 21);
             this.txtBoxConnStatus.TabIndex = 2;
             // 
-            // txtBoxRunPhase
+            // label8
             // 
-            this.txtBoxRunPhase.Enabled = false;
-            this.txtBoxRunPhase.Location = new System.Drawing.Point(88, 57);
-            this.txtBoxRunPhase.Name = "txtBoxRunPhase";
-            this.txtBoxRunPhase.Size = new System.Drawing.Size(146, 21);
-            this.txtBoxRunPhase.TabIndex = 3;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 12);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "连接状态:";
+            this.label8.UseWaitCursor = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 61);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 12);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "运行阶段:";
+            this.label7.UseWaitCursor = false;
             // 
             // SenderUI
             // 
@@ -319,6 +367,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxKey);
             this.Controls.Add(this.groupBoxCtrl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SenderUI";
             this.Text = "太阳能光伏发送控制窗口";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SenderUI_FormClosed);
@@ -359,6 +409,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtBoxRunPhase;
         private System.Windows.Forms.TextBox txtBoxConnStatus;
+        private System.Windows.Forms.TextBox txtBoxNetState;
+        private System.Windows.Forms.Label label9;
     }
 }
 

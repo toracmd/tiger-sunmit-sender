@@ -514,7 +514,7 @@ namespace RenewEDSenderM.DbManager
     {
         public static void Test()
         {
-            int i = 3;
+            int i = 1;
             switch(i)
             {
                 case 1:
@@ -522,7 +522,8 @@ namespace RenewEDSenderM.DbManager
                     DateTime date_send = new DateTime(2013, 4, 28, 19, 0, 0);   //2013-04-28 19:00:00
                     TimeSpan ts = new TimeSpan(2, 0, 0);    //2小时的间隔
                     History_Data hd;
-                    DataDump.CalculateAverage(date_send, ts, out hd);
+                    DataRow[] dr = DataDump.CalculateAverage(date_send, ts);
+                    DataDump.WriteToHisDb(date_send, dr, out hd);
                     DataDump.update_Upload(hd.id);
                     break;
                 //更新发送后的数据
@@ -552,8 +553,8 @@ namespace RenewEDSenderM.DbManager
         /// </summary>
         /// <param name="FixedTime">定时发送时刻</param>
         /// <param name="FixedCycleT">定时发送周期</param>
-        /// <param name="insertedHisData">刚插入的历史数据</param>
-        public static void CalculateAverage(DateTime FixedTime, TimeSpan FixedCycleT, out History_Data insertedHisData)
+        /// 
+        public static DataRow[] CalculateAverage(DateTime FixedTime, TimeSpan FixedCycleT)
         {
             //从采集数据库中提取区间[dt-nCycle,dt]内的监测值
             
@@ -587,11 +588,11 @@ namespace RenewEDSenderM.DbManager
                 + " and SECONDF >= @SECOND_L and SECONDF <= @SECONDF_H "
                 + ";";
             //SQL语句 计算发电量
-            string sql2 = @"select DATA order by DATA desc from " + tbl_name_collect 
+            string sql2 = @"select DATA  from " + tbl_name_collect 
                 + " where VARIANTNAME=@VARIANTNAME and HOURF >= @HOUR_L and HOURF <= @HOUR_H "
                 + " and MINUTEF >= @MINUTE_L and MINUTEF <= @MINUTE_H "
                 + " and SECONDF >= @SECOND_L and SECONDF <= @SECONDF_H "
-                + ";";
+                + " order by DATA desc ;";
             //平行于光伏组件的太阳辐照度 总辐射 气象仪_3
             OleDbParameter[] parameters_1  = {
                 new OleDbParameter("@VARIANTNAME",  "气象仪_3"),
@@ -647,9 +648,21 @@ namespace RenewEDSenderM.DbManager
             {
                 if (d == null)
                 {
-                    insertedHisData = null;
-                    return;
+                    LogManager.Logger.WriteWarnLog("采集数据出错，四个指标不全");
+                    return null;
                 }
+            }
+            return dr;
+            //WriteToHisDb(FixedTime, dr, out insertedHisData);
+        }
+
+        public static void WriteToHisDb(DateTime FixedTime, DataRow[] dr, out History_Data insertedHisData)
+        {
+            if (dr == null)
+            {
+                //
+                insertedHisData = null;
+                return;
             }
             string sql_dump = "insert into tbl_his_upload(ValueA, ValueB, ValueC, ValueD, timestamp_sendCycle, timestamp_upload, isupload) values(@ValueA, @ValueB, @ValueC, @ValueD, @timestamp_sendCycle, @timestamp_sendCycle, false)";
             OleDbParameter[] params_dump = { 
