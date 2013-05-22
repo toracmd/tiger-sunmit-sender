@@ -27,6 +27,9 @@ namespace RenewEDSenderM.CommManager
         private static Configuration config = null;
         private static bool synchronize = false;
         private static bool isConnected = false;
+        private static bool isCreatThread = false;
+        private static bool isCreatReport = false;
+
 
         static void Main(string[] args)
         {
@@ -57,19 +60,28 @@ namespace RenewEDSenderM.CommManager
 	                ///创建socket并连接到服务器
 	                c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
 	                Console.WriteLine("Conneting…");
+                    LogManager.Logger.WriteInfoLog("Conneting…");
 	                c.Connect(ipe);//连接到服务器
 
 	                //Rereport();
 	                //失败数据重传
-	                Thread oThread = new Thread(new ThreadStart(Rereport));
-	                oThread.Start();
+                    if (isCreatThread == false)
+                    {
+                        Thread oThread = new Thread(new ThreadStart(Rereport));
+                        isCreatThread = true;
+                        oThread.Start();
+                    }
 
 
 	                //定时上报数据，30分钟发一次
-	                System.Timers.Timer reportTimer = new System.Timers.Timer();
-	                reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
-	                reportTimer.Interval = Convert.ToInt32(config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
-	                reportTimer.Enabled = true;
+                    if (isCreatReport == false)
+                    {
+                        System.Timers.Timer reportTimer = new System.Timers.Timer();
+                        reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
+                        reportTimer.Interval = Convert.ToInt32(config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
+                        reportTimer.Enabled = true;
+                        isCreatReport = true;
+                    }
 
 	                //进行发送相关操作
 	                while (true)
@@ -85,10 +97,12 @@ namespace RenewEDSenderM.CommManager
 	                        {
 	                            c.Close();
 	                            Console.Write("Closing Used Link....");
+                                LogManager.Logger.WriteInfoLog("Closing Used Link....");
 	                        }
 	                        ///创建socket并连接到服务器
 	                        c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
-	                        Console.WriteLine("Conneting…");
+                            Console.WriteLine("Conneting…");
+                            LogManager.Logger.WriteInfoLog("Conneting....");
 	                        c.Connect(ipe);//连接到服务器
 
 	                    }
@@ -99,11 +113,13 @@ namespace RenewEDSenderM.CommManager
 	            {
 	                LogManager.Logger.WriteWarnLog("argumentNullException: {0}", e);
 	                Console.WriteLine("argumentNullException: {0}", e);
+                    LogManager.Logger.WriteWarnLog("argumentNullException: {0}", e);
 	            }
 	            catch (SocketException e)
 	            {
 	                LogManager.Logger.WriteWarnLog("SocketException:{0}", e);
 	                Console.WriteLine("SocketException:{0}", e);
+                    LogManager.Logger.WriteWarnLog("SocketException:{0}", e);
 	            }
 	            c.Close();
 			}
@@ -148,6 +164,7 @@ namespace RenewEDSenderM.CommManager
             input_time = "";
 
             Console.Write("Verifying.....");
+            LogManager.Logger.WriteInfoLog("Verifying.....");
             ///向服务器发送信息
             string recvStr = "";
             byte[] recvBytes = new byte[1024];
@@ -175,6 +192,7 @@ namespace RenewEDSenderM.CommManager
                 if (try_count >= 5)
                 {
                     Console.Write("Try 5 times!");
+                    LogManager.Logger.WriteInfoLog("Try 5 times!");
                     try_count = 0;
                     return false;
                 }
@@ -217,6 +235,7 @@ namespace RenewEDSenderM.CommManager
                 if (try_count >= 5)
                 {
                     Console.Write("Try 5 times!");
+                    LogManager.Logger.WriteInfoLog("Try 5 times!");
                     try_count = 0;
                     return false;
                 }
@@ -279,9 +298,6 @@ namespace RenewEDSenderM.CommManager
             notifyTimer.Elapsed += new ElapsedEventHandler(NotifyEvent);
             notifyTimer.Interval = 60 * 1000;    //配置文件中配置的秒数,60秒一次
 
-            //新建线程来进行失败数据重传
-            Thread oThread = new Thread(new ThreadStart(Rereport));
-            oThread.Start();
 
             XmlProcessManager.XMLRead xmlread = new XmlProcessManager.XMLRead();
             XmlProcessManager.Order order;
@@ -313,6 +329,7 @@ namespace RenewEDSenderM.CommManager
                 {
                     notifyTimer.Enabled = false;    //心跳包超时，需要重新连接服务器端，停止继续发送数据
                     Console.Write("HeartBeat Time out!");//可以写入log，进行记录
+                    LogManager.Logger.WriteInfoLog("HeartBeat Time out!");
                     return;                         //直接返回，重新认证
                 }
 
@@ -353,6 +370,7 @@ namespace RenewEDSenderM.CommManager
         private static bool SendMsgB(byte[] sendByte)
         {
             Console.WriteLine("Send Message");
+            LogManager.Logger.WriteInfoLog("Send Message");
             int sendLength;
             sendLength = c.Send(sendByte, sendByte.Length, 0);//发送信息
             if (sendLength == sendByte.Length)
@@ -388,7 +406,8 @@ namespace RenewEDSenderM.CommManager
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
             xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             xmlwrite.Notify();
-            SendMsgB(xmlwrite.BOutput());
+            if(SendMsgB(xmlwrite.BOutput())== false)
+                isConnected = false;
         }
 
         //定时发送数据，需要收集数据
@@ -402,13 +421,42 @@ namespace RenewEDSenderM.CommManager
                 //如果网络状况良好，则发送数据
                 if (isConnected)
                 {
-                    XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-                    xmlwrite.Input(xmlStr, project_id, gateway_id, config.key, config.iv);
-                    //这部分需要采集数据进行数据录入
-                    DataInfo[] input_info = new DataInfo[2];
+                    //XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
+                    //xmlwrite.Input(xmlStr, project_id, gateway_id, config.key, config.iv);
+                    ////这部分需要采集数据进行数据录入
+                    ////>>>> T.B.D. 测试数据
+                    ////if(true)
+                    ////{
+                    //    DateTime date_send = new DateTime(2013, 4, 28, 19, 0, 0);   //2013-04-28 19:00:00
+                    //    TimeSpan ts = new TimeSpan(2, 0, 0);    //2小时的间隔
+                    //    DbManager.History_Data hd_array;
+                    //    DbManager.DataDump.CalculateAverage(date_send, ts);
+                    //    string input_parse = "yes";
+                    //    DataInfo[] input_info = new DataInfo[4];
+                    //    for (int i = 0; i < 4; i++)
+                    //        input_info[i] = new DataInfo();
+                    //    string[] ids = GenerateFunID(config.areacode, config.programid, config.techtype, config.syscode);
+                    //    input_info[0].data = Convert.ToString(hd_array.ValueA);
+                    //    input_info[0].mid = ids[0];
+                    //    input_info[0].fid = ids[0];
+                    //    input_info[1].data = Convert.ToString(hd_array.ValueB);
+                    //    input_info[1].mid = ids[1];
+                    //    input_info[1].fid = ids[1];
+                    //    input_info[2].data = Convert.ToString(hd_array.ValueC);
+                    //    input_info[2].mid = ids[2];
+                    //    input_info[2].fid = ids[2];
+                    //    input_info[3].data = Convert.ToString(hd_array.ValueD);
+                    //    input_info[3].mid = ids[3];
+                    //    input_info[3].fid = ids[3];
+                    ////}
+                    ////<<<<
+                    //Random random = new Random();
+                    //int sequence = random.Next(10000000, 99999999);
+                    //string sequenceStr = sequence.ToString();
+                    //xmlwrite.Report(sequenceStr, input_parse, hd_array.timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
 
-                    xmlwrite.Report(input_sequence, input_parse, input_time, input_info);
-                    SendMsgB(xmlwrite.BOutput());
+                    //if(SendMsgB(xmlwrite.BOutput()))
+                    //    DbManager.DataDump.update_Upload(hd_array.id);
                 }
   
             }
@@ -471,7 +519,10 @@ namespace RenewEDSenderM.CommManager
                     input_info[3].data = Convert.ToString(hd_array[i].ValueD);
                     input_info[3].mid = ids[3];
                     input_info[3].fid = ids[3];
-                    xmlwrite.Query(input_sequence, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
+                    Random random = new Random();
+                    int sequence = random.Next(10000000, 99999999);
+                    string sequenceStr = sequence.ToString();
+                    xmlwrite.Query(sequenceStr, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
                     if(SendMsgB(xmlwrite.BOutput()))
                         DbManager.DataDump.update_Upload(hd_array[i].id);
                 }
@@ -484,8 +535,11 @@ namespace RenewEDSenderM.CommManager
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
             xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             xmlwrite.Period_Ack();
+			/*
             string period_string = xmlwrite.Output();
             SendMsg(period_string);
+			*/
+			SendMsgB(xmlwrite.BOutput());
         }
 
         //通过获取的服务器的设置密钥命令来进行密钥的配置
@@ -534,7 +588,10 @@ namespace RenewEDSenderM.CommManager
                             input_info[3].data = Convert.ToString(hd_array[i].ValueD);
                             input_info[3].mid = ids[3];
                             input_info[3].fid = ids[3];
-                            xmlwrite.Query(input_sequence, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
+                            Random random = new Random();
+                            int sequence = random.Next(10000000,99999999);
+                            string sequenceStr = sequence.ToString();
+                            xmlwrite.Report(sequenceStr, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
                             if (SendMsgB(xmlwrite.BOutput()))
                                 DbManager.DataDump.update_Upload(hd_array[i].id);
                         }

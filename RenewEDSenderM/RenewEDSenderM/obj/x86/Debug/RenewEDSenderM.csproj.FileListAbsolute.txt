@@ -31,3 +31,4 @@ D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSende
 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.application
 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.exe
 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.pdb
+D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\bin\Debug\RenewEDSenderM.XML
