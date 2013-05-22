@@ -23,14 +23,25 @@ namespace RenewEDSenderM.XmlProcessManager
 
         private static XmlDocument xmlDoc;
 
-        public void BInput(byte[] rByte,string AES_KEY,string AES_IV)
+        public bool BInput(byte[] rByte,string AES_KEY,string AES_IV)
         {
-            Support.DataPackage dp = new Support.DataPackage() { Package = rByte };
+            Support.DataPackage dp = null;
+            try
+            {
+                dp = new Support.DataPackage() { Package = rByte };
+            }
+            catch (RenewEDSenderM.Support.DataPackageException e)
+            {
+                LogManager.Logger.WriteWarnLog("The format of package is illegal:{0}",e);
+                return false;
+            }
+
             Support.Encryption.AES_KEY = Encoding.ASCII.GetBytes(AES_KEY);
             Support.Encryption.AES_IV = Encoding.ASCII.GetBytes(AES_IV);
             string rStr = Support.Encryption.DecryptStringFromBytes_Aes(dp.DataBlock);
             string rStr1 = Support.Encryption.RemoveZeroPaddings(rStr);
             Input(rStr1);
+            return true;
         }
         public void Input(string str)
         {

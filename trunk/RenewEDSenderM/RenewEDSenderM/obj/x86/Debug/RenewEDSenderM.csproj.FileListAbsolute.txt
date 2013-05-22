@@ -24,7 +24,6 @@ D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\bin\Debug\MySql.Data.dll
 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\bin\Debug\log4net.xml
 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.Properties.Resources.resources
-D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.SenderUI.resources
 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\ResGen.read.1.tlog
 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\ResGen.write.1.tlog
 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\obj\x86\Debug\RenewEDSenderM.TrustInfo.xml
