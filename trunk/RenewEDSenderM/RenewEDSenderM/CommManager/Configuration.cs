@@ -16,6 +16,7 @@ namespace RenewEDSenderM.CommManager
     //读取配置文件中的配置参数，并可以实时修改配置参数
     public class SetConfig
     {
+        
         private static string m_server_ip = "";
         private static string m_server_port = "";
         private static string m_client_project_id = "";
@@ -184,6 +185,24 @@ namespace RenewEDSenderM.CommManager
                         {
                             m_client_syscode = xc.InnerText;
                             config.syscode = m_client_syscode;
+                            continue;
+                        }
+                        if (xc.Name == "Meter")
+                        {
+                            MeterInfo meterInfo = new MeterInfo();
+                            meterInfo.MA_ProgramId = xc.Attributes["MA_ProgramId"].Value;
+                            meterInfo.MA_Code1 = xc.Attributes["MA_Code1"].Value;
+                            meterInfo.MA_Code2 = xc.Attributes["MA_Code2"].Value;
+                            meterInfo.MB_ProgramId = xc.Attributes["MB_ProgramId"].Value;
+                            meterInfo.MB_Code1 = xc.Attributes["MB_Code1"].Value;
+                            meterInfo.MB_Code2 = xc.Attributes["MB_Code2"].Value;
+                            meterInfo.MC_ProgramId = xc.Attributes["MC_ProgramId"].Value;
+                            meterInfo.MC_Code1 = xc.Attributes["MC_Code1"].Value;
+                            meterInfo.MC_Code2 = xc.Attributes["MC_Code2"].Value;
+                            meterInfo.MD_ProgramId = xc.Attributes["MD_ProgramId"].Value;
+                            meterInfo.MD_Code1 = xc.Attributes["MD_Code1"].Value;
+                            meterInfo.MD_Code2 = xc.Attributes["MD_Code2"].Value;
+                            config.meterInfo = meterInfo;
                             continue;
                         }
                     }
@@ -358,6 +377,30 @@ namespace RenewEDSenderM.CommManager
                             m_client_syscode = config.syscode;
                             xct.InnerText = m_client_syscode;
                             continue;
+                        }
+                        if (xc.Name == "Meter")
+                        {
+                            XmlElement xct = (XmlElement)xc;
+                            MeterInfo meterInfo = config.meterInfo;
+
+                            xct.SetAttribute("MA_ProgramId", meterInfo.MA_ProgramId);
+                            xct.SetAttribute("MA_Code1", meterInfo.MA_Code1);
+                            xct.SetAttribute("MA_Code2", meterInfo.MA_Code2);
+
+                            xct.SetAttribute("MB_ProgramId", meterInfo.MB_ProgramId);
+                            xct.SetAttribute("MB_Code1", meterInfo.MB_Code1);
+                            xct.SetAttribute("MB_Code2", meterInfo.MB_Code2);
+
+                            xct.SetAttribute("MC_ProgramId", meterInfo.MC_ProgramId);
+                            xct.SetAttribute("MC_Code1", meterInfo.MC_Code1);
+                            xct.SetAttribute("MC_Code2", meterInfo.MC_Code2);
+
+                            xct.SetAttribute("MD_ProgramId", meterInfo.MD_ProgramId);
+                            xct.SetAttribute("MD_Code1", meterInfo.MD_Code1);
+                            xct.SetAttribute("MD_Code2", meterInfo.MD_Code2);
+
+                            continue;
+
                         }
                     }
                 }
@@ -554,6 +597,30 @@ namespace RenewEDSenderM.CommManager
                                 xmlDoc.Save(config_path);
                                 return;
                             }
+                            if (xc.Name == "Meter")
+                            {
+                                XmlElement xct = (XmlElement)xc;
+                                MeterInfo meterInfo = config.meterInfo;
+
+                                xct.SetAttribute("MA_ProgramId", meterInfo.MA_ProgramId);
+                                xct.SetAttribute("MA_Code1", meterInfo.MA_Code1);
+                                xct.SetAttribute("MA_Code2", meterInfo.MA_Code2);
+
+                                xct.SetAttribute("MB_ProgramId", meterInfo.MB_ProgramId);
+                                xct.SetAttribute("MB_Code1", meterInfo.MB_Code1);
+                                xct.SetAttribute("MB_Code2", meterInfo.MB_Code2);
+
+                                xct.SetAttribute("MC_ProgramId", meterInfo.MC_ProgramId);
+                                xct.SetAttribute("MC_Code1", meterInfo.MC_Code1);
+                                xct.SetAttribute("MC_Code2", meterInfo.MC_Code2);
+
+                                xct.SetAttribute("MD_ProgramId", meterInfo.MD_ProgramId);
+                                xct.SetAttribute("MD_Code1", meterInfo.MD_Code1);
+                                xct.SetAttribute("MD_Code2", meterInfo.MD_Code2);
+
+                                xmlDoc.Save(config_path);
+                                return ;
+                            }
                         }
                     }
                 }
@@ -585,5 +652,25 @@ namespace RenewEDSenderM.CommManager
         public string programid = "";
         public string techtype = "";
         public  string syscode = "";
+        public MeterInfo meterInfo;
+    }
+    public class MeterInfo
+    {
+        public string MA_ProgramId="";
+        public string MA_Code1="";
+        public string MA_Code2="";
+
+        public string MB_ProgramId = "";
+        public string MB_Code1 = "";
+        public string MB_Code2 = "";
+
+        public string MC_ProgramId = "";
+        public string MC_Code1 = "";
+        public string MC_Code2 = "";
+
+        public string MD_ProgramId = "";
+        public string MD_Code1 = "";
+        public string MD_Code2 = "";
+
     }
 }

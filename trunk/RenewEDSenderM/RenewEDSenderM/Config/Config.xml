@@ -13,6 +13,10 @@
     <Program_id></Program_id>           <!--项目编码-->
     <Tech_type></Tech_type>             <!--技术类型-->
     <Sys_code></Sys_code>               <!--系统编码-->
+    <Meter  MA_ProgramId="" MA_Code1="" MA_Code2=""
+           MB_ProgramId="" MB_Code1="" MB_Code2="" 
+           MC_ProgramId="" MC_Code1="" MC_Code2="" 
+           MD_ProgramId="" MD_Code1="" MD_Code2="" ></Meter>                     <!--Meter的相关参数-->
     <NotifyTime></NotifyTime>           <!--心跳数据包发送间隔-->
     <ReportTime>30</ReportTime>           <!--数据包定时发送间隔-->
     <VerifyTime></VerifyTime>           <!--认证数据超时发送间隔-->

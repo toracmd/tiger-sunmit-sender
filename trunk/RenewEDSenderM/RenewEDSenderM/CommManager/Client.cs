@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Timers;
 using System.Threading;
 using System.Runtime.InteropServices;
+using System.Data;
 
 
 
@@ -21,7 +22,7 @@ namespace RenewEDSenderM.CommManager
         private static string project_id = "110000015";
         private static string gateway_id = "1100000140202";
         private static string input_sequence = "000000";
-        private static string input_parse = "";
+        private static string input_parse = "yes";
         private static string input_time = "";
         private static int try_count = 0;
         private static Configuration config = null;
@@ -29,6 +30,7 @@ namespace RenewEDSenderM.CommManager
         private static bool isConnected = false;
         private static bool isCreatThread = false;
         private static bool isCreatReport = false;
+        private static Mutex gM = new Mutex();
 
 
         static void Main(string[] args)
@@ -68,21 +70,42 @@ namespace RenewEDSenderM.CommManager
                     if (isCreatThread == false)
                     {
                         Thread oThread = new Thread(new ThreadStart(Rereport));
-                        isCreatThread = true;
-                        oThread.Start();
+                        if (oThread != null)
+                        {
+                            isCreatThread = true;
+                            oThread.Start();
+                            LogManager.Logger.WriteInfoLog("reReport process is created!");
+                        }
+                        else
+                        {
+                            LogManager.Logger.WriteWarnLog("No reReport process is created!");
+							continue;
+                        }
                     }
 
-
-	                //定时上报数据，30分钟发一次
-                    if (isCreatReport == false)
+                    try
                     {
-                        System.Timers.Timer reportTimer = new System.Timers.Timer();
-                        reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
-                        reportTimer.Interval = Convert.ToInt32(config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
-                        reportTimer.Enabled = true;
-                        isCreatReport = true;
+                        //定时上报数据，30分钟发一次
+                        if (isCreatReport == false)
+                        {
+                            System.Timers.Timer reportTimer = new System.Timers.Timer();
+                            reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
+                            reportTimer.Interval = Convert.ToInt32(config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
+                            reportTimer.Enabled = true;
+                            isCreatReport = true;
+                            LogManager.Logger.WriteInfoLog("Report process is created!");
+                        }
                     }
-
+                    catch(ArgumentException e)
+                    {
+                        LogManager.Logger.WriteWarnLog("Report process is not created!,ArgumentException:{0}",e);
+						continue;
+                    }
+                    catch(ObjectDisposedException e)
+                    {
+                        LogManager.Logger.WriteWarnLog("Report process is not created!,ObjectDisposedException:{0}", e);
+						continue;
+                    }
 	                //进行发送相关操作
 	                while (true)
 	                {
@@ -113,13 +136,11 @@ namespace RenewEDSenderM.CommManager
 	            {
 	                LogManager.Logger.WriteWarnLog("argumentNullException: {0}", e);
 	                Console.WriteLine("argumentNullException: {0}", e);
-                    LogManager.Logger.WriteWarnLog("argumentNullException: {0}", e);
 	            }
 	            catch (SocketException e)
 	            {
 	                LogManager.Logger.WriteWarnLog("SocketException:{0}", e);
 	                Console.WriteLine("SocketException:{0}", e);
-                    LogManager.Logger.WriteWarnLog("SocketException:{0}", e);
 	            }
 	            c.Close();
 			}
@@ -131,7 +152,15 @@ namespace RenewEDSenderM.CommManager
         private static void Initial()
         {
             SetConfig set_config = new SetConfig();
-            config = set_config.ReadConfig();
+            if (set_config != null)
+            {
+                config = set_config.ReadConfig();
+                LogManager.Logger.WriteInfoLog("Initial,Reading the configuration!");
+            }
+            else
+            {
+                LogManager.Logger.WriteWarnLog("Read configuration is failled!");
+            }
         }
 
         //imports SetLocalTime function from kernel32.dll 
@@ -279,10 +308,14 @@ namespace RenewEDSenderM.CommManager
                 systNew.wMinute = short.Parse(minutes);
                 systNew.wSecond = short.Parse(seconds);
                 SetLocalTime(ref systNew);
+                LogManager.Logger.WriteInfoLog("Synchronize process is successful!");
                 return true;
             }
             else
+            {
+                LogManager.Logger.WriteWarnLog ("Synchronize process is failed!");
                 return false;
+            }
 
         }
 
@@ -374,9 +407,15 @@ namespace RenewEDSenderM.CommManager
             int sendLength;
             sendLength = c.Send(sendByte, sendByte.Length, 0);//发送信息
             if (sendLength == sendByte.Length)
+            {
+                LogManager.Logger.WriteInfoLog("Message is sent!");
                 return true;
+            }
             else
+            {
+                LogManager.Logger.WriteWarnLog("Message is not sent!");
                 return false;
+            }
 
         }
         //单纯发送相应的字符串数据
@@ -421,42 +460,59 @@ namespace RenewEDSenderM.CommManager
                 //如果网络状况良好，则发送数据
                 if (isConnected)
                 {
-                    //XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-                    //xmlwrite.Input(xmlStr, project_id, gateway_id, config.key, config.iv);
-                    ////这部分需要采集数据进行数据录入
-                    ////>>>> T.B.D. 测试数据
-                    ////if(true)
-                    ////{
-                    //    DateTime date_send = new DateTime(2013, 4, 28, 19, 0, 0);   //2013-04-28 19:00:00
-                    //    TimeSpan ts = new TimeSpan(2, 0, 0);    //2小时的间隔
-                    //    DbManager.History_Data hd_array;
-                    //    DbManager.DataDump.CalculateAverage(date_send, ts);
-                    //    string input_parse = "yes";
-                    //    DataInfo[] input_info = new DataInfo[4];
-                    //    for (int i = 0; i < 4; i++)
-                    //        input_info[i] = new DataInfo();
-                    //    string[] ids = GenerateFunID(config.areacode, config.programid, config.techtype, config.syscode);
-                    //    input_info[0].data = Convert.ToString(hd_array.ValueA);
-                    //    input_info[0].mid = ids[0];
-                    //    input_info[0].fid = ids[0];
-                    //    input_info[1].data = Convert.ToString(hd_array.ValueB);
-                    //    input_info[1].mid = ids[1];
-                    //    input_info[1].fid = ids[1];
-                    //    input_info[2].data = Convert.ToString(hd_array.ValueC);
-                    //    input_info[2].mid = ids[2];
-                    //    input_info[2].fid = ids[2];
-                    //    input_info[3].data = Convert.ToString(hd_array.ValueD);
-                    //    input_info[3].mid = ids[3];
-                    //    input_info[3].fid = ids[3];
-                    ////}
-                    ////<<<<
-                    //Random random = new Random();
-                    //int sequence = random.Next(10000000, 99999999);
-                    //string sequenceStr = sequence.ToString();
-                    //xmlwrite.Report(sequenceStr, input_parse, hd_array.timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
+                    XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
+                    xmlwrite.Input(xmlStr, project_id, gateway_id, config.key, config.iv);
+                    //这部分需要采集数据进行数据录入
+                    //>>>> T.B.D. 测试数据
+                    DateTime date_send = new DateTime(2013, 4, 28, 19, 0, 0);   //2013-04-28 19:00:00
+                    TimeSpan ts = new TimeSpan(2, 0, 0);    //2小时的间隔
+                    DbManager.History_Data hd_array;
+                    DataRow[] dr = DbManager.DataDump.CalculateAverage(date_send, ts);
+                    if (dr == null)
+                    {
+                        LogManager.Logger.WriteWarnLog("Report Process: No data fetched from the database!");
+                        return;
+                    }
+                   
+                    DataInfo[] input_info = new DataInfo[4];
+                    for (int i = 0; i < 4; i++)
+                        input_info[i] = new DataInfo();
+                    if (input_info == null)
+                        return;
 
-                    //if(SendMsgB(xmlwrite.BOutput()))
-                    //    DbManager.DataDump.update_Upload(hd_array.id);
+                    string[] fids = GenerateFunID();
+                    string[] mids = GenerateMeterID();
+                    input_info[0].data = Convert.ToString(Convert.ToInt32(dr[0][0]));
+                    input_info[0].mid = mids[0];
+                    input_info[0].fid = fids[0];
+                    input_info[1].data = Convert.ToString(Convert.ToInt32(dr[1][0]));
+                    input_info[1].mid = mids[1];
+                    input_info[1].fid = fids[1];
+                    input_info[2].data = Convert.ToString(Convert.ToInt32(dr[2][0]));
+                    input_info[2].mid = mids[2];
+                    input_info[2].fid = fids[2];
+                    input_info[3].data = Convert.ToString(Convert.ToInt32(dr[3][0]));
+                    input_info[3].mid = mids[3];
+                    input_info[3].fid = fids[3];
+                    //<<<<
+                    Random random = new Random();
+                    int sequence = random.Next(10000000, 99999999);
+                    string sequenceStr = sequence.ToString();
+                    xmlwrite.Report(sequenceStr, input_parse, date_send.ToString("yyyyMMddHHmmss"), input_info);
+
+                    if (SendMsgB(xmlwrite.BOutput()))
+                    {
+                        gM.WaitOne();
+                        DbManager.DataDump.WriteToHisDb(date_send, dr, out hd_array);
+                        DbManager.DataDump.update_Upload(hd_array.id);
+                        gM.ReleaseMutex();
+                        LogManager.Logger.WriteInfoLog("The report is sent!");
+                    }
+                    else
+                    {
+                        DbManager.DataDump.WriteToHisDb(date_send, dr, out hd_array);
+                        LogManager.Logger.WriteWarnLog("The report is failed to send!");
+                    }
                 }
   
             }
@@ -476,7 +532,8 @@ namespace RenewEDSenderM.CommManager
             DataInfo[] input_info = new DataInfo[4];
             for (int i = 0; i < 4; i++)
                 input_info[i] = new DataInfo();
-            string input_parse = "yes";
+            if (input_info == null)
+                return;
             //组合id
 
             //提取时间
@@ -498,33 +555,43 @@ namespace RenewEDSenderM.CommManager
             DateTime end_time = new DateTime(end_years, end_months, end_days, end_hours, end_minutes, end_seconds);
 
             DbManager.History_Data[] hd_array = DbManager.DataDump.FetchDataSuccess(begin_time, end_time);
-
+            if (hd_array == null)
+            {
+                LogManager.Logger.WriteWarnLog("Reply Process: No data fetched from the database!");
+                return;
+            }
             if (hd_array != null)
             {
-                string [] ids = GenerateFunID(config.areacode,config.programid,config.techtype,config.syscode);
+                string[] fids = GenerateFunID();
+                string[] mids = GenerateMeterID();
                 int sampleCount;
                 sampleCount = hd_array.Length;
                 for (int i = 0; i < sampleCount; i++)
                 {
 
                     input_info[0].data = Convert.ToString(hd_array[i].ValueA);
-                    input_info[0].mid = ids[0];
-                    input_info[0].fid = ids[0];
+                    input_info[0].mid = mids[0];
+                    input_info[0].fid = fids[0];
                     input_info[1].data = Convert.ToString(hd_array[i].ValueB);
-                    input_info[1].mid = ids[1];
-                    input_info[1].fid = ids[1];
+                    input_info[1].mid = mids[1];
+                    input_info[1].fid = fids[1];
                     input_info[2].data = Convert.ToString(hd_array[i].ValueC);
-                    input_info[2].mid = ids[2];
-                    input_info[2].fid = ids[2];
+                    input_info[2].mid = mids[2];
+                    input_info[2].fid = fids[2];
                     input_info[3].data = Convert.ToString(hd_array[i].ValueD);
-                    input_info[3].mid = ids[3];
-                    input_info[3].fid = ids[3];
+                    input_info[3].mid = mids[3];
+                    input_info[3].fid = fids[3];
                     Random random = new Random();
                     int sequence = random.Next(10000000, 99999999);
                     string sequenceStr = sequence.ToString();
                     xmlwrite.Query(sequenceStr, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
-                    if(SendMsgB(xmlwrite.BOutput()))
+                    if (SendMsgB(xmlwrite.BOutput()))
+                    {
                         DbManager.DataDump.update_Upload(hd_array[i].id);
+                        LogManager.Logger.WriteInfoLog("The reply is sent!");
+                    }
+                    else
+                        LogManager.Logger.WriteWarnLog("The reply is failed to send!");
                 }
             }
         }
@@ -535,11 +602,8 @@ namespace RenewEDSenderM.CommManager
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
             xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             xmlwrite.Period_Ack();
-			/*
-            string period_string = xmlwrite.Output();
-            SendMsg(period_string);
-			*/
-			SendMsgB(xmlwrite.BOutput());
+            
+            SendMsgB(xmlwrite.BOutput());
         }
 
         //通过获取的服务器的设置密钥命令来进行密钥的配置
@@ -556,7 +620,7 @@ namespace RenewEDSenderM.CommManager
             while(true)
             {
                 //如果网络状况良好则进行重传
-                if (/*isConnected*/true)
+                if (isConnected)
                 {
                     XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
                     xmlwrite.Input(xmlStr,project_id,gateway_id,config.key,config.iv);
@@ -565,40 +629,80 @@ namespace RenewEDSenderM.CommManager
                     DataInfo[] input_info = new DataInfo[4];
                     for (int i = 0;i < 4;i++)
                         input_info[i] = new DataInfo();
-                    string input_parse = "yes";
+                    if (input_info == null)
+                        return;
                     DateTime begin_time = new DateTime(1900, 1, 1, 1, 1, 1);
                     DateTime end_time = new DateTime(3000, 1, 1, 1, 1, 1);
+                    gM.WaitOne();
                     DbManager.History_Data[] hd_array = DbManager.DataDump.FetchDataFail(begin_time, end_time);
+                    gM.ReleaseMutex();
+                    if (hd_array == null)
+                        return;
+                    
                     if (hd_array != null)
                     {
-                        string[] ids = GenerateFunID(config.areacode, config.programid, config.techtype, config.syscode);
+                        string[] fids = GenerateFunID();
+                        string[] mids = GenerateMeterID();
                         int sampleCount;
                         sampleCount = hd_array.Length;
                         for (int i = 0; i < sampleCount; i++)
                         {
                             input_info[0].data = Convert.ToString(hd_array[i].ValueA);
-                            input_info[0].mid = ids[0];
-                            input_info[0].fid = ids[0];
+                            input_info[0].mid = mids[0];
+                            input_info[0].fid = fids[0];
                             input_info[1].data = Convert.ToString(hd_array[i].ValueB);
-                            input_info[1].mid = ids[1];
-                            input_info[1].fid = ids[1];
+                            input_info[1].mid = mids[1];
+                            input_info[1].fid = fids[1];
                             input_info[2].data = Convert.ToString(hd_array[i].ValueC);
-                            input_info[2].mid = ids[2];
-                            input_info[2].fid = ids[2];
+                            input_info[2].mid = mids[2];
+                            input_info[2].fid = fids[2];
                             input_info[3].data = Convert.ToString(hd_array[i].ValueD);
-                            input_info[3].mid = ids[3];
-                            input_info[3].fid = ids[3];
+                            input_info[3].mid = mids[3];
+                            input_info[3].fid = fids[3];
                             Random random = new Random();
                             int sequence = random.Next(10000000,99999999);
                             string sequenceStr = sequence.ToString();
                             xmlwrite.Report(sequenceStr, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
                             if (SendMsgB(xmlwrite.BOutput()))
+                            {
                                 DbManager.DataDump.update_Upload(hd_array[i].id);
+                                LogManager.Logger.WriteInfoLog("The reReport is sent!");
+                            }
+                            else
+                                LogManager.Logger.WriteWarnLog("The reReport is failed to send!");
                         }
                     }
                     
                 }
             }
+        }
+
+
+
+
+        /// <param name="Area_code">行政区编码</param>
+        /// <param name="Program_id">项目编码</param>
+        /// <param name="Tech_type">技术类型</param>
+        /// <param name="Sys_code">系统编码</param>
+        /// <returns>计量装置的具体采集功能编号15位</returns>
+        public static string[] GenerateMeterID()
+        {
+            string[] code_array = new string[4];
+            if (code_array == null)
+            {
+                LogManager.Logger.WriteWarnLog(" Failed to generate Meter ID");
+                return null;
+            }
+
+            string code_perfix = config.areacode + config.programid;
+            code_array[0] = code_perfix + config.meterInfo.MA_ProgramId + config.meterInfo.MA_Code1 + config.meterInfo.MA_Code2;
+
+            code_array[1] = code_perfix + config.meterInfo.MB_ProgramId + config.meterInfo.MB_Code1 + config.meterInfo.MB_Code2;
+
+            code_array[2] = code_perfix + config.meterInfo.MC_ProgramId + config.meterInfo.MC_Code1 + config.meterInfo.MC_Code2.Substring(0, 1);
+
+            code_array[3] = code_perfix + config.meterInfo.MD_ProgramId + config.meterInfo.MD_Code1 + config.meterInfo.MD_Code2;
+            return code_array;
         }
 
         /// <summary>
@@ -617,7 +721,7 @@ namespace RenewEDSenderM.CommManager
         /// 采集指标编码-发电量
         /// </summary>
         public static readonly string COLLECT_FACTOR_CODE_ELECTRICITY = "14";
-
+        //从配置文件中合成FunctionID
         /// <summary>
         /// 生成计量装置的具体采集功能编号
         /// 1 平行于光伏组件的太阳辐照度
@@ -625,22 +729,24 @@ namespace RenewEDSenderM.CommManager
         /// 3 光伏组件背面表面温度
         /// 4 发电量
         /// </summary>
-        /// <param name="Area_code">行政区编码</param>
-        /// <param name="Program_id">项目编码</param>
-        /// <param name="Tech_type">技术类型</param>
-        /// <param name="Sys_code">系统编码</param>
-        /// <returns>计量装置的具体采集功能编号</returns>
-        public static string[] GenerateFunID(string Area_code, string Program_id, string Tech_type, string Sys_code)
+        public static string[] GenerateFunID()
         {
-            string code_prefix = Area_code + Program_id + Tech_type + Sys_code;
             string[] code_array = new string[4];
-            code_array[0] = code_prefix + COLLECT_FACTOR_CODE_RADIATION;
-            code_array[1] = code_prefix + COLLECT_FACTOR_CODE_AIRTEMP;
-            code_array[2] = code_prefix + COLLECT_FACTOR_CODE_LANDTEMP;
-            code_array[3] = code_prefix + COLLECT_FACTOR_CODE_ELECTRICITY;
+            if (code_array == null)
+            {
+                LogManager.Logger.WriteWarnLog(" Failed to generate Function ID");
+                return null;
+            }
+            string code_perfix = config.areacode + config.programid;
+            code_array[0] = code_perfix + config.techtype + config.syscode + COLLECT_FACTOR_CODE_RADIATION;
+
+            code_array[1] = code_perfix + config.techtype + config.syscode + COLLECT_FACTOR_CODE_AIRTEMP;
+
+            code_array[2] = code_perfix + config.techtype + config.syscode + COLLECT_FACTOR_CODE_LANDTEMP;
+
+            code_array[3] = code_perfix + config.techtype + config.syscode + COLLECT_FACTOR_CODE_ELECTRICITY;
             return code_array;
         }
-
 
     }
 }
