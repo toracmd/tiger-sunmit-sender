@@ -13,7 +13,10 @@ using System.Xml;
 
 namespace RenewEDSenderM.CommManager
 {   
-    //读取配置文件中的配置参数，并可以实时修改配置参数
+    /// <summary>
+    /// 读取配置文件中的配置参数，并可以实时修改配置参数
+    /// </summary>
+
     public class SetConfig
     {
         
@@ -33,9 +36,12 @@ namespace RenewEDSenderM.CommManager
         private static string m_client_programid = "";
         private static string m_client_techtype = "";
         private static string m_client_syscode = "";
+        
+       
         //private static string config_path = "./Config/Config.xml";
 		//T.B.D. 路径问题
         private static string config_path = "../../../RenewEDSenderM/bin/Debug/Config/Config.xml";
+        
         public Configuration ReadConfig()
         {
             Configuration config = new Configuration();
@@ -43,7 +49,8 @@ namespace RenewEDSenderM.CommManager
             xmlDoc.Load(config_path);
             XmlNode root = xmlDoc.SelectSingleNode("config");
             XmlNodeList rList = root.ChildNodes;
-            
+
+
             //读取各级参数
             foreach(XmlNode xr in rList)
             {
@@ -54,7 +61,7 @@ namespace RenewEDSenderM.CommManager
                     foreach (XmlNode xs in sList)
                     {
                         //获取服务器的IP地址
-                        if (xs.Name == "IP")
+                        if (xs.Name== Commands.IP)
                         {
                             m_server_ip = xs.InnerText;
                             config.ip = m_server_ip;
@@ -62,7 +69,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取服务器的端口
-                        if (xs.Name == "Port")
+                        if (xs.Name == Commands.PORT)
                         {
                             m_server_port = xs.InnerText;
                             config.port = m_server_port;
@@ -77,7 +84,7 @@ namespace RenewEDSenderM.CommManager
                     foreach (XmlNode xc in cList)
                     {
                         //获取客户端的project_id
-                        if (xc.Name == "Project_id")
+                        if (xc.Name == Commands.PROJECT_ID)
                         {
                             m_client_project_id = xc.InnerText;
                             config.project_id = m_client_project_id;
@@ -85,7 +92,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端的gateway_id
-                        if (xc.Name == "Gateway_id")
+                        if (xc.Name == Commands.GATEWAY_ID)
                         {
                             m_client_gateway_id = xc.InnerText;
                             config.gateway_id = m_client_gateway_id;
@@ -93,7 +100,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端的心跳数据间隔
-                        if (xc.Name == "NotifyTime")
+                        if (xc.Name == Commands.NOTIFY_TIME)
                         {
                             m_client_notifyTime = xc.InnerText;
                             config.notifyTime = m_client_notifyTime;
@@ -101,7 +108,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端数据发送间隔
-                        if (xc.Name == "ReportTime")
+                        if (xc.Name == Commands.REPORT_TIME)
                         {
                             m_client_reportTime = xc.InnerText;
                             config.reportTime = m_client_reportTime;
@@ -109,7 +116,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端认证超时
-                        if (xc.Name == "VerifyTime")
+                        if (xc.Name == Commands.VERIFY_TIME)
                         {
                             m_client_verifyTime = xc.InnerText;
                             config.verifyTime = m_client_verifyTime;
@@ -117,7 +124,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端失败尝试次数
-                        if (xc.Name == "Times")
+                        if (xc.Name == Commands.TIMES)
                         {
                             m_client_times = xc.InnerText;
                             config.times = m_client_times;
@@ -125,7 +132,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端的周期参数
-                        if (xc.Name == "Period")
+                        if (xc.Name == Commands.PERIOD)
                         {
                             m_client_period = xc.InnerText;
                             config.period = m_client_period;
@@ -133,7 +140,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端AES密钥
-                        if (xc.Name == "Key")
+                        if (xc.Name == Commands.KEY)
                         {
                             m_client_key = xc.InnerText;
                             config.key = m_client_key;
@@ -141,7 +148,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端MD5 值
-                        if (xc.Name == "MD5")
+                        if (xc.Name == Commands.MD5)
                         {
                             m_client_md5 = xc.InnerText;
                             config.md5 = m_client_md5;
@@ -149,7 +156,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端AES初始向量
-                        if (xc.Name == "IV")
+                        if (xc.Name == Commands.IV)
                         {
                             m_client_iv = xc.InnerText;
                             config.iv = m_client_iv;
@@ -157,7 +164,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端行政区编码
-                        if (xc.Name == "Area_code")
+                        if (xc.Name == Commands.AREA_CODE)
                         {
                             m_client_areacode = xc.InnerText;
                             config.areacode = m_client_areacode;
@@ -165,7 +172,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端项目编码
-                        if (xc.Name == "Program_id")
+                        if (xc.Name == Commands.PROGRAM_ID)
                         {
                             m_client_programid = xc.InnerText;
                             config.programid = m_client_programid;
@@ -173,7 +180,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端技术类型
-                        if (xc.Name == "Tech_type")
+                        if (xc.Name == Commands.TECH_TYPE)
                         {
                             m_client_techtype = xc.InnerText;
                             config.techtype = m_client_techtype;
@@ -181,13 +188,13 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //获取客户端系统编码
-                        if (xc.Name == "Sys_code")
+                        if (xc.Name == Commands.SYS_CODE)
                         {
                             m_client_syscode = xc.InnerText;
                             config.syscode = m_client_syscode;
                             continue;
                         }
-                        if (xc.Name == "Meter")
+                        if (xc.Name == Commands.METER)
                         {
                             MeterInfo meterInfo = new MeterInfo();
                             meterInfo.MA_ProgramId = xc.Attributes["MA_ProgramId"].Value;
@@ -219,6 +226,7 @@ namespace RenewEDSenderM.CommManager
             XmlNode root = xmlDoc.SelectSingleNode("config");
             XmlNodeList rList = root.ChildNodes;
 
+
             //读取各级参数
             foreach (XmlNode xr in rList)
             {
@@ -229,7 +237,7 @@ namespace RenewEDSenderM.CommManager
                     foreach (XmlNode xs in sList)
                     {
                         //设置服务器的IP地址
-                        if (xs.Name == "IP")
+                        if (xs.Name == Commands.IP)
                         {
                             XmlElement xst = (XmlElement)xs;
                             m_server_ip = config.ip;
@@ -238,7 +246,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置服务器的端口
-                        if (xs.Name == "Port")
+                        if (xs.Name == Commands.PORT)
                         {
                             XmlElement xst = (XmlElement)xs;
                             m_server_port = config.port;
@@ -254,7 +262,7 @@ namespace RenewEDSenderM.CommManager
                     foreach (XmlNode xc in cList)
                     {
                         //设置客户端的project_id
-                        if (xc.Name == "Project_id")
+                        if (xc.Name == Commands.PROJECT_ID)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_project_id = config.project_id;
@@ -263,7 +271,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端的gateway_id
-                        if (xc.Name == "Gateway_id")
+                        if (xc.Name == Commands.GATEWAY_ID)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_gateway_id = config.gateway_id;
@@ -272,7 +280,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端的心跳数据间隔
-                        if (xc.Name == "NotifyTime")
+                        if (xc.Name == Commands.NOTIFY_TIME)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_notifyTime = config.notifyTime;
@@ -281,7 +289,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端数据发送间隔
-                        if (xc.Name == "ReportTime")
+                        if (xc.Name == Commands.REPORT_TIME)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_reportTime = config.reportTime;
@@ -290,7 +298,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端认证超时
-                        if (xc.Name == "VerifyTime")
+                        if (xc.Name == Commands.VERIFY_TIME)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_verifyTime = config.verifyTime;
@@ -299,7 +307,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端失败尝试次数
-                        if (xc.Name == "Times")
+                        if (xc.Name == Commands.TIMES)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_times = config.times;
@@ -308,7 +316,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端的周期参数
-                        if (xc.Name == "Period")
+                        if (xc.Name ==Commands.PERIOD)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_period = config.period;
@@ -317,7 +325,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端AES密钥
-                        if (xc.Name == "Key")
+                        if (xc.Name == Commands.KEY)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_key = config.key;
@@ -326,7 +334,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端MD5值
-                        if (xc.Name == "MD5")
+                        if (xc.Name == Commands.MD5)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_md5 = config.md5;
@@ -335,7 +343,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端AES初始向量
-                        if (xc.Name == "IV")
+                        if (xc.Name == Commands.IV)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_iv = config.iv;
@@ -344,7 +352,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         ////获取客户端行政区编码
-                        if (xc.Name == "Area_code")
+                        if (xc.Name == Commands.AREA_CODE)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_areacode = config.areacode;
@@ -353,7 +361,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端项目编码
-                        if (xc.Name == "Program_id")
+                        if (xc.Name == Commands.PROGRAM_ID)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_programid = config.programid;
@@ -362,7 +370,7 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端技术类型
-                        if (xc.Name == "Tech_type")
+                        if (xc.Name == Commands.TECH_TYPE)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_techtype = config.techtype;
@@ -371,14 +379,14 @@ namespace RenewEDSenderM.CommManager
                         }
 
                         //设置客户端系统编码
-                        if (xc.Name == "Sys_code")
+                        if (xc.Name == Commands.SYS_CODE)
                         {
                             XmlElement xct = (XmlElement)xc;
                             m_client_syscode = config.syscode;
                             xct.InnerText = m_client_syscode;
                             continue;
                         }
-                        if (xc.Name == "Meter")
+                        if (xc.Name == Commands.METER)
                         {
                             XmlElement xct = (XmlElement)xc;
                             MeterInfo meterInfo = config.meterInfo;
@@ -427,7 +435,7 @@ namespace RenewEDSenderM.CommManager
                         foreach (XmlNode xs in sList)
                         {
                             // 只修改ip
-                            if (valueName == "ip" && xs.Name == "IP")
+                            if (valueName == "ip" && xs.Name == Commands.IP)
                             {
                                 XmlElement xst = (XmlElement)xs;
                                 m_server_ip = config.ip;
@@ -436,7 +444,7 @@ namespace RenewEDSenderM.CommManager
                                 return;
                             }
                             // 只修改port
-                            if (valueName == "port" && xs.Name == "Port")
+                            if (valueName == "port" && xs.Name == Commands.PORT)
                             {
                                 XmlElement xst = (XmlElement)xs;
                                 m_server_ip = config.ip;
@@ -458,7 +466,7 @@ namespace RenewEDSenderM.CommManager
                         foreach (XmlNode xc in cList)
                         {
                             // 只修改project_id
-                            if (valueName == "project_id" && xc.Name == "Project_id")
+                            if (valueName == "project_id" && xc.Name == Commands.PROJECT_ID)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_project_id = config.project_id;
@@ -468,7 +476,7 @@ namespace RenewEDSenderM.CommManager
                             }
 
                             // 只修改gateway_id
-                            if (valueName == "gateway_id" && xc.Name == "Gateway_id")
+                            if (valueName == "gateway_id" && xc.Name == Commands.GATEWAY_ID)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_gateway_id = config.gateway_id;
@@ -488,7 +496,7 @@ namespace RenewEDSenderM.CommManager
                             }
 
                             // 只修改reporttime
-                            if (valueName == "reporttime" && xc.Name == "ReportTime")
+                            if (valueName == "reporttime" && xc.Name == Commands.REPORT_TIME)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_notifyTime = config.notifyTime;
@@ -497,7 +505,7 @@ namespace RenewEDSenderM.CommManager
                                 return;
                             }
                             // 只修改verifytime
-                            if (valueName == "verifytime" && xc.Name == "VerifyTime")
+                            if (valueName == "verifytime" && xc.Name == Commands.VERIFY_TIME)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_verifyTime = config.verifyTime;
@@ -507,7 +515,7 @@ namespace RenewEDSenderM.CommManager
                             }
 
                             // 只修改times
-                            if (valueName == "times" && xc.Name == "Times")
+                            if (valueName == "times" && xc.Name == Commands.TIMES)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_times = config.times;
@@ -517,7 +525,7 @@ namespace RenewEDSenderM.CommManager
                             }
 
                             // 只修改period
-                            if (valueName == "period" && xc.Name == "Period")
+                            if (valueName == "period" && xc.Name == Commands.PERIOD)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_period = config.period;
@@ -527,7 +535,7 @@ namespace RenewEDSenderM.CommManager
                             }
 
                             // 只修改key
-                            if (valueName == "key" && xc.Name == "Key")
+                            if (valueName == "key" && xc.Name == Commands.KEY)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_key = config.key;
@@ -537,7 +545,7 @@ namespace RenewEDSenderM.CommManager
                             }
 
                             // 只修改MD5
-                            if (valueName == "md5" && xc.Name == "MD5")
+                            if (valueName == "md5" && xc.Name == Commands.MD5)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_md5 = config.md5;
@@ -547,7 +555,7 @@ namespace RenewEDSenderM.CommManager
                             }
 
                             // 只修改key
-                            if (valueName == "iv" && xc.Name == "IV")
+                            if (valueName == "iv" && xc.Name == Commands.IV)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_iv = config.iv;
@@ -557,7 +565,7 @@ namespace RenewEDSenderM.CommManager
                             }
 
                             // 只修改行政区编码
-                            if (valueName == "area_code" && xc.Name == "Area_code")
+                            if (valueName == "area_code" && xc.Name == Commands.AREA_CODE)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_areacode = config.areacode;
@@ -567,7 +575,7 @@ namespace RenewEDSenderM.CommManager
                             }
 
                             // 只修改行政区编码
-                            if (valueName == "program_id" && xc.Name == "Program_id")
+                            if (valueName == "program_id" && xc.Name == Commands.PROGRAM_ID)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_programid = config.programid;
@@ -578,7 +586,7 @@ namespace RenewEDSenderM.CommManager
 
 
                             // 只修改行技术类型
-                            if (valueName == "tech_type" && xc.Name == "Tech_type")
+                            if (valueName == "tech_type" && xc.Name == Commands.PROJECT_ID)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_techtype = config.techtype;
@@ -589,7 +597,7 @@ namespace RenewEDSenderM.CommManager
 
 
                             // 只修改行技术类型
-                            if (valueName == "sys_code" && xc.Name == "Sys_code")
+                            if (valueName == "sys_code" && xc.Name == Commands.SYS_CODE)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 m_client_syscode = config.syscode;
@@ -597,7 +605,7 @@ namespace RenewEDSenderM.CommManager
                                 xmlDoc.Save(config_path);
                                 return;
                             }
-                            if (xc.Name == "Meter")
+                            if (xc.Name == Commands.METER)
                             {
                                 XmlElement xct = (XmlElement)xc;
                                 MeterInfo meterInfo = config.meterInfo;
@@ -672,5 +680,25 @@ namespace RenewEDSenderM.CommManager
         public string MD_Code1 = "";
         public string MD_Code2 = "";
 
+    }
+    public class Commands
+    {
+        public static  string IP = "IP";
+        public static string PORT = "Port";
+        public static string PROJECT_ID = "Project_id";
+        public static string GATEWAY_ID = "Gateway_id";
+        public static string AREA_CODE = "Area_code";
+        public static string PROGRAM_ID = "Program_id";
+        public static string TECH_TYPE = "Tech_type";
+        public static string SYS_CODE = "Sys_code";
+        public static string METER = "Meter";
+        public static string NOTIFY_TIME = "NotifyTime";
+        public static string REPORT_TIME = "ReportTime";
+        public static string VERIFY_TIME = "VerifyTime";
+        public static string TIMES = "Times";
+        public static string PERIOD = "Period";
+        public static string KEY = "Key";
+        public static string MD5 = "MD5";
+        public static string IV = "IV";
     }
 }

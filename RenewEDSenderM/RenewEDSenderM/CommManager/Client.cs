@@ -7,6 +7,7 @@ using System.Timers;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.Data;
+using System.Messaging;
 
 
 
@@ -32,18 +33,36 @@ namespace RenewEDSenderM.CommManager
         private static bool isCreatReport = false;
         private static Mutex gM = new Mutex();
 
+        private static Support.MsgQueManager m;
+
+
+
 
         static void Main(string[] args)
         {
             DbManager.TestAccessData.Test();
             LogManager.Logger.FuncEntryLog(args);
+			try
+			{
+				m = new Support.MsgQueManager();
+			}
+			catch(MessageQueueException mqex)
+			{
+                LogManager.Logger.WriteErrorLog("Message Queue Service is not started:{0}", mqex);
+			}
 			while(true)
 			{
 			//T.B.D. 连接失败后重试停顿点时间
 	            try
 	            {
 	                LogManager.Logger.WriteDebugLog("进入try");
-	                Initial();
+                    if (Initial())
+                        LogManager.Logger.WriteInfoLog("Reading the configuration!");
+                    else
+                    {
+                        LogManager.Logger.WriteWarnLog("Can't not read the configuration!Retrying....");
+                        continue;
+                    }
 	                //int port = 13145;
 	                //string host = "10.6.0.115";
 	                int port = int.Parse(config.port);
@@ -115,6 +134,15 @@ namespace RenewEDSenderM.CommManager
 	                    else
 	                    {
 	                        isConnected = false;
+                            Support.MsgBody msgb = new Support.MsgBody(isConnected, synchronize, Support.RUN_PHASE.CONNECTED);
+							try
+							{
+                            	m.SendMsg(msgb);
+							}
+							catch(MessageQueueException mqex)
+							{
+								LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+							}
 	                        //先关闭已经打开的链接
 	                        if (c != null)
 	                        {
@@ -136,11 +164,31 @@ namespace RenewEDSenderM.CommManager
 	            {
 	                LogManager.Logger.WriteWarnLog("argumentNullException: {0}", e);
 	                Console.WriteLine("argumentNullException: {0}", e);
+                    isConnected = false;
+                    Support.MsgBody msgb = new Support.MsgBody(isConnected, synchronize, Support.RUN_PHASE.CONNECTED);
+					try
+					{
+                    	m.SendMsg(msgb);
+					}
+					catch(MessageQueueException mqex)
+					{
+						LogManager.Logger.WriteWarnLog("{0}", mqex);
+					}
 	            }
 	            catch (SocketException e)
 	            {
 	                LogManager.Logger.WriteWarnLog("SocketException:{0}", e);
 	                Console.WriteLine("SocketException:{0}", e);
+                    isConnected = false;
+                    Support.MsgBody msgb = new Support.MsgBody(isConnected, synchronize, Support.RUN_PHASE.CONNECTED);
+					try
+					{
+                    	m.SendMsg(msgb);
+					}
+					catch(MessageQueueException mqex)
+					{
+						LogManager.Logger.WriteWarnLog("{0}", mqex);
+					}
 	            }
 	            c.Close();
 			}
@@ -149,17 +197,19 @@ namespace RenewEDSenderM.CommManager
             LogManager.Logger.FuncExitLog();
         }
         //进行初始化操作，主要是读取配置文件中的参数
-        private static void Initial()
+        private static bool Initial()
         {
             SetConfig set_config = new SetConfig();
             if (set_config != null)
             {
                 config = set_config.ReadConfig();
                 LogManager.Logger.WriteInfoLog("Initial,Reading the configuration!");
+                return true;
             }
             else
             {
                 LogManager.Logger.WriteWarnLog("Read configuration is failled!");
+                return false;
             }
         }
 
@@ -198,9 +248,9 @@ namespace RenewEDSenderM.CommManager
             string recvStr = "";
             byte[] recvBytes = new byte[1024];
             int bytes;
-            System.Timers.Timer aTimer = new System.Timers.Timer();
-            aTimer.Elapsed += new ElapsedEventHandler(VerifyEvent);
-            aTimer.Interval = 3 * 1000;    //配置文件中配置的秒数
+            //System.Timers.Timer aTimer = new System.Timers.Timer();
+            //aTimer.Elapsed += new ElapsedEventHandler(VerifyEvent);
+            //aTimer.Interval = 3 * 1000;    //配置文件中配置的秒数
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
             XmlProcessManager.XMLRead xmlread = new XmlProcessManager.XMLRead();
             XmlProcessManager.Order order = new XmlProcessManager.Order();
@@ -211,7 +261,7 @@ namespace RenewEDSenderM.CommManager
             xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             xmlwrite.Request();
             SendMsgB(xmlwrite.BOutput());
-            aTimer.Enabled = true;
+            //aTimer.Enabled = true;
 
 
             //接收数据，并进行超时判断
@@ -231,7 +281,7 @@ namespace RenewEDSenderM.CommManager
                 {
 
                     recvStr += Encoding.ASCII.GetString(recvBytes, 0, bytes);
-                    aTimer.Enabled = false;
+                    //aTimer.Enabled = false;
                     break;
                 }
             }
@@ -242,8 +292,11 @@ namespace RenewEDSenderM.CommManager
                 int i;
                 byte[] rByte = new byte[bytes];
                 Array.Copy(recvBytes, rByte, bytes);
-                xmlread.BInput(rByte,config.key,config.iv);
-                //xmlread.Input(rStr1);
+                if (xmlread.BInput(rByte, config.key, config.iv) == false)
+				{
+                    return false;
+                }
+				//xmlread.Input(rStr1);
                 order = xmlread.Output();
                 input_sequence = order.sequence;
             }
@@ -254,7 +307,7 @@ namespace RenewEDSenderM.CommManager
             xmlwrite.SendMD5(md5Str);
             verifyStr = xmlwrite.Output();
             SendMsgB(xmlwrite.BOutput());
-            aTimer.Enabled = true;
+            //aTimer.Enabled = true;
 
 
             //接收数据，并进行超时判断
@@ -274,7 +327,7 @@ namespace RenewEDSenderM.CommManager
 
 
                     recvStr += Encoding.ASCII.GetString(recvBytes, 0, bytes);
-                    aTimer.Enabled = false;
+                    //aTimer.Enabled = false;
                     break;
                 }
             }
@@ -285,8 +338,11 @@ namespace RenewEDSenderM.CommManager
                 int i;
                 byte[] rByte1 = new byte[bytes];
                 Array.Copy(recvBytes, rByte1, bytes);
-                xmlread.BInput(rByte1,config.key,config.iv);
-                order = xmlread.Output();
+                if(xmlread.BInput(rByte1,config.key,config.iv)==false)
+				{
+                    return false ;
+                }
+				order = xmlread.Output();
             }
 
             //判断是否认证成功
@@ -294,7 +350,16 @@ namespace RenewEDSenderM.CommManager
             {
                 synchronize = true;
                 isConnected = true;
-                SystemTime systNew = new SystemTime();
+                Support.MsgBody msgb = new Support.MsgBody(isConnected, synchronize, Support.RUN_PHASE.CONNECTED);
+                try
+				{
+					m.SendMsg(msgb );
+                }
+				catch(MessageQueueException mqex)
+				{
+					LogManager.Logger.WriteWarnLog("{0}", mqex);
+				}
+				SystemTime systNew = new SystemTime();
                 string years = order.time.Substring(0,4);
                 string months = order.time.Substring(4, 2);
                 string days = order.time.Substring(6,2);
@@ -370,8 +435,11 @@ namespace RenewEDSenderM.CommManager
                 int i;
                 byte[] rByte = new byte[bytes];
                 Array.Copy(recvBytes, rByte, bytes);
-                xmlread.BInput(rByte,config.key,config.iv);
-                order = xmlread.Output();
+                if(xmlread.BInput(rByte,config.key,config.iv)== false)
+				{
+                    return ;
+                }
+				order = xmlread.Output();
 
                 //对于服务器端的查询命令进行回应
                 if (order.order == "query")
@@ -464,6 +532,7 @@ namespace RenewEDSenderM.CommManager
                     xmlwrite.Input(xmlStr, project_id, gateway_id, config.key, config.iv);
                     //这部分需要采集数据进行数据录入
                     //>>>> T.B.D. 测试数据
+                    //DateTime date_send = DateTime.Now.ToLocalTime();
                     DateTime date_send = new DateTime(2013, 4, 28, 19, 0, 0);   //2013-04-28 19:00:00
                     TimeSpan ts = new TimeSpan(2, 0, 0);    //2小时的间隔
                     DbManager.History_Data hd_array;

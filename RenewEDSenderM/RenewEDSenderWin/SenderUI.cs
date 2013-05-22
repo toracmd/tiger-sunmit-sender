@@ -84,18 +84,9 @@ namespace RenewEDSenderWin
         /// <summary>
         /// 消息队列管理器
         /// </summary>
-        private static MsgQueManager m_MsgQueManager = new MsgQueManager();
-
-        /// <summary>
-        /// 监控线程,发送服务启动后,监控进程是否存活
-        /// </summary>
-        private Thread m_thread_monitor = null;
-
-        private Thread m_thread_recv_queue = null;
+        private static MsgQueManager m_MsgQueManager;
 
         private System.Timers.Timer m_moniter_timer = new System.Timers.Timer();
-
-        private bool isNetAvailable;
 
         public string NetWorkState
         {
@@ -141,6 +132,15 @@ namespace RenewEDSenderWin
             m_moniter_timer.Elapsed +=new ElapsedEventHandler(MoniterTimer_Elapsed);
             m_moniter_timer.Interval = 5 * 1000;    //5秒一次
             m_moniter_timer.Enabled = true;
+
+            try
+            {
+                m_MsgQueManager = new MsgQueManager();
+            }
+            catch (MessageQueueException mqex)
+            {
+                MessageBox.Show("消息队列尚未启动:" + mqex);
+            }
             MsgQueueRecv();
             //建立消息队列接收线程
             //m_thread_recv_queue = new Thread(new ThreadStart(MsgQueueRecv));

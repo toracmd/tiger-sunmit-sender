@@ -150,6 +150,10 @@ namespace RenewEDSenderM.Support
         /// 网络连接状态
         /// </summary>
         public bool isConnected;
+        /// <summary>
+        /// 认证状态
+        /// </summary>
+        public bool isVerified;
 
         /// <summary>
         /// 发送运行阶段
@@ -161,6 +165,18 @@ namespace RenewEDSenderM.Support
         /// </summary>
         public MsgBody()
         {
+        }
+        /// <summary>
+        /// 构造函数重载
+        /// </summary>
+        /// <param name="conn">连接状态</param>
+        /// <param name="syn">认证状态</param>
+        /// <param name="r">运行阶段</param>
+        public MsgBody(bool conn, bool syn ,RUN_PHASE r)
+        {
+            isConnected = conn;
+            isVerified = syn;
+            phase = r;
         }
         /// <summary>
         /// 构造函数重载
