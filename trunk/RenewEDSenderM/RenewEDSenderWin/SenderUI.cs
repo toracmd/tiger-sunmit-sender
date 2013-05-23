@@ -172,6 +172,7 @@ namespace RenewEDSenderWin
                 txtBoxProId.Text = config.project_id;
 
                 txtBoxProCode.Text = config.programid;
+                txtBoxAreaCode.Text = config.areacode;
                 txtBoxTechCode.Text = config.techtype;
                 txtBoxSysCode.Text = config.syscode;
 
@@ -573,6 +574,7 @@ namespace RenewEDSenderWin
                 MessageBox.Show("修改密钥请停止发送服务");
                 return;
             }
+            bool ret = true;
             //SenderUI构造函数里是否要初始内容
             SetConfig setconfig = new SetConfig();
             Configuration config = setconfig.ReadConfig();
@@ -614,7 +616,16 @@ namespace RenewEDSenderWin
             config.meterInfo.MC_Code1 = txtBoxSunGen1.Text;
             config.meterInfo.MC_Code2 = txtBoxSunGen2.Text;	
             //T.B.D. 单独设定
-            setconfig.WriteConfig(config);
+            ret &= setconfig.WriteConfig(config);
+            
+            if (ret)
+            {
+                MessageBox.Show("变更已保存");
+            }
+            else
+            {
+                MessageBox.Show("变更保存失败");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -631,6 +642,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxAreaCode, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxAreaCode.Focus();
             }
         }
 
@@ -662,6 +674,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxIP, ErrorMessage.ERR_VALIDATE_IP_PATTERN);
+                txtBoxIP.Focus();
             }
         }
 
@@ -677,6 +690,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxPort, ErrorMessage.ERR_VALIDATE_PORT_PATTERN);
+                txtBoxPort.Focus();
             }
         }
 
@@ -689,6 +703,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxAesKey, ErrorMessage.ERR_VALIDATE_KEY_PATTERN);
+                txtBoxAesKey.Focus();
             }
         }
 
@@ -701,6 +716,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxAesIV, ErrorMessage.ERR_VALIDATE_KEY_PATTERN);
+                txtBoxAesIV.Focus();
             }
         }
 
@@ -713,6 +729,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxMd5Key, ErrorMessage.ERR_VALIDATE_KEY_PATTERN);
+                txtBoxMd5Key.Focus();
             }
         }
 
@@ -725,6 +742,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxProCode, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxProCode.Focus();
             }
         }
 
@@ -737,6 +755,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxTechCode, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxTechCode.Focus();
             }
         }
 
@@ -749,6 +768,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxSysCode, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxSysCode.Focus();
             }
 
         }
@@ -762,6 +782,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxSun1, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxSun1.Focus();
             }
         }
 
@@ -774,6 +795,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxOuter1, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxOuter1.Focus();
             }
         }
 
@@ -786,6 +808,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxSunGen1, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxSunGen1.Focus();
             }
         }
 
@@ -798,6 +821,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxGen1, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxGen1.Focus();
             }
         }
 
@@ -810,6 +834,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxSun2, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxSun2.Focus();
             }
         }
 
@@ -822,6 +847,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxOuter2, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxOuter2.Focus();
             }
         }
 
@@ -834,6 +860,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxSunGen2, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxSunGen2.Focus();
             }
         }
 
@@ -846,6 +873,7 @@ namespace RenewEDSenderWin
             else
             {
                 errorProvider1.SetError(txtBoxGen2, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+                txtBoxGen2.Focus();
             }
         }
         private bool MatchedValidateRegex_Controller(string parms, string regex)
@@ -954,9 +982,18 @@ namespace RenewEDSenderWin
             config.iv = txtBoxAesIV.Text;
             config.md5 = txtBoxMd5Key.Text;
 
-            setcfg.WriteSpecailConfig(config, Commands.KEY);
-            setcfg.WriteSpecailConfig(config, Commands.IV);
-            setcfg.WriteSpecailConfig(config, Commands.MD5);
+            bool ret = true;
+            ret &= setcfg.WriteSpecailConfig(config, Commands.KEY);
+            ret &= setcfg.WriteSpecailConfig(config, Commands.IV);
+            ret &= setcfg.WriteSpecailConfig(config, Commands.MD5);
+            if (ret)
+            {
+                MessageBox.Show("更新写入成功");
+            }
+            else
+            {
+                MessageBox.Show("更新写入失败");
+            }
         }
     }
 }
