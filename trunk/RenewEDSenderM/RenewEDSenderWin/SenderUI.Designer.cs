@@ -28,11 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSenderStart = new System.Windows.Forms.Button();
             this.btnSenderStop = new System.Windows.Forms.Button();
             this.btnSenderRestart = new System.Windows.Forms.Button();
             this.groupBoxCtrl = new System.Windows.Forms.GroupBox();
             this.groupBoxKey = new System.Windows.Forms.GroupBox();
+            this.txtBoxSun1 = new System.Windows.Forms.TextBox();
+            this.txtBoxSysCode = new System.Windows.Forms.TextBox();
+            this.txtBoxTechCode = new System.Windows.Forms.TextBox();
+            this.txtBoxProCode = new System.Windows.Forms.TextBox();
+            this.txtBoxAreaCode = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtBoxProId = new System.Windows.Forms.TextBox();
             this.txtBoxGateId = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,7 +52,7 @@
             this.txtBoxIP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnKeyUpdate = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtBoxMd5Key = new System.Windows.Forms.TextBox();
             this.txtBoxAesIV = new System.Windows.Forms.TextBox();
@@ -56,42 +67,73 @@
             this.txtBoxConnStatus = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtBoxOuter1 = new System.Windows.Forms.TextBox();
+            this.txtBoxSunGen1 = new System.Windows.Forms.TextBox();
+            this.txtBoxGen1 = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtBoxGen2 = new System.Windows.Forms.TextBox();
+            this.txtBoxSunGen2 = new System.Windows.Forms.TextBox();
+            this.txtBoxOuter2 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtBoxSun2 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxCtrl.SuspendLayout();
             this.groupBoxKey.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSenderStart
             // 
-            this.btnSenderStart.Location = new System.Drawing.Point(35, 17);
+            this.btnSenderStart.Location = new System.Drawing.Point(35, 26);
             this.btnSenderStart.Name = "btnSenderStart";
-            this.btnSenderStart.Size = new System.Drawing.Size(121, 56);
+            this.btnSenderStart.Size = new System.Drawing.Size(134, 30);
             this.btnSenderStart.TabIndex = 0;
             this.btnSenderStart.Text = "启动发送服务";
             this.btnSenderStart.UseVisualStyleBackColor = true;
-            this.btnSenderStart.UseWaitCursor = false;
             this.btnSenderStart.Click += new System.EventHandler(this.btnSenderStart_Click);
             // 
             // btnSenderStop
             // 
-            this.btnSenderStop.Location = new System.Drawing.Point(35, 116);
+            this.btnSenderStop.Location = new System.Drawing.Point(35, 78);
             this.btnSenderStop.Name = "btnSenderStop";
-            this.btnSenderStop.Size = new System.Drawing.Size(121, 56);
+            this.btnSenderStop.Size = new System.Drawing.Size(134, 27);
             this.btnSenderStop.TabIndex = 1;
             this.btnSenderStop.Text = "停止发送服务";
             this.btnSenderStop.UseVisualStyleBackColor = true;
-            this.btnSenderStop.UseWaitCursor = false;
             this.btnSenderStop.Click += new System.EventHandler(this.btnSenderStop_Click);
             // 
             // btnSenderRestart
             // 
-            this.btnSenderRestart.Location = new System.Drawing.Point(35, 231);
+            this.btnSenderRestart.Location = new System.Drawing.Point(35, 122);
             this.btnSenderRestart.Name = "btnSenderRestart";
-            this.btnSenderRestart.Size = new System.Drawing.Size(121, 56);
+            this.btnSenderRestart.Size = new System.Drawing.Size(134, 27);
             this.btnSenderRestart.TabIndex = 2;
             this.btnSenderRestart.Text = "重启发送服务";
             this.btnSenderRestart.UseVisualStyleBackColor = true;
-            this.btnSenderRestart.UseWaitCursor = false;
             this.btnSenderRestart.Click += new System.EventHandler(this.btnSenderRestart_Click);
             // 
             // groupBoxCtrl
@@ -101,14 +143,26 @@
             this.groupBoxCtrl.Controls.Add(this.btnSenderStart);
             this.groupBoxCtrl.Location = new System.Drawing.Point(30, 13);
             this.groupBoxCtrl.Name = "groupBoxCtrl";
-            this.groupBoxCtrl.Size = new System.Drawing.Size(212, 316);
+            this.groupBoxCtrl.Size = new System.Drawing.Size(247, 175);
             this.groupBoxCtrl.TabIndex = 3;
             this.groupBoxCtrl.TabStop = false;
             this.groupBoxCtrl.Text = "数据发送服务";
-            this.groupBoxCtrl.UseWaitCursor = false;
             // 
             // groupBoxKey
             // 
+            this.groupBoxKey.Controls.Add(this.label25);
+            this.groupBoxKey.Controls.Add(this.label24);
+            this.groupBoxKey.Controls.Add(this.label23);
+            this.groupBoxKey.Controls.Add(this.label15);
+            this.groupBoxKey.Controls.Add(this.tabControl1);
+            this.groupBoxKey.Controls.Add(this.txtBoxSysCode);
+            this.groupBoxKey.Controls.Add(this.txtBoxTechCode);
+            this.groupBoxKey.Controls.Add(this.txtBoxProCode);
+            this.groupBoxKey.Controls.Add(this.txtBoxAreaCode);
+            this.groupBoxKey.Controls.Add(this.label13);
+            this.groupBoxKey.Controls.Add(this.label12);
+            this.groupBoxKey.Controls.Add(this.label11);
+            this.groupBoxKey.Controls.Add(this.label10);
             this.groupBoxKey.Controls.Add(this.txtBoxProId);
             this.groupBoxKey.Controls.Add(this.txtBoxGateId);
             this.groupBoxKey.Controls.Add(this.label6);
@@ -117,7 +171,7 @@
             this.groupBoxKey.Controls.Add(this.txtBoxIP);
             this.groupBoxKey.Controls.Add(this.label4);
             this.groupBoxKey.Controls.Add(this.label3);
-            this.groupBoxKey.Controls.Add(this.btnCancel);
+            this.groupBoxKey.Controls.Add(this.btnKeyUpdate);
             this.groupBoxKey.Controls.Add(this.btnUpdate);
             this.groupBoxKey.Controls.Add(this.txtBoxMd5Key);
             this.groupBoxKey.Controls.Add(this.txtBoxAesIV);
@@ -127,11 +181,105 @@
             this.groupBoxKey.Controls.Add(this.lblAesKey);
             this.groupBoxKey.Location = new System.Drawing.Point(283, 13);
             this.groupBoxKey.Name = "groupBoxKey";
-            this.groupBoxKey.Size = new System.Drawing.Size(321, 315);
+            this.groupBoxKey.Size = new System.Drawing.Size(904, 488);
             this.groupBoxKey.TabIndex = 4;
             this.groupBoxKey.TabStop = false;
             this.groupBoxKey.Text = "配置管理";
-            this.groupBoxKey.UseWaitCursor = false;
+            // 
+            // txtBoxSun1
+            // 
+            this.txtBoxSun1.Location = new System.Drawing.Point(134, 13);
+            this.txtBoxSun1.Name = "txtBoxSun1";
+            this.txtBoxSun1.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxSun1.TabIndex = 26;
+            this.txtBoxSun1.Text = "110000015";
+            this.txtBoxSun1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSun1_KeyPress);
+            this.txtBoxSun1.Validated += new System.EventHandler(this.txtBoxSun1_Validated);
+            // 
+            // txtBoxSysCode
+            // 
+            this.txtBoxSysCode.Location = new System.Drawing.Point(392, 117);
+            this.txtBoxSysCode.Name = "txtBoxSysCode";
+            this.txtBoxSysCode.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxSysCode.TabIndex = 25;
+            this.txtBoxSysCode.Text = "110000015";
+            this.txtBoxSysCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSysCode_KeyPress);
+            this.txtBoxSysCode.Validated += new System.EventHandler(this.txtBoxSysCode_Validated);
+            // 
+            // txtBoxTechCode
+            // 
+            this.txtBoxTechCode.Location = new System.Drawing.Point(392, 90);
+            this.txtBoxTechCode.Name = "txtBoxTechCode";
+            this.txtBoxTechCode.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxTechCode.TabIndex = 24;
+            this.txtBoxTechCode.Text = "110000015";
+            this.txtBoxTechCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxTechCode_KeyPress);
+            this.txtBoxTechCode.Validated += new System.EventHandler(this.txtBoxTechCode_Validated);
+            // 
+            // txtBoxProCode
+            // 
+            this.txtBoxProCode.Location = new System.Drawing.Point(392, 58);
+            this.txtBoxProCode.Name = "txtBoxProCode";
+            this.txtBoxProCode.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxProCode.TabIndex = 23;
+            this.txtBoxProCode.Text = "110000015";
+            this.txtBoxProCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxProCode_KeyPress);
+            this.txtBoxProCode.Validated += new System.EventHandler(this.txtBoxProCode_Validated);
+            // 
+            // txtBoxAreaCode
+            // 
+            this.txtBoxAreaCode.Location = new System.Drawing.Point(392, 26);
+            this.txtBoxAreaCode.Name = "txtBoxAreaCode";
+            this.txtBoxAreaCode.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxAreaCode.TabIndex = 22;
+            this.txtBoxAreaCode.Text = "110000015";
+            this.txtBoxAreaCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxAreaCode_KeyPress);
+            this.txtBoxAreaCode.Validated += new System.EventHandler(this.txtBoxAreaCode_Validated);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(71, 12);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "太阳辐照度:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(315, 122);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 12);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "系统编码:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(315, 93);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(59, 12);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "技术类型:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(315, 61);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 12);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "项目编码:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(315, 29);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(71, 12);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "行政区编码:";
             // 
             // txtBoxProId
             // 
@@ -140,7 +288,8 @@
             this.txtBoxProId.Size = new System.Drawing.Size(182, 21);
             this.txtBoxProId.TabIndex = 15;
             this.txtBoxProId.Text = "110000015";
-            this.txtBoxProId.UseWaitCursor = false;
+            this.txtBoxProId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxProId_KeyPress);
+            this.txtBoxProId.Validated += new System.EventHandler(this.txtBoxProId_Validated);
             // 
             // txtBoxGateId
             // 
@@ -149,7 +298,8 @@
             this.txtBoxGateId.Size = new System.Drawing.Size(182, 21);
             this.txtBoxGateId.TabIndex = 14;
             this.txtBoxGateId.Text = "1100000140202";
-            this.txtBoxGateId.UseWaitCursor = false;
+            this.txtBoxGateId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxGateId_KeyPress);
+            this.txtBoxGateId.Validated += new System.EventHandler(this.txtBoxGateId_Validated);
             // 
             // label6
             // 
@@ -159,7 +309,6 @@
             this.label6.Size = new System.Drawing.Size(83, 12);
             this.label6.TabIndex = 13;
             this.label6.Text = "采集装置编号:";
-            this.label6.UseWaitCursor = false;
             // 
             // label5
             // 
@@ -169,7 +318,6 @@
             this.label5.Size = new System.Drawing.Size(59, 12);
             this.label5.TabIndex = 12;
             this.label5.Text = "项目编号:";
-            this.label5.UseWaitCursor = false;
             // 
             // txtBoxPort
             // 
@@ -178,7 +326,8 @@
             this.txtBoxPort.Size = new System.Drawing.Size(182, 21);
             this.txtBoxPort.TabIndex = 11;
             this.txtBoxPort.Text = "13145";
-            this.txtBoxPort.UseWaitCursor = false;
+            this.txtBoxPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxPort_KeyPress);
+            this.txtBoxPort.Validated += new System.EventHandler(this.txtBoxPort_Validated);
             // 
             // txtBoxIP
             // 
@@ -187,7 +336,7 @@
             this.txtBoxIP.Size = new System.Drawing.Size(182, 21);
             this.txtBoxIP.TabIndex = 10;
             this.txtBoxIP.Text = "210.77.14.218";
-            this.txtBoxIP.UseWaitCursor = false;
+            this.txtBoxIP.Validated += new System.EventHandler(this.txtBoxIP_Validated);
             // 
             // label4
             // 
@@ -197,7 +346,6 @@
             this.label4.Size = new System.Drawing.Size(77, 12);
             this.label4.TabIndex = 9;
             this.label4.Text = "Server Port:";
-            this.label4.UseWaitCursor = false;
             // 
             // label3
             // 
@@ -207,27 +355,25 @@
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 8;
             this.label3.Text = "Server IP:";
-            this.label3.UseWaitCursor = false;
             // 
-            // btnCancel
+            // btnKeyUpdate
             // 
-            this.btnCancel.Location = new System.Drawing.Point(163, 282);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "取消更新";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.UseWaitCursor = false;
+            this.btnKeyUpdate.Location = new System.Drawing.Point(211, 407);
+            this.btnKeyUpdate.Name = "btnKeyUpdate";
+            this.btnKeyUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnKeyUpdate.TabIndex = 7;
+            this.btnKeyUpdate.Text = "更新密钥";
+            this.btnKeyUpdate.UseVisualStyleBackColor = true;
+            this.btnKeyUpdate.Click += new System.EventHandler(this.btnKeyUpdate_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(82, 282);
+            this.btnUpdate.Location = new System.Drawing.Point(104, 407);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "更新配置";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.UseWaitCursor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtBoxMd5Key
@@ -237,7 +383,7 @@
             this.txtBoxMd5Key.Size = new System.Drawing.Size(182, 21);
             this.txtBoxMd5Key.TabIndex = 5;
             this.txtBoxMd5Key.Text = "0000000000123456";
-            this.txtBoxMd5Key.UseWaitCursor = false;
+            this.txtBoxMd5Key.Validated += new System.EventHandler(this.txtBoxMd5Key_Validated);
             // 
             // txtBoxAesIV
             // 
@@ -246,7 +392,7 @@
             this.txtBoxAesIV.Size = new System.Drawing.Size(182, 21);
             this.txtBoxAesIV.TabIndex = 4;
             this.txtBoxAesIV.Text = "0000000000123456";
-            this.txtBoxAesIV.UseWaitCursor = false;
+            this.txtBoxAesIV.Validated += new System.EventHandler(this.txtBoxAesIV_Validated);
             // 
             // txtBoxAesKey
             // 
@@ -255,7 +401,7 @@
             this.txtBoxAesKey.Size = new System.Drawing.Size(182, 21);
             this.txtBoxAesKey.TabIndex = 3;
             this.txtBoxAesKey.Text = "0000000000123456";
-            this.txtBoxAesKey.UseWaitCursor = false;
+            this.txtBoxAesKey.Validated += new System.EventHandler(this.txtBoxAesKey_Validated);
             // 
             // label2
             // 
@@ -265,7 +411,6 @@
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "MD5 Key:";
-            this.label2.UseWaitCursor = false;
             // 
             // label1
             // 
@@ -275,7 +420,6 @@
             this.label1.Size = new System.Drawing.Size(47, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "AES IV:";
-            this.label1.UseWaitCursor = false;
             // 
             // lblAesKey
             // 
@@ -285,7 +429,6 @@
             this.lblAesKey.Size = new System.Drawing.Size(53, 12);
             this.lblAesKey.TabIndex = 0;
             this.lblAesKey.Text = "AES Key:";
-            this.lblAesKey.UseWaitCursor = false;
             // 
             // groupBox1
             // 
@@ -295,13 +438,12 @@
             this.groupBox1.Controls.Add(this.txtBoxConnStatus);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Location = new System.Drawing.Point(633, 13);
+            this.groupBox1.Location = new System.Drawing.Point(26, 194);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(251, 315);
+            this.groupBox1.Size = new System.Drawing.Size(251, 307);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "服务状态";
-            this.groupBox1.UseWaitCursor = false;
             // 
             // txtBoxNetState
             // 
@@ -310,7 +452,6 @@
             this.txtBoxNetState.Name = "txtBoxNetState";
             this.txtBoxNetState.Size = new System.Drawing.Size(146, 21);
             this.txtBoxNetState.TabIndex = 5;
-            this.txtBoxNetState.UseWaitCursor = false;
             // 
             // label9
             // 
@@ -320,7 +461,6 @@
             this.label9.Size = new System.Drawing.Size(59, 12);
             this.label9.TabIndex = 4;
             this.label9.Text = "网络状态:";
-            this.label9.UseWaitCursor = false;
             // 
             // txtBoxRunPhase
             // 
@@ -329,7 +469,6 @@
             this.txtBoxRunPhase.Name = "txtBoxRunPhase";
             this.txtBoxRunPhase.Size = new System.Drawing.Size(146, 21);
             this.txtBoxRunPhase.TabIndex = 3;
-            this.txtBoxRunPhase.UseWaitCursor = false;
             // 
             // txtBoxConnStatus
             // 
@@ -347,7 +486,6 @@
             this.label8.Size = new System.Drawing.Size(59, 12);
             this.label8.TabIndex = 1;
             this.label8.Text = "连接状态:";
-            this.label8.UseWaitCursor = false;
             // 
             // label7
             // 
@@ -357,13 +495,311 @@
             this.label7.Size = new System.Drawing.Size(59, 12);
             this.label7.TabIndex = 0;
             this.label7.Text = "运行阶段:";
-            this.label7.UseWaitCursor = false;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(317, 160);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(334, 178);
+            this.tabControl1.TabIndex = 28;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.label33);
+            this.tabPage1.Controls.Add(this.label32);
+            this.tabPage1.Controls.Add(this.label31);
+            this.tabPage1.Controls.Add(this.label30);
+            this.tabPage1.Controls.Add(this.txtBoxGen1);
+            this.tabPage1.Controls.Add(this.txtBoxSunGen1);
+            this.tabPage1.Controls.Add(this.txtBoxOuter1);
+            this.tabPage1.Controls.Add(this.label18);
+            this.tabPage1.Controls.Add(this.label17);
+            this.tabPage1.Controls.Add(this.txtBoxSun1);
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.label14);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(326, 152);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "数据采集装置识别编码";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(9, 55);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(59, 12);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "室外温度:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 88);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(131, 12);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "光伏组件背面表面温度:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(9, 129);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(47, 12);
+            this.label18.TabIndex = 23;
+            this.label18.Text = "发电量:";
+            // 
+            // txtBoxOuter1
+            // 
+            this.txtBoxOuter1.Location = new System.Drawing.Point(134, 52);
+            this.txtBoxOuter1.Name = "txtBoxOuter1";
+            this.txtBoxOuter1.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxOuter1.TabIndex = 27;
+            this.txtBoxOuter1.Text = "110000015";
+            this.txtBoxOuter1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxOuter1_KeyPress);
+            this.txtBoxOuter1.Validated += new System.EventHandler(this.txtBoxOuter1_Validated);
+            // 
+            // txtBoxSunGen1
+            // 
+            this.txtBoxSunGen1.Location = new System.Drawing.Point(134, 84);
+            this.txtBoxSunGen1.Name = "txtBoxSunGen1";
+            this.txtBoxSunGen1.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxSunGen1.TabIndex = 28;
+            this.txtBoxSunGen1.Text = "110000015";
+            this.txtBoxSunGen1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSunGen1_KeyPress);
+            this.txtBoxSunGen1.Validated += new System.EventHandler(this.txtBoxSunGen1_Validated);
+            // 
+            // txtBoxGen1
+            // 
+            this.txtBoxGen1.Location = new System.Drawing.Point(134, 125);
+            this.txtBoxGen1.Name = "txtBoxGen1";
+            this.txtBoxGen1.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxGen1.TabIndex = 29;
+            this.txtBoxGen1.Text = "110000015";
+            this.txtBoxGen1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxGen1_KeyPress);
+            this.txtBoxGen1.Validated += new System.EventHandler(this.txtBoxGen1_Validated);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage2.Controls.Add(this.label29);
+            this.tabPage2.Controls.Add(this.label28);
+            this.tabPage2.Controls.Add(this.label27);
+            this.tabPage2.Controls.Add(this.label26);
+            this.tabPage2.Controls.Add(this.txtBoxGen2);
+            this.tabPage2.Controls.Add(this.label22);
+            this.tabPage2.Controls.Add(this.txtBoxSunGen2);
+            this.tabPage2.Controls.Add(this.label21);
+            this.tabPage2.Controls.Add(this.txtBoxOuter2);
+            this.tabPage2.Controls.Add(this.txtBoxSun2);
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.label20);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(326, 152);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "数据采集点识别编码";
+            // 
+            // txtBoxGen2
+            // 
+            this.txtBoxGen2.Location = new System.Drawing.Point(134, 125);
+            this.txtBoxGen2.Name = "txtBoxGen2";
+            this.txtBoxGen2.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxGen2.TabIndex = 37;
+            this.txtBoxGen2.Text = "110000015";
+            this.txtBoxGen2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxGen2_KeyPress);
+            this.txtBoxGen2.Validated += new System.EventHandler(this.txtBoxGen2_Validated);
+            // 
+            // txtBoxSunGen2
+            // 
+            this.txtBoxSunGen2.Location = new System.Drawing.Point(134, 84);
+            this.txtBoxSunGen2.Name = "txtBoxSunGen2";
+            this.txtBoxSunGen2.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxSunGen2.TabIndex = 36;
+            this.txtBoxSunGen2.Text = "110000015";
+            this.txtBoxSunGen2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSunGen2_KeyPress);
+            this.txtBoxSunGen2.Validated += new System.EventHandler(this.txtBoxSunGen2_Validated);
+            // 
+            // txtBoxOuter2
+            // 
+            this.txtBoxOuter2.Location = new System.Drawing.Point(134, 52);
+            this.txtBoxOuter2.Name = "txtBoxOuter2";
+            this.txtBoxOuter2.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxOuter2.TabIndex = 35;
+            this.txtBoxOuter2.Text = "110000015";
+            this.txtBoxOuter2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxOuter2_KeyPress);
+            this.txtBoxOuter2.Validated += new System.EventHandler(this.txtBoxOuter2_Validated);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(9, 129);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(47, 12);
+            this.label19.TabIndex = 33;
+            this.label19.Text = "发电量:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 88);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(131, 12);
+            this.label20.TabIndex = 32;
+            this.label20.Text = "光伏组件背面表面温度:";
+            // 
+            // txtBoxSun2
+            // 
+            this.txtBoxSun2.Location = new System.Drawing.Point(134, 13);
+            this.txtBoxSun2.Name = "txtBoxSun2";
+            this.txtBoxSun2.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxSun2.TabIndex = 34;
+            this.txtBoxSun2.Text = "110000015";
+            this.txtBoxSun2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSun2_KeyPress);
+            this.txtBoxSun2.Validated += new System.EventHandler(this.txtBoxSun2_Validated);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(9, 55);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(59, 12);
+            this.label21.TabIndex = 31;
+            this.label21.Text = "室外温度:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(9, 16);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(71, 12);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "太阳辐照度:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(592, 29);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(59, 12);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "(6位数字)";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(592, 64);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(59, 12);
+            this.label23.TabIndex = 30;
+            this.label23.Text = "(3位数字)";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(592, 93);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(59, 12);
+            this.label24.TabIndex = 31;
+            this.label24.Text = "(3位数字)";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(592, 120);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(59, 12);
+            this.label25.TabIndex = 32;
+            this.label25.Text = "(2位数字)";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(216, 16);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(59, 12);
+            this.label26.TabIndex = 38;
+            this.label26.Text = "(2位数字)";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(216, 55);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(59, 12);
+            this.label27.TabIndex = 39;
+            this.label27.Text = "(2位数字)";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(216, 93);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(59, 12);
+            this.label28.TabIndex = 40;
+            this.label28.Text = "(2位数字)";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(216, 128);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(59, 12);
+            this.label29.TabIndex = 41;
+            this.label29.Text = "(2位数字)";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(211, 16);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(59, 12);
+            this.label30.TabIndex = 42;
+            this.label30.Text = "(2位数字)";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(211, 55);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(59, 12);
+            this.label31.TabIndex = 43;
+            this.label31.Text = "(2位数字)";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(211, 90);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(59, 12);
+            this.label32.TabIndex = 44;
+            this.label32.Text = "(2位数字)";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(211, 128);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(59, 12);
+            this.label33.TabIndex = 45;
+            this.label33.Text = "(2位数字)";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // SenderUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 366);
+            this.ClientSize = new System.Drawing.Size(1230, 554);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxKey);
             this.Controls.Add(this.groupBoxCtrl);
@@ -377,6 +813,12 @@
             this.groupBoxKey.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -394,7 +836,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblAesKey;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnKeyUpdate;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtBoxPort;
         private System.Windows.Forms.TextBox txtBoxIP;
@@ -411,6 +853,46 @@
         private System.Windows.Forms.TextBox txtBoxConnStatus;
         private System.Windows.Forms.TextBox txtBoxNetState;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtBoxSun1;
+        private System.Windows.Forms.TextBox txtBoxSysCode;
+        private System.Windows.Forms.TextBox txtBoxTechCode;
+        private System.Windows.Forms.TextBox txtBoxProCode;
+        private System.Windows.Forms.TextBox txtBoxAreaCode;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtBoxGen1;
+        private System.Windows.Forms.TextBox txtBoxSunGen1;
+        private System.Windows.Forms.TextBox txtBoxOuter1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox txtBoxGen2;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtBoxSunGen2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtBoxOuter2;
+        private System.Windows.Forms.TextBox txtBoxSun2;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
