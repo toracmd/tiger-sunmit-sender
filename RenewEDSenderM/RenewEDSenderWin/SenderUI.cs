@@ -86,6 +86,8 @@ namespace RenewEDSenderWin
         /// </summary>
         private static MsgQueManager m_MsgQueManager;
 
+        private static Configuration config;
+
         private System.Timers.Timer m_moniter_timer = new System.Timers.Timer();
 
         public string NetWorkState
@@ -120,6 +122,20 @@ namespace RenewEDSenderWin
         public SenderUI()
         {
             InitializeComponent();
+            InitMember();
+            //建立消息队列接收线程
+            //m_thread_recv_queue = new Thread(new ThreadStart(MsgQueueRecv));
+            //启动消息队列接收线程
+            //m_thread_recv_queue.Start();
+
+            //方法一：不进行跨线程安全检查  
+            //System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;  
+        }
+        /// <summary>
+        /// 初始化成员
+        /// </summary>
+        private void InitMember()
+        {
             //初始按钮状态
             btnSenderStop.Enabled = false;
             btnSenderRestart.Enabled = false;
@@ -129,7 +145,7 @@ namespace RenewEDSenderWin
             txtBoxNetState.Text = NetWorkState;
             //c.Network.NetworkAvailabilityChanged +=new NetworkAvailableEventHandler(Network_NetworkAvailabilityChanged);
 
-            m_moniter_timer.Elapsed +=new ElapsedEventHandler(MoniterTimer_Elapsed);
+            m_moniter_timer.Elapsed += new ElapsedEventHandler(MoniterTimer_Elapsed);
             m_moniter_timer.Interval = 5 * 1000;    //5秒一次
             m_moniter_timer.Enabled = true;
 
@@ -142,13 +158,33 @@ namespace RenewEDSenderWin
                 MessageBox.Show("消息队列尚未启动:" + mqex);
             }
             MsgQueueRecv();
-            //建立消息队列接收线程
-            //m_thread_recv_queue = new Thread(new ThreadStart(MsgQueueRecv));
-            //启动消息队列接收线程
-            //m_thread_recv_queue.Start();
 
-            //方法一：不进行跨线程安全检查  
-            //System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;  
+            SetConfig cfg = new SetConfig();
+            config = cfg.ReadConfig();
+            if (config != null)
+            {
+                txtBoxAesIV.Text = config.iv;
+                txtBoxAesKey.Text = config.key;
+                txtBoxGateId.Text = config.gateway_id;
+                txtBoxIP.Text = config.ip;
+                txtBoxMd5Key.Text = config.md5;
+                txtBoxPort.Text = config.port;
+                txtBoxProId.Text = config.project_id;
+
+                txtBoxProCode.Text = config.programid;
+                txtBoxTechCode.Text = config.techtype;
+                txtBoxSysCode.Text = config.syscode;
+
+                txtBoxGen1.Text = config.meterInfo.MD_Code1;
+                txtBoxGen2.Text = config.meterInfo.MD_Code2;
+                txtBoxOuter1.Text = config.meterInfo.MB_Code1;
+                txtBoxOuter2.Text = config.meterInfo.MB_Code2;
+                txtBoxSun1.Text = config.meterInfo.MA_Code1;
+                txtBoxSun2.Text = config.meterInfo.MB_Code2;
+                txtBoxSunGen1.Text = config.meterInfo.MC_Code1;
+                txtBoxSunGen2.Text = config.meterInfo.MC_Code2;
+                //T.B.D. 1、其他需要编辑的; 2、设置的； 3、验证格式
+            }
         }
         /// <summary>
         /// 消息队列异步接收函数
@@ -541,21 +577,42 @@ namespace RenewEDSenderWin
             SetConfig setconfig = new SetConfig();
             Configuration config = setconfig.ReadConfig();
             //Configuration config = new Configuration();
-            m_project_id = txtBoxProId.Text;
-            m_gateway_id = txtBoxGateId.Text;
-            m_Ip = txtBoxIP.Text;
-            m_Port = txtBoxPort.Text;
-            m_AesKey = txtBoxAesKey.Text;
-            m_AesIV = txtBoxAesIV.Text;
-            m_Md5Key = txtBoxMd5Key.Text;
+            //m_project_id = txtBoxProId.Text;
+            //m_gateway_id = txtBoxGateId.Text;
+            //m_Ip = txtBoxIP.Text;
+            //m_Port = txtBoxPort.Text;
+            //m_AesKey = txtBoxAesKey.Text;
+            //m_AesIV = txtBoxAesIV.Text;
+            //m_Md5Key = txtBoxMd5Key.Text;
 
-            config.project_id = m_project_id;
-            config.gateway_id = m_gateway_id;
-            config.ip = m_Ip;
-            config.port = m_Port;
-            config.key = m_AesKey;
-            config.iv = m_AesIV;
-            config.md5 = m_Md5Key;
+            //config.project_id = m_project_id;
+            //config.gateway_id = m_gateway_id;
+            //config.ip = m_Ip;
+            //config.port = m_Port;
+            //config.key = m_AesKey;
+            //config.iv = m_AesIV;
+            //config.md5 = m_Md5Key;
+
+            config.iv = txtBoxAesIV.Text;
+            config.key = txtBoxAesKey.Text;
+            config.gateway_id = txtBoxGateId.Text;
+            config.ip = txtBoxIP.Text;
+            config.md5 = txtBoxMd5Key.Text;
+            config.port = txtBoxPort.Text;
+            config.project_id = txtBoxProId.Text;
+            
+            config.programid = txtBoxProCode.Text;
+            config.techtype = txtBoxTechCode.Text;
+            config.syscode = txtBoxSysCode.Text;
+            
+            config.meterInfo.MD_Code1 = txtBoxGen1.Text;
+            config.meterInfo.MD_Code2 = txtBoxGen2.Text;
+            config.meterInfo.MB_Code1 = txtBoxOuter1.Text;
+            config.meterInfo.MB_Code2 = txtBoxOuter2.Text;
+            config.meterInfo.MA_Code1 = txtBoxSun1.Text;
+            config.meterInfo.MB_Code2 = txtBoxSun2.Text;
+            config.meterInfo.MC_Code1 = txtBoxSunGen1.Text;
+            config.meterInfo.MC_Code2 = txtBoxSunGen2.Text;	
             //T.B.D. 单独设定
             setconfig.WriteConfig(config);
         }
@@ -563,6 +620,343 @@ namespace RenewEDSenderWin
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtBoxAreaCode_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxAreaCode.Text, RegexPattern.REGEX_AREA_CODE))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxAreaCode, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+        }
+
+        /// <summary>
+        /// 项目编号验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBoxProId_Validated(object sender, EventArgs e)
+        {
+            
+        }
+        /// <summary>
+        /// 采集装置编号验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBoxGateId_Validated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBoxIP_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxIP.Text.Trim(), RegexPattern.REGEX_IP))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxIP, ErrorMessage.ERR_VALIDATE_IP_PATTERN);
+            }
+        }
+
+        private void txtBoxPort_Validated(object sender, EventArgs e)
+        {
+            int port = 0;
+            bool isNum = false;
+            isNum = int.TryParse(txtBoxPort.Text, out port);
+            if (port > 0 && port <= 65535)
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxPort, ErrorMessage.ERR_VALIDATE_PORT_PATTERN);
+            }
+        }
+
+        private void txtBoxAesKey_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxAesKey.Text.Trim(), RegexPattern.REGEX_16CH))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxAesKey, ErrorMessage.ERR_VALIDATE_KEY_PATTERN);
+            }
+        }
+
+        private void txtBoxAesIV_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxAesIV.Text.Trim(), RegexPattern.REGEX_16CH))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxAesIV, ErrorMessage.ERR_VALIDATE_KEY_PATTERN);
+            }
+        }
+
+        private void txtBoxMd5Key_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxMd5Key.Text.Trim(), RegexPattern.REGEX_16CH))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxMd5Key, ErrorMessage.ERR_VALIDATE_KEY_PATTERN);
+            }
+        }
+
+        private void txtBoxProCode_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxProCode.Text.Trim(), RegexPattern.REGEX_PROJECT_CODE))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxProCode, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+        }
+
+        private void txtBoxTechCode_Validated(object sender, EventArgs e)
+        {
+            if(MatchedValidateRegex_Controller(txtBoxTechCode.Text.Trim(), RegexPattern.REGEX_TECH_TYPE))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxTechCode, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+        }
+
+        private void txtBoxSysCode_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxSysCode.Text.Trim(), RegexPattern.REGEX_SYS_CODE))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxSysCode, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+
+        }
+
+        private void txtBoxSun1_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxSun1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxSun1, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+        }
+
+        private void txtBoxOuter1_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxOuter1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxOuter1, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+        }
+
+        private void txtBoxSunGen1_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxSunGen1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxSunGen1, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+        }
+
+        private void txtBoxGen1_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxGen1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxGen1, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+        }
+
+        private void txtBoxSun2_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxSun2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxSun2, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+        }
+
+        private void txtBoxOuter2_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxOuter2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxOuter2, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+        }
+
+        private void txtBoxSunGen2_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxSunGen2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxSunGen2, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+        }
+
+        private void txtBoxGen2_Validated(object sender, EventArgs e)
+        {
+            if (MatchedValidateRegex_Controller(txtBoxGen2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxGen2, ErrorMessage.ERR_VALIDATE_CODE_PATTERN);
+            }
+        }
+        private bool MatchedValidateRegex_Controller(string parms, string regex)
+        {
+            if (parms == null || parms.Trim().Length == 0)
+            {
+                return false;
+            }
+            System.Text.RegularExpressions.Regex check = new System.Text.RegularExpressions.Regex(regex);
+            return check.IsMatch(parms);
+        }
+
+        private void txtBoxProId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxGateId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxPort_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxAreaCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxProCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxTechCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxSysCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxSun1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxOuter1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxSunGen1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxGen1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxSun2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxOuter2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxSunGen2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+
+        private void txtBoxGen2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowNumInput(sender, e);
+        }
+        /// <summary>
+        /// 限制只允许输入数字
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AllowNumInput(object sender, KeyPressEventArgs e)
+        {
+            //判断按键是不是要输入的类型。
+            if (((int)e.KeyChar < 48 || (int)e.KeyChar > 57) && (int)e.KeyChar != 8/* && (int)e.KeyChar != 46*/)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnKeyUpdate_Click(object sender, EventArgs e)
+        {
+            SetConfig setcfg = new SetConfig();
+            Configuration config = new Configuration();
+            config.key = txtBoxAesKey.Text;
+            config.iv = txtBoxAesIV.Text;
+            config.md5 = txtBoxMd5Key.Text;
+
+            setcfg.WriteSpecailConfig(config, Commands.KEY);
+            setcfg.WriteSpecailConfig(config, Commands.IV);
+            setcfg.WriteSpecailConfig(config, Commands.MD5);
         }
     }
 }
