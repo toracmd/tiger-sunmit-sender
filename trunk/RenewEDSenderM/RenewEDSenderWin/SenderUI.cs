@@ -12,17 +12,12 @@ using RenewEDSenderM.CommManager;
 using RenewEDSenderM.Support;
 using System.Runtime.InteropServices;
 using System.Timers;
+//using System.Configuration;
 
 namespace RenewEDSenderWin
 {
     /// <summary>
-    /// T.B.D.
-    /// 1、监视进程，一旦失败更改UI
-    /// 2、后台程序情况
-    /// 3、当前网络状态：连接可用\不可用 http://social.msdn.microsoft.com/Forums/zh-CN/visualcshartzhchs/thread/c89be7e2-592e-4fec-8b72-e2f22f52319b/：
-    /// 4、MsgQue还有退出不彻底
-    /// 5、退出时其他线程的退出
-    /// 6、并发问题
+    /// 
     /// </summary>
     public partial class SenderUI : Form
     {
@@ -30,9 +25,12 @@ namespace RenewEDSenderWin
         /// 发送程序的可执行文件名，也是进程名称
         /// </summary>
         // T.B.D. 文件名读配置或者写定
-        private static string m_fileNameDesp = "RenewEDSenderM";
+        //private static string m_fileNameDesp = "RenewEDSenderM";
+        private static string m_fileNameDesp = System.Configuration.ConfigurationManager.AppSettings["EXE_FILE_NAME"];
+        
         // T.B.D. 文件路径在程序打包后的
-        private static string m_filePath = "D:\\workspace\\sunmit\\svn\\RenewEDSenderM\\RenewEDSenderM\\bin\\Debug";
+        //private static string m_filePath = "D:\\workspace\\sunmit\\svn\\RenewEDSenderM\\RenewEDSenderM\\bin\\Debug";
+        private static string m_filePath = System.Configuration.ConfigurationManager.AppSettings["EXE_FILE_PATH"];
         /// <summary>
         /// 发送服务启动后获得的进程ID
         /// </summary>
@@ -89,6 +87,8 @@ namespace RenewEDSenderWin
         private static Configuration config;
 
         private System.Timers.Timer m_moniter_timer = new System.Timers.Timer();
+
+        private bool isCompleteCheck = true;
 
         public string NetWorkState
         {
@@ -402,6 +402,7 @@ namespace RenewEDSenderWin
                     {
                         p.Kill();
                         p.Close();
+                        m_isStart = false;
                         //m_thread_monitor.Abort();
                         //m_thread_monitor = null;
                     }
@@ -428,6 +429,8 @@ namespace RenewEDSenderWin
                     btnSenderStart.Enabled = true;
                     btnSenderStop.Enabled = false;
                     btnSenderRestart.Enabled = false;
+                    txtBoxConnStatus.Text = RUN_STATUS_MEASURE.CONNECT_STATUS[1];
+                    txtBoxRunPhase.Text = RUN_STATUS_MEASURE.RUN_STAGE_ARRAY[(int)RUN_PHASE.INVALID];
                 }
             }
         }
@@ -574,6 +577,11 @@ namespace RenewEDSenderWin
                 MessageBox.Show("修改密钥请停止发送服务");
                 return;
             }
+            if (!isCompleteCheck)
+            {
+                isCompleteCheck = true;
+                return;
+            }
             bool ret = true;
             //SenderUI构造函数里是否要初始内容
             SetConfig setconfig = new SetConfig();
@@ -635,7 +643,10 @@ namespace RenewEDSenderWin
 
         private void txtBoxAreaCode_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxAreaCode.Text, RegexPattern.REGEX_AREA_CODE))
+            bool ismatch = false;
+            ismatch = MatchedValidateRegex_Controller(txtBoxAreaCode.Text, RegexPattern.REGEX_AREA_CODE);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -667,7 +678,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxIP_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxIP.Text.Trim(), RegexPattern.REGEX_IP))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxIP.Text.Trim(), RegexPattern.REGEX_IP);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -685,10 +698,12 @@ namespace RenewEDSenderWin
             isNum = int.TryParse(txtBoxPort.Text, out port);
             if (port > 0 && port <= 65535)
             {
+                isCompleteCheck &= true;
                 errorProvider1.Clear();
             }
             else
             {
+                isCompleteCheck &= false;
                 errorProvider1.SetError(txtBoxPort, ErrorMessage.ERR_VALIDATE_PORT_PATTERN);
                 txtBoxPort.Focus();
             }
@@ -696,7 +711,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxAesKey_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxAesKey.Text.Trim(), RegexPattern.REGEX_16CH))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxAesKey.Text.Trim(), RegexPattern.REGEX_16CH);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -709,7 +726,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxAesIV_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxAesIV.Text.Trim(), RegexPattern.REGEX_16CH))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxAesIV.Text.Trim(), RegexPattern.REGEX_16CH);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -722,7 +741,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxMd5Key_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxMd5Key.Text.Trim(), RegexPattern.REGEX_16CH))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxMd5Key.Text.Trim(), RegexPattern.REGEX_16CH);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -735,7 +756,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxProCode_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxProCode.Text.Trim(), RegexPattern.REGEX_PROJECT_CODE))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxProCode.Text.Trim(), RegexPattern.REGEX_PROJECT_CODE);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -748,7 +771,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxTechCode_Validated(object sender, EventArgs e)
         {
-            if(MatchedValidateRegex_Controller(txtBoxTechCode.Text.Trim(), RegexPattern.REGEX_TECH_TYPE))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxTechCode.Text.Trim(), RegexPattern.REGEX_TECH_TYPE);
+            isCompleteCheck &= ismatch;
+            if(ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -761,7 +786,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxSysCode_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxSysCode.Text.Trim(), RegexPattern.REGEX_SYS_CODE))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxSysCode.Text.Trim(), RegexPattern.REGEX_SYS_CODE);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -775,7 +802,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxSun1_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxSun1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxSun1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -788,7 +817,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxOuter1_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxOuter1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxOuter1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -801,7 +832,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxSunGen1_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxSunGen1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxSunGen1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -814,7 +847,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxGen1_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxGen1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxGen1.Text.Trim(), RegexPattern.REGEX_COLLECT_DEVICE);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -827,7 +862,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxSun2_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxSun2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxSun2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -840,7 +877,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxOuter2_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxOuter2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxOuter2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -853,7 +892,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxSunGen2_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxSunGen2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxSunGen2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -866,7 +907,9 @@ namespace RenewEDSenderWin
 
         private void txtBoxGen2_Validated(object sender, EventArgs e)
         {
-            if (MatchedValidateRegex_Controller(txtBoxGen2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT))
+            bool ismatch = MatchedValidateRegex_Controller(txtBoxGen2.Text.Trim(), RegexPattern.REGEX_COLLECT_POINT);
+            isCompleteCheck &= ismatch;
+            if (ismatch)
             {
                 errorProvider1.Clear();
             }
@@ -976,6 +1019,11 @@ namespace RenewEDSenderWin
 
         private void btnKeyUpdate_Click(object sender, EventArgs e)
         {
+            if (!isCompleteCheck)
+            {
+                isCompleteCheck = true;
+                return;
+            }
             SetConfig setcfg = new SetConfig();
             Configuration config = new Configuration();
             config.key = txtBoxAesKey.Text;

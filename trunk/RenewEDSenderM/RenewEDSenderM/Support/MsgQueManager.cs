@@ -195,28 +195,62 @@ namespace RenewEDSenderM.Support
     /// </summary>
     public class RUN_STATUS_MEASURE
     {
-        private static readonly string CONNECTED = "正在连接...";
-        private static readonly string VERIFY = "正在认证...";
-        private static readonly string REPORT = "正在上传...";
-        private static readonly string HEARTBEAT = "保活连接...";
-        private static readonly string INVALID = "无效...";
+        private static readonly string READCONFIG = @"读配置...";
+        private static readonly string CONNECTING = @"读配置成功,正在连接...";
+        private static readonly string VERIFY = @"连接已成功,发送认证请求...";
+        private static readonly string VERIFY_MD5 = @"收到随机序列,发送MD5认证";
+        private static readonly string VERIFY_PASS = @"认证已通过,准备发送数据...";
+        private static readonly string REPORT = @"正在上传...";
+        private static readonly string REUPLOAD = @"正在重传...";
+        private static readonly string HEARTBEAT = @"保活连接,发送心跳数据...";
+        private static readonly string INVALID = @"连接无效...";
+        private static readonly string REPLY_ACK = @"回复应答ACK...";
         
         private static readonly string isConnected = "已连接";
         private static readonly string isDisconnected = "连接已断开";
 
         public static readonly string[] CONNECT_STATUS = { isConnected, isDisconnected};
 
-        public static readonly string[] RUN_STAGE_ARRAY = { CONNECTED, VERIFY, REPORT, HEARTBEAT, INVALID };
+        public static readonly string[] RUN_STAGE_ARRAY = { READCONFIG, CONNECTING, VERIFY, VERIFY_MD5, VERIFY_PASS, REPORT, REUPLOAD, HEARTBEAT, INVALID, REPLY_ACK };
     }
     /// <summary>
     /// 运行阶段枚举类型
     /// </summary>
     public enum RUN_PHASE
     {
-        CONNECTED,
+        /// <summary>
+        /// 读取配置
+        /// </summary>
+        READCONFIG,
+        /// <summary>
+        /// 正在连接
+        /// </summary>
+        CONNECTING,
+        /// <summary>
+        /// 发送认证请求
+        /// </summary>
         VERIFY,
+        /// <summary>
+        /// MD5认证
+        /// </summary>
+        VERIFY_MD5,
+        /// <summary>
+        /// 认证通过
+        /// </summary>
+        VERIFY_PASS,
+        /// <summary>
+        /// 正在上传数据
+        /// </summary>
         REPORT,
+        REUPLOAD,
+        /// <summary>
+        /// 发送心跳数据包
+        /// </summary>
         HEARTBEAT,
-        INVALID
+        /// <summary>
+        /// 无效
+        /// </summary>
+        INVALID,
+        REPLY_ACK
     }
 }

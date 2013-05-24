@@ -49,7 +49,6 @@ Global
 		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Release|Mixed Platforms.ActiveCfg = Release|x86
 		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Release|Mixed Platforms.Build.0 = Release|x86
 		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Release|x86.ActiveCfg = Release|x86
-		{97C7C232-E7F9-4F84-A4DF-1B8B29C7FB40}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
