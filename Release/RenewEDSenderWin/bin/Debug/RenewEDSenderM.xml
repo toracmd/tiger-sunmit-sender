@@ -1,0 +1,851 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RenewEDSenderM</name>
+    </assembly>
+    <members>
+        <member name="T:RenewEDSenderM.Support.MsgQueManager">
+            <summary>
+            T.B.D.
+            windows 2003：控制面板---添加/删除程序---添加/删除windows组件---应用程序服务器--勾选 消息队列
+            win7：控制面板---程序和功能---打开或关闭windows功能---勾选 Microsoft Message Queue (MSMQ)服务器
+            XP profession：控制面板---添加/删除程序----添加/删除windows组件---勾选 消息队列
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.MsgQueManager.MessageQueuePath">
+            <summary>
+            Message Queue 路径
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.MsgQueManager.MAX_WORKER_THREADS">
+            <summary>
+            最大并发线程数T.B.D.
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.MsgQueManager.instance">
+            <summary>
+            Message Queue 实体
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.MsgQueManager.waitHandleArray">
+            <summary>
+            T.B.D.
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.Support.MsgQueManager.getInstance">
+            <summary>
+            获得消息队列实体
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.Support.MsgQueManager.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.Support.MsgQueManager.SendMsg(RenewEDSenderM.Support.MsgBody)">
+            <summary>
+            发送消息
+            </summary>
+            <param name="msg"></param>
+            
+        </member>
+        <member name="M:RenewEDSenderM.Support.MsgQueManager.RecvMsg">
+            <summary>
+            同步接收消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.Support.MsgQueManager.MsgQStartListen(System.Messaging.ReceiveCompletedEventHandler)">
+            <summary>
+            T.B.D. 删除
+            </summary>
+            <param name="myReceiveCompleted"></param>
+        </member>
+        <member name="M:RenewEDSenderM.Support.MsgQueManager.MsgQStopListen">
+            <summary>
+            T.B.D.删除
+            </summary>
+        </member>
+        <member name="T:RenewEDSenderM.Support.MsgBody">
+            <summary>
+            消息体类
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.MsgBody.isConnected">
+            <summary>
+            网络连接状态
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.MsgBody.isVerified">
+            <summary>
+            认证状态
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.MsgBody.phase">
+            <summary>
+            发送运行阶段
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.Support.MsgBody.#ctor">
+            <summary>
+            用于消息队列，必须保留
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.Support.MsgBody.#ctor(System.Boolean,System.Boolean,RenewEDSenderM.Support.RUN_PHASE)">
+            <summary>
+            构造函数重载
+            </summary>
+            <param name="conn">连接状态</param>
+            <param name="syn">认证状态</param>
+            <param name="r">运行阶段</param>
+        </member>
+        <member name="M:RenewEDSenderM.Support.MsgBody.#ctor(System.Boolean,RenewEDSenderM.Support.RUN_PHASE)">
+            <summary>
+            构造函数重载
+            </summary>
+            <param name="conn"></param>
+            <param name="r"></param>
+        </member>
+        <member name="T:RenewEDSenderM.Support.RUN_STATUS_MEASURE">
+            <summary>
+            运行状态工具类
+            </summary>
+        </member>
+        <member name="T:RenewEDSenderM.Support.RUN_PHASE">
+            <summary>
+            运行阶段枚举类型
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.RUN_PHASE.READCONFIG">
+            <summary>
+            读取配置
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.RUN_PHASE.CONNECTING">
+            <summary>
+            正在连接
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.RUN_PHASE.VERIFY">
+            <summary>
+            发送认证请求
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.RUN_PHASE.VERIFY_MD5">
+            <summary>
+            MD5认证
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.RUN_PHASE.VERIFY_PASS">
+            <summary>
+            认证通过
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.RUN_PHASE.REPORT">
+            <summary>
+            正在上传数据
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.RUN_PHASE.HEARTBEAT">
+            <summary>
+            发送心跳数据包
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.RUN_PHASE.INVALID">
+            <summary>
+            无效
+            </summary>
+        </member>
+        <member name="T:RenewEDSenderM.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:RenewEDSenderM.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:RenewEDSenderM.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="T:RenewEDSenderM.Support.DataPackage">
+            <summary>
+            问题：收到数据包、发送数据包，透明比特流与有意义的字段转换
+            目的：类似C语言结构体类型强转
+            方案：用属性的特殊控制手段，此种情况下类的特殊初始化方法
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.DataPackage.Verify_Head">
+            <summary>
+            用于头部校验
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.DataPackage.Verify_Tail">
+            <summary>
+            用于尾部校验
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.DataPackage.PkgLengthMin">
+            <summary>
+            数据包长度下限18bytes，用于数据包校验
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.DataPackage.PkgLengthMax">
+            <summary>
+            数据包长度上限，用于数据包校验
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.Support.DataPackage.GetBytes(System.String,System.Int32@)">
+            <summary>
+            将十六进制字符串转换为字节序列
+            </summary>
+            <param name="hexString"></param>
+            <param name="discarded"></param>
+            <returns></returns>
+        </member>
+        <member name="P:RenewEDSenderM.Support.DataPackage.Package">
+            <summary>
+            收到的字节流进行解析验证
+            验证失败抛出异常
+            </summary>        
+        </member>
+        <member name="P:RenewEDSenderM.Support.DataPackage.Head">
+            <summary>
+            数据包头
+            </summary>
+        </member>
+        <member name="P:RenewEDSenderM.Support.DataPackage.DataLength">
+            <summary>
+            数据包长度
+            </summary>
+        </member>
+        <member name="P:RenewEDSenderM.Support.DataPackage.Seq">
+            <summary>
+            数据包序号
+            </summary>
+        </member>
+        <member name="P:RenewEDSenderM.Support.DataPackage.DataBlock">
+            <summary>
+            数据包数据字段
+            </summary>
+        </member>
+        <member name="P:RenewEDSenderM.Support.DataPackage.CRC">
+            <summary>
+            CRC16校验码
+            </summary>
+        </member>
+        <member name="P:RenewEDSenderM.Support.DataPackage.Tail">
+            <summary>
+            数据包尾
+            </summary>
+        </member>
+        <member name="T:RenewEDSenderM.LogManager.InfoMethod">
+            <summary>
+            @class 方法信息类
+            @brief 被调用方法的信息
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.LogManager.InfoMethod.method">
+            <summary>
+            有关方法和构造函数信息
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.LogManager.InfoMethod.fileName">
+            <summary>
+            方法的源文件名
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.LogManager.InfoMethod.lineNum">
+            <summary>
+            方法在源文件的行号
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.LogManager.InfoMethod.columnNum">
+            <summary>
+            方法在源文件的列号
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.InfoMethod.#ctor(System.Reflection.MethodBase,System.String,System.Int32,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="m">方法信息</param>
+            <param name="s">文件名</param>
+            <param name="l">调用行</param>
+            <param name="c">调用列</param>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.InfoMethod.getMethod">
+            <summary>
+            获得方法成员
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.InfoMethod.getFileName">
+            <summary>
+            获得文件名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.InfoMethod.getLineNum">
+            <summary>
+            获得被调用所在行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.InfoMethod.getColumnNum">
+            <summary>
+            获得被调用所在列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:RenewEDSenderM.LogManager.Logger">
+            <summary>
+            @class Logger
+            1、由配置文件app.config中log4net段控制
+            2、log输出模式为Rollingbackup方式，以日期文件夹和日志回滚文件大小区分
+            3、用了单体模式
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.LogManager.Logger.FUN_ENTRY">
+            <summary>
+            函数入口标志
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.LogManager.Logger.FUN_EXIT">
+            <summary>
+            函数出口标志
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.LogManager.Logger.instance">
+            <summary>
+            Logger实体成员instance
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.LogManager.Logger.logger">
+            <summary>
+            log4net.ILog对象
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.Logger.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.Logger.getInstance">
+            <summary>
+            获得一个实体
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.Logger.LogByLevel(log4net.Core.Level,System.Int32,System.String,System.Object[])">
+            <summary>
+            Log输出共同方法
+            </summary>
+            <param name="level">日志级别</param>
+            <param name="hierarchy">调用层次</param>
+            <param name="format">输出格式</param>
+            <param name="args">输出参数</param>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.Logger.getMethodFromStack(System.Int32)">
+            <summary>
+            从堆栈中获取方法信息
+            </summary>
+            <param name="hierarchy">调用层次</param>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.Logger.WriteInfoLog(System.String,System.Object[])">
+            <summary>
+            写Info级别Log
+            </summary>
+            <param name="format">格式化输出串</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.Logger.WriteDebugLog(System.String,System.Object[])">
+            <summary>
+            写Debug级别Log
+            </summary>
+            <param name="format">格式化输出串</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.Logger.WriteWarnLog(System.String,System.Object[])">
+            <summary>
+            写Warn级别Log
+            </summary>
+            <param name="format">格式化输出串</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.Logger.WriteErrorLog(System.String,System.Object[])">
+            <summary>
+            写Error级别Log
+            </summary>
+            <param name="format">格式化输出串</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.Logger.WriteFatalLog(System.String,System.Object[])">
+            <summary>
+            写Fatal级别Log
+            </summary>
+            <param name="format">格式化输出串</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.Logger.FuncEntryLog(System.Object[])">
+            <summary>  
+            函数入口日志，Info级别  
+            </summary>  
+            <param name="args"></param> 
+        </member>
+        <member name="M:RenewEDSenderM.LogManager.Logger.FuncExitLog">
+            <summary>
+            函数退出日志，Info级别  
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.CommManager.Client.GenerateMeterID">
+            <param name="Area_code">行政区编码</param>
+            <param name="Program_id">项目编码</param>
+            <param name="Tech_type">技术类型</param>
+            <param name="Sys_code">系统编码</param>
+            <returns>计量装置的具体采集功能编号15位</returns>
+        </member>
+        <member name="F:RenewEDSenderM.CommManager.Client.COLLECT_FACTOR_CODE_RADIATION">
+            <summary>
+            采集指标编码-平行于光伏组件的太阳辐照度
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.CommManager.Client.COLLECT_FACTOR_CODE_AIRTEMP">
+            <summary>
+            采集指标编码-室外温度
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.CommManager.Client.COLLECT_FACTOR_CODE_LANDTEMP">
+            <summary>
+            采集指标编码-光伏组件背面表面温度
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.CommManager.Client.COLLECT_FACTOR_CODE_ELECTRICITY">
+            <summary>
+            采集指标编码-发电量
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.CommManager.Client.GenerateFunID">
+            <summary>
+            生成计量装置的具体采集功能编号
+            1 平行于光伏组件的太阳辐照度
+            2 室外温度 
+            3 光伏组件背面表面温度
+            4 发电量
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.CtrlManager.SendWorker._shouldStop">
+            <summary>
+            通知编译器该变量可能被多个线程访问
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.CtrlManager.SendWorker.DoWork">
+            <summary>
+            当线程启动时，该函数被调用
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.CtrlManager.SendWorker.RequestStop">
+            <summary>
+            请求停止该线程
+            </summary>
+        </member>
+        <member name="T:RenewEDSenderM.Support.Encryption">
+            <summary>
+            数据加密类
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.Encryption.table">
+            <summary>
+            CRC16校验用表
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.Encryption._aes_key">
+            <summary>
+            AES密钥KEY
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.Encryption._aes_iv">
+            <summary>
+            AES偏移向量IV
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.Encryption._md5_key_str">
+            <summary>
+            md5密钥
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.Encryption.encoding">
+            <summary>
+            编码方式
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.Support.Encryption.MD5_Encrypt(System.Byte[])">
+            <summary>
+            MD5散列方法
+            </summary>
+            <param name="data">字节数据流</param>
+            <returns>MD5散列值</returns>
+        </member>
+        <member name="M:RenewEDSenderM.Support.Encryption.getMd5Hash(System.String)">
+            <summary>
+            Hash an input string
+            </summary>
+            <param name="input">input string</param>
+            <returns>the hash as a 32 character hexadecimal string</returns>
+        </member>
+        <member name="M:RenewEDSenderM.Support.Encryption.verifyMd5Hash(System.String,System.String)">
+            <summary>
+            Verify a hash against a string
+            </summary>
+            <param name="input"></param>
+            <param name="hash"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.Support.Encryption.EncryptStringToBytes_Aes(System.String)">
+            <summary>
+            加密AES：字符串加密为字节数组
+            </summary>
+            <param name="plainText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.Support.Encryption.EncryptStringToBytes_Aes(System.String,System.Byte[],System.Byte[])">
+            <summary>
+            加密AES：字符串加密为字节数组
+            </summary>
+            <param name="plainText">明文</param>
+            <param name="Key">AES密钥</param>
+            <param name="IV">AES初始向量</param>
+            <returns>AES加密密文</returns>
+        </member>
+        <member name="M:RenewEDSenderM.Support.Encryption.DecryptStringFromBytes_Aes(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="cipherText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.Support.Encryption.DecryptStringFromBytes_Aes(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            AES 128位
+            加密模式：CBC
+            填充模式采用：NoPadding
+            </summary>
+            <param name="cipherText"></param>
+            <param name="Key"></param>
+            <param name="IV"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.Support.Encryption.CRC16(System.Byte[])">
+            <summary>
+            Calculate the 16 bits length crc value of a buffer
+            </summary>
+            <param name="buffer">a byte array which to be calculated</param>
+            <returns>The 16 bits length crc value</returns>
+        </member>
+        <member name="P:RenewEDSenderM.Support.Encryption.MD5_KEY_STR">
+            <summary>
+            MD5密钥属性
+            </summary>
+        </member>
+        <member name="P:RenewEDSenderM.Support.Encryption.AES_KEY">
+            <summary>
+            AES密钥KEY属性
+            </summary>
+        </member>
+        <member name="P:RenewEDSenderM.Support.Encryption.AES_IV">
+            <summary>
+            AES偏移量IV属性
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.Support.TestEncrpt.TestGetKeyMd5(System.String)">
+            <summary>
+            正确使用带Key的md5散列
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:RenewEDSenderM.Support.TestEncrpt.TestGetKeyMd5_Error(System.String)">
+            <summary>
+            错误未初始化Key的md5散列
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="T:RenewEDSenderM.DbManager.Connect">
+            <summary>
+            访问MySQL数据库类
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.Connect.#ctor">
+            <summary>
+             构造函数，默认是把App.config中的数据库连接字符串直接给成员变量conn当参数，即每一个实例默认都连到指定数据库
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.Connect.ExecuteSql(System.String)">
+            <summary>
+             给定连接的数据库用假设参数执行一个sql命令（不返回数据集）
+            </summary>
+            <param name="cmdText">存储过程名称或者sql命令语句</param>
+            <returns>执行命令所影响的行数,如果连接数据库失败返回-1</returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.Connect.GetSingle(System.String)">
+            <summary>
+            用指定的数据库连接字符串执行一个命令并返回一个数据集的第一列
+            </summary>
+            <param name="cmdText">存储过程名称或者sql命令语句</param>
+            <returns>用 Convert.To{Type}把类型转换为想要的,连接数据库失败返回空</returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.Connect.GetDataSet(System.String)">
+            <summary>
+            返回DataSet
+            </summary>
+            <param name="cmdText">存储过程名称或者sql命令语句</param>
+            <returns>返回select语句选中的数据集，连接失败返回空</returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.Connect.Open">
+            <summary>
+            Connect对象打开连接数据库；
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.Connect.Close">
+            <summary>
+            Connect对象关闭连接数据库；
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.DbManager.AccessData.dbsource1">
+            <summary>
+            T.B.D.采集数据库路径
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.DbManager.AccessData.dbsource2">
+            <summary>
+            T.B.D.上传数据库路径
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.AccessData.ExecuteNonQuery(System.String)">
+            <summary>
+            执行SQL Query
+            </summary>
+            <param name="cmdText">SQL语句</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.AccessData.ExecuteNonQuery(System.String,System.String,System.Data.OleDb.OleDbParameter[])">
+            <summary>
+            执行Query
+            </summary>
+            <param name="cmdText">SQL 语句</param>
+            <param name="pa">参数列表</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.AccessData.ExecuteNonQuery(System.String,System.Data.CommandType,System.String,System.Data.OleDb.OleDbParameter[])">
+            <summary>
+            执行Query
+            </summary>
+            <param name="connString">连接字符串</param>
+            <param name="cmdType">如何解释命令字符串</param>
+            <param name="cmdText">SQL语句</param>
+            <param name="cmdParms">参数列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.AccessData.ExecuteNonQuery(System.Data.OleDb.OleDbTransaction,System.Data.CommandType,System.String,System.Data.OleDb.OleDbParameter[])">
+            <summary>
+            执行Query
+            </summary>
+            <param name="trans">事务</param>
+            <param name="cmdType">如何解释命令字符串</param>
+            <param name="cmdText">SQL语句</param>
+            <param name="cmdParms">参数列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.AccessData.ExecuteReader(System.String)">
+            <summary>
+            返回DataReader
+            </summary>
+            <param name="connString"></param>
+            <param name="cmdType"></param>
+            <param name="cmdText"></param>
+            <param name="cmdParms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.AccessData.ExecuteDataset(System.String)">
+            <summary>
+            (返回DataSet,不用参数)
+            </summary>
+            <param name="connString"></param>
+            <param name="cmdText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.AccessData.ExecuteDataRow(System.String)">
+             <summary>
+            
+             </summary>
+             <param name="connString"></param>
+             <param name="cmdText"></param>
+             <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.AccessData.ExecuteScalar(System.String)">
+             <summary>
+            
+             </summary>
+             <param name="cmdText"></param>
+             <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.AccessData.ExecuteDataTable(System.String,System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.AccessData.ExecuteDataTableInFixedReords(System.String,System.Int32,System.Int32)">
+            <summary>
+            按页返回固定行记录。
+            </summary>
+            <param name="cmdText"></param>
+            <param name="CurrentPage">当前页</param>
+            <param name="PageSize">页大小</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.AccessData.ExecuteDataTableInFixedReords(System.String,System.Int32,System.Int32,System.Data.OleDb.OleDbParameter[])">
+            <summary>
+            按页返回固定行记录。
+            </summary>
+            <param name="cmdText"></param>
+            <param name="CurrentPage">当前页</param>
+            <param name="PageSize">页大小</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="T:RenewEDSenderM.DbManager.DataDump">
+            <summary>
+            上传服务数据处理逻辑类
+            </summary>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.DataDump.CalculateAverage(System.DateTime,System.TimeSpan)">
+            <summary>
+            计算4个指标在当前采样时间段内的平均值，并存储到发送历史数据库中
+            </summary>
+            <param name="FixedTime">定时发送时刻</param>
+            <param name="FixedCycleT">定时发送周期</param>
+            
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.DataDump.update_Upload(System.Int32)">
+            <summary>
+            id行数据发送成功后，更新其发送状态
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.DataDump.FetchDataFail(System.DateTime,System.DateTime)">
+            <summary>
+            区间内失败历史数据集合
+            </summary>
+            <param name="dt_begin"></param>
+            <param name="dt_end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RenewEDSenderM.DbManager.DataDump.FetchDataSuccess(System.DateTime,System.DateTime)">
+            <summary>
+            区间内成功发送集合
+            </summary>
+            <param name="dt_begin"></param>
+            <param name="dt_end"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RenewEDSenderM.DbManager.Monitor_Data">
+            <summary>
+            采集数据库映射类
+            </summary>
+        </member>
+        <member name="T:RenewEDSenderM.DbManager.History_Data">
+            <summary>
+            数据库历史数据表映射类
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.DbManager.History_Data.id">
+            <summary>
+            id字段
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.DbManager.History_Data.ValueA">
+            <summary>
+            平行于光伏组件的太阳辐照度 总辐射
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.DbManager.History_Data.ValueB">
+            <summary>
+            室外温度 大气温度
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.DbManager.History_Data.ValueC">
+            <summary>
+            光伏组件背面表面温度 大地温度
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.DbManager.History_Data.ValueD">
+            <summary>
+            发电量 1633发电量
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.DbManager.History_Data.timestamp_sendCycle">
+            <summary>
+            定时发送时刻时间戳
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.DbManager.History_Data.timestamp_upload">
+            <summary>
+            成功上传时间
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.DbManager.History_Data.isupload">
+            <summary>
+            是否已上传
+            </summary>
+        </member>
+        <member name="T:RenewEDSenderM.Support.DataPackageException">
+            <summary>
+            数据包异常类
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.DataPackageException.ex_msg1_head">
+            <summary>
+            数据包Head不合法
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.DataPackageException.ex_msg2_tail">
+            <summary>
+            数据包Tail不合法
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.DataPackageException.ex_msg3_crc">
+            <summary>
+            数据包CRC格式不合法
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.DataPackageException.ex_msg4_crc">
+            <summary>
+            数据包CRC数据校验出错
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.DataPackageException.ex_msg5_seq">
+            <summary>
+            数据包序号段不合法
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.DataPackageException.ex_msg6_data">
+            <summary>
+            数据包数据段出错
+            </summary>
+        </member>
+        <member name="F:RenewEDSenderM.Support.DataPackageException.ex_msg7_pkg">
+            <summary>
+            数据包长度出错
+            </summary>
+        </member>
+        <member name="T:RenewEDSenderM.CommManager.SetConfig">
+            <summary>
+            读取配置文件中的配置参数，并可以实时修改配置参数
+            </summary>
+        </member>
+    </members>
+</doc>
