@@ -14,14 +14,16 @@ namespace RenewEDSenderM.DbManager
         /// <summary>
         /// T.B.D.采集数据库路径
         /// </summary>
-        private static string dbsource1 = "../../../../RenewEDSenderM/database/hisdb.mdb;";
+        //private static string dbsource1 = "../../../../RenewEDSenderM/database/hisdb.mdb";
+        private static readonly string dbsource1 = System.Configuration.ConfigurationManager.AppSettings["CONN_HISDB"];
         /// <summary>
         /// T.B.D.上传数据库路径
         /// </summary>
-        private static string dbsource2 = "../../../../RenewEDSenderM/database/info.mdb;";
+        //private static string dbsource2 = "../../../../RenewEDSenderM/database/info.mdb";
+        private static readonly string dbsource2 = System.Configuration.ConfigurationManager.AppSettings["CONN_INFO"];
         //public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "datasource") + ";User Id=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "userid") + ";Password=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "password") + ";";
-        public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource1;
-        public static string CONN_STRING2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource2;
+        public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource1 + ";";
+        public static string CONN_STRING2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource2 +";";
         #region ExecuteNonQuery
         /// <summary>
         /// 执行SQL Query
@@ -634,7 +636,10 @@ namespace RenewEDSenderM.DbManager
                 new OleDbParameter("@@SECOND_H", dt_end_sec)
             };
             //取得平均值
-            DataRow[] dr = {
+            DataRow[] dr;
+            try
+            {
+                DataRow[] dr_tmp = {
                                //平均值
                                AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_1),
                                AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_2),
@@ -642,7 +647,12 @@ namespace RenewEDSenderM.DbManager
                                //发电量
                                AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4),
                            };
-
+                dr = dr_tmp;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
             //存入发送数据库，准备发送
             foreach (DataRow d in dr)
             {
@@ -721,7 +731,15 @@ namespace RenewEDSenderM.DbManager
                                                  new OleDbParameter("@dt_end", dt_end),
                                              };
             
-            DataTable dtbl = AccessData.ExecuteDataTable(sql_region, AccessData.CONN_STRING2, params_region);
+            DataTable dtbl;
+            try
+            {
+                dtbl = AccessData.ExecuteDataTable(sql_region, AccessData.CONN_STRING2, params_region);
+            }
+            catch (Exception ex)
+            {
+                return null; 
+            }
             if(dtbl == null)
             {
                 return null;
@@ -755,8 +773,15 @@ namespace RenewEDSenderM.DbManager
                                                  new OleDbParameter("@dt_begin", dt_begin),
                                                  new OleDbParameter("@dt_end", dt_end),
                                              };
-
-            DataTable dtbl = AccessData.ExecuteDataTable(sql_region, AccessData.CONN_STRING2, params_region);
+            DataTable dtbl;
+            try
+            {
+                dtbl = AccessData.ExecuteDataTable(sql_region, AccessData.CONN_STRING2, params_region);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
             if (dtbl == null)
             {
                 return null;

@@ -35,12 +35,8 @@ namespace RenewEDSenderM.CommManager
 
         private static Support.MsgQueManager m;
 
-
-
-
         static void Main(string[] args)
         {
-            DbManager.TestAccessData.Test();
             LogManager.Logger.FuncEntryLog(args);
 			try
 			{
@@ -52,12 +48,22 @@ namespace RenewEDSenderM.CommManager
 			}
 			while(true)
 			{
-			//T.B.D. 连接失败后重试停顿点时间
 	            try
 	            {
 	                LogManager.Logger.WriteDebugLog("进入try");
                     if (Initial())
+                    {
                         LogManager.Logger.WriteInfoLog("Reading the configuration!");
+                        Support.MsgBody msgb = new Support.MsgBody(false, false, Support.RUN_PHASE.READCONFIG);
+                        try
+                        {
+                            m.SendMsg(msgb);
+                        }
+                        catch (MessageQueueException mqex)
+                        {
+                            LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                        }
+                    }
                     else
                     {
                         LogManager.Logger.WriteWarnLog("Can't not read the configuration!Retrying....");
@@ -82,8 +88,16 @@ namespace RenewEDSenderM.CommManager
 	                c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
 	                Console.WriteLine("Conneting…");
                     LogManager.Logger.WriteInfoLog("Conneting…");
+                    try
+                    {
+                        m.SendMsg(new Support.MsgBody(false, false, Support.RUN_PHASE.CONNECTING));
+                    }
+                    catch (MessageQueueException mqex)
+                    {
+                        LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                    }
 	                c.Connect(ipe);//连接到服务器
-
+                    
 	                //Rereport();
 	                //失败数据重传
                     if (isCreatThread == false)
@@ -129,34 +143,36 @@ namespace RenewEDSenderM.CommManager
 	                while (true)
 	                {
 
-	                    if (Verify()) //进行认证
-	                        Send();//如果认证成功，则进行发送数据，包括心跳数据包等，如果连接失败，则总send状态跳出，重新进行认证
-	                    else
-	                    {
-	                        isConnected = false;
-                            Support.MsgBody msgb = new Support.MsgBody(isConnected, synchronize, Support.RUN_PHASE.CONNECTED);
-							try
-							{
-                            	m.SendMsg(msgb);
-							}
-							catch(MessageQueueException mqex)
-							{
-								LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
-							}
-	                        //先关闭已经打开的链接
-	                        if (c != null)
-	                        {
-	                            c.Close();
-	                            Console.Write("Closing Used Link....");
+                        if (Verify()) //进行认证
+                        {
+                            Send();//如果认证成功，则进行发送数据，包括心跳数据包等，如果连接失败，则总send状态跳出，重新进行认证
+                        }
+                        else
+                        {
+                            isConnected = false;
+                            Support.MsgBody msgb = new Support.MsgBody(isConnected, synchronize, Support.RUN_PHASE.CONNECTING);
+                            try
+                            {
+                                m.SendMsg(msgb);
+                            }
+                            catch (MessageQueueException mqex)
+                            {
+                                LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                            }
+                            //先关闭已经打开的链接
+                            if (c != null)
+                            {
+                                c.Close();
+                                Console.Write("Closing Used Link....");
                                 LogManager.Logger.WriteInfoLog("Closing Used Link....");
-	                        }
-	                        ///创建socket并连接到服务器
-	                        c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
+                            }
+                            ///创建socket并连接到服务器
+                            c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
                             Console.WriteLine("Conneting…");
                             LogManager.Logger.WriteInfoLog("Conneting....");
-	                        c.Connect(ipe);//连接到服务器
+                            c.Connect(ipe);//连接到服务器
 
-	                    }
+                        }
 	                }
 
 	            }
@@ -164,8 +180,8 @@ namespace RenewEDSenderM.CommManager
 	            {
 	                LogManager.Logger.WriteWarnLog("argumentNullException: {0}", e);
 	                Console.WriteLine("argumentNullException: {0}", e);
-                    isConnected = false;
-                    Support.MsgBody msgb = new Support.MsgBody(isConnected, synchronize, Support.RUN_PHASE.CONNECTED);
+					isConnected = false;
+                    Support.MsgBody msgb = new Support.MsgBody(false, synchronize, Support.RUN_PHASE.INVALID);
 					try
 					{
                     	m.SendMsg(msgb);
@@ -179,8 +195,8 @@ namespace RenewEDSenderM.CommManager
 	            {
 	                LogManager.Logger.WriteWarnLog("SocketException:{0}", e);
 	                Console.WriteLine("SocketException:{0}", e);
-                    isConnected = false;
-                    Support.MsgBody msgb = new Support.MsgBody(isConnected, synchronize, Support.RUN_PHASE.CONNECTED);
+					isConnected = false;
+                    Support.MsgBody msgb = new Support.MsgBody(false, synchronize, Support.RUN_PHASE.INVALID);
 					try
 					{
                     	m.SendMsg(msgb);
@@ -260,6 +276,15 @@ namespace RenewEDSenderM.CommManager
             //发起身份认证
             xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             xmlwrite.Request();
+            Support.MsgBody msgb = new Support.MsgBody(true, false, Support.RUN_PHASE.VERIFY);
+            try
+            {
+                m.SendMsg(msgb);
+            }
+            catch (MessageQueueException mqex)
+            {
+                LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+            }
             SendMsgB(xmlwrite.BOutput());
             //aTimer.Enabled = true;
 
@@ -304,6 +329,15 @@ namespace RenewEDSenderM.CommManager
             xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             Support.Encryption.MD5_KEY_STR = config.md5;
             string md5Str = Support.Encryption.getMd5Hash(order.sequence);
+            msgb = new Support.MsgBody(true, false, Support.RUN_PHASE.VERIFY_MD5);
+            try
+            {
+                m.SendMsg(msgb);
+            }
+            catch (MessageQueueException mqex)
+            {
+                LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+            }
             xmlwrite.SendMD5(md5Str);
             verifyStr = xmlwrite.Output();
             SendMsgB(xmlwrite.BOutput());
@@ -350,10 +384,9 @@ namespace RenewEDSenderM.CommManager
             {
                 synchronize = true;
                 isConnected = true;
-                Support.MsgBody msgb = new Support.MsgBody(isConnected, synchronize, Support.RUN_PHASE.CONNECTED);
                 try
 				{
-					m.SendMsg(msgb );
+					m.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.VERIFY_PASS) );
                 }
 				catch(MessageQueueException mqex)
 				{
@@ -391,7 +424,7 @@ namespace RenewEDSenderM.CommManager
             string recvStr = "";
             byte[] recvBytes = new byte[1024];
 
-            //心跳数据包，30秒发一次
+            //心跳数据包
             System.Timers.Timer notifyTimer = new System.Timers.Timer();
             notifyTimer.Elapsed += new ElapsedEventHandler(NotifyEvent);
             notifyTimer.Interval = 60 * 1000;    //配置文件中配置的秒数,60秒一次
@@ -513,8 +546,21 @@ namespace RenewEDSenderM.CommManager
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
             xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             xmlwrite.Notify();
-            if(SendMsgB(xmlwrite.BOutput())== false)
+            if (SendMsgB(xmlwrite.BOutput()) == false)
+            {
                 isConnected = false;
+            }
+            else
+            {
+                Support.MsgBody msg = new Support.MsgBody(true, true, Support.RUN_PHASE.HEARTBEAT);
+                try
+                {
+                    m.SendMsg(msg);
+                }
+                catch (MessageQueueException ex)
+                {
+                }
+            }
         }
 
         //定时发送数据，需要收集数据
@@ -571,6 +617,13 @@ namespace RenewEDSenderM.CommManager
 
                     if (SendMsgB(xmlwrite.BOutput()))
                     {
+                        try
+                        {
+                            m.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REPORT));
+                        }
+                        catch (MessageQueueException ex)
+                        {
+                        }
                         gM.WaitOne();
                         DbManager.DataDump.WriteToHisDb(date_send, dr, out hd_array);
                         DbManager.DataDump.update_Upload(hd_array.id);
@@ -656,6 +709,13 @@ namespace RenewEDSenderM.CommManager
                     xmlwrite.Query(sequenceStr, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
                     if (SendMsgB(xmlwrite.BOutput()))
                     {
+                        try
+                        {
+                            m.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REPORT));
+                        }
+                        catch (MessageQueueException ex)
+                        {
+                        }
                         DbManager.DataDump.update_Upload(hd_array[i].id);
                         LogManager.Logger.WriteInfoLog("The reply is sent!");
                     }
@@ -671,8 +731,14 @@ namespace RenewEDSenderM.CommManager
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
             xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
             xmlwrite.Period_Ack();
-            
             SendMsgB(xmlwrite.BOutput());
+            try
+            {
+                m.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REPLY_ACK));
+            }
+            catch (MessageQueueException e)
+            {
+            }
         }
 
         //通过获取的服务器的设置密钥命令来进行密钥的配置
@@ -734,6 +800,13 @@ namespace RenewEDSenderM.CommManager
                             xmlwrite.Report(sequenceStr, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
                             if (SendMsgB(xmlwrite.BOutput()))
                             {
+                                try
+                                {
+                                    m.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REUPLOAD));
+                                }
+                                catch (MessageQueueException e)
+                                {
+                                }
                                 DbManager.DataDump.update_Upload(hd_array[i].id);
                                 LogManager.Logger.WriteInfoLog("The reReport is sent!");
                             }
