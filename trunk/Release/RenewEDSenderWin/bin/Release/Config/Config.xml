@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<config>
+  
+  <Server_Information>
+    <IP>10.46.82.180</IP>
+    <Port>13145</Port>
+  </Server_Information>
+  
+  <Client_Information>
+    <Project_id>110000015</Project_id>         
+    <Gateway_id>1100000140202</Gateway_id>
+    <Area_code>101100</Area_code>             <!--行政区编码-->
+    <Program_id>111</Program_id>           <!--项目编码-->
+    <Tech_type>104</Tech_type>             <!--技术类型-->
+    <Sys_code>11</Sys_code>               <!--系统编码-->
+    <Meter  MA_ProgramId="11" MA_Code1="11" MA_Code2="11"
+           MB_ProgramId="11" MB_Code1="11" MB_Code2="11" 
+           MC_ProgramId="11" MC_Code1="11" MC_Code2="11" 
+           MD_ProgramId="11" MD_Code1="11" MD_Code2="11" ></Meter>                     <!--Meter的相关参数:数据采集装置识别编码,数据采集点识别编码-->
+    <NotifyTime>1</NotifyTime>           <!--心跳数据包发送间隔-->
+    <ReportTime>1</ReportTime>           <!--数据包定时发送间隔-->
+    <VerifyTime></VerifyTime>           <!--认证数据超时发送间隔-->
+    <Times></Times>                     <!--失败后尝试次数-->
+    <Period></Period>                   <!--周期-->
+    <Key>0000000000123456</Key>                         <!--AES的密钥-->
+    <MD5>0000000000123456</MD5>                         <!--MD5值-->
+    <IV>0000000000123456</IV>                           <!--AES初始向量值-->
+  </Client_Information>
+  
+</config>
