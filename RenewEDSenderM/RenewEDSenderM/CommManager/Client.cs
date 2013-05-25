@@ -15,32 +15,50 @@ namespace RenewEDSenderM.CommManager
 {
     class Client
     {
-        private static Socket c = null;
-        private static int timeout = 0;
-        private static int vtimeout = 0;
-        private static string verifyStr = "";
-        private static string xmlStr = "<?xml version=\"1.0\" encoding=\"utf-8\" ?><root><common><project_id><!-- 项目编号 --></project_id><gateway_id><!-- 采集装置编号 --></gateway_id><type>request</type></common></root>";
-        private static string project_id = "110000015";
-        private static string gateway_id = "1100000140202";
-        private static string input_sequence = "000000";
-        private static string input_parse = "yes";
-        private static string input_time = "";
+        /// <summary>
+        /// Socket成员对象
+        /// </summary>
+        private static Socket m_socket = null;
+        private static int m_timeout = 0;
+        private static string m_verifyStr = "";
+        private static string m_xmlStr = "<?xml version=\"1.0\" encoding=\"utf-8\" ?><root><common><project_id><!-- 项目编号 --></project_id><gateway_id><!-- 采集装置编号 --></gateway_id><type>request</type></common></root>";
+        /// <summary>
+        /// 项目编号
+        /// </summary>
+        private static string m_project_id;
+        /// <summary>
+        /// 采集装置编号
+        /// </summary>
+        private static string m_gateway_id;
+        private static string m_input_sequence = "000000";
+        /// <summary>
+        /// 向数据中心发送的数据经过采集装置解析
+        /// </summary>
+        private static string m_input_parse = "yes";
         private static int try_count = 0;
-        private static Configuration config = null;
-        private static bool synchronize = false;
-        private static bool isConnected = false;
-        private static bool isCreatThread = false;
-        private static bool isCreatReport = false;
-        private static Mutex gM = new Mutex();
-
-        private static Support.MsgQueManager m;
+        /// <summary>
+        /// 配置项成员对象
+        /// </summary>
+        private static Configuration m_config = null;
+        private static bool m_isPassAuthentication = false;
+        private static bool m_isConnected = false;
+        private static bool m_isCreatThread = false;
+        private static bool m_isCreatReport = false;
+        /// <summary>
+        /// 互斥信号量成员
+        /// </summary>
+        private static Mutex m_mutex = new Mutex();
+        /// <summary>
+        /// 消息队列对象
+        /// </summary>
+        private static Support.MsgQueManager m_msgq;
 
         static void Main(string[] args)
         {
             LogManager.Logger.FuncEntryLog(args);
 			try
 			{
-				m = new Support.MsgQueManager();
+				m_msgq = new Support.MsgQueManager();
 			}
 			catch(MessageQueueException mqex)
 			{
@@ -48,183 +66,221 @@ namespace RenewEDSenderM.CommManager
 			}
 			while(true)
 			{
-	            try
-	            {
-	                LogManager.Logger.WriteDebugLog("进入try");
-                    if (Initial())
-                    {
-                        LogManager.Logger.WriteInfoLog("Reading the configuration!");
-                        Support.MsgBody msgb = new Support.MsgBody(false, false, Support.RUN_PHASE.READCONFIG);
-                        try
-                        {
-                            m.SendMsg(msgb);
-                        }
-                        catch (MessageQueueException mqex)
-                        {
-                            LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
-                        }
-                    }
-                    else
-                    {
-                        LogManager.Logger.WriteWarnLog("Can't not read the configuration!Retrying....");
-                        continue;
-                    }
-	                //int port = 13145;
-	                //string host = "10.6.0.115";
-	                int port = int.Parse(config.port);
-                
-	                string host = config.ip;
-	                LogManager.Logger.WriteDebugLog("准备ip：" + host);
-	                project_id = config.project_id;
-	                gateway_id = config.gateway_id;
-	                /**/
-                
-	                ///创建终结点EndPoint
-	                IPAddress ip = IPAddress.Parse(host);
-	                IPEndPoint ipe = new IPEndPoint(ip, port);//把ip和端口转化为IPEndpoint实例
-
-	                /**/
-	                ///创建socket并连接到服务器
-	                c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
-	                Console.WriteLine("Conneting…");
-                    LogManager.Logger.WriteInfoLog("Conneting…");
+                try
+                {
+                    // 发送读取配置消息
                     try
                     {
-                        m.SendMsg(new Support.MsgBody(false, false, Support.RUN_PHASE.CONNECTING));
+                        m_msgq.SendMsg(new Support.MsgBody(false, false, Support.RUN_PHASE.READCONFIG));
                     }
                     catch (MessageQueueException mqex)
                     {
                         LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
                     }
-	                c.Connect(ipe);//连接到服务器
-                    
-	                //Rereport();
-	                //失败数据重传
-                    if (isCreatThread == false)
+                    // 读取解析配置文件
+                    if (InitConfig())
+                    {
+                        LogManager.Logger.WriteInfoLog("Complete reading the configuration!");
+                    }
+                    else
+                    {
+                        LogManager.Logger.WriteWarnLog("Fail to read the configuration!Retrying....");
+                        continue;
+                    }
+                    // 设置ip地址、端口等信息
+                    int port = int.Parse(m_config.port);
+                    string host = m_config.ip;
+                    m_project_id = m_config.project_id;
+                    m_gateway_id = m_config.gateway_id;
+
+                    // 创建终结点EndPoint对象
+                    IPAddress ip = IPAddress.Parse(host);
+                    IPEndPoint ipe = new IPEndPoint(ip, port);//把ip和端口转化为IPEndpoint实例
+
+                    // 创建socket并连接到服务器
+                    m_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
+                    LogManager.Logger.WriteInfoLog("Connect...");
+                    // 发送请求连接消息
+                    try
+                    {
+                        m_msgq.SendMsg(new Support.MsgBody(false, false, Support.RUN_PHASE.CONNECTING));
+                    }
+                    catch (MessageQueueException mqex)
+                    {
+                        LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                    }
+                    // 建立Socket连接到服务器
+                    m_socket.Connect(ipe);
+
+                    // 创建失败数据重传线程
+                    if (m_isCreatThread == false)
                     {
                         Thread oThread = new Thread(new ThreadStart(Rereport));
                         if (oThread != null)
                         {
-                            isCreatThread = true;
-                            oThread.Start();
-                            LogManager.Logger.WriteInfoLog("reReport process is created!");
+                            m_isCreatThread = true;
+                            try
+                            {
+                                oThread.Start();
+                            }
+                            catch (ThreadStateException te)
+                            {
+                                LogManager.Logger.WriteWarnLog("Fail to create Retransmission process:{0}", te);
+                                continue;
+                            }
+                            catch (OutOfMemoryException oe)
+                            {
+                                LogManager.Logger.WriteWarnLog("Fail to create Retransmission process:{0}", oe);
+                                continue;
+                            }
+                            LogManager.Logger.WriteInfoLog("Retransmission process is created!");
                         }
                         else
                         {
-                            LogManager.Logger.WriteWarnLog("No reReport process is created!");
-							continue;
+                            LogManager.Logger.WriteWarnLog("Fail to create Retransmission process! null pointer");
+                            continue;
                         }
                     }
 
+                    // 创建定时上传Timer
                     try
                     {
-                        //定时上报数据，30分钟发一次
-                        if (isCreatReport == false)
+                        // 首次创建后即可
+                        if (m_isCreatReport == false)
                         {
                             System.Timers.Timer reportTimer = new System.Timers.Timer();
                             reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
-                            reportTimer.Interval = Convert.ToInt32(config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
+                            reportTimer.Interval = Convert.ToInt32(m_config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
                             reportTimer.Enabled = true;
-                            isCreatReport = true;
-                            LogManager.Logger.WriteInfoLog("Report process is created!");
+                            m_isCreatReport = true;
+                            LogManager.Logger.WriteInfoLog("Timer of fixed timing Report is created!");
                         }
                     }
-                    catch(ArgumentException e)
+                    catch (ArgumentException e)
                     {
-                        LogManager.Logger.WriteWarnLog("Report process is not created!,ArgumentException:{0}",e);
-						continue;
+                        LogManager.Logger.WriteWarnLog("Fail to create timer of report! ArgumentException:{0}", e);
+                        continue;
                     }
-                    catch(ObjectDisposedException e)
+                    catch (ObjectDisposedException e)
                     {
-                        LogManager.Logger.WriteWarnLog("Report process is not created!,ObjectDisposedException:{0}", e);
-						continue;
+                        LogManager.Logger.WriteWarnLog("Fail to create timer of report! ObjectDisposedException:{0}", e);
+                        continue;
                     }
-	                //进行发送相关操作
-	                while (true)
-	                {
-
-                        if (Verify()) //进行认证
+                    catch (Exception e)
+                    {
+                        LogManager.Logger.WriteWarnLog("Fail to create timer of report! Exception:{0}", e);
+                        continue;
+                    }
+                    // 开始收发交互
+                    while (true)
+                    {
+                        if (Authentication())
                         {
-                            Send();//如果认证成功，则进行发送数据，包括心跳数据包等，如果连接失败，则总send状态跳出，重新进行认证
+                            // 认证成功
+                            SendCommunication();//如果认证成功，则进行发送数据，包括心跳数据包等，如果连接失败，则总send状态跳出，重新进行认证
                         }
                         else
                         {
-                            isConnected = false;
-                            Support.MsgBody msgb = new Support.MsgBody(isConnected, synchronize, Support.RUN_PHASE.CONNECTING);
+                            // 认证失败后重新连接
+                            m_isConnected = false;
+                            // 发送认证失败消息
                             try
                             {
-                                m.SendMsg(msgb);
+                                m_msgq.SendMsg(new Support.MsgBody(true, m_isPassAuthentication, Support.RUN_PHASE.VERIFY_FAIL));
                             }
                             catch (MessageQueueException mqex)
                             {
                                 LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
                             }
                             //先关闭已经打开的链接
-                            if (c != null)
+                            if (m_socket != null)
                             {
-                                c.Close();
+                                m_socket.Close();
                                 Console.Write("Closing Used Link....");
                                 LogManager.Logger.WriteInfoLog("Closing Used Link....");
                             }
-                            ///创建socket并连接到服务器
-                            c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
-                            Console.WriteLine("Conneting…");
-                            LogManager.Logger.WriteInfoLog("Conneting....");
-                            c.Connect(ipe);//连接到服务器
+                            // 重新创建socket并连接到服务器
+                            try
+                            {
+                                m_msgq.SendMsg(new Support.MsgBody(false, m_isPassAuthentication, Support.RUN_PHASE.CONNECTING));
+                            }
+                            catch (MessageQueueException mqex)
+                            {
+                                LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                            }
+                            m_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
+                            LogManager.Logger.WriteInfoLog("Connect again....");
+                            m_socket.Connect(ipe);//连接到服务器
 
                         }
-	                }
+                    }
 
-	            }
-	            catch (ArgumentNullException e)
-	            {
-	                LogManager.Logger.WriteWarnLog("argumentNullException: {0}", e);
-	                Console.WriteLine("argumentNullException: {0}", e);
-					isConnected = false;
-                    Support.MsgBody msgb = new Support.MsgBody(false, synchronize, Support.RUN_PHASE.INVALID);
-					try
-					{
-                    	m.SendMsg(msgb);
-					}
-					catch(MessageQueueException mqex)
-					{
-						LogManager.Logger.WriteWarnLog("{0}", mqex);
-					}
-	            }
-	            catch (SocketException e)
-	            {
-	                LogManager.Logger.WriteWarnLog("SocketException:{0}", e);
-	                Console.WriteLine("SocketException:{0}", e);
-					isConnected = false;
-                    Support.MsgBody msgb = new Support.MsgBody(false, synchronize, Support.RUN_PHASE.INVALID);
-					try
-					{
-                    	m.SendMsg(msgb);
-					}
-					catch(MessageQueueException mqex)
-					{
-						LogManager.Logger.WriteWarnLog("{0}", mqex);
-					}
-	            }
-	            c.Close();
+                }
+                catch (ArgumentNullException e)
+                {
+                    LogManager.Logger.WriteWarnLog(" Fail! argumentNullException: {0}", e);
+                    Console.WriteLine("Fail !argumentNullException: {0}", e);
+                    m_isConnected = false;
+                    Support.MsgBody msgb = new Support.MsgBody(false, m_isPassAuthentication, Support.RUN_PHASE.INVALID);
+                    try
+                    {
+                        m_msgq.SendMsg(msgb);
+                    }
+                    catch (MessageQueueException mqex)
+                    {
+                        LogManager.Logger.WriteWarnLog("{0}", mqex);
+                    }
+                }
+                catch (SocketException e)
+                {
+                    LogManager.Logger.WriteWarnLog("Fail on SocketException:{0}", e);
+                    Console.WriteLine("Fail on SocketException:{0}", e);
+                    m_isConnected = false;
+                    Support.MsgBody msgb = new Support.MsgBody(false, m_isPassAuthentication, Support.RUN_PHASE.INVALID);
+                    try
+                    {
+                        m_msgq.SendMsg(msgb);
+                    }
+                    catch (MessageQueueException mqex)
+                    {
+                        LogManager.Logger.WriteWarnLog("{0}", mqex);
+                    }
+                }
+                catch (Exception e)
+                {
+                    LogManager.Logger.WriteWarnLog("Fail on Exception:{0}", e);
+                    m_isConnected = false;
+                    Support.MsgBody msgb = new Support.MsgBody(false, m_isPassAuthentication, Support.RUN_PHASE.INVALID);
+                    try
+                    {
+                        m_msgq.SendMsg(msgb);
+                    }
+                    catch (MessageQueueException mqex)
+                    {
+                        LogManager.Logger.WriteWarnLog("{0}", mqex);
+                    }
+                }
+	            m_socket.Close();
 			}
             //Console.ReadLine();
             Console.WriteLine("Press Enter to Exit");
             LogManager.Logger.FuncExitLog();
         }
-        //进行初始化操作，主要是读取配置文件中的参数
-        private static bool Initial()
+
+        /// <summary>
+        /// 初始化各配置项
+        /// </summary>
+        /// <returns>初始成功与否</returns>
+        private static bool InitConfig()
         {
             SetConfig set_config = new SetConfig();
             if (set_config != null)
             {
-                config = set_config.ReadConfig();
-                LogManager.Logger.WriteInfoLog("Initial,Reading the configuration!");
+                m_config = set_config.ReadConfig();
                 return true;
             }
             else
             {
-                LogManager.Logger.WriteWarnLog("Read configuration is failled!");
                 return false;
             }
         }
@@ -246,47 +302,46 @@ namespace RenewEDSenderM.CommManager
             public short wMilliseconds;
         } 
 
-
-        //解析并判断接收数据是否正确，若正确，则分离出相应的命令和参数
-        private static bool Verify()
+        /// <summary>
+        /// 解析并判断接收数据是否正确，若正确，则分离出相应的命令和参数
+        /// </summary>
+        /// <returns></returns>
+        private static bool Authentication()
         {
             //初始化各种参数
-            timeout = 0;
-            vtimeout = 0;
-            verifyStr = "";
-            input_sequence = "";
-            input_parse = "";
-            input_time = "";
+            m_timeout = 0;
+            m_verifyStr = "";
+            m_input_sequence = "";
 
             Console.Write("Verifying.....");
-            LogManager.Logger.WriteInfoLog("Verifying.....");
+            LogManager.Logger.WriteInfoLog("Begin to request the authentication...");
             ///向服务器发送信息
             string recvStr = "";
             byte[] recvBytes = new byte[1024];
             int bytes;
-            //System.Timers.Timer aTimer = new System.Timers.Timer();
-            //aTimer.Elapsed += new ElapsedEventHandler(VerifyEvent);
-            //aTimer.Interval = 3 * 1000;    //配置文件中配置的秒数
+
+            // 创建xml读取对象、xml写对象、命令xml对象
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
             XmlProcessManager.XMLRead xmlread = new XmlProcessManager.XMLRead();
             XmlProcessManager.Order order = new XmlProcessManager.Order();
 
-            //包括传输认证数据，超时重传和错误重传
-
-            //发起身份认证
-            xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
+            // 发起身份认证
+            xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id,m_config.key,m_config.iv);
             xmlwrite.Request();
             Support.MsgBody msgb = new Support.MsgBody(true, false, Support.RUN_PHASE.VERIFY);
             try
             {
-                m.SendMsg(msgb);
+                m_msgq.SendMsg(msgb);
             }
             catch (MessageQueueException mqex)
             {
                 LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
             }
-            SendMsgB(xmlwrite.BOutput());
-            //aTimer.Enabled = true;
+            if (SendMsgB(xmlwrite.BOutput()) == false)
+            {
+                return false;
+            }
+            LogManager.Logger.WriteInfoLog("Success to send request about authentication");
 
 
             //接收数据，并进行超时判断
@@ -301,12 +356,12 @@ namespace RenewEDSenderM.CommManager
                     return false;
                 }
 
-                //进行认证数据的接收，如果接收到数据,进入下一个阶段，并关闭定时器避免重传
-                if ((bytes = c.Receive(recvBytes, recvBytes.Length, 0)) != 0)
+                //进行认证数据的接收，如果接收到数据,进入下一个阶段
+                if ((bytes = m_socket.Receive(recvBytes, recvBytes.Length, 0)) != 0)
                 {
 
                     recvStr += Encoding.ASCII.GetString(recvBytes, 0, bytes);
-                    //aTimer.Enabled = false;
+                    LogManager.Logger.WriteInfoLog("Success to receive the response about authentication");
                     break;
                 }
             }
@@ -314,33 +369,36 @@ namespace RenewEDSenderM.CommManager
             //接收到认证信息
             if (bytes != 0)
             {
-                int i;
                 byte[] rByte = new byte[bytes];
                 Array.Copy(recvBytes, rByte, bytes);
-                if (xmlread.BInput(rByte, config.key, config.iv) == false)
+                if (xmlread.BInput(rByte, m_config.key, m_config.iv) == false)
 				{
                     return false;
                 }
 				//xmlread.Input(rStr1);
                 order = xmlread.Output();
-                input_sequence = order.sequence;
+                m_input_sequence = order.sequence;
             }
 
-            xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
-            Support.Encryption.MD5_KEY_STR = config.md5;
+            // 发送收到的随机序列的MD5值
+            xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id,m_config.key,m_config.iv);
+            Support.Encryption.MD5_KEY_STR = m_config.md5;
             string md5Str = Support.Encryption.getMd5Hash(order.sequence);
             msgb = new Support.MsgBody(true, false, Support.RUN_PHASE.VERIFY_MD5);
             try
             {
-                m.SendMsg(msgb);
+                m_msgq.SendMsg(msgb);
             }
             catch (MessageQueueException mqex)
             {
                 LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
             }
             xmlwrite.SendMD5(md5Str);
-            verifyStr = xmlwrite.Output();
-            SendMsgB(xmlwrite.BOutput());
+            m_verifyStr = xmlwrite.Output();
+            if (SendMsgB(xmlwrite.BOutput()) == false)
+            {
+                return false;
+            }
             //aTimer.Enabled = true;
 
 
@@ -356,7 +414,7 @@ namespace RenewEDSenderM.CommManager
                     return false;
                 }
                 //进行认证数据的接收，如果接收到数据,进入下一个阶段，并关闭定时器避免重传
-                if ((bytes = c.Receive(recvBytes, recvBytes.Length, 0)) != 0)
+                if ((bytes = m_socket.Receive(recvBytes, recvBytes.Length, 0)) != 0)
                 {
 
 
@@ -372,7 +430,7 @@ namespace RenewEDSenderM.CommManager
                 int i;
                 byte[] rByte1 = new byte[bytes];
                 Array.Copy(recvBytes, rByte1, bytes);
-                if(xmlread.BInput(rByte1,config.key,config.iv)==false)
+                if(xmlread.BInput(rByte1,m_config.key,m_config.iv)==false)
 				{
                     return false ;
                 }
@@ -382,11 +440,11 @@ namespace RenewEDSenderM.CommManager
             //判断是否认证成功
             if (order.result == "pass")
             {
-                synchronize = true;
-                isConnected = true;
+                m_isPassAuthentication = true;
+                m_isConnected = true;
                 try
 				{
-					m.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.VERIFY_PASS) );
+					m_msgq.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.VERIFY_PASS) );
                 }
 				catch(MessageQueueException mqex)
 				{
@@ -405,30 +463,49 @@ namespace RenewEDSenderM.CommManager
                 systNew.wHour = short.Parse(hours);
                 systNew.wMinute = short.Parse(minutes);
                 systNew.wSecond = short.Parse(seconds);
+                // 认证成功后进行系统授时
                 SetLocalTime(ref systNew);
-                LogManager.Logger.WriteInfoLog("Synchronize process is successful!");
+                LogManager.Logger.WriteInfoLog("Authentication process is successful!");
                 return true;
             }
             else
             {
-                LogManager.Logger.WriteWarnLog ("Synchronize process is failed!");
+                LogManager.Logger.WriteWarnLog("Authentication process is failed!");
+                // 发送认证失败消息
+                try
+                {
+                    m_msgq.SendMsg(new Support.MsgBody(true, m_isPassAuthentication, Support.RUN_PHASE.VERIFY_FAIL));
+                }
+                catch (MessageQueueException mqex)
+                {
+                    LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                }
                 return false;
             }
 
         }
 
-        //向服务器端传输数据
-        public static void Send()
+        /// <summary>
+        /// 认证成功后与服务器进行数据交互
+        /// </summary>
+        public static void SendCommunication()
         {
             ///向服务器发送信息
             string recvStr = "";
             byte[] recvBytes = new byte[1024];
 
-            //心跳数据包
-            System.Timers.Timer notifyTimer = new System.Timers.Timer();
-            notifyTimer.Elapsed += new ElapsedEventHandler(NotifyEvent);
-            notifyTimer.Interval = 60 * 1000;    //配置文件中配置的秒数,60秒一次
-
+            //心跳数据包Timer
+            System.Timers.Timer HeartbeatNotifyTimer = new System.Timers.Timer();
+            
+            HeartbeatNotifyTimer.Elapsed += new ElapsedEventHandler(HeartbeatNotifyEvent);
+            try
+            {
+                HeartbeatNotifyTimer.Interval = Convert.ToInt32(m_config.notifyTime) * 60 * 1000;    //配置文件中配置的分钟数
+            }
+            catch(Exception e)
+            {
+                HeartbeatNotifyTimer.Interval = 60 * 1000;   //60秒一次
+            }
 
             XmlProcessManager.XMLRead xmlread = new XmlProcessManager.XMLRead();
             XmlProcessManager.Order order;
@@ -437,28 +514,30 @@ namespace RenewEDSenderM.CommManager
             //包括传输数据，超时重传和错误重传
             while (true)
             {
-                notifyTimer.Enabled = true;
+                HeartbeatNotifyTimer.Enabled = true;
                 recvStr = "";
                 //接收数据，并进行超时判断
                 while (true)
                 {
-                    if (timeout == 1)
+                    if (m_timeout == 1)
+                    {
                         break;
+                    }
                     //进行数据的接收，如果接收到数据则下一个阶段，并关闭定时器避免重传
-                    if ((bytes = c.Receive(recvBytes, recvBytes.Length, 0)) != 0)
+                    if ((bytes = m_socket.Receive(recvBytes, recvBytes.Length, 0)) != 0)
                     {
                         recvStr += Encoding.ASCII.GetString(recvBytes, 0, bytes);
-                        notifyTimer.Enabled = false;
-                        timeout = 0;
+                        HeartbeatNotifyTimer.Enabled = false;
+                        m_timeout = 0;
                         break;
                     }
                 }
 
                 //分析接收到的信息
                 //如果超时，则跳出循环进入重新认证链接
-                if (timeout == 1)
+                if (m_timeout == 1)
                 {
-                    notifyTimer.Enabled = false;    //心跳包超时，需要重新连接服务器端，停止继续发送数据
+                    HeartbeatNotifyTimer.Enabled = false;    //心跳包超时，需要重新连接服务器端，停止继续发送数据
                     Console.Write("HeartBeat Time out!");//可以写入log，进行记录
                     LogManager.Logger.WriteInfoLog("HeartBeat Time out!");
                     return;                         //直接返回，重新认证
@@ -468,7 +547,7 @@ namespace RenewEDSenderM.CommManager
                 int i;
                 byte[] rByte = new byte[bytes];
                 Array.Copy(recvBytes, rByte, bytes);
-                if(xmlread.BInput(rByte,config.key,config.iv)== false)
+                if(xmlread.BInput(rByte,m_config.key,m_config.iv)== false)
 				{
                     return ;
                 }
@@ -497,16 +576,25 @@ namespace RenewEDSenderM.CommManager
 
         }
 
-        //单纯发送相应的比特流数据
-		//true 发送成功
-		//false 发送失败
-		//T.B.D. 发送异常？
+        /// <summary>
+        /// 发送相应的比特流数据
+        /// </summary>
+        /// <param name="sendByte"></param>
+        /// <returns></returns>
         private static bool SendMsgB(byte[] sendByte)
         {
             Console.WriteLine("Send Message");
             LogManager.Logger.WriteInfoLog("Send Message");
             int sendLength;
-            sendLength = c.Send(sendByte, sendByte.Length, 0);//发送信息
+            try
+            {
+                sendLength = m_socket.Send(sendByte, sendByte.Length, 0);//发送信息
+            }
+            catch (Exception e)
+            {
+                LogManager.Logger.WriteWarnLog("Fail to send message to server:{0}", e);
+                return false;
+            }
             if (sendLength == sendByte.Length)
             {
                 LogManager.Logger.WriteInfoLog("Message is sent!");
@@ -519,7 +607,11 @@ namespace RenewEDSenderM.CommManager
             }
 
         }
-        //单纯发送相应的字符串数据
+
+        /// <summary>
+        /// 发送相应的字符串数据
+        /// </summary>
+        /// <param name="sendStr"></param>
         private static void SendMsg(string sendStr)
         {
             string TestStr = sendStr;
@@ -527,35 +619,45 @@ namespace RenewEDSenderM.CommManager
             byte[] dp = Support.DataPackage.GetBytes(TestStr, out i);
             byte[] bs = Encoding.ASCII.GetBytes(TestStr);//把字符串编码为字节
             Console.WriteLine("Send Message");
-
-            c.Send(dp, dp.Length, 0);//发送信息
+            try
+            {
+                m_socket.Send(dp, dp.Length, 0);//发送信息
+            }
+            catch (Exception e)
+            {
+                LogManager.Logger.WriteWarnLog("Fail to send message to server: {0}", e);
+                //m_isConnected = false;
+            }
         }
 
         private static void VerifyEvent(object sender, ElapsedEventArgs e)
         {
             try_count++;
-            vtimeout = 1;
             Console.Write("Time out!");//可以写入log
-            SendMsg(verifyStr);
+            SendMsg(m_verifyStr);
         }
 
-        //心跳操作的超时处理，将timeout设置为1
-        private static void NotifyEvent(object sender, ElapsedEventArgs e)
+        /// <summary>
+        /// 心跳操作的超时处理，将timeout设置为1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void HeartbeatNotifyEvent(object sender, ElapsedEventArgs e)
         {
-            timeout = 1;
+            m_timeout = 1;
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-            xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
+            xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id,m_config.key,m_config.iv);
             xmlwrite.Notify();
             if (SendMsgB(xmlwrite.BOutput()) == false)
             {
-                isConnected = false;
+                m_isConnected = false;
             }
             else
             {
                 Support.MsgBody msg = new Support.MsgBody(true, true, Support.RUN_PHASE.HEARTBEAT);
                 try
                 {
-                    m.SendMsg(msg);
+                    m_msgq.SendMsg(msg);
                 }
                 catch (MessageQueueException ex)
                 {
@@ -566,16 +668,16 @@ namespace RenewEDSenderM.CommManager
         //定时发送数据，需要收集数据
         private static void ReportEvent(object sender, ElapsedEventArgs e)
         {
-            //如果进行了同步则进行相关操作，否则不进行任何操作
-            if (synchronize)
+            //如果通过了认证则进行相关操作，否则不进行任何操作
+            if (m_isPassAuthentication)
             {
                 //数据写入数据库
 
                 //如果网络状况良好，则发送数据
-                if (isConnected)
+                if (m_isConnected)
                 {
                     XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-                    xmlwrite.Input(xmlStr, project_id, gateway_id, config.key, config.iv);
+                    xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id, m_config.key, m_config.iv);
                     //这部分需要采集数据进行数据录入
                     //>>>> T.B.D. 测试数据
                     //DateTime date_send = DateTime.Now.ToLocalTime();
@@ -588,12 +690,13 @@ namespace RenewEDSenderM.CommManager
                         LogManager.Logger.WriteWarnLog("Report Process: No data fetched from the database!");
                         return;
                     }
-                   
+
                     DataInfo[] input_info = new DataInfo[4];
                     for (int i = 0; i < 4; i++)
+                    {
                         input_info[i] = new DataInfo();
-                    if (input_info == null)
-                        return;
+                        input_info[i].sample_time = date_send.ToString("yyyyMMddHHmmss");
+                    }
 
                     string[] fids = GenerateFunID();
                     string[] mids = GenerateMeterID();
@@ -613,21 +716,21 @@ namespace RenewEDSenderM.CommManager
                     Random random = new Random();
                     int sequence = random.Next(10000000, 99999999);
                     string sequenceStr = sequence.ToString();
-                    xmlwrite.Report(sequenceStr, input_parse, date_send.ToString("yyyyMMddHHmmss"), input_info);
+                    xmlwrite.Report(sequenceStr, m_input_parse, date_send.ToString("yyyyMMddHHmmss"), input_info);
 
                     if (SendMsgB(xmlwrite.BOutput()))
                     {
                         try
                         {
-                            m.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REPORT));
+                            m_msgq.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REPORT));
                         }
                         catch (MessageQueueException ex)
                         {
                         }
-                        gM.WaitOne();
+                        m_mutex.WaitOne();
                         DbManager.DataDump.WriteToHisDb(date_send, dr, out hd_array);
                         DbManager.DataDump.update_Upload(hd_array.id);
-                        gM.ReleaseMutex();
+                        m_mutex.ReleaseMutex();
                         LogManager.Logger.WriteInfoLog("The report is sent!");
                     }
                     else
@@ -636,10 +739,12 @@ namespace RenewEDSenderM.CommManager
                         LogManager.Logger.WriteWarnLog("The report is failed to send!");
                     }
                 }
-  
+
             }
             else
+            {
                 return;
+            }
         }
 
         //应答查询操作，与数据库交互
@@ -647,8 +752,8 @@ namespace RenewEDSenderM.CommManager
         {
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
             //数据库查询，并输出相关历史数据的参数
-            xmlwrite.Input(xmlStr, project_id, gateway_id, config.key, config.iv);
-            Support.Encryption.MD5_KEY_STR = config.md5;
+            xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id, m_config.key, m_config.iv);
+            Support.Encryption.MD5_KEY_STR = m_config.md5;
 
             //其中的sequence parse time和input_info应该从数据库中读取
             DataInfo[] input_info = new DataInfo[4];
@@ -690,6 +795,7 @@ namespace RenewEDSenderM.CommManager
                 sampleCount = hd_array.Length;
                 for (int i = 0; i < sampleCount; i++)
                 {
+                    input_info[i].sample_time = hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss");
 
                     input_info[0].data = Convert.ToString(hd_array[i].ValueA);
                     input_info[0].mid = mids[0];
@@ -706,12 +812,12 @@ namespace RenewEDSenderM.CommManager
                     Random random = new Random();
                     int sequence = random.Next(10000000, 99999999);
                     string sequenceStr = sequence.ToString();
-                    xmlwrite.Query(sequenceStr, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
+                    xmlwrite.Query(sequenceStr, m_input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
                     if (SendMsgB(xmlwrite.BOutput()))
                     {
                         try
                         {
-                            m.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REPORT));
+                            m_msgq.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REPORT));
                         }
                         catch (MessageQueueException ex)
                         {
@@ -729,12 +835,12 @@ namespace RenewEDSenderM.CommManager
         private static void Period_ack(XmlProcessManager.Order order)
         {
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-            xmlwrite.Input(xmlStr, project_id, gateway_id,config.key,config.iv);
+            xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id,m_config.key,m_config.iv);
             xmlwrite.Period_Ack();
             SendMsgB(xmlwrite.BOutput());
             try
             {
-                m.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REPLY_ACK));
+                m_msgq.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REPLY_ACK));
             }
             catch (MessageQueueException e)
             {
@@ -746,20 +852,22 @@ namespace RenewEDSenderM.CommManager
         {
             SetConfig set_config = new SetConfig();
 
-            set_config.WriteSpecailConfig(config, order.order);
+            set_config.WriteSpecailConfig(m_config, order.order);
         }
 
-        //失败数据重传
+        /// <summary>
+        /// 失败数据重传
+        /// </summary>
         private static void Rereport()
         {
             while(true)
             {
                 //如果网络状况良好则进行重传
-                if (isConnected)
+                if (m_isConnected && m_isPassAuthentication)
                 {
                     XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-                    xmlwrite.Input(xmlStr,project_id,gateway_id,config.key,config.iv);
-                    Support.Encryption.MD5_KEY_STR = config.md5;
+                    xmlwrite.Input(m_xmlStr,m_project_id,m_gateway_id,m_config.key,m_config.iv);
+                    Support.Encryption.MD5_KEY_STR = m_config.md5;
 
                     DataInfo[] input_info = new DataInfo[4];
                     for (int i = 0;i < 4;i++)
@@ -768,12 +876,14 @@ namespace RenewEDSenderM.CommManager
                         return;
                     DateTime begin_time = new DateTime(1900, 1, 1, 1, 1, 1);
                     DateTime end_time = new DateTime(3000, 1, 1, 1, 1, 1);
-                    gM.WaitOne();
+                    m_mutex.WaitOne();
                     DbManager.History_Data[] hd_array = DbManager.DataDump.FetchDataFail(begin_time, end_time);
-                    gM.ReleaseMutex();
+                    m_mutex.ReleaseMutex();
                     if (hd_array == null)
+                    {
+                        LogManager.Logger.WriteWarnLog("未取到失败须重传数据{0}-{1}", begin_time, end_time);
                         return;
-                    
+                    }
                     if (hd_array != null)
                     {
                         string[] fids = GenerateFunID();
@@ -782,6 +892,8 @@ namespace RenewEDSenderM.CommManager
                         sampleCount = hd_array.Length;
                         for (int i = 0; i < sampleCount; i++)
                         {
+                            input_info[i].sample_time = hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss");
+
                             input_info[0].data = Convert.ToString(hd_array[i].ValueA);
                             input_info[0].mid = mids[0];
                             input_info[0].fid = fids[0];
@@ -797,12 +909,12 @@ namespace RenewEDSenderM.CommManager
                             Random random = new Random();
                             int sequence = random.Next(10000000,99999999);
                             string sequenceStr = sequence.ToString();
-                            xmlwrite.Report(sequenceStr, input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
+                            xmlwrite.Report(sequenceStr, m_input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
                             if (SendMsgB(xmlwrite.BOutput()))
                             {
                                 try
                                 {
-                                    m.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REUPLOAD));
+                                    m_msgq.SendMsg(new Support.MsgBody(true, true, Support.RUN_PHASE.REUPLOAD));
                                 }
                                 catch (MessageQueueException e)
                                 {
@@ -836,14 +948,14 @@ namespace RenewEDSenderM.CommManager
                 return null;
             }
 
-            string code_perfix = config.areacode + config.programid;
-            code_array[0] = code_perfix + config.meterInfo.MA_ProgramId + config.meterInfo.MA_Code1 + config.meterInfo.MA_Code2;
+            string code_perfix = m_config.areacode + m_config.programid;
+            code_array[0] = code_perfix + m_config.meterInfo.MA_ProgramId + m_config.meterInfo.MA_Code1 + m_config.meterInfo.MA_Code2;
 
-            code_array[1] = code_perfix + config.meterInfo.MB_ProgramId + config.meterInfo.MB_Code1 + config.meterInfo.MB_Code2;
+            code_array[1] = code_perfix + m_config.meterInfo.MB_ProgramId + m_config.meterInfo.MB_Code1 + m_config.meterInfo.MB_Code2;
 
-            code_array[2] = code_perfix + config.meterInfo.MC_ProgramId + config.meterInfo.MC_Code1 + config.meterInfo.MC_Code2.Substring(0, 1);
+            code_array[2] = code_perfix + m_config.meterInfo.MC_ProgramId + m_config.meterInfo.MC_Code1 + m_config.meterInfo.MC_Code2;
 
-            code_array[3] = code_perfix + config.meterInfo.MD_ProgramId + config.meterInfo.MD_Code1 + config.meterInfo.MD_Code2;
+            code_array[3] = code_perfix + m_config.meterInfo.MD_ProgramId + m_config.meterInfo.MD_Code1 + m_config.meterInfo.MD_Code2;
             return code_array;
         }
 
@@ -879,14 +991,14 @@ namespace RenewEDSenderM.CommManager
                 LogManager.Logger.WriteWarnLog(" Failed to generate Function ID");
                 return null;
             }
-            string code_perfix = config.areacode + config.programid;
-            code_array[0] = code_perfix + config.techtype + config.syscode + COLLECT_FACTOR_CODE_RADIATION;
+            string code_perfix = m_config.areacode + m_config.programid;
+            code_array[0] = code_perfix + m_config.techtype + m_config.syscode + COLLECT_FACTOR_CODE_RADIATION;
 
-            code_array[1] = code_perfix + config.techtype + config.syscode + COLLECT_FACTOR_CODE_AIRTEMP;
+            code_array[1] = code_perfix + m_config.techtype + m_config.syscode + COLLECT_FACTOR_CODE_AIRTEMP;
 
-            code_array[2] = code_perfix + config.techtype + config.syscode + COLLECT_FACTOR_CODE_LANDTEMP;
+            code_array[2] = code_perfix + m_config.techtype + m_config.syscode + COLLECT_FACTOR_CODE_LANDTEMP;
 
-            code_array[3] = code_perfix + config.techtype + config.syscode + COLLECT_FACTOR_CODE_ELECTRICITY;
+            code_array[3] = code_perfix + m_config.techtype + m_config.syscode + COLLECT_FACTOR_CODE_ELECTRICITY;
             return code_array;
         }
 

@@ -651,6 +651,7 @@ namespace RenewEDSenderM.DbManager
             }
             catch (Exception ex)
             {
+                LogManager.Logger.WriteWarnLog("查看数据库配置是否正确");
                 return null;
             }
             //存入发送数据库，准备发送

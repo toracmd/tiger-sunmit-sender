@@ -199,6 +199,7 @@ namespace RenewEDSenderM.Support
         private static readonly string CONNECTING = @"读配置成功,正在连接...";
         private static readonly string VERIFY = @"连接已成功,发送认证请求...";
         private static readonly string VERIFY_MD5 = @"收到随机序列,发送MD5认证";
+        private static readonly string VERIFY_FAIL = @"认证失败!";
         private static readonly string VERIFY_PASS = @"认证已通过,准备发送数据...";
         private static readonly string REPORT = @"正在上传...";
         private static readonly string REUPLOAD = @"正在重传...";
@@ -211,7 +212,7 @@ namespace RenewEDSenderM.Support
 
         public static readonly string[] CONNECT_STATUS = { isConnected, isDisconnected};
 
-        public static readonly string[] RUN_STAGE_ARRAY = { READCONFIG, CONNECTING, VERIFY, VERIFY_MD5, VERIFY_PASS, REPORT, REUPLOAD, HEARTBEAT, INVALID, REPLY_ACK };
+        public static readonly string[] RUN_STAGE_ARRAY = { READCONFIG, CONNECTING, VERIFY, VERIFY_MD5, VERIFY_FAIL, VERIFY_PASS, REPORT, REUPLOAD, HEARTBEAT, INVALID, REPLY_ACK };
     }
     /// <summary>
     /// 运行阶段枚举类型
@@ -234,6 +235,10 @@ namespace RenewEDSenderM.Support
         /// MD5认证
         /// </summary>
         VERIFY_MD5,
+        /// <summary>
+        /// 认证失败
+        /// </summary>
+        VERIFY_FAIL,
         /// <summary>
         /// 认证通过
         /// </summary>
