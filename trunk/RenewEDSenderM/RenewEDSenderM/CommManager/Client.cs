@@ -597,16 +597,16 @@ namespace RenewEDSenderM.CommManager
 
                     string[] fids = GenerateFunID();
                     string[] mids = GenerateMeterID();
-                    input_info[0].data = Convert.ToString(Convert.ToInt32(dr[0][0]));
+                    input_info[0].data = Convert.ToString(Convert.ToSingle(dr[0][0]));
                     input_info[0].mid = mids[0];
                     input_info[0].fid = fids[0];
-                    input_info[1].data = Convert.ToString(Convert.ToInt32(dr[1][0]));
+                    input_info[1].data = Convert.ToString(Convert.ToSingle(dr[1][0]));
                     input_info[1].mid = mids[1];
                     input_info[1].fid = fids[1];
-                    input_info[2].data = Convert.ToString(Convert.ToInt32(dr[2][0]));
+                    input_info[2].data = Convert.ToString(Convert.ToSingle(dr[2][0]));
                     input_info[2].mid = mids[2];
                     input_info[2].fid = fids[2];
-                    input_info[3].data = Convert.ToString(Convert.ToInt32(dr[3][0]));
+                    input_info[3].data = Convert.ToString(Convert.ToSingle(dr[3][0]));
                     input_info[3].mid = mids[3];
                     input_info[3].fid = fids[3];
                     //<<<<

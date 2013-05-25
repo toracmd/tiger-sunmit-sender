@@ -692,10 +692,10 @@ namespace RenewEDSenderM.DbManager
             }
             insertedHisData = new History_Data();
             insertedHisData.id = id;
-            insertedHisData.ValueA = Convert.ToInt32(dr[0][0]);
-            insertedHisData.ValueB = Convert.ToInt32(dr[1][0]);
-            insertedHisData.ValueC = Convert.ToInt32(dr[2][0]);
-            insertedHisData.ValueD = Convert.ToInt32(dr[3][0]);
+            insertedHisData.ValueA = Convert.ToSingle(dr[0][0]);
+            insertedHisData.ValueB = Convert.ToSingle(dr[1][0]);
+            insertedHisData.ValueC = Convert.ToSingle(dr[2][0]);
+            insertedHisData.ValueD = Convert.ToSingle(dr[3][0]);
             insertedHisData.timestamp_sendCycle = FixedTime;
             insertedHisData.timestamp_upload = FixedTime;
             insertedHisData.isupload = false;
@@ -828,19 +828,19 @@ namespace RenewEDSenderM.DbManager
         /// <summary>
         /// 平行于光伏组件的太阳辐照度 总辐射
         /// </summary>
-        public int ValueA;
+        public float ValueA;
         /// <summary>
         /// 室外温度 大气温度
         /// </summary>
-        public int ValueB;
+        public float ValueB;
         /// <summary>
         /// 光伏组件背面表面温度 大地温度
         /// </summary>
-        public int ValueC;
+        public float ValueC;
         /// <summary>
         /// 发电量 1633发电量
         /// </summary>
-        public int ValueD;
+        public float ValueD;
         /// <summary>
         /// 定时发送时刻时间戳
         /// </summary>

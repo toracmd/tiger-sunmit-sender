@@ -1,0 +1,7 @@
+更改记录
+2013-5-25
+1、发送的数据位更改为单精度
+Client.cs 
+A、ReportEvent(object sender, ElapsedEventArgs e) dr
+B、AccessData.cs History_Data定义 WriteToHisDb(DateTime FixedTime, DataRow[] dr, out History_Data insertedHisData)
+
