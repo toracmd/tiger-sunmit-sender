@@ -1,0 +1,124 @@
+﻿2013-05-20 23:02:27,448 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:27,483 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:27,485 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:28,489 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:28,495 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:28,499 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:29,509 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:29,512 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:29,513 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:30,519 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:30,526 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:30,531 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:31,539 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:31,546 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:31,550 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:32,560 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:32,570 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:32,575 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:33,580 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:33,590 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:33,594 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:34,606 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:34,611 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:34,613 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:35,621 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:35,626 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:35,629 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:36,653 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:36,656 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:36,658 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:37,667 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:37,670 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:37,672 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:38,677 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:38,681 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:38,683 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:39,688 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:39,695 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:39,699 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:40,708 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:40,711 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:40,713 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:41,716 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:41,720 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:41,722 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:42,729 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:42,733 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:42,734 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:43,745 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:43,749 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:43,751 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:44,773 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:44,780 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:44,784 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:45,792 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:45,795 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:45,797 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:46,801 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60
+2013-05-20 23:02:46,803 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:40,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-20 23:02:46,804 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:47,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-20 23:02:47,808 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:105,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 60

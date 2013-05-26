@@ -1,0 +1,118 @@
+﻿2013-05-21 14:02:31,270 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:120,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:02:31,295 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:122,21,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:02:31,298 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:43,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-21 14:02:31,299 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:50,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-21 14:02:31,301 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:63,21,[RenewEDSenderM.CommManager.Client][Main]Conneting…
+2013-05-21 14:02:52,305 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:120,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:02:52,311 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:122,21,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:02:52,316 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:43,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-21 14:02:52,320 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:50,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-21 14:02:52,325 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:63,21,[RenewEDSenderM.CommManager.Client][Main]Conneting…
+2013-05-21 14:03:13,330 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:120,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:03:13,333 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:122,21,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:03:13,336 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:43,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-21 14:03:13,338 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:50,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-21 14:03:13,340 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:63,21,[RenewEDSenderM.CommManager.Client][Main]Conneting…
+2013-05-21 14:03:34,341 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:120,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:03:34,345 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:122,21,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:03:34,348 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:43,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-21 14:03:34,350 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:50,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-21 14:03:34,353 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:63,21,[RenewEDSenderM.CommManager.Client][Main]Conneting…
+2013-05-21 14:03:55,364 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:120,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:03:55,370 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:122,21,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:03:55,380 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:43,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-21 14:03:55,384 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:50,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-21 14:03:55,389 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:63,21,[RenewEDSenderM.CommManager.Client][Main]Conneting…
+2013-05-21 14:04:16,391 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:120,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:04:16,397 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:122,21,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:04:16,402 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:43,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-21 14:04:16,406 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:50,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-21 14:04:16,412 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:63,21,[RenewEDSenderM.CommManager.Client][Main]Conneting…
+2013-05-21 14:04:37,424 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:120,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:04:37,426 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:122,21,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:04:37,428 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:43,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-21 14:04:37,429 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:50,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-21 14:04:37,431 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:63,21,[RenewEDSenderM.CommManager.Client][Main]Conneting…
+2013-05-21 14:04:58,434 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:120,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:04:58,441 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:122,21,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:04:58,447 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:43,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-21 14:04:58,451 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:50,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-21 14:04:58,452 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:63,21,[RenewEDSenderM.CommManager.Client][Main]Conneting…
+2013-05-21 14:05:19,448 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:120,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:05:19,451 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:122,21,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:05:19,453 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:43,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-21 14:05:19,455 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:50,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-21 14:05:19,459 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:63,21,[RenewEDSenderM.CommManager.Client][Main]Conneting…
+2013-05-21 14:05:40,462 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:120,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:05:40,468 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:122,21,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:05:40,473 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:43,18,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-21 14:05:40,477 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:50,18,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-21 14:05:40,480 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:63,21,[RenewEDSenderM.CommManager.Client][Main]Conneting…
+2013-05-21 14:06:01,486 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:120,18,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64
+2013-05-21 14:06:01,489 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:122,21,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 210.77.14.218:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 64

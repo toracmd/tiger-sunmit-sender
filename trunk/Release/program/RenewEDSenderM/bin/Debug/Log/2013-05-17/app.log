@@ -1,0 +1,105 @@
+﻿2013-05-17 22:13:15,665 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:13:15,712 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:13:15,716 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.115
+2013-05-17 22:13:16,722 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:82,17,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 10.6.0.115:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 51
+2013-05-17 22:13:16,726 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:88,13,[RenewEDSenderM.CommManager.Client][Main]Function Exited...
+2013-05-17 22:14:53,565 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:14:53,621 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:14:53,626 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.110
+2013-05-17 22:14:59,671 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:82,17,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 您的主机中的软件中止了一个已建立的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Verify() 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 141
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 57
+2013-05-17 22:14:59,680 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:88,13,[RenewEDSenderM.CommManager.Client][Main]Function Exited...
+2013-05-17 22:15:51,411 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:15:51,459 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:15:51,463 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.110
+2013-05-17 22:15:57,501 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:82,17,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Verify() 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 141
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 57
+2013-05-17 22:15:57,504 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:88,13,[RenewEDSenderM.CommManager.Client][Main]Function Exited...
+2013-05-17 22:16:23,392 [9] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:16:23,438 [9] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:16:23,442 [9] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.110
+2013-05-17 22:16:24,453 [9] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:82,17,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 10.6.0.110:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 51
+2013-05-17 22:16:24,471 [9] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:88,13,[RenewEDSenderM.CommManager.Client][Main]Function Exited...
+2013-05-17 22:16:51,528 [9] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:16:52,695 [9] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:16:54,892 [9] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.110
+2013-05-17 22:20:08,634 [10] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:20:09,692 [10] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:20:10,698 [10] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.110
+2013-05-17 22:21:09,597 [10] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:82,17,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 您的主机中的软件中止了一个已建立的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Verify() 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 141
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 57
+2013-05-17 22:21:09,769 [10] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:88,13,[RenewEDSenderM.CommManager.Client][Main]Function Exited...
+2013-05-17 22:21:32,936 [10] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:21:33,295 [10] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:21:34,025 [10] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.110
+2013-05-17 22:25:11,950 [10] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:25:11,999 [10] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:25:12,003 [10] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.110
+2013-05-17 22:26:14,117 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:26:14,163 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:26:14,168 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.110
+2013-05-17 22:26:33,978 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:26:34,027 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:26:34,032 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.110
+2013-05-17 22:26:35,038 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:82,17,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 10.6.0.110:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 51
+2013-05-17 22:26:35,047 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:88,13,[RenewEDSenderM.CommManager.Client][Main]Function Exited...
+2013-05-17 22:26:38,865 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:26:38,928 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:26:38,933 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.110
+2013-05-17 22:27:14,216 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:82,17,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 您的主机中的软件中止了一个已建立的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Verify() 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 141
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 57
+2013-05-17 22:27:14,249 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:88,13,[RenewEDSenderM.CommManager.Client][Main]Function Exited...
+2013-05-17 22:33:02,339 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 22:33:02,386 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 22:33:02,390 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.6.0.110
+2013-05-17 22:34:31,870 [1] WARN  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:82,17,[RenewEDSenderM.CommManager.Client][Main]SocketException:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Send() 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 243
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 58
+2013-05-17 22:34:31,873 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:88,13,[RenewEDSenderM.CommManager.Client][Main]Function Exited...
+2013-05-17 23:47:16,798 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 23:47:16,847 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 23:47:16,852 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-17 23:48:46,349 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 23:48:46,403 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 23:48:46,407 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-17 23:50:06,229 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 23:50:06,276 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 23:50:06,281 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-17 23:54:35,294 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 23:54:35,338 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 23:54:35,343 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-17 23:55:28,956 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 23:55:29,007 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 23:55:29,011 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-17 23:55:48,134 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 23:55:48,180 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 23:55:48,185 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-17 23:55:55,641 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 23:55:55,689 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 23:55:55,693 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218
+2013-05-17 23:56:16,680 [1] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:28,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-17 23:56:16,728 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:31,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-17 23:56:16,732 [1] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:38,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218

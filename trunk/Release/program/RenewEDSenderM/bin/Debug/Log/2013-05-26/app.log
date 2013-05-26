@@ -1,0 +1,35 @@
+﻿2013-05-26 17:30:04,824 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-26 17:30:05,382 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Complete reading the configuration!
+2013-05-26 17:30:05,385 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Connect...
+2013-05-26 17:30:05,419 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Retransmission process is created!
+2013-05-26 17:30:05,420 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Timer of fixed timing Report is created!
+2013-05-26 17:30:05,424 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Begin to request the authentication...
+2013-05-26 17:30:05,470 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-26 17:30:05,484 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-26 17:30:05,486 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Success to send request about authentication
+2013-05-26 17:30:05,487 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Success to receive the response about authentication
+2013-05-26 17:30:05,540 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-26 17:30:05,559 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-26 17:30:05,001 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Authentication process is successful!
+2013-05-26 17:30:05,132 [5] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Rereport]未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
+2013-05-26 17:31:05,042 [7] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-26 17:31:05,072 [7] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-26 17:31:05,505 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-26 17:31:05,507 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-26 17:32:05,069 [7] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-26 17:32:05,071 [7] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-26 17:32:05,511 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-26 17:32:05,513 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-26 17:32:32,728 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Fail on SocketException:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendCommunication() 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 527
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 180
+2013-05-26 17:32:32,800 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Complete reading the configuration!
+2013-05-26 17:32:32,818 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Connect...
+2013-05-26 17:32:33,847 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.81:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 113
+2013-05-26 17:32:33,858 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Complete reading the configuration!
+2013-05-26 17:32:33,860 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Connect...
