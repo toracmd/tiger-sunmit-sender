@@ -90,6 +90,8 @@ namespace RenewEDSenderWin
 
         private bool isCompleteCheck = true;
 
+        private List<Control> listContrl = new List<Control>() ;
+
         public string NetWorkState
         {
             get
@@ -153,11 +155,34 @@ namespace RenewEDSenderWin
             {
                 m_MsgQueManager = new MsgQueManager();
             }
-            catch (MessageQueueException mqex)
+            catch (Exception ex)
             {
-                MessageBox.Show("消息队列尚未启动:" + mqex);
+                MessageBox.Show("消息队列尚未启动:" /*+ ex*/ + "试运行命令再执行：net start MSMQ");
+                
+                return;
             }
             MsgQueueRecv();
+
+            //添加配置项控件到集合
+            listContrl.Add(txtBoxAesIV);
+            listContrl.Add(txtBoxAesKey);
+            listContrl.Add(txtBoxAreaCode);
+            listContrl.Add(txtBoxGateId);
+            listContrl.Add(txtBoxGen1);
+            listContrl.Add(txtBoxGen2);
+            listContrl.Add(txtBoxIP);
+            listContrl.Add(txtBoxMd5Key);
+            listContrl.Add(txtBoxOuter1);
+            listContrl.Add(txtBoxOuter2);
+            listContrl.Add(txtBoxPort);
+            listContrl.Add(txtBoxProCode);
+            listContrl.Add(txtBoxProId);
+            listContrl.Add(txtBoxSun1);
+            listContrl.Add(txtBoxSun2);
+            listContrl.Add(txtBoxSunGen1);
+            listContrl.Add(txtBoxSunGen2);
+            listContrl.Add(txtBoxSysCode);
+            listContrl.Add(txtBoxTechCode);
 
             SetConfig cfg = new SetConfig();
             config = cfg.ReadConfig();
@@ -305,10 +330,10 @@ namespace RenewEDSenderWin
                         btnSenderStart.Enabled = false;
                         btnSenderStop.Enabled = true;
                         btnSenderRestart.Enabled = true;
-                        //监控发送服务进程状态
-                        //m_thread_monitor = new Thread(new ThreadStart(MonitorSendProc));
-                        //启动后台服务监视线程
-                        //m_thread_monitor.Start();
+                        foreach (Control c in listContrl)
+                        {
+                            c.Enabled = false;
+                        }
                     }
                 }
                 else
@@ -431,6 +456,11 @@ namespace RenewEDSenderWin
                     btnSenderRestart.Enabled = false;
                     txtBoxConnStatus.Text = RUN_STATUS_MEASURE.CONNECT_STATUS[1];
                     txtBoxRunPhase.Text = RUN_STATUS_MEASURE.RUN_STAGE_ARRAY[(int)RUN_PHASE.INVALID];
+
+                    foreach (Control c in listContrl)
+                    {
+                        c.Enabled = true;
+                    }
                 }
             }
         }

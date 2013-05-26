@@ -680,9 +680,10 @@ namespace RenewEDSenderM.CommManager
                     xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id, m_config.key, m_config.iv);
                     //这部分需要采集数据进行数据录入
                     //>>>> T.B.D. 测试数据
-                    //DateTime date_send = DateTime.Now.ToLocalTime();
-                    DateTime date_send = new DateTime(2013, 4, 28, 19, 0, 0);   //2013-04-28 19:00:00
-                    TimeSpan ts = new TimeSpan(2, 0, 0);    //2小时的间隔
+                    DateTime date_send = DateTime.Now.ToLocalTime();
+                    //DateTime date_send = new DateTime(2013, 4, 28, 19, 0, 0);   //2013-04-28 19:00:00
+                    TimeSpan ts = new TimeSpan(2, 0, 0);
+                    //TimeSpan ts = new TimeSpan(0, int.Parse(m_config.reportTime), 0);    //config.xml的时间间隔
                     DbManager.History_Data hd_array;
                     DataRow[] dr = DbManager.DataDump.CalculateAverage(date_send, ts);
                     if (dr == null)
