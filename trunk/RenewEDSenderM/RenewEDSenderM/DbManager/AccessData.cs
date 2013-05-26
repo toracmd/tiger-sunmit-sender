@@ -21,9 +21,11 @@ namespace RenewEDSenderM.DbManager
         /// </summary>
         //private static string dbsource2 = "../../../../RenewEDSenderM/database/info.mdb";
         private static readonly string dbsource2 = System.Configuration.ConfigurationManager.AppSettings["CONN_INFO"];
-        //public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "datasource") + ";User Id=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "userid") + ";Password=" + CommonClass.GetXmlNodeValue("DataConnectConfig.xml", "password") + ";";
-        public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource1 + ";";
-        public static string CONN_STRING2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource2 +";";
+        // for 单体测试
+        //public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource1 + "D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;";
+        //public static string CONN_STRING2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource2 + "D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;";
+        public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource1;
+        public static string CONN_STRING2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource2;
         #region ExecuteNonQuery
         /// <summary>
         /// 执行SQL Query
@@ -584,17 +586,26 @@ namespace RenewEDSenderM.DbManager
             //获取此区间的监测指标值
             //SQL语句 计算平均值 T.B.D. <=开区间问题
             //T.B.D. 字段未确定
-            string sql = @"select avg(DATA) from " + tbl_name_collect 
+            string sql_hour = " VARIANTNAME=@VARIANTNAME and HOURF between @HOUR_L and @HOUR_H ";
+            string sql_hour_low = " or VARIANTNAME=@VARIANTNAME and HOURF = @HOUR_L and MINUTEF between @MINUTE_L and 60 ";
+            string sql_hour_high = " or VARIANTNAME=@VARIANTNAME and HOURF = @HOUR_H and MINUTEF between 0 and @MINUTE_L ";
+            string sql_hour_minute_low = " or VARIANTNAME=@VARIANTNAME and HOURF = @HOUR_L and MINUTEF = @HOUR_L and SECONDF between @SECOND_L and 60 ";
+            string sql_hour_minute_high = " or VARIANTNAME=@VARIANTNAME and HOURF = @HOUR_H and MINUTEF = @HOUR_H and SECONDF between 0 and @SECOND_H ";
+            string sql = @"select avg(DATA) from " + tbl_name_collect + " where " + sql_hour + sql_hour_high + sql_hour_low + sql_hour_minute_high + sql_hour_minute_low;
+                /*
                 + " where VARIANTNAME=@VARIANTNAME and HOURF >= @HOUR_L and HOURF <= @HOUR_H "
                 + " and MINUTEF >= @MINUTE_L and MINUTEF <= @MINUTE_H "
                 + " and SECONDF >= @SECOND_L and SECONDF <= @SECONDF_H "
                 + ";";
+                 * */
             //SQL语句 计算发电量
-            string sql2 = @"select DATA  from " + tbl_name_collect 
+            string sql2 = @"select Max(DATA)  from " + tbl_name_collect + " where " + sql_hour + sql_hour_high + sql_hour_low + sql_hour_minute_high + sql_hour_minute_low;
+                /*
                 + " where VARIANTNAME=@VARIANTNAME and HOURF >= @HOUR_L and HOURF <= @HOUR_H "
                 + " and MINUTEF >= @MINUTE_L and MINUTEF <= @MINUTE_H "
                 + " and SECONDF >= @SECOND_L and SECONDF <= @SECONDF_H "
                 + " order by DATA desc ;";
+                 * */
             //平行于光伏组件的太阳辐照度 总辐射 气象仪_3
             OleDbParameter[] parameters_1  = {
                 new OleDbParameter("@VARIANTNAME",  "气象仪_3"),
@@ -602,8 +613,8 @@ namespace RenewEDSenderM.DbManager
                 new OleDbParameter("@HOUR_H", dt_end_hour),
                 new OleDbParameter("@MINUTE_L", dt_start_min),
                 new OleDbParameter("@MINUTE_H", dt_end_min),
-                new OleDbParameter("@@SECOND_L", dt_start_sec),
-                new OleDbParameter("@@SECOND_H", dt_end_sec)
+                new OleDbParameter("@SECOND_L", dt_start_sec),
+                new OleDbParameter("@SECOND_H", dt_end_sec)
             };
             //室外温度 大气温度 气象仪_8
             OleDbParameter[] parameters_2 = {
@@ -612,8 +623,8 @@ namespace RenewEDSenderM.DbManager
                 new OleDbParameter("@HOUR_H", dt_end_hour),
                 new OleDbParameter("@MINUTE_L", dt_start_min),
                 new OleDbParameter("@MINUTE_H", dt_end_min),
-                new OleDbParameter("@@SECOND_L", dt_start_sec),
-                new OleDbParameter("@@SECOND_H", dt_end_sec)
+                new OleDbParameter("@SECOND_L", dt_start_sec),
+                new OleDbParameter("@SECOND_H", dt_end_sec)
             };
             //光伏组件背面表面温度 大地温度 气象仪_9
             OleDbParameter[] parameters_3 = {
@@ -622,8 +633,8 @@ namespace RenewEDSenderM.DbManager
                 new OleDbParameter("@HOUR_H", dt_end_hour),
                 new OleDbParameter("@MINUTE_L", dt_start_min),
                 new OleDbParameter("@MINUTE_H", dt_end_min),
-                new OleDbParameter("@@SECOND_L", dt_start_sec),
-                new OleDbParameter("@@SECOND_H", dt_end_sec)
+                new OleDbParameter("@SECOND_L", dt_start_sec),
+                new OleDbParameter("@SECOND_H", dt_end_sec)
             };
             //发电量 1633发电量 气象仪_9 T.B.D.
             OleDbParameter[] parameters_4 = {
@@ -632,8 +643,8 @@ namespace RenewEDSenderM.DbManager
                 new OleDbParameter("@HOUR_H", dt_end_hour),
                 new OleDbParameter("@MINUTE_L", dt_start_min),
                 new OleDbParameter("@MINUTE_H", dt_end_min),
-                new OleDbParameter("@@SECOND_L", dt_start_sec),
-                new OleDbParameter("@@SECOND_H", dt_end_sec)
+                new OleDbParameter("@SECOND_L", dt_start_sec),
+                new OleDbParameter("@SECOND_H", dt_end_sec)
             };
             //取得平均值
             DataRow[] dr;
@@ -660,7 +671,8 @@ namespace RenewEDSenderM.DbManager
                 if (d == null)
                 {
                     LogManager.Logger.WriteWarnLog("采集数据出错，四个指标不全");
-                    return null;
+                    //d[0] = "0";
+                    //return null;
                 }
             }
             return dr;
