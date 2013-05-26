@@ -1,0 +1,72 @@
+[Header]2013-05-25 23:09:31,317 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-25 23:09:31,806 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Complete reading the configuration!
+2013-05-25 23:09:31,810 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Connect...
+2013-05-25 23:09:31,822 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Retransmission process is created!
+2013-05-25 23:09:31,823 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Timer of fixed timing Report is created!
+2013-05-25 23:09:31,838 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Begin to request the authentication...
+2013-05-25 23:09:31,858 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:09:31,860 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:09:31,862 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Success to send request about authentication
+2013-05-25 23:09:32,022 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Success to receive the response about authentication
+2013-05-25 23:09:32,188 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:09:32,192 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:09:32,001 [8] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Authentication process is successful!
+2013-05-25 23:10:40,231 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:10:40,233 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:11:34,975 [12] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]Report Process: No data fetched from the database!
+2013-05-25 23:11:44,232 [12] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:11:44,236 [12] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+[Header]2013-05-25 23:15:59,518 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-25 23:16:00,149 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Complete reading the configuration!
+2013-05-25 23:16:00,152 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Connect...
+2013-05-25 23:16:00,170 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Retransmission process is created!
+2013-05-25 23:16:00,172 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Timer of fixed timing Report is created!
+2013-05-25 23:16:00,176 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Begin to request the authentication...
+2013-05-25 23:16:00,187 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:16:00,189 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:16:00,190 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Success to send request about authentication
+2013-05-25 23:16:00,194 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Success to receive the response about authentication
+2013-05-25 23:16:00,382 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:16:00,384 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:16:00,000 [10] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Authentication process is successful!
+2013-05-25 23:17:07,471 [14] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:17:08,219 [14] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:17:51,898 [7] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:17:51,905 [7] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:17:52,132 [7] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]The report is sent!
+[Header]2013-05-25 23:33:00,111 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-25 23:33:00,554 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Complete reading the configuration!
+2013-05-25 23:33:00,558 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Connect...
+2013-05-25 23:33:00,575 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Retransmission process is created!
+2013-05-25 23:33:00,579 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Timer of fixed timing Report is created!
+2013-05-25 23:33:00,582 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Begin to request the authentication...
+2013-05-25 23:33:00,600 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:33:00,602 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:33:00,605 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Success to send request about authentication
+2013-05-25 23:33:00,607 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Success to receive the response about authentication
+2013-05-25 23:33:00,776 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:33:00,778 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:33:00,000 [9] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]Authentication process is successful!
+2013-05-25 23:34:06,247 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:34:06,251 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:35:40,851 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:35:41,571 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:35:44,832 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]The report is sent!
+2013-05-25 23:35:44,835 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:35:44,836 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:35:46,442 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:35:46,445 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:35:46,535 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]The report is sent!
+2013-05-25 23:36:50,836 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:36:50,843 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:36:55,305 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:36:55,311 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:36:55,422 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]The report is sent!
+2013-05-25 23:37:05,759 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:37:05,762 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:37:05,866 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]The report is sent!
+2013-05-25 23:37:52,117 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:37:52,123 [13] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:38:11,158 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Send Message
+2013-05-25 23:38:11,160 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]Message is sent!
+2013-05-25 23:38:11,252 [6] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]The report is sent!

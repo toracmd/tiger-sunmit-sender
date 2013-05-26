@@ -1,0 +1,3 @@
+﻿2013-05-19 15:48:56,910 [10] INFO  AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:29,13,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-19 15:48:57,054 [10] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:32,17,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-19 15:48:57,070 [10] DEBUG AppSender.Logging - [D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:39,17,[RenewEDSenderM.CommManager.Client][Main]准备ip：210.77.14.218

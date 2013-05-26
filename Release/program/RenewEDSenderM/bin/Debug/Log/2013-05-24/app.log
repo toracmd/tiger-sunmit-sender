@@ -1,0 +1,11 @@
+﻿2013-05-24 23:39:54,636 [1] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-24 23:39:54,652 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Initial]Initial,Reading the configuration!
+2013-05-24 23:39:54,654 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Reading the configuration!
+2013-05-24 23:39:54,666 [1] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.46.76.234
+2013-05-24 23:39:54,671 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Conneting…
+2013-05-24 23:53:43,404 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-05-24 23:53:43,464 [1] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]进入try
+2013-05-24 23:53:43,470 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Initial]Initial,Reading the configuration!
+2013-05-24 23:53:43,471 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Reading the configuration!
+2013-05-24 23:53:44,611 [1] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]准备ip：10.46.82.180
+2013-05-24 23:53:44,614 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Conneting…
