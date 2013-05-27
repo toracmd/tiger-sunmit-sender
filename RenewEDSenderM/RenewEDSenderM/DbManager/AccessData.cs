@@ -12,12 +12,12 @@ namespace RenewEDSenderM.DbManager
     public class AccessData
     {
         /// <summary>
-        /// T.B.D.采集数据库路径
+        /// 采集数据库路径
         /// </summary>
         //private static string dbsource1 = "../../../../RenewEDSenderM/database/hisdb.mdb";
         private static readonly string dbsource1 = System.Configuration.ConfigurationManager.AppSettings["CONN_HISDB"];
         /// <summary>
-        /// T.B.D.上传数据库路径
+        /// 上传数据库路径
         /// </summary>
         //private static string dbsource2 = "../../../../RenewEDSenderM/database/info.mdb";
         private static readonly string dbsource2 = System.Configuration.ConfigurationManager.AppSettings["CONN_INFO"];
@@ -584,7 +584,7 @@ namespace RenewEDSenderM.DbManager
             int dt_start_sec = dt_start.Second;
             
             //获取此区间的监测指标值
-            //SQL语句 计算平均值 T.B.D. <=开区间问题
+            //SQL语句 计算平均值
             //T.B.D. 字段未确定
             string sql_hour = " VARIANTNAME=@VARIANTNAME and HOURF between @HOUR_L and @HOUR_H ";
             string sql_hour_low = " or VARIANTNAME=@VARIANTNAME and HOURF = @HOUR_L and MINUTEF between @MINUTE_L and 60 ";
@@ -636,7 +636,7 @@ namespace RenewEDSenderM.DbManager
                 new OleDbParameter("@SECOND_L", dt_start_sec),
                 new OleDbParameter("@SECOND_H", dt_end_sec)
             };
-            //发电量 1633发电量 气象仪_9 T.B.D.
+            //发电量 1633发电量 气象仪_9 
             OleDbParameter[] parameters_4 = {
                 new OleDbParameter("@VARIANTNAME",  "气象仪_8"),
                 new OleDbParameter("@HOUR_L", dt_start_hour),
@@ -662,7 +662,7 @@ namespace RenewEDSenderM.DbManager
             }
             catch (Exception ex)
             {
-                LogManager.Logger.WriteWarnLog("查看数据库配置是否正确");
+                LogManager.Logger.WriteWarnLog("数据库查询异常，查看数据库配置是否正确");
                 return null;
             }
             //存入发送数据库，准备发送
@@ -671,8 +671,8 @@ namespace RenewEDSenderM.DbManager
                 if (d == null)
                 {
                     LogManager.Logger.WriteWarnLog("采集数据出错，四个指标不全");
-                    //d[0] = "0";
-                    //return null;
+                    
+                    return null;
                 }
             }
             return dr;
@@ -697,9 +697,18 @@ namespace RenewEDSenderM.DbManager
                                                new OleDbParameter("@timestamp_upload", FixedTime)
                                            };
             int id;
-            if ((id = AccessData.ExecuteNonQueryScalar(sql_dump, AccessData.CONN_STRING2, params_dump)) == 0)
+            try
             {
-                //未写成功
+                if ((id = AccessData.ExecuteNonQueryScalar(sql_dump, AccessData.CONN_STRING2, params_dump)) == 0)
+                {
+                    //未写成功
+                    insertedHisData = null;
+                    return;
+                }
+            }
+            catch (Exception e)
+            {
+                LogManager.Logger.WriteWarnLog("写入数据库失败，查看数据库配置是否正确");
                 insertedHisData = null;
                 return;
             }
@@ -728,7 +737,14 @@ namespace RenewEDSenderM.DbManager
                                                 new OleDbParameter("@timestamp_upload", dt_now.ToString()),
                                                 new OleDbParameter("@id", id)
                                              };
-            AccessData.ExecuteNonQuery(sql_update, AccessData.CONN_STRING2, params_update);
+            try
+            {
+                AccessData.ExecuteNonQuery(sql_update, AccessData.CONN_STRING2, params_update);
+            }
+            catch (Exception e)
+            {
+                LogManager.Logger.WriteWarnLog("更新数据库失败，查看数据库配置是否正确");
+            }
         }
         /// <summary>
         /// 区间内失败历史数据集合
@@ -738,7 +754,8 @@ namespace RenewEDSenderM.DbManager
         /// <returns></returns>
         public static History_Data[] FetchDataFail(DateTime dt_begin, DateTime dt_end)
         {
-            string sql_region = "select id, ValueA, ValueB, ValueC, ValueD from tbl_his_upload where timestamp_sendCycle >= @dt_begin and timestamp_sendCycle <= @dt_end and isupload=false";
+            //string sql_region = "select id, ValueA, ValueB, ValueC, ValueD from tbl_his_upload where timestamp_sendCycle >= @dt_begin and timestamp_sendCycle <= @dt_end and isupload=false";
+            string sql_region = "select id, ValueA, ValueB, ValueC, ValueD from tbl_his_upload where timestamp_sendCycle between @dt_begin and  @dt_end and isupload=false";
             OleDbParameter[] params_region = {
                                                  new OleDbParameter("@dt_begin", dt_begin),
                                                  new OleDbParameter("@dt_end", dt_end),
@@ -781,7 +798,8 @@ namespace RenewEDSenderM.DbManager
         /// <returns></returns>
         public static History_Data[] FetchDataSuccess(DateTime dt_begin, DateTime dt_end)
         {
-            string sql_region = "select id, ValueA, ValueB, ValueC, ValueD from tbl_his_upload where timestamp_sendCycle >= @dt_begin and timestamp_sendCycle <= @dt_end and isupload=true";
+            //string sql_region = "select id, ValueA, ValueB, ValueC, ValueD from tbl_his_upload where timestamp_sendCycle >= @dt_begin and timestamp_sendCycle <= @dt_end and isupload=true";
+            string sql_region = "select id, ValueA, ValueB, ValueC, ValueD from tbl_his_upload where timestamp_sendCycle between @dt_begin and  @dt_end and isupload=true";
             OleDbParameter[] params_region = {
                                                  new OleDbParameter("@dt_begin", dt_begin),
                                                  new OleDbParameter("@dt_end", dt_end),

@@ -209,7 +209,6 @@ namespace RenewEDSenderWin
                 txtBoxSun2.Text = config.meterInfo.MB_Code2;
                 txtBoxSunGen1.Text = config.meterInfo.MC_Code1;
                 txtBoxSunGen2.Text = config.meterInfo.MC_Code2;
-                //T.B.D. 1、其他需要编辑的; 2、设置的； 3、验证格式
             }
         }
         /// <summary>
@@ -225,9 +224,9 @@ namespace RenewEDSenderWin
                     MessageQueue msgq = MsgQueManager.getInstance();
                     //绑定消息接收完成事件的处理函数
                     msgq.ReceiveCompleted += MsgQReceiveCompleted;
-                    //msgq.BeginReceive();
+                    msgq.BeginReceive();
                     //等待异步完成T.B.D. 要不要关 或者 使用 和 句柄函数用BeginReceive搭配
-                    WaitHandle waitHandle = msgq.BeginReceive().AsyncWaitHandle;
+                    //WaitHandle waitHandle = msgq.BeginReceive().AsyncWaitHandle;
                 }
                 catch (MessageQueueException ex)
                 {

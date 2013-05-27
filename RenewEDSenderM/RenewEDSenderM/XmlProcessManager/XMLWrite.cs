@@ -423,14 +423,16 @@ namespace RenewEDSenderM.XmlProcessManager
 
             }
 
-            XmlElement config = xmlDoc.CreateElement("congif");
+            XmlElement config = xmlDoc.CreateElement("config");
             //*******可用log来代替
             if (config == null)
             {
                 Console.Write("Create new xml element failed!");
+                LogManager.Logger.WriteWarnLog("Create new xml element failed!");
                 return;
             }
             config.SetAttribute("operation", "period_ack");
+            config.InnerText = "";
             root.AppendChild(config);
         }
 
