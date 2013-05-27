@@ -765,6 +765,7 @@ namespace RenewEDSenderM.CommManager
             //如果走到这一步，则代表没有相应的配置值，可以写入log
             
             Console.Write("There is no such Configuration Value ！");
+            LogManager.Logger.WriteWarnLog("There is no such Configuration Value !");
             return false;
         }
 

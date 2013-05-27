@@ -8,10 +8,7 @@ using System.Threading;
 namespace RenewEDSenderM.Support
 {
     /// <summary>
-    /// T.B.D.
-    /// windows 2003：控制面板---添加/删除程序---添加/删除windows组件---应用程序服务器--勾选 消息队列
-    /// win7：控制面板---程序和功能---打开或关闭windows功能---勾选 Microsoft Message Queue (MSMQ)服务器
-    /// XP profession：控制面板---添加/删除程序----添加/删除windows组件---勾选 消息队列
+    /// 消息队列类
     /// </summary>
     public class MsgQueManager
     {
@@ -21,7 +18,7 @@ namespace RenewEDSenderM.Support
         public static string MessageQueuePath = @".\private$\RenewableQueue";
 
         /// <summary>
-        /// 最大并发线程数T.B.D.
+        /// 最大并发线程数
         /// </summary>
         private static int MAX_WORKER_THREADS = 30;
         /// <summary>
@@ -30,7 +27,7 @@ namespace RenewEDSenderM.Support
         private static MessageQueue instance = getInstance();
 
         /// <summary>
-        /// T.B.D.
+        /// 句柄
         /// </summary>
         private static WaitHandle[] waitHandleArray;// = new WaitHandle[MAX_WORKER_THREADS];
 
@@ -97,48 +94,6 @@ namespace RenewEDSenderM.Support
                 return null;
             }
             return (MsgBody)msg.Body;
-        }
-        /// <summary>
-        /// T.B.D. 删除
-        /// </summary>
-        /// <param name="myReceiveCompleted"></param>
-        public void MsgQStartListen(ReceiveCompletedEventHandler myReceiveCompleted)
-        {
-            //while(true)
-
-            getInstance().ReceiveCompleted += new ReceiveCompletedEventHandler(myReceiveCompleted);
-            getInstance().BeginReceive();
-
-            //WaitHandle w = getInstance().BeginReceive().AsyncWaitHandle;
-            //getInstance().BeginReceive();
-            //for (int i = 0; i < MAX_WORKER_THREADS; i++)
-            //{
-            //    waitHandleArray[i] = getInstance().BeginReceive().AsyncWaitHandle;
-
-            //}
-        }
-        /// <summary>
-        /// T.B.D.删除
-        /// </summary>
-        public void MsgQStopListen()
-        {
-            for (int i = 0; i < waitHandleArray.Length; i++)
-            {
-                try
-                {
-                    waitHandleArray[i].Close();
-                }
-                catch(Exception e)
-                {
-                }
-            }
-            try
-            {
-                WaitHandle.WaitAll(waitHandleArray, 1000, false);
-            }
-            catch (Exception e)
-            {
-            }
         }
     }
     /// <summary>
