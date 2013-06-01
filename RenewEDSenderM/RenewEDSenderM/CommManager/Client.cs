@@ -47,6 +47,8 @@ namespace RenewEDSenderM.CommManager
         private static bool m_isConnected = false;
         private static bool m_isCreatThread = false;
         private static bool m_isCreatReport = false;
+
+        private static bool m_TryFirtst10Fail = true;
         /// <summary>
         /// 互斥信号量成员
         /// </summary>
@@ -143,9 +145,30 @@ namespace RenewEDSenderM.CommManager
                     Sleep(m_tryTimes*1000*30);
                     m_tryTimes++;
                     if (m_tryTimes > 10)
+                    {
                         m_tryTimes = 10;
+                        //发送重试次数超过10次警告 20130530
+                        if (m_TryFirtst10Fail)
+                        {
+                            try
+                            {
+                                m_msgq.SendMsg(new Support.MsgBody(false, false, Support.RUN_PHASE.CONNECT_RETRY10));
+                            }
+                            catch (MessageQueueException mqex)
+                            {
+                                LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                            }
+                            finally
+                            {
+                                m_TryFirtst10Fail = false;
+                            }
+                        }
+                    }
                     m_socket.Connect(ipe);
                     
+                    // m_tryTimes清零 20130530
+                    m_tryTimes = 0;
+                    m_TryFirtst10Fail = true;
                     // 创建失败数据重传线程
                     if (m_isCreatThread == false)
                     {
@@ -219,6 +242,9 @@ namespace RenewEDSenderM.CommManager
 						// 认证不会把异常抛到本层
                         if (Authentication())
                         {
+                            // 清零20130530
+                            m_tryTimes = 0;
+                            m_TryFirtst10Fail = true;
                             // 认证成功
                             SendCommunication();//如果认证成功，则进行发送数据，包括心跳数据包等，如果连接失败，则从send状态跳出，重新进行认证
                         }
@@ -261,7 +287,25 @@ namespace RenewEDSenderM.CommManager
                         Sleep(m_tryTimes * 1000 * 30);
                         m_tryTimes++;
                         if (m_tryTimes > 10)
+                        {
                             m_tryTimes = 10;
+                            //发送重试次数超过10次警告 20130530
+                            if (m_TryFirtst10Fail)
+                            {
+                                try
+                                {
+                                    m_msgq.SendMsg(new Support.MsgBody(false, false, Support.RUN_PHASE.AUTHENTICATION_RETRY10));
+                                }
+                                catch (MessageQueueException mqex)
+                                {
+                                    LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                                }
+                                finally
+                                {
+                                    m_TryFirtst10Fail = false;
+                                }
+                            }
+                        }
                         m_socket.Connect(ipe);//连接到服务器
 
                     }

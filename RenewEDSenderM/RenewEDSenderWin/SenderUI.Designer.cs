@@ -34,34 +34,36 @@
             this.btnSenderRestart = new System.Windows.Forms.Button();
             this.groupBoxCtrl = new System.Windows.Forms.GroupBox();
             this.groupBoxKey = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtBoxSun2 = new System.Windows.Forms.TextBox();
+            this.txtBoxOuter2 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txtBoxSunGen2 = new System.Windows.Forms.TextBox();
+            this.txtBoxGen2 = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txtBoxSun1 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtBoxOuter1 = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.txtBoxSunGen1 = new System.Windows.Forms.TextBox();
+            this.txtBoxGen1 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.txtBoxGen1 = new System.Windows.Forms.TextBox();
-            this.txtBoxSunGen1 = new System.Windows.Forms.TextBox();
-            this.txtBoxOuter1 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtBoxSun1 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.txtBoxGen2 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtBoxSunGen2 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtBoxOuter2 = new System.Windows.Forms.TextBox();
-            this.txtBoxSun2 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.txtBoxSysCode = new System.Windows.Forms.TextBox();
             this.txtBoxTechCode = new System.Windows.Forms.TextBox();
             this.txtBoxProCode = new System.Windows.Forms.TextBox();
@@ -94,14 +96,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBoxCtrl.SuspendLayout();
             this.groupBoxKey.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSenderStart
@@ -185,6 +185,272 @@
             this.groupBoxKey.TabStop = false;
             this.groupBoxKey.Text = "配置管理";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label29);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.label28);
+            this.groupBox3.Controls.Add(this.txtBoxSun2);
+            this.groupBox3.Controls.Add(this.txtBoxOuter2);
+            this.groupBox3.Controls.Add(this.label27);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Controls.Add(this.txtBoxSunGen2);
+            this.groupBox3.Controls.Add(this.txtBoxGen2);
+            this.groupBox3.Location = new System.Drawing.Point(619, 160);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(279, 163);
+            this.groupBox3.TabIndex = 47;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "数据采集识别码";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 22);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(71, 12);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "太阳辐照度:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(3, 94);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(131, 12);
+            this.label20.TabIndex = 32;
+            this.label20.Text = "光伏组件背面表面温度:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(208, 134);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(59, 12);
+            this.label29.TabIndex = 41;
+            this.label29.Text = "(2位数字)";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 135);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(47, 12);
+            this.label19.TabIndex = 33;
+            this.label19.Text = "发电量:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(208, 99);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(59, 12);
+            this.label28.TabIndex = 40;
+            this.label28.Text = "(2位数字)";
+            // 
+            // txtBoxSun2
+            // 
+            this.txtBoxSun2.Location = new System.Drawing.Point(140, 19);
+            this.txtBoxSun2.Name = "txtBoxSun2";
+            this.txtBoxSun2.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxSun2.TabIndex = 34;
+            this.txtBoxSun2.Text = "110000015";
+            this.txtBoxSun2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSun2_KeyPress);
+            this.txtBoxSun2.Validated += new System.EventHandler(this.txtBoxSun2_Validated);
+            // 
+            // txtBoxOuter2
+            // 
+            this.txtBoxOuter2.Location = new System.Drawing.Point(140, 58);
+            this.txtBoxOuter2.Name = "txtBoxOuter2";
+            this.txtBoxOuter2.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxOuter2.TabIndex = 35;
+            this.txtBoxOuter2.Text = "110000015";
+            this.txtBoxOuter2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxOuter2_KeyPress);
+            this.txtBoxOuter2.Validated += new System.EventHandler(this.txtBoxOuter2_Validated);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(208, 61);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(59, 12);
+            this.label27.TabIndex = 39;
+            this.label27.Text = "(2位数字)";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 61);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(59, 12);
+            this.label21.TabIndex = 31;
+            this.label21.Text = "室外温度:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(208, 22);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(59, 12);
+            this.label26.TabIndex = 38;
+            this.label26.Text = "(2位数字)";
+            // 
+            // txtBoxSunGen2
+            // 
+            this.txtBoxSunGen2.Location = new System.Drawing.Point(140, 90);
+            this.txtBoxSunGen2.Name = "txtBoxSunGen2";
+            this.txtBoxSunGen2.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxSunGen2.TabIndex = 36;
+            this.txtBoxSunGen2.Text = "110000015";
+            this.txtBoxSunGen2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSunGen2_KeyPress);
+            this.txtBoxSunGen2.Validated += new System.EventHandler(this.txtBoxSunGen2_Validated);
+            // 
+            // txtBoxGen2
+            // 
+            this.txtBoxGen2.Location = new System.Drawing.Point(140, 131);
+            this.txtBoxGen2.Name = "txtBoxGen2";
+            this.txtBoxGen2.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxGen2.TabIndex = 37;
+            this.txtBoxGen2.Text = "110000015";
+            this.txtBoxGen2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxGen2_KeyPress);
+            this.txtBoxGen2.Validated += new System.EventHandler(this.txtBoxGen2_Validated);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label33);
+            this.groupBox2.Controls.Add(this.txtBoxSun1);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.txtBoxOuter1);
+            this.groupBox2.Controls.Add(this.label32);
+            this.groupBox2.Controls.Add(this.txtBoxSunGen1);
+            this.groupBox2.Controls.Add(this.txtBoxGen1);
+            this.groupBox2.Controls.Add(this.label30);
+            this.groupBox2.Controls.Add(this.label31);
+            this.groupBox2.Location = new System.Drawing.Point(317, 160);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(296, 163);
+            this.groupBox2.TabIndex = 46;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "数据采集装置识别编码";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(15, 22);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(71, 12);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "太阳辐照度:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(15, 61);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(59, 12);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "室外温度:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(217, 134);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(59, 12);
+            this.label33.TabIndex = 45;
+            this.label33.Text = "(2位数字)";
+            // 
+            // txtBoxSun1
+            // 
+            this.txtBoxSun1.Location = new System.Drawing.Point(147, 19);
+            this.txtBoxSun1.Name = "txtBoxSun1";
+            this.txtBoxSun1.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxSun1.TabIndex = 26;
+            this.txtBoxSun1.Text = "110000015";
+            this.txtBoxSun1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSun1_KeyPress);
+            this.txtBoxSun1.Validated += new System.EventHandler(this.txtBoxSun1_Validated);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(12, 94);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(131, 12);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "光伏组件背面表面温度:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(15, 135);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(47, 12);
+            this.label18.TabIndex = 23;
+            this.label18.Text = "发电量:";
+            // 
+            // txtBoxOuter1
+            // 
+            this.txtBoxOuter1.Location = new System.Drawing.Point(147, 58);
+            this.txtBoxOuter1.Name = "txtBoxOuter1";
+            this.txtBoxOuter1.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxOuter1.TabIndex = 27;
+            this.txtBoxOuter1.Text = "110000015";
+            this.txtBoxOuter1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxOuter1_KeyPress);
+            this.txtBoxOuter1.Validated += new System.EventHandler(this.txtBoxOuter1_Validated);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(217, 96);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(59, 12);
+            this.label32.TabIndex = 44;
+            this.label32.Text = "(2位数字)";
+            // 
+            // txtBoxSunGen1
+            // 
+            this.txtBoxSunGen1.Location = new System.Drawing.Point(147, 90);
+            this.txtBoxSunGen1.Name = "txtBoxSunGen1";
+            this.txtBoxSunGen1.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxSunGen1.TabIndex = 28;
+            this.txtBoxSunGen1.Text = "110000015";
+            this.txtBoxSunGen1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSunGen1_KeyPress);
+            this.txtBoxSunGen1.Validated += new System.EventHandler(this.txtBoxSunGen1_Validated);
+            // 
+            // txtBoxGen1
+            // 
+            this.txtBoxGen1.Location = new System.Drawing.Point(147, 131);
+            this.txtBoxGen1.Name = "txtBoxGen1";
+            this.txtBoxGen1.Size = new System.Drawing.Size(54, 21);
+            this.txtBoxGen1.TabIndex = 29;
+            this.txtBoxGen1.Text = "110000015";
+            this.txtBoxGen1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxGen1_KeyPress);
+            this.txtBoxGen1.Validated += new System.EventHandler(this.txtBoxGen1_Validated);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(217, 22);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(59, 12);
+            this.label30.TabIndex = 42;
+            this.label30.Text = "(2位数字)";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(217, 61);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(59, 12);
+            this.label31.TabIndex = 43;
+            this.label31.Text = "(2位数字)";
+            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -220,230 +486,6 @@
             this.label15.Size = new System.Drawing.Size(59, 12);
             this.label15.TabIndex = 29;
             this.label15.Text = "(6位数字)";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(217, 134);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(59, 12);
-            this.label33.TabIndex = 45;
-            this.label33.Text = "(2位数字)";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(217, 96);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(59, 12);
-            this.label32.TabIndex = 44;
-            this.label32.Text = "(2位数字)";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(217, 61);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(59, 12);
-            this.label31.TabIndex = 43;
-            this.label31.Text = "(2位数字)";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(217, 22);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(59, 12);
-            this.label30.TabIndex = 42;
-            this.label30.Text = "(2位数字)";
-            // 
-            // txtBoxGen1
-            // 
-            this.txtBoxGen1.Location = new System.Drawing.Point(140, 131);
-            this.txtBoxGen1.Name = "txtBoxGen1";
-            this.txtBoxGen1.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxGen1.TabIndex = 29;
-            this.txtBoxGen1.Text = "110000015";
-            this.txtBoxGen1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxGen1_KeyPress);
-            this.txtBoxGen1.Validated += new System.EventHandler(this.txtBoxGen1_Validated);
-            // 
-            // txtBoxSunGen1
-            // 
-            this.txtBoxSunGen1.Location = new System.Drawing.Point(140, 90);
-            this.txtBoxSunGen1.Name = "txtBoxSunGen1";
-            this.txtBoxSunGen1.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxSunGen1.TabIndex = 28;
-            this.txtBoxSunGen1.Text = "110000015";
-            this.txtBoxSunGen1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSunGen1_KeyPress);
-            this.txtBoxSunGen1.Validated += new System.EventHandler(this.txtBoxSunGen1_Validated);
-            // 
-            // txtBoxOuter1
-            // 
-            this.txtBoxOuter1.Location = new System.Drawing.Point(140, 58);
-            this.txtBoxOuter1.Name = "txtBoxOuter1";
-            this.txtBoxOuter1.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxOuter1.TabIndex = 27;
-            this.txtBoxOuter1.Text = "110000015";
-            this.txtBoxOuter1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxOuter1_KeyPress);
-            this.txtBoxOuter1.Validated += new System.EventHandler(this.txtBoxOuter1_Validated);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(15, 135);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(47, 12);
-            this.label18.TabIndex = 23;
-            this.label18.Text = "发电量:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(12, 94);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(131, 12);
-            this.label17.TabIndex = 22;
-            this.label17.Text = "光伏组件背面表面温度:";
-            // 
-            // txtBoxSun1
-            // 
-            this.txtBoxSun1.Location = new System.Drawing.Point(140, 19);
-            this.txtBoxSun1.Name = "txtBoxSun1";
-            this.txtBoxSun1.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxSun1.TabIndex = 26;
-            this.txtBoxSun1.Text = "110000015";
-            this.txtBoxSun1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSun1_KeyPress);
-            this.txtBoxSun1.Validated += new System.EventHandler(this.txtBoxSun1_Validated);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(15, 61);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 12);
-            this.label16.TabIndex = 21;
-            this.label16.Text = "室外温度:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(15, 22);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(71, 12);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "太阳辐照度:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(208, 134);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(59, 12);
-            this.label29.TabIndex = 41;
-            this.label29.Text = "(2位数字)";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(208, 99);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(59, 12);
-            this.label28.TabIndex = 40;
-            this.label28.Text = "(2位数字)";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(208, 61);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(59, 12);
-            this.label27.TabIndex = 39;
-            this.label27.Text = "(2位数字)";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(208, 22);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(59, 12);
-            this.label26.TabIndex = 38;
-            this.label26.Text = "(2位数字)";
-            // 
-            // txtBoxGen2
-            // 
-            this.txtBoxGen2.Location = new System.Drawing.Point(131, 131);
-            this.txtBoxGen2.Name = "txtBoxGen2";
-            this.txtBoxGen2.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxGen2.TabIndex = 37;
-            this.txtBoxGen2.Text = "110000015";
-            this.txtBoxGen2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxGen2_KeyPress);
-            this.txtBoxGen2.Validated += new System.EventHandler(this.txtBoxGen2_Validated);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 22);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(71, 12);
-            this.label22.TabIndex = 30;
-            this.label22.Text = "太阳辐照度:";
-            // 
-            // txtBoxSunGen2
-            // 
-            this.txtBoxSunGen2.Location = new System.Drawing.Point(131, 90);
-            this.txtBoxSunGen2.Name = "txtBoxSunGen2";
-            this.txtBoxSunGen2.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxSunGen2.TabIndex = 36;
-            this.txtBoxSunGen2.Text = "110000015";
-            this.txtBoxSunGen2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSunGen2_KeyPress);
-            this.txtBoxSunGen2.Validated += new System.EventHandler(this.txtBoxSunGen2_Validated);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 61);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(59, 12);
-            this.label21.TabIndex = 31;
-            this.label21.Text = "室外温度:";
-            // 
-            // txtBoxOuter2
-            // 
-            this.txtBoxOuter2.Location = new System.Drawing.Point(131, 58);
-            this.txtBoxOuter2.Name = "txtBoxOuter2";
-            this.txtBoxOuter2.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxOuter2.TabIndex = 35;
-            this.txtBoxOuter2.Text = "110000015";
-            this.txtBoxOuter2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxOuter2_KeyPress);
-            this.txtBoxOuter2.Validated += new System.EventHandler(this.txtBoxOuter2_Validated);
-            // 
-            // txtBoxSun2
-            // 
-            this.txtBoxSun2.Location = new System.Drawing.Point(131, 19);
-            this.txtBoxSun2.Name = "txtBoxSun2";
-            this.txtBoxSun2.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxSun2.TabIndex = 34;
-            this.txtBoxSun2.Text = "110000015";
-            this.txtBoxSun2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSun2_KeyPress);
-            this.txtBoxSun2.Validated += new System.EventHandler(this.txtBoxSun2_Validated);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 135);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(47, 12);
-            this.label19.TabIndex = 33;
-            this.label19.Text = "发电量:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 94);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(131, 12);
-            this.label20.TabIndex = 32;
-            this.label20.Text = "光伏组件背面表面温度:";
             // 
             // txtBoxSysCode
             // 
@@ -620,6 +662,7 @@
             // 
             this.txtBoxMd5Key.Location = new System.Drawing.Point(104, 239);
             this.txtBoxMd5Key.Name = "txtBoxMd5Key";
+            this.txtBoxMd5Key.PasswordChar = '*';
             this.txtBoxMd5Key.Size = new System.Drawing.Size(182, 21);
             this.txtBoxMd5Key.TabIndex = 5;
             this.txtBoxMd5Key.Text = "0000000000123456";
@@ -629,6 +672,7 @@
             // 
             this.txtBoxAesIV.Location = new System.Drawing.Point(104, 208);
             this.txtBoxAesIV.Name = "txtBoxAesIV";
+            this.txtBoxAesIV.PasswordChar = '*';
             this.txtBoxAesIV.Size = new System.Drawing.Size(182, 21);
             this.txtBoxAesIV.TabIndex = 4;
             this.txtBoxAesIV.Text = "0000000000123456";
@@ -638,6 +682,7 @@
             // 
             this.txtBoxAesKey.Location = new System.Drawing.Point(104, 179);
             this.txtBoxAesKey.Name = "txtBoxAesKey";
+            this.txtBoxAesKey.PasswordChar = '*';
             this.txtBoxAesKey.Size = new System.Drawing.Size(182, 21);
             this.txtBoxAesKey.TabIndex = 3;
             this.txtBoxAesKey.Text = "0000000000123456";
@@ -740,48 +785,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.label33);
-            this.groupBox2.Controls.Add(this.txtBoxSun1);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.txtBoxOuter1);
-            this.groupBox2.Controls.Add(this.label32);
-            this.groupBox2.Controls.Add(this.txtBoxSunGen1);
-            this.groupBox2.Controls.Add(this.txtBoxGen1);
-            this.groupBox2.Controls.Add(this.label30);
-            this.groupBox2.Controls.Add(this.label31);
-            this.groupBox2.Location = new System.Drawing.Point(317, 160);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(296, 163);
-            this.groupBox2.TabIndex = 46;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "数据采集装置识别编码";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.label29);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.label28);
-            this.groupBox3.Controls.Add(this.txtBoxSun2);
-            this.groupBox3.Controls.Add(this.txtBoxOuter2);
-            this.groupBox3.Controls.Add(this.label27);
-            this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Controls.Add(this.txtBoxSunGen2);
-            this.groupBox3.Controls.Add(this.txtBoxGen2);
-            this.groupBox3.Location = new System.Drawing.Point(619, 160);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(279, 163);
-            this.groupBox3.TabIndex = 47;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "数据采集识别码";
-            // 
             // SenderUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -798,13 +801,13 @@
             this.groupBoxCtrl.ResumeLayout(false);
             this.groupBoxKey.ResumeLayout(false);
             this.groupBoxKey.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
