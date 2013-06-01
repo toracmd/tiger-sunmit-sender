@@ -161,13 +161,15 @@ namespace RenewEDSenderM.Support
         private static readonly string HEARTBEAT = @"保活连接,发送心跳数据...";
         private static readonly string INVALID = @"连接无效...";
         private static readonly string REPLY_ACK = @"回复应答ACK...";
+        private static readonly string CONNECT_RETRY10 = @"重试连接已超过10次...请检查服务器信息配置是否正确";
+        private static readonly string AUTHENTICATION_RETRY10 = @"认证重试超过10次...请检查项目编号密钥等认证信息是否正确";
         
         private static readonly string isConnected = "已连接";
         private static readonly string isDisconnected = "连接已断开";
 
         public static readonly string[] CONNECT_STATUS = { isConnected, isDisconnected};
 
-        public static readonly string[] RUN_STAGE_ARRAY = { READCONFIG, CONNECTING, VERIFY, VERIFY_MD5, VERIFY_FAIL, VERIFY_PASS, REPORT, REUPLOAD, HEARTBEAT, INVALID, REPLY_ACK };
+        public static readonly string[] RUN_STAGE_ARRAY = { READCONFIG, CONNECTING, VERIFY, VERIFY_MD5, VERIFY_FAIL, VERIFY_PASS, REPORT, REUPLOAD, HEARTBEAT, INVALID, REPLY_ACK, CONNECT_RETRY10, AUTHENTICATION_RETRY10 };
     }
     /// <summary>
     /// 运行阶段枚举类型
@@ -211,6 +213,8 @@ namespace RenewEDSenderM.Support
         /// 无效
         /// </summary>
         INVALID,
-        REPLY_ACK
+        REPLY_ACK,
+        CONNECT_RETRY10,
+        AUTHENTICATION_RETRY10
     }
 }
