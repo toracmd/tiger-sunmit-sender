@@ -833,7 +833,8 @@ namespace RenewEDSenderM.CommManager
                     TimeSpan ts = new TimeSpan(2, 0, 0); //T.B.D.测试方便用
                     //TimeSpan ts = new TimeSpan(0, int.Parse(m_config.reportTime), 0);    //config.xml的时间间隔
                     DbManager.History_Data hd_array;
-                    DataRow[] dr = DbManager.DataDump.CalculateAverage(date_send, ts);
+                    //DataRow[] dr = DbManager.DataDump.CalculateAverage(date_send, ts);
+                    Single [] dr = DbManager.DataDump.CalculateAverage(date_send, ts);
                     if (dr == null)
                     {
                         LogManager.Logger.WriteWarnLog("Report Process: No data fetched from the database!");
@@ -849,16 +850,16 @@ namespace RenewEDSenderM.CommManager
 
                     string[] fids = GenerateFunID();
                     string[] mids = GenerateMeterID();
-                    input_info[0].data = Convert.ToString(Convert.ToSingle(dr[0][0]));
+                    input_info[0].data = Convert.ToString(dr[0]);
                     input_info[0].mid = mids[0];
                     input_info[0].fid = fids[0];
-                    input_info[1].data = Convert.ToString(Convert.ToSingle(dr[1][0]));
+                    input_info[1].data = Convert.ToString(dr[1]);
                     input_info[1].mid = mids[1];
                     input_info[1].fid = fids[1];
-                    input_info[2].data = Convert.ToString(Convert.ToSingle(dr[2][0]));
+                    input_info[2].data = Convert.ToString(dr[2]);
                     input_info[2].mid = mids[2];
                     input_info[2].fid = fids[2];
-                    input_info[3].data = Convert.ToString(Convert.ToSingle(dr[3][0]));
+                    input_info[3].data = Convert.ToString(dr[3] + dr[4] + dr[5]);
                     input_info[3].mid = mids[3];
                     input_info[3].fid = fids[3];
 
