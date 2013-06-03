@@ -14,13 +14,13 @@ namespace RenewEDSenderM.DbManager
         /// <summary>
         /// 采集数据库路径
         /// </summary>
-        //private static string dbsource1 = "../../../../RenewEDSenderM/database/hisdb.mdb";
-        private static readonly string dbsource1 = System.Configuration.ConfigurationManager.AppSettings["CONN_HISDB"];
+        private static string dbsource1 = "../../../../RenewEDSenderM/database/hisdb.mdb";
+        //private static readonly string dbsource1 = System.Configuration.ConfigurationManager.AppSettings["CONN_HISDB"];
         /// <summary>
         /// 上传数据库路径
         /// </summary>
-        //private static string dbsource2 = "../../../../RenewEDSenderM/database/info.mdb";
-        private static readonly string dbsource2 = System.Configuration.ConfigurationManager.AppSettings["CONN_INFO"];
+        private static string dbsource2 = "../../../../RenewEDSenderM/database/info.mdb";
+        //private static readonly string dbsource2 = System.Configuration.ConfigurationManager.AppSettings["CONN_INFO"];
         // for 单体测试
         //public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource1 + "D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;";
         //public static string CONN_STRING2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource2 + "D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;";
@@ -526,7 +526,7 @@ namespace RenewEDSenderM.DbManager
                     DateTime date_send = new DateTime(2013, 4, 28, 19, 0, 0);   //2013-04-28 19:00:00
                     TimeSpan ts = new TimeSpan(2, 0, 0);    //2小时的间隔
                     History_Data hd;
-                    DataRow[] dr = DataDump.CalculateAverage(date_send, ts);
+                    Single [] dr = DataDump.CalculateAverage(date_send, ts);
                     DataDump.WriteToHisDb(date_send, dr, out hd);
                     DataDump.update_Upload(hd.id);
                     break;
@@ -558,7 +558,7 @@ namespace RenewEDSenderM.DbManager
         /// <param name="FixedTime">定时发送时刻</param>
         /// <param name="FixedCycleT">定时发送周期</param>
         /// 
-        public static DataRow[] CalculateAverage(DateTime FixedTime, TimeSpan FixedCycleT)
+        public static /*DataRow[]*/ Single[] CalculateAverage(DateTime FixedTime, TimeSpan FixedCycleT)
         {
             //从采集数据库中提取区间[dt-nCycle,dt]内的监测值
             
@@ -636,9 +636,29 @@ namespace RenewEDSenderM.DbManager
                 new OleDbParameter("@SECOND_L", dt_start_sec),
                 new OleDbParameter("@SECOND_H", dt_end_sec)
             };
-            //发电量 1633发电量 气象仪_9 
-            OleDbParameter[] parameters_4 = {
-                new OleDbParameter("@VARIANTNAME",  "气象仪_8"),
+            //发电量 逆变器1 1633发电量 
+            OleDbParameter[] parameters_4_1 = {
+                new OleDbParameter("@VARIANTNAME",  "nbq11_12"),
+                new OleDbParameter("@HOUR_L", dt_start_hour),
+                new OleDbParameter("@HOUR_H", dt_end_hour),
+                new OleDbParameter("@MINUTE_L", dt_start_min),
+                new OleDbParameter("@MINUTE_H", dt_end_min),
+                new OleDbParameter("@SECOND_L", dt_start_sec),
+                new OleDbParameter("@SECOND_H", dt_end_sec)
+            };
+            //发电量 逆变器2 1633发电量
+            OleDbParameter[] parameters_4_2 = {
+                new OleDbParameter("@VARIANTNAME",  "nbq21_12"),
+                new OleDbParameter("@HOUR_L", dt_start_hour),
+                new OleDbParameter("@HOUR_H", dt_end_hour),
+                new OleDbParameter("@MINUTE_L", dt_start_min),
+                new OleDbParameter("@MINUTE_H", dt_end_min),
+                new OleDbParameter("@SECOND_L", dt_start_sec),
+                new OleDbParameter("@SECOND_H", dt_end_sec)
+            };
+            //发电量 逆变器3 1633发电量
+            OleDbParameter[] parameters_4_3 = {
+                new OleDbParameter("@VARIANTNAME",  "nbq31_12"),
                 new OleDbParameter("@HOUR_L", dt_start_hour),
                 new OleDbParameter("@HOUR_H", dt_end_hour),
                 new OleDbParameter("@MINUTE_L", dt_start_min),
@@ -655,8 +675,10 @@ namespace RenewEDSenderM.DbManager
                                AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_1),
                                AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_2),
                                AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_3),
-                               //发电量
-                               AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4),
+                               //发电量 20130603
+                               AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4_1),
+                               AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4_2),
+                               AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4_3)
                            };
                 dr = dr_tmp;
             }
@@ -665,21 +687,41 @@ namespace RenewEDSenderM.DbManager
                 LogManager.Logger.WriteWarnLog("数据库查询异常，查看数据库配置是否正确");
                 return null;
             }
-            //存入发送数据库，准备发送
-            foreach (DataRow d in dr)
+            Single[] s = new Single[6];
+            for (int i = 0; i < 6; i++)
             {
-                if (d == null)
+                if (dr[i] != null)
                 {
-                    LogManager.Logger.WriteWarnLog("采集数据出错，四个指标不全");
-                    
-                    return null;
+                    if (dr[i].IsNull(0))
+                    {
+                        s[i] = 0;
+                    }
+                    else
+                    {
+                        s[i] = Convert.ToSingle(dr[i][0]);
+                    }
+                }
+                else
+                {
+                    s[i] = 0;
                 }
             }
-            return dr;
+            return s;
+            //存入发送数据库，准备发送 20130603
+            //foreach (DataRow d in dr)
+            //{
+            //    if (d == null)
+            //    {
+            //        LogManager.Logger.WriteWarnLog("采集数据出错，四个指标不全");
+            //        //d = new DataRow();
+            //        //return null;
+            //    }
+            //}
+            //return dr;
             //WriteToHisDb(FixedTime, dr, out insertedHisData);
         }
 
-        public static void WriteToHisDb(DateTime FixedTime, DataRow[] dr, out History_Data insertedHisData)
+        public static void WriteToHisDb(DateTime FixedTime, /*DataRow[]*/ Single[] dr, out History_Data insertedHisData)
         {
             if (dr == null)
             {
@@ -689,13 +731,19 @@ namespace RenewEDSenderM.DbManager
             }
             string sql_dump = "insert into tbl_his_upload(ValueA, ValueB, ValueC, ValueD, timestamp_sendCycle, timestamp_upload, isupload) values(@ValueA, @ValueB, @ValueC, @ValueD, @timestamp_sendCycle, @timestamp_sendCycle, false)";
             OleDbParameter[] params_dump = { 
-                                               new OleDbParameter("@ValueA", dr[0][0]),
-                                               new OleDbParameter("@ValueB", dr[1][0]),
-                                               new OleDbParameter("@ValueC", dr[2][0]),
-                                               new OleDbParameter("@ValueD", dr[3][0]),
-                                               new OleDbParameter("@timestamp_sendCycle", FixedTime),
-                                               new OleDbParameter("@timestamp_upload", FixedTime)
+                                               new OleDbParameter("@ValueA", OleDbType.Single),
+                                               new OleDbParameter("@ValueB", OleDbType.Single),
+                                               new OleDbParameter("@ValueC", OleDbType.Single),
+                                               new OleDbParameter("@ValueD", OleDbType.Single),
+                                               new OleDbParameter("@timestamp_sendCycle", OleDbType.DBDate),
+                                               new OleDbParameter("@timestamp_upload", OleDbType.DBDate)
                                            };
+            params_dump[0].Value = (Single)dr[0];
+            params_dump[1].Value = (Single)dr[1];
+            params_dump[2].Value = (Single)dr[2];
+            params_dump[3].Value = (Single)(dr[3] + dr[4] + dr[5]);
+            params_dump[4].Value = FixedTime;
+            params_dump[5].Value = FixedTime;
             int id;
             try
             {
@@ -714,10 +762,10 @@ namespace RenewEDSenderM.DbManager
             }
             insertedHisData = new History_Data();
             insertedHisData.id = id;
-            insertedHisData.ValueA = Convert.ToSingle(dr[0][0]);
-            insertedHisData.ValueB = Convert.ToSingle(dr[1][0]);
-            insertedHisData.ValueC = Convert.ToSingle(dr[2][0]);
-            insertedHisData.ValueD = Convert.ToSingle(dr[3][0]);
+            insertedHisData.ValueA = dr[0];     //Convert.ToSingle(dr[0][0]);
+            insertedHisData.ValueB = dr[1];     //Convert.ToSingle(dr[1][0]);
+            insertedHisData.ValueC = dr[2];     //Convert.ToSingle(dr[2][0]);
+            insertedHisData.ValueD = dr[3] + dr[4] + dr[5];     //Convert.ToSingle(dr[3][0]);
             insertedHisData.timestamp_sendCycle = FixedTime;
             insertedHisData.timestamp_upload = FixedTime;
             insertedHisData.isupload = false;
@@ -780,10 +828,10 @@ namespace RenewEDSenderM.DbManager
             {
                 History_Data hd = new History_Data();
                 hd.id = Convert.ToInt32(dr[0]);
-                hd.ValueA = Convert.ToInt32(dr[1]);
-                hd.ValueB = Convert.ToInt32(dr[2]);
-                hd.ValueC = Convert.ToInt32(dr[3]);
-                hd.ValueD = Convert.ToInt32(dr[4]);
+                hd.ValueA = Convert.ToSingle(dr[1]);
+                hd.ValueB = Convert.ToSingle(dr[2]);
+                hd.ValueC = Convert.ToSingle(dr[3]);
+                hd.ValueD = Convert.ToSingle(dr[4]);
                 arrary_hd[i] = hd;
                 i++;   
             }
@@ -823,10 +871,10 @@ namespace RenewEDSenderM.DbManager
             {
                 History_Data hd = new History_Data();
                 hd.id = Convert.ToInt32(dr[0]);
-                hd.ValueA = Convert.ToInt32(dr[1]);
-                hd.ValueB = Convert.ToInt32(dr[2]);
-                hd.ValueC = Convert.ToInt32(dr[3]);
-                hd.ValueD = Convert.ToInt32(dr[4]);
+                hd.ValueA = Convert.ToSingle(dr[1]);
+                hd.ValueB = Convert.ToSingle(dr[2]);
+                hd.ValueC = Convert.ToSingle(dr[3]);
+                hd.ValueD = Convert.ToSingle(dr[4]);
                 arrary_hd[i] = hd;
                 i++;
             }
