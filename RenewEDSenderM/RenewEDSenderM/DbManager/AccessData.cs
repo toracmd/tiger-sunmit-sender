@@ -14,13 +14,13 @@ namespace RenewEDSenderM.DbManager
         /// <summary>
         /// 采集数据库路径
         /// </summary>
-        private static string dbsource1 = "../../../../RenewEDSenderM/database/hisdb.mdb";
-        //private static readonly string dbsource1 = System.Configuration.ConfigurationManager.AppSettings["CONN_HISDB"];
+        //private static string dbsource1 = "../../../../RenewEDSenderM/database/hisdb.mdb";
+        private static readonly string dbsource1 = System.Configuration.ConfigurationManager.AppSettings["CONN_HISDB"];
         /// <summary>
         /// 上传数据库路径
         /// </summary>
-        private static string dbsource2 = "../../../../RenewEDSenderM/database/info.mdb";
-        //private static readonly string dbsource2 = System.Configuration.ConfigurationManager.AppSettings["CONN_INFO"];
+        //private static string dbsource2 = "../../../../RenewEDSenderM/database/info.mdb";
+        private static readonly string dbsource2 = System.Configuration.ConfigurationManager.AppSettings["CONN_INFO"];
         // for 单体测试
         //public static string CONN_STRING1 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource1 + "D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;";
         //public static string CONN_STRING2 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + dbsource2 + "D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;";

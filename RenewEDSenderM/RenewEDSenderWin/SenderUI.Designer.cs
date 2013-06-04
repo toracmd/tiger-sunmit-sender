@@ -142,7 +142,7 @@
             this.groupBoxCtrl.Location = new System.Drawing.Point(30, 13);
             this.groupBoxCtrl.Name = "groupBoxCtrl";
             this.groupBoxCtrl.Size = new System.Drawing.Size(247, 175);
-            this.groupBoxCtrl.TabIndex = 3;
+            this.groupBoxCtrl.TabIndex = 1;
             this.groupBoxCtrl.TabStop = false;
             this.groupBoxCtrl.Text = "数据发送服务";
             // 
@@ -181,7 +181,7 @@
             this.groupBoxKey.Location = new System.Drawing.Point(283, 13);
             this.groupBoxKey.Name = "groupBoxKey";
             this.groupBoxKey.Size = new System.Drawing.Size(935, 488);
-            this.groupBoxKey.TabIndex = 4;
+            this.groupBoxKey.TabIndex = 2;
             this.groupBoxKey.TabStop = false;
             this.groupBoxKey.Text = "配置管理";
             // 
@@ -202,7 +202,7 @@
             this.groupBox3.Location = new System.Drawing.Point(619, 160);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(279, 163);
-            this.groupBox3.TabIndex = 47;
+            this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "数据采集识别码";
             // 
@@ -256,7 +256,7 @@
             this.txtBoxSun2.Location = new System.Drawing.Point(140, 19);
             this.txtBoxSun2.Name = "txtBoxSun2";
             this.txtBoxSun2.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxSun2.TabIndex = 34;
+            this.txtBoxSun2.TabIndex = 12;
             this.txtBoxSun2.Text = "110000015";
             this.txtBoxSun2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSun2_KeyPress);
             this.txtBoxSun2.Validated += new System.EventHandler(this.txtBoxSun2_Validated);
@@ -266,7 +266,7 @@
             this.txtBoxOuter2.Location = new System.Drawing.Point(140, 58);
             this.txtBoxOuter2.Name = "txtBoxOuter2";
             this.txtBoxOuter2.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxOuter2.TabIndex = 35;
+            this.txtBoxOuter2.TabIndex = 14;
             this.txtBoxOuter2.Text = "110000015";
             this.txtBoxOuter2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxOuter2_KeyPress);
             this.txtBoxOuter2.Validated += new System.EventHandler(this.txtBoxOuter2_Validated);
@@ -303,7 +303,7 @@
             this.txtBoxSunGen2.Location = new System.Drawing.Point(140, 90);
             this.txtBoxSunGen2.Name = "txtBoxSunGen2";
             this.txtBoxSunGen2.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxSunGen2.TabIndex = 36;
+            this.txtBoxSunGen2.TabIndex = 16;
             this.txtBoxSunGen2.Text = "110000015";
             this.txtBoxSunGen2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSunGen2_KeyPress);
             this.txtBoxSunGen2.Validated += new System.EventHandler(this.txtBoxSunGen2_Validated);
@@ -313,7 +313,7 @@
             this.txtBoxGen2.Location = new System.Drawing.Point(140, 131);
             this.txtBoxGen2.Name = "txtBoxGen2";
             this.txtBoxGen2.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxGen2.TabIndex = 37;
+            this.txtBoxGen2.TabIndex = 18;
             this.txtBoxGen2.Text = "110000015";
             this.txtBoxGen2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxGen2_KeyPress);
             this.txtBoxGen2.Validated += new System.EventHandler(this.txtBoxGen2_Validated);
@@ -335,7 +335,7 @@
             this.groupBox2.Location = new System.Drawing.Point(317, 160);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(296, 163);
-            this.groupBox2.TabIndex = 46;
+            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "数据采集装置识别编码";
             // 
@@ -371,7 +371,7 @@
             this.txtBoxSun1.Location = new System.Drawing.Point(147, 19);
             this.txtBoxSun1.Name = "txtBoxSun1";
             this.txtBoxSun1.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxSun1.TabIndex = 26;
+            this.txtBoxSun1.TabIndex = 11;
             this.txtBoxSun1.Text = "110000015";
             this.txtBoxSun1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSun1_KeyPress);
             this.txtBoxSun1.Validated += new System.EventHandler(this.txtBoxSun1_Validated);
@@ -399,7 +399,7 @@
             this.txtBoxOuter1.Location = new System.Drawing.Point(147, 58);
             this.txtBoxOuter1.Name = "txtBoxOuter1";
             this.txtBoxOuter1.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxOuter1.TabIndex = 27;
+            this.txtBoxOuter1.TabIndex = 13;
             this.txtBoxOuter1.Text = "110000015";
             this.txtBoxOuter1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxOuter1_KeyPress);
             this.txtBoxOuter1.Validated += new System.EventHandler(this.txtBoxOuter1_Validated);
@@ -418,7 +418,7 @@
             this.txtBoxSunGen1.Location = new System.Drawing.Point(147, 90);
             this.txtBoxSunGen1.Name = "txtBoxSunGen1";
             this.txtBoxSunGen1.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxSunGen1.TabIndex = 28;
+            this.txtBoxSunGen1.TabIndex = 15;
             this.txtBoxSunGen1.Text = "110000015";
             this.txtBoxSunGen1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSunGen1_KeyPress);
             this.txtBoxSunGen1.Validated += new System.EventHandler(this.txtBoxSunGen1_Validated);
@@ -428,7 +428,7 @@
             this.txtBoxGen1.Location = new System.Drawing.Point(147, 131);
             this.txtBoxGen1.Name = "txtBoxGen1";
             this.txtBoxGen1.Size = new System.Drawing.Size(54, 21);
-            this.txtBoxGen1.TabIndex = 29;
+            this.txtBoxGen1.TabIndex = 17;
             this.txtBoxGen1.Text = "110000015";
             this.txtBoxGen1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxGen1_KeyPress);
             this.txtBoxGen1.Validated += new System.EventHandler(this.txtBoxGen1_Validated);
@@ -492,7 +492,7 @@
             this.txtBoxSysCode.Location = new System.Drawing.Point(392, 117);
             this.txtBoxSysCode.Name = "txtBoxSysCode";
             this.txtBoxSysCode.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxSysCode.TabIndex = 25;
+            this.txtBoxSysCode.TabIndex = 10;
             this.txtBoxSysCode.Text = "110000015";
             this.txtBoxSysCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSysCode_KeyPress);
             this.txtBoxSysCode.Validated += new System.EventHandler(this.txtBoxSysCode_Validated);
@@ -502,7 +502,7 @@
             this.txtBoxTechCode.Location = new System.Drawing.Point(392, 90);
             this.txtBoxTechCode.Name = "txtBoxTechCode";
             this.txtBoxTechCode.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxTechCode.TabIndex = 24;
+            this.txtBoxTechCode.TabIndex = 9;
             this.txtBoxTechCode.Text = "110000015";
             this.txtBoxTechCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxTechCode_KeyPress);
             this.txtBoxTechCode.Validated += new System.EventHandler(this.txtBoxTechCode_Validated);
@@ -512,7 +512,7 @@
             this.txtBoxProCode.Location = new System.Drawing.Point(392, 58);
             this.txtBoxProCode.Name = "txtBoxProCode";
             this.txtBoxProCode.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxProCode.TabIndex = 23;
+            this.txtBoxProCode.TabIndex = 8;
             this.txtBoxProCode.Text = "110000015";
             this.txtBoxProCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxProCode_KeyPress);
             this.txtBoxProCode.Validated += new System.EventHandler(this.txtBoxProCode_Validated);
@@ -522,7 +522,7 @@
             this.txtBoxAreaCode.Location = new System.Drawing.Point(392, 26);
             this.txtBoxAreaCode.Name = "txtBoxAreaCode";
             this.txtBoxAreaCode.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxAreaCode.TabIndex = 22;
+            this.txtBoxAreaCode.TabIndex = 7;
             this.txtBoxAreaCode.Text = "110000015";
             this.txtBoxAreaCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxAreaCode_KeyPress);
             this.txtBoxAreaCode.Validated += new System.EventHandler(this.txtBoxAreaCode_Validated);
@@ -568,7 +568,7 @@
             this.txtBoxProId.Location = new System.Drawing.Point(104, 26);
             this.txtBoxProId.Name = "txtBoxProId";
             this.txtBoxProId.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxProId.TabIndex = 15;
+            this.txtBoxProId.TabIndex = 3;
             this.txtBoxProId.Text = "110000015";
             this.txtBoxProId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxProId_KeyPress);
             this.txtBoxProId.Validated += new System.EventHandler(this.txtBoxProId_Validated);
@@ -578,7 +578,7 @@
             this.txtBoxGateId.Location = new System.Drawing.Point(104, 61);
             this.txtBoxGateId.Name = "txtBoxGateId";
             this.txtBoxGateId.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxGateId.TabIndex = 14;
+            this.txtBoxGateId.TabIndex = 4;
             this.txtBoxGateId.Text = "1100000140202";
             this.txtBoxGateId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxGateId_KeyPress);
             this.txtBoxGateId.Validated += new System.EventHandler(this.txtBoxGateId_Validated);
@@ -606,7 +606,7 @@
             this.txtBoxPort.Location = new System.Drawing.Point(104, 144);
             this.txtBoxPort.Name = "txtBoxPort";
             this.txtBoxPort.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxPort.TabIndex = 11;
+            this.txtBoxPort.TabIndex = 6;
             this.txtBoxPort.Text = "13145";
             this.txtBoxPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxPort_KeyPress);
             this.txtBoxPort.Validated += new System.EventHandler(this.txtBoxPort_Validated);
@@ -616,7 +616,7 @@
             this.txtBoxIP.Location = new System.Drawing.Point(104, 113);
             this.txtBoxIP.Name = "txtBoxIP";
             this.txtBoxIP.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxIP.TabIndex = 10;
+            this.txtBoxIP.TabIndex = 5;
             this.txtBoxIP.Text = "210.77.14.218";
             this.txtBoxIP.Validated += new System.EventHandler(this.txtBoxIP_Validated);
             // 
@@ -643,7 +643,7 @@
             this.btnKeyUpdate.Location = new System.Drawing.Point(211, 407);
             this.btnKeyUpdate.Name = "btnKeyUpdate";
             this.btnKeyUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnKeyUpdate.TabIndex = 7;
+            this.btnKeyUpdate.TabIndex = 23;
             this.btnKeyUpdate.Text = "更新密钥";
             this.btnKeyUpdate.UseVisualStyleBackColor = true;
             this.btnKeyUpdate.Click += new System.EventHandler(this.btnKeyUpdate_Click);
@@ -653,7 +653,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(104, 407);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.TabIndex = 22;
             this.btnUpdate.Text = "更新配置";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -664,7 +664,7 @@
             this.txtBoxMd5Key.Name = "txtBoxMd5Key";
             this.txtBoxMd5Key.PasswordChar = '*';
             this.txtBoxMd5Key.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxMd5Key.TabIndex = 5;
+            this.txtBoxMd5Key.TabIndex = 21;
             this.txtBoxMd5Key.Text = "0000000000123456";
             this.txtBoxMd5Key.Validated += new System.EventHandler(this.txtBoxMd5Key_Validated);
             // 
@@ -674,7 +674,7 @@
             this.txtBoxAesIV.Name = "txtBoxAesIV";
             this.txtBoxAesIV.PasswordChar = '*';
             this.txtBoxAesIV.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxAesIV.TabIndex = 4;
+            this.txtBoxAesIV.TabIndex = 20;
             this.txtBoxAesIV.Text = "0000000000123456";
             this.txtBoxAesIV.Validated += new System.EventHandler(this.txtBoxAesIV_Validated);
             // 
@@ -684,7 +684,7 @@
             this.txtBoxAesKey.Name = "txtBoxAesKey";
             this.txtBoxAesKey.PasswordChar = '*';
             this.txtBoxAesKey.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxAesKey.TabIndex = 3;
+            this.txtBoxAesKey.TabIndex = 19;
             this.txtBoxAesKey.Text = "0000000000123456";
             this.txtBoxAesKey.Validated += new System.EventHandler(this.txtBoxAesKey_Validated);
             // 
