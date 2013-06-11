@@ -1,0 +1,8 @@
+1、数据库配置
+文本打开文件：RenewEDSenderM.exe.config
+<add key="CONN_HISDB" value="D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;"/>
+value 改为hisdb.db的真正路径
+2、发送服务参数测试配置
+文本打开：config/config.xml
+可修改<ReportTime>3</ReportTime>得值大小方便测试
+3、RenewEDSenderWin.exe为可执行文件
