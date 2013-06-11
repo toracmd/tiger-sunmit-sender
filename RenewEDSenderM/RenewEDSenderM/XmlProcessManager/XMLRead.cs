@@ -125,7 +125,7 @@ namespace RenewEDSenderM.XmlProcessManager
 
 
                 //获取周期参数
-                if (type == "period" && xr.Name == "config ")
+                if (type == "period" && xr.Name == "config")
                 {
                     XmlNodeList iList = xr.ChildNodes;
                     foreach (XmlNode xi in iList)

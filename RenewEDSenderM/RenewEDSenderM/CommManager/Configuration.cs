@@ -38,9 +38,9 @@ namespace RenewEDSenderM.CommManager
         private static string m_client_syscode = "";
         
        
-        //private static string config_path = "./Config/Config.xml";
+        private static string config_path = "./Config/Config.xml";
 		//T.B.D. 路径问题
-        private static string config_path = "../../../RenewEDSenderM/bin/Debug/Config/Config.xml";
+        //private static string config_path = "../../../RenewEDSenderM/bin/Debug/Config/Config.xml";
         
         public Configuration ReadConfig()
         {
@@ -774,18 +774,43 @@ namespace RenewEDSenderM.CommManager
 
     public class Configuration
     {
+        /// <summary>
+        /// 服务器IP
+        /// </summary>
         public string ip="";
+        /// <summary>
+        /// 服务器端口
+        /// </summary>
         public string port="";
+        /// <summary>
+        /// 项目编号
+        /// </summary>
         public string project_id="";
+        /// <summary>
+        /// 系统装置编号
+        /// </summary>
         public string gateway_id="";
+        /// <summary>
+        /// 心跳数据包发送间隔
+        /// </summary>
         public string notifyTime="";
+        /// <summary>
+        /// 数据包定时发送间隔
+        /// </summary>
         public string reportTime="";
+
         public string verifyTime="";
+        /// <summary>
+        /// 失败后尝试次数
+        /// </summary>
         public string times="";
         public string period="";
         public string key="";
         public string md5 = "";
         public string iv = "";
+        /// <summary>
+        /// 行政区编码
+        /// </summary>
         public string areacode = "";
         public string programid = "";
         public string techtype = "";

@@ -61,6 +61,14 @@ namespace RenewEDSenderM.CommManager
         /// 重连计时
         /// </summary>
         private static int m_tryTimes = 0;
+        /// <summary>
+        /// 失败重传log标记，避免重复写log
+        /// </summary>
+        private static int m_isRereport = 1;
+        /// <summary>
+        /// 确定是否有失败数据
+        /// </summary>
+        private static bool m_isHasFailedData = true;
 
         //imports SetLocalTime function from kernel32.dll 
         [DllImport("kernel32.dll", SetLastError = true)]
@@ -83,20 +91,22 @@ namespace RenewEDSenderM.CommManager
 
         static void Main(string[] args)
         {
+
             LogManager.Logger.FuncEntryLog(args);
-			try
-			{
-				m_msgq = new Support.MsgQueManager();
-			}
-			catch(MessageQueueException mqex)
-			{
-                LogManager.Logger.WriteErrorLog("Message Queue Service is not started:{0}", mqex);
-			}
-			while(true)
-            {   
+            try
+            {
+                m_msgq = new Support.MsgQueManager();
+            }
+            catch (MessageQueueException mqex)
+            {
+                LogManager.Logger.WriteErrorLog("001001:Message Queue Service is not started:{0}", mqex);
+            }
+            while (true)
+            {
                 //初始化各种参数，避免错误
                 m_timeout = 0;
                 try_count = 0;
+                m_isHasFailedData = true;
 
                 try
                 {
@@ -107,16 +117,16 @@ namespace RenewEDSenderM.CommManager
                     }
                     catch (MessageQueueException mqex)
                     {
-                        LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                        LogManager.Logger.WriteWarnLog("001002:尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
                     }
                     // 读取解析配置文件
                     if (InitConfig())
                     {
-                        LogManager.Logger.WriteInfoLog("Complete reading the configuration!");
+                        LogManager.Logger.WriteInfoLog("001003:Complete reading the configuration!");
                     }
                     else
                     {
-                        LogManager.Logger.WriteWarnLog("Fail to read the configuration!Retrying....");
+                        LogManager.Logger.WriteWarnLog("001004:Fail to read the configuration!Retrying....");
                         continue;
                     }
                     // 设置ip地址、端口等信息
@@ -131,7 +141,7 @@ namespace RenewEDSenderM.CommManager
 
                     // 创建socket并连接到服务器
                     m_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket
-                    LogManager.Logger.WriteInfoLog("Connect...");
+                    LogManager.Logger.WriteInfoLog("001005:Connect...");
                     // 发送请求连接消息
                     try
                     {
@@ -139,10 +149,10 @@ namespace RenewEDSenderM.CommManager
                     }
                     catch (MessageQueueException mqex)
                     {
-                        LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                        LogManager.Logger.WriteWarnLog("001006:尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
                     }
                     // 建立Socket连接到服务器,重连会有延迟时间,延迟随着重连次数的增多而变大,递增为30秒,最大为5分钟
-                    Sleep(m_tryTimes*1000*30);
+                    Sleep(m_tryTimes * 1000 * 30);
                     m_tryTimes++;
                     if (m_tryTimes > 10)
                     {
@@ -165,14 +175,15 @@ namespace RenewEDSenderM.CommManager
                         }
                     }
                     m_socket.Connect(ipe);
-                    
+
                     // m_tryTimes清零 20130530
                     m_tryTimes = 0;
                     m_TryFirtst10Fail = true;
                     // 创建失败数据重传线程
                     if (m_isCreatThread == false)
                     {
-                        Thread oThread = new Thread(new ThreadStart(Rereport));
+                        Thread oThread = new Thread(new ThreadStart(ControlRereport));
+                        //Thread oThread = new Thread(new ThreadStart(Rereport));
                         if (oThread != null)
                         {
                             m_isCreatThread = true;
@@ -182,19 +193,19 @@ namespace RenewEDSenderM.CommManager
                             }
                             catch (ThreadStateException te)
                             {
-                                LogManager.Logger.WriteWarnLog("Fail to create Retransmission process:{0}", te);
+                                LogManager.Logger.WriteWarnLog("001007:Fail to create Retransmission process:{0}", te);
                                 continue;
                             }
                             catch (OutOfMemoryException oe)
                             {
-                                LogManager.Logger.WriteWarnLog("Fail to create Retransmission process:{0}", oe);
+                                LogManager.Logger.WriteWarnLog("001008:Fail to create Retransmission process:{0}", oe);
                                 continue;
                             }
-                            LogManager.Logger.WriteInfoLog("Retransmission process is created!");
+                            LogManager.Logger.WriteInfoLog("001009:Retransmission process is created!");
                         }
                         else
                         {
-                            LogManager.Logger.WriteWarnLog("Fail to create Retransmission process! null pointer");
+                            LogManager.Logger.WriteWarnLog("001010:Fail to create Retransmission process! null pointer");
                             continue;
                         }
                     }
@@ -206,40 +217,40 @@ namespace RenewEDSenderM.CommManager
                         if (m_isCreatReport == false)
                         {
                             System.Timers.Timer reportTimer = new System.Timers.Timer();
-							if(reportTimer != null)
-							{
-								reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
-								reportTimer.Interval = Convert.ToInt32(m_config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
-								reportTimer.Enabled = true;
-								m_isCreatReport = true;
-								LogManager.Logger.WriteInfoLog("Timer of fixed timing Report is created!");
-							}
-							else
-							{
-								LogManager.Logger.WriteInfoLog("Fail to create timer of fixed timing Report! null pointer");
-								continue;
-							}
+                            if (reportTimer != null)
+                            {
+                                reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
+                                reportTimer.Interval = Convert.ToInt32(m_config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
+                                reportTimer.Enabled = true;
+                                m_isCreatReport = true;
+                                LogManager.Logger.WriteInfoLog("001011:Timer of fixed timing Report is created!");
+                            }
+                            else
+                            {
+                                LogManager.Logger.WriteInfoLog("001012:Fail to create timer of fixed timing Report! null pointer");
+                                continue;
+                            }
                         }
                     }
                     catch (ArgumentException e)
                     {
-                        LogManager.Logger.WriteWarnLog("Fail to create timer of report! ArgumentException:{0}", e);
+                        LogManager.Logger.WriteWarnLog("001013:Fail to create timer of report! ArgumentException:{0}", e);
                         continue;
                     }
                     catch (ObjectDisposedException e)
                     {
-                        LogManager.Logger.WriteWarnLog("Fail to create timer of report! ObjectDisposedException:{0}", e);
+                        LogManager.Logger.WriteWarnLog("001014:Fail to create timer of report! ObjectDisposedException:{0}", e);
                         continue;
                     }
                     catch (Exception e)
                     {
-                        LogManager.Logger.WriteWarnLog("Fail to create timer of report! Exception:{0}", e);
+                        LogManager.Logger.WriteWarnLog("001015:Fail to create timer of report! Exception:{0}", e);
                         continue;
                     }
                     // 开始收发交互
                     while (true)
                     {
-						// 认证不会把异常抛到本层
+                        // 认证不会把异常抛到本层
                         if (Authentication())
                         {
                             // 清零20130530
@@ -248,13 +259,15 @@ namespace RenewEDSenderM.CommManager
                             // 认证成功
                             SendCommunication();//如果认证成功，则进行发送数据，包括心跳数据包等，如果连接失败，则从send状态跳出，重新进行认证
                         }
-                        
+
                         // 认证失败后重新连接
                         m_isConnected = false;
+                        // 重连时更新失败重传线程状态
+                        m_isHasFailedData = true;
                         //初始化各种参数，避免错误
                         m_timeout = 0;
                         try_count = 0;
-                            
+
                         // 发送认证失败消息
                         try
                         {
@@ -313,7 +326,7 @@ namespace RenewEDSenderM.CommManager
                 }
                 catch (ArgumentNullException e)
                 {
-                    LogManager.Logger.WriteWarnLog(" Fail! argumentNullException: {0}", e);
+                    LogManager.Logger.WriteWarnLog(" 001020:Fail! argumentNullException: {0}", e);
                     Console.WriteLine("Fail !argumentNullException: {0}", e);
                     m_isConnected = false;
                     Support.MsgBody msgb = new Support.MsgBody(false, m_isPassAuthentication, Support.RUN_PHASE.INVALID);
@@ -323,12 +336,12 @@ namespace RenewEDSenderM.CommManager
                     }
                     catch (MessageQueueException mqex)
                     {
-                        LogManager.Logger.WriteWarnLog("{0}", mqex);
+                        LogManager.Logger.WriteWarnLog("001021:{0}", mqex);
                     }
                 }
                 catch (SocketException e)
                 {
-                    LogManager.Logger.WriteWarnLog("Fail on SocketException:{0}", e);
+                    LogManager.Logger.WriteWarnLog("001022:Fail on SocketException:{0}", e);
                     Console.WriteLine("Fail on SocketException:{0}", e);
                     m_isConnected = false;
                     Support.MsgBody msgb = new Support.MsgBody(false, m_isPassAuthentication, Support.RUN_PHASE.INVALID);
@@ -338,12 +351,12 @@ namespace RenewEDSenderM.CommManager
                     }
                     catch (MessageQueueException mqex)
                     {
-                        LogManager.Logger.WriteWarnLog("{0}", mqex);
+                        LogManager.Logger.WriteWarnLog("001023:{0}", mqex);
                     }
                 }
                 catch (Exception e)
                 {
-                    LogManager.Logger.WriteWarnLog("Fail on Exception:{0}", e);
+                    LogManager.Logger.WriteWarnLog("001024:Fail on Exception:{0}", e);
                     m_isConnected = false;
                     Support.MsgBody msgb = new Support.MsgBody(false, m_isPassAuthentication, Support.RUN_PHASE.INVALID);
                     try
@@ -352,11 +365,14 @@ namespace RenewEDSenderM.CommManager
                     }
                     catch (MessageQueueException mqex)
                     {
-                        LogManager.Logger.WriteWarnLog("{0}", mqex);
+                        LogManager.Logger.WriteWarnLog("001025:{0}", mqex);
                     }
                 }
-	            m_socket.Close();
-			}
+                if (m_socket != null)
+                {
+                    m_socket.Close();
+                }
+            }
             //Console.ReadLine();
             Console.WriteLine("Press Enter to Exit");
             LogManager.Logger.FuncExitLog();
@@ -394,7 +410,7 @@ namespace RenewEDSenderM.CommManager
             m_input_sequence = "";
 
             Console.Write("Verifying.....");
-            LogManager.Logger.WriteInfoLog("Begin to request the authentication...");
+            LogManager.Logger.WriteInfoLog("001026:Begin to request the authentication...");
             ///向服务器发送信息
             string recvStr = "";
             byte[] recvBytes = new byte[1024];
@@ -408,7 +424,7 @@ namespace RenewEDSenderM.CommManager
 			//xml相关处理对象无法建立，则退出认证操作
 			if(xmlwrite  == null || xmlread == null || order == null)
 			{
-				LogManager.Logger.WriteWarnLog("Fail to create xmlwrite ,xmlread or order!");
+                LogManager.Logger.WriteWarnLog("001027:Fail to create xmlwrite ,xmlread or order!");
 				return false;
 			}
 
@@ -422,14 +438,14 @@ namespace RenewEDSenderM.CommManager
             }
             catch (MessageQueueException mqex)
             {
-                LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                LogManager.Logger.WriteWarnLog("001028:尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
             }
             if (SendMsgB(xmlwrite.BOutput()) == false)
             {
-				LogManager.Logger.WriteWarnLog("Fail to send request about authentication!");
+                LogManager.Logger.WriteWarnLog("001029:Fail to send request about authentication!");
                 return false;
             }
-            LogManager.Logger.WriteInfoLog("Success to send request about authentication");
+            LogManager.Logger.WriteInfoLog("001030:Success to send request about authentication");
 
             //超时定时器，保证网络阻塞时不会无限期等待
             try
@@ -437,14 +453,14 @@ namespace RenewEDSenderM.CommManager
                 System.Timers.Timer checkTimer = new System.Timers.Timer();
                 if (checkTimer == null)
                 {
-                    LogManager.Logger.WriteWarnLog("Fail to create Timer Check!");
+                    LogManager.Logger.WriteWarnLog("001031:Fail to create Timer Check!");
                     return false;
                 }
                 checkTimer.Elapsed += new ElapsedEventHandler(checkEvent);
                 checkTimer.Interval = 5 * 1000; //定时时间为5秒
                 checkTimer.Enabled = true;
-                LogManager.Logger.WriteInfoLog("Timer of fixed timing Check is created!");
-            
+                LogManager.Logger.WriteInfoLog("001032:Timer of fixed timing Check is created!");
+                
 
 
                 //接收数据，并进行超时判断
@@ -453,7 +469,7 @@ namespace RenewEDSenderM.CommManager
                 {
                     if (try_count >= Convert.ToInt32(m_config.times))
                     {
-                        LogManager.Logger.WriteWarnLog("Try 5 times to wait sequence,Time Out!");
+                        LogManager.Logger.WriteWarnLog("001033:Try 5 times to wait sequence,Time Out!");
                         try_count = 0;
                         return false;
                     }
@@ -463,7 +479,7 @@ namespace RenewEDSenderM.CommManager
                     {
 
                         recvStr += Encoding.ASCII.GetString(recvBytes, 0, bytes);
-                        LogManager.Logger.WriteInfoLog("Success to receive the response about authentication");
+                        LogManager.Logger.WriteInfoLog("001034:Success to receive the response about authentication");
                         checkTimer.Enabled = false;
                         try_count = 0;
                         break;
@@ -494,13 +510,13 @@ namespace RenewEDSenderM.CommManager
                 }
                 catch (MessageQueueException mqex)
                 {
-                    LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                    LogManager.Logger.WriteWarnLog("001035:尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
                 }
                 xmlwrite.SendMD5(md5Str);
                 m_verifyStr = xmlwrite.Output();
                 if (SendMsgB(xmlwrite.BOutput()) == false)
                 {
-                    LogManager.Logger.WriteWarnLog("Fail to send MD5 sequence about authentication!");
+                    LogManager.Logger.WriteWarnLog("001036:Fail to send MD5 sequence about authentication!");
                     return false;
                 }
                 checkTimer.Enabled = true;
@@ -512,7 +528,7 @@ namespace RenewEDSenderM.CommManager
                 {
                     if (try_count >= Convert.ToInt32(m_config.times))
                     {
-                        LogManager.Logger.WriteWarnLog("Try 5 times to wait authentication result,Time Out!");
+                        LogManager.Logger.WriteWarnLog("001037:Try 5 times to wait authentication result,Time Out!");
                         try_count = 0;
                         return false;
                     }
@@ -550,7 +566,7 @@ namespace RenewEDSenderM.CommManager
                     }
 				    catch(MessageQueueException mqex)
 				    {
-					    LogManager.Logger.WriteWarnLog("{0}", mqex);
+                        LogManager.Logger.WriteWarnLog("001038:{0}", mqex);
 				    }
 				    SystemTime systNew = new SystemTime();
                     string years = order.time.Substring(0,4);
@@ -567,12 +583,12 @@ namespace RenewEDSenderM.CommManager
                     systNew.wSecond = short.Parse(seconds);
                     // 认证成功后进行系统授时
                     SetLocalTime(ref systNew);
-                    LogManager.Logger.WriteInfoLog("Authentication process is successful!");
+                    LogManager.Logger.WriteInfoLog("001039:Authentication process is successful!");
                     return true;
                 }
                 else
                 {
-                    LogManager.Logger.WriteWarnLog("Authentication process is failed!");
+                    LogManager.Logger.WriteWarnLog("001040:Authentication process is failed!");
                     // 发送认证失败消息
                     try
                     {
@@ -580,24 +596,24 @@ namespace RenewEDSenderM.CommManager
                     }
                     catch (MessageQueueException mqex)
                     {
-                        LogManager.Logger.WriteWarnLog("尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
+                        LogManager.Logger.WriteWarnLog("001041:尚未设置 Path 属性或访问消息队列方法时出错:{0}", mqex);
                     }
                     return false;
                 }
             }
             catch (ArgumentException e)
             {
-                LogManager.Logger.WriteWarnLog("Fail to create timer of report! ArgumentException:{0}", e);
+                LogManager.Logger.WriteWarnLog("001042:Fail to create timer of report! ArgumentException:{0}", e);
                 return false;
             }
             catch (ObjectDisposedException e)
             {
-                LogManager.Logger.WriteWarnLog("Fail to create timer of report! ObjectDisposedException:{0}", e);
+                LogManager.Logger.WriteWarnLog("001043:Fail to create timer of report! ObjectDisposedException:{0}", e);
                 return false;
             }
             catch (Exception e)
             {
-                LogManager.Logger.WriteWarnLog("Fail to create timer of report! Exception:{0}", e);
+                LogManager.Logger.WriteWarnLog("001044:Fail to create timer of report! Exception:{0}", e);
                 return false;
             }
         }
@@ -615,7 +631,7 @@ namespace RenewEDSenderM.CommManager
             System.Timers.Timer HeartbeatNotifyTimer = new System.Timers.Timer();
 			if(HeartbeatNotifyTimer == null)
 			{
-                LogManager.Logger.WriteWarnLog("Fail to create Time Heartbeat in SendCommunication!");
+                LogManager.Logger.WriteWarnLog("001045:Fail to create Time Heartbeat in SendCommunication!");
 				return ;
 			}
             
@@ -632,7 +648,7 @@ namespace RenewEDSenderM.CommManager
             XmlProcessManager.XMLRead xmlread = new XmlProcessManager.XMLRead();
 			if(xmlread == null)
 			{
-                LogManager.Logger.WriteWarnLog("Fail to create xmlread in SendCommunication!");
+                LogManager.Logger.WriteWarnLog("001046:Fail to create xmlread in SendCommunication!");
 				return ;
 			}
 			
@@ -670,7 +686,7 @@ namespace RenewEDSenderM.CommManager
                 {
                     HeartbeatNotifyTimer.Enabled = false;    //心跳包超时，需要重新连接服务器端，停止继续发送数据
                     Console.Write("HeartBeat Time out!");//可以写入log，进行记录
-                    LogManager.Logger.WriteInfoLog("HeartBeat Time out!");
+                    LogManager.Logger.WriteInfoLog("001047:HeartBeat Time out!");
                     return;                         //直接返回，重新进行连接和认证
                 }
 
@@ -678,7 +694,7 @@ namespace RenewEDSenderM.CommManager
                 byte[] rByte = new byte[bytes];
 				if(rByte == null)
 				{
-					LogManager.Logger.WriteWarnLog("Fail to create byte array during SendCommunication!");
+                    LogManager.Logger.WriteWarnLog("001048:Fail to create byte array during SendCommunication!");
 					return ;
 				}
                 Array.Copy(recvBytes, rByte, bytes);
@@ -719,7 +735,7 @@ namespace RenewEDSenderM.CommManager
         private static bool SendMsgB(byte[] sendByte)
         {
             Console.WriteLine("Send Message");
-            LogManager.Logger.WriteInfoLog("Send Message");
+            LogManager.Logger.WriteInfoLog("001049:Send Message");
             int sendLength;
             try
             {
@@ -727,17 +743,17 @@ namespace RenewEDSenderM.CommManager
             }
             catch (Exception e)
             {
-                LogManager.Logger.WriteWarnLog("Fail to send message to server:{0}", e);
+                LogManager.Logger.WriteWarnLog("001050:Fail to send message to server:{0}", e);
                 return false;
             }
             if (sendLength == sendByte.Length)
             {
-                LogManager.Logger.WriteInfoLog("Message is sent!");
+                LogManager.Logger.WriteInfoLog("001051:Message is sent!");
                 return true;
             }
             else
             {
-                LogManager.Logger.WriteWarnLog("Message is not sent!");
+                LogManager.Logger.WriteWarnLog("001052:Message is not sent!");
                 return false;
             }
 
@@ -760,7 +776,7 @@ namespace RenewEDSenderM.CommManager
             }
             catch (Exception e)
             {
-                LogManager.Logger.WriteWarnLog("Fail to send message to server: {0}", e);
+                LogManager.Logger.WriteWarnLog("001053:Fail to send message to server: {0}", e);
                 //m_isConnected = false;
             }
         }
@@ -768,7 +784,7 @@ namespace RenewEDSenderM.CommManager
         private static void checkEvent(object sender, ElapsedEventArgs e)
         {
             try_count++;
-            LogManager.Logger.WriteWarnLog("Try Times:{0}", try_count);
+            LogManager.Logger.WriteWarnLog("001054:Try Times:{0}", try_count);
         }
 
         /// <summary>
@@ -782,7 +798,7 @@ namespace RenewEDSenderM.CommManager
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
 			if(xmlwrite == null)
 			{
-				LogManager.Logger.WriteWarnLog("Fail to create xmlwrite during Heartbeat!");
+                LogManager.Logger.WriteWarnLog("001055:Fail to create xmlwrite during Heartbeat!");
                 m_isConnected = false;
 				return ; 
 			}
@@ -791,7 +807,7 @@ namespace RenewEDSenderM.CommManager
             //发送心跳数据包失败，则返回失败，并报告连接断开
             if (SendMsgB(xmlwrite.BOutput()) == false)
             {
-				LogManager.Logger.WriteWarnLog("Fail to send notify during Heartbeat!");
+                LogManager.Logger.WriteWarnLog("001056:Fail to send notify during Heartbeat!");
                 m_isConnected = false;
                 return;
             }
@@ -819,27 +835,31 @@ namespace RenewEDSenderM.CommManager
                 //如果网络状况良好，则发送数据
                 if (m_isConnected)
                 {
-                    XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-                    if (xmlwrite == null)
-                    {
-                        LogManager.Logger.WriteWarnLog("Fail to create xmlwrite in Report!");
-                        return;
-                    }
-
-                    xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id, m_config.key, m_config.iv);
                     //这部分需要采集数据进行数据录入
                     DateTime date_send = DateTime.Now.ToLocalTime();
                     //DateTime date_send = new DateTime(2013, 4, 28, 19, 0, 0);   //2013-04-28 19:00:00
-                    TimeSpan ts = new TimeSpan(2, 0, 0); //T.B.D.测试方便用
-                    //TimeSpan ts = new TimeSpan(0, int.Parse(m_config.reportTime), 0);    //config.xml的时间间隔
+                    //TimeSpan ts = new TimeSpan(2, 0, 0); //T.B.D.测试方便用
+                    TimeSpan ts = new TimeSpan(0, int.Parse(m_config.reportTime), 0);    //config.xml的时间间隔
                     DbManager.History_Data hd_array;
                     //DataRow[] dr = DbManager.DataDump.CalculateAverage(date_send, ts);
                     Single [] dr = DbManager.DataDump.CalculateAverage(date_send, ts);
                     if (dr == null)
                     {
-                        LogManager.Logger.WriteWarnLog("Report Process: No data fetched from the database!");
+                        LogManager.Logger.WriteWarnLog("001057:Report Process: No data fetched from the database!");
                         return;
                     }
+
+                    XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
+                    if (xmlwrite == null)
+                    {
+                        LogManager.Logger.WriteWarnLog("001058:Fail to create xmlwrite in Report!");
+                        DbManager.DataDump.WriteToHisDb(date_send, dr, out hd_array);
+                        return;
+                    }
+
+                    xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id, m_config.key, m_config.iv);
+
+
 
                     DataInfo[] input_info = new DataInfo[4];
                     for (int i = 0; i < 4; i++)
@@ -881,12 +901,12 @@ namespace RenewEDSenderM.CommManager
                         DbManager.DataDump.WriteToHisDb(date_send, dr, out hd_array);
                         DbManager.DataDump.update_Upload(hd_array.id);
                         m_mutex.ReleaseMutex();
-                        LogManager.Logger.WriteInfoLog("The report is sent!");
+                        LogManager.Logger.WriteInfoLog("001059:The report is sent!");
                     }
                     else
                     {
                         DbManager.DataDump.WriteToHisDb(date_send, dr, out hd_array);
-                        LogManager.Logger.WriteWarnLog("The report is failed to send!");
+                        LogManager.Logger.WriteWarnLog("001060:The report is failed to send!");
                         return;
                     }
                 }
@@ -906,7 +926,7 @@ namespace RenewEDSenderM.CommManager
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
             if (xmlwrite == null)
             {
-                LogManager.Logger.WriteWarnLog("Fail to create xmlwrite in Reply!");
+                LogManager.Logger.WriteWarnLog("001061:Fail to create xmlwrite in Reply!");
                 return;
             }
 
@@ -944,7 +964,7 @@ namespace RenewEDSenderM.CommManager
 
             if (hd_array == null)
             {
-                LogManager.Logger.WriteWarnLog("Reply Process: No data fetched from the database!");
+                LogManager.Logger.WriteWarnLog("001062:Reply Process: No data fetched from the database!");
                 return;
             }
 
@@ -992,10 +1012,10 @@ namespace RenewEDSenderM.CommManager
                         {
                         }
                         DbManager.DataDump.update_Upload(hd_array[i].id);
-                        LogManager.Logger.WriteInfoLog("The reply is sent!");
+                        LogManager.Logger.WriteInfoLog("001063:The reply is sent!");
                     }
                     else
-                        LogManager.Logger.WriteWarnLog("The reply is failed to send!");
+                        LogManager.Logger.WriteWarnLog("001064:The reply is failed to send!");
                 }
             }
         }
@@ -1004,14 +1024,15 @@ namespace RenewEDSenderM.CommManager
 		///
         private static void Period_ack(XmlProcessManager.Order order)
         {
-			//更新内存中的配置参数并写入配置文件
+            //更新内存中的配置参数并写入配置文件
             m_config.period = order.period;
             SetConfig set_config = new SetConfig();
-            set_config.WriteSpecailConfig(m_config,"Period");
+            set_config.WriteSpecailConfig(m_config, "Period");
+
             XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
             if (xmlwrite == null)
             {
-                LogManager.Logger.WriteWarnLog("Fail to create xmlwrite in Period Ask!");
+                LogManager.Logger.WriteWarnLog("001065:Fail to create xmlwrite in Period Ask!");
                 return;
             }
 
@@ -1019,7 +1040,7 @@ namespace RenewEDSenderM.CommManager
             xmlwrite.Period_Ack();
             if (SendMsgB(xmlwrite.BOutput()) == false)
             {
-                LogManager.Logger.WriteWarnLog("Fail to send period ask !");
+                LogManager.Logger.WriteWarnLog("001066:Fail to send period ask !");
                 return;
             }
             try
@@ -1058,6 +1079,48 @@ namespace RenewEDSenderM.CommManager
         }
 
         /// <summary>
+        /// 控制失败数据重传线程
+        /// </summary>
+        private static void ControlRereport()
+        {
+
+            while (true)
+            {
+                Thread oThread = new Thread(new ThreadStart(Rereport));
+                //如果线程建立成功，且有失败数据则开始数据重传
+                 if (oThread != null && m_isHasFailedData)
+                 {
+                    m_isCreatThread = true;
+                    try
+                    {
+                       oThread.Start();
+                     }
+                     catch (ThreadStateException te)
+                     {
+                        LogManager.Logger.WriteWarnLog("001007:Fail to create Retransmission process:{0}", te);
+                        continue;
+                      }
+                      catch (OutOfMemoryException oe)
+                      {
+                        LogManager.Logger.WriteWarnLog("001008:Fail to create Retransmission process:{0}", oe);
+                        continue;
+                       }
+                       LogManager.Logger.WriteInfoLog("001009:Retransmission process is created!");
+                   }
+                 else if (oThread == null)
+                 {
+                    LogManager.Logger.WriteWarnLog("001010:Fail to create Retransmission process! null pointer");
+                    continue;
+                 }
+                 else if(oThread.IsAlive) //如果没有失败数据则关闭失败重传线程
+                 {
+                     oThread.Abort();
+                     oThread.Join();
+                 }
+
+            }
+        }
+        /// <summary>
         /// 失败数据重传
         /// </summary>
         private static void Rereport()
@@ -1070,7 +1133,7 @@ namespace RenewEDSenderM.CommManager
                     XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
                     if (xmlwrite == null)
                     {
-                        LogManager.Logger.WriteWarnLog("Fail to create xmlwrite in Rereport!");
+                        LogManager.Logger.WriteWarnLog("001067:Fail to create xmlwrite in Rereport!");
                         continue;
                     }
                     xmlwrite.Input(m_xmlStr,m_project_id,m_gateway_id,m_config.key,m_config.iv);
@@ -1092,12 +1155,22 @@ namespace RenewEDSenderM.CommManager
 
                     if (hd_array == null)
                     {
-                        LogManager.Logger.WriteWarnLog("未取到失败须重传数据{0}-{1}", begin_time, end_time);
-                        continue;
+                        //log标记，避免重复写log，只有在真正需要写log的时候写
+                        if (m_isRereport == 1)
+                        {
+                            LogManager.Logger.WriteWarnLog("001068:未取到失败须重传数据{0}-{1}", begin_time, end_time);
+                            m_isRereport = 0;
+                            
+                        }
+                        m_isHasFailedData = false;
+                        return;
                     }
 
                     if (hd_array != null)
                     {
+                        //如果有失败数据，将log标记记为1
+                        m_isRereport = 1;
+
                         string[] fids = GenerateFunID();
                         string[] mids = GenerateMeterID();
                         int sampleCount;
@@ -1140,10 +1213,10 @@ namespace RenewEDSenderM.CommManager
                                 {
                                 }
                                 DbManager.DataDump.update_Upload(hd_array[i].id);
-                                LogManager.Logger.WriteInfoLog("The reReport is sent!");
+                                LogManager.Logger.WriteInfoLog("001069:The reReport is sent!");
                             }
                             else
-                                LogManager.Logger.WriteWarnLog("The reReport is failed to send!");
+                                LogManager.Logger.WriteWarnLog("001070:The reReport is failed to send!");
                         }
                     }
                     
@@ -1160,7 +1233,7 @@ namespace RenewEDSenderM.CommManager
             string[] code_array = new string[4];
             if (code_array == null)
             {
-                LogManager.Logger.WriteWarnLog(" Failed to generate Meter ID");
+                LogManager.Logger.WriteWarnLog("001071:Failed to generate Meter ID");
                 return null;
             }
 
@@ -1204,7 +1277,7 @@ namespace RenewEDSenderM.CommManager
             string[] code_array = new string[4];
             if (code_array == null)
             {
-                LogManager.Logger.WriteWarnLog(" Failed to generate Function ID");
+                LogManager.Logger.WriteWarnLog("001072:Failed to generate Function ID");
                 return null;
             }
             string code_perfix = m_config.areacode + m_config.programid;
