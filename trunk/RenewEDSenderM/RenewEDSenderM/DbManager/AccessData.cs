@@ -63,7 +63,10 @@ namespace RenewEDSenderM.DbManager
             using (OleDbConnection conn = new OleDbConnection(connString))
             {
                 if (conn.State != ConnectionState.Open)
+                {
+                    LogManager.Logger.WriteDebugLog("002103: the next step is open the data: '" + connString + "'");
                     conn.Open();
+                }
                 cmd.Connection = conn;
                 cmd.CommandText = cmdText;
                 cmd.CommandType = CommandType.Text;
@@ -86,7 +89,10 @@ namespace RenewEDSenderM.DbManager
             using (OleDbConnection conn = new OleDbConnection(connString))
             {
                 if (conn.State != ConnectionState.Open)
+                {
+                    LogManager.Logger.WriteDebugLog("002103: the next step is open the data: '" + connString + "'");
                     conn.Open();
+                }
                 cmd.Connection = conn;
                 cmd.CommandText = cmdText;
                 cmd.CommandType = CommandType.Text;
@@ -309,7 +315,10 @@ namespace RenewEDSenderM.DbManager
             using (OleDbConnection conn = new OleDbConnection(connString))
             {
                 if (conn.State != ConnectionState.Open)
+                {
+                    LogManager.Logger.WriteDebugLog("002103: the next step is open the data: '" + connString + "'");
                     conn.Open();
+                }
                 cmd.Connection = conn;
                 cmd.CommandText = cmdText;
                 cmd.CommandType = CommandType.Text;
@@ -324,9 +333,15 @@ namespace RenewEDSenderM.DbManager
                 da.Fill(myDS);
                 conn.Close();////////////////////
                 if (myDS.Tables[0].Rows.Count != 0)
+                {
+                    LogManager.Logger.WriteDebugLog("002101: success to read data :' " + myDS.Tables[0].Rows[0][0] + "'");
                     return myDS.Tables[0].Rows[0];
+                }
                 else
+                {
+                    LogManager.Logger.WriteDebugLog("002102: Fail to read data, params is :' " + pa + "'");
                     return null;
+                }
             }
         }
         #endregion
@@ -442,7 +457,10 @@ namespace RenewEDSenderM.DbManager
             using (OleDbConnection conn = new OleDbConnection(connString))
             {
                 if (conn.State != ConnectionState.Open)
+                {
+                    LogManager.Logger.WriteDebugLog("002103: the next step is open the data: '" + connString + "'");
                     conn.Open();
+                }
                 cmd.Connection = conn;
                 cmd.CommandText = cmdText;
                 cmd.CommandType = CommandType.Text;
@@ -455,9 +473,16 @@ namespace RenewEDSenderM.DbManager
                 da.Fill(ds);
                 conn.Close();////////////////////
                 if (ds.Tables[0].Rows.Count > 0)
+                {
+                    LogManager.Logger.WriteDebugLog("002101: success to read data :' " + ds.Tables[0] + "'");
                     return ds.Tables[0];
+                }
+
                 else
+                {
+                    LogManager.Logger.WriteDebugLog("002102: Fail to read data, params is :' " + pa + "'");
                     return null;
+                }
             }
         }
         /// <summary>
@@ -584,28 +609,12 @@ namespace RenewEDSenderM.DbManager
             int dt_start_sec = dt_start.Second;
             
             //获取此区间的监测指标值
+            
+            string sql_criterion = " where VARIANTNAME=@VARIANTNAME and (HOURF * 60 + MINUTEF) > (@HOURF_L * 60 + @MINUTE_L) and (HOURF * 60 + MINUTEF) <= (@HOURF_H * 60 + @MINUTE_H)";
             //SQL语句 计算平均值
-            //T.B.D. 字段未确定
-            string sql_hour = " VARIANTNAME=@VARIANTNAME and HOURF between @HOUR_L and @HOUR_H ";
-            string sql_hour_low = " or VARIANTNAME=@VARIANTNAME and HOURF = @HOUR_L and MINUTEF between @MINUTE_L and 60 ";
-            string sql_hour_high = " or VARIANTNAME=@VARIANTNAME and HOURF = @HOUR_H and MINUTEF between 0 and @MINUTE_L ";
-            string sql_hour_minute_low = " or VARIANTNAME=@VARIANTNAME and HOURF = @HOUR_L and MINUTEF = @HOUR_L and SECONDF between @SECOND_L and 60 ";
-            string sql_hour_minute_high = " or VARIANTNAME=@VARIANTNAME and HOURF = @HOUR_H and MINUTEF = @HOUR_H and SECONDF between 0 and @SECOND_H ";
-            string sql = @"select avg(DATA) from " + tbl_name_collect + " where " + sql_hour + sql_hour_high + sql_hour_low + sql_hour_minute_high + sql_hour_minute_low;
-                /*
-                + " where VARIANTNAME=@VARIANTNAME and HOURF >= @HOUR_L and HOURF <= @HOUR_H "
-                + " and MINUTEF >= @MINUTE_L and MINUTEF <= @MINUTE_H "
-                + " and SECONDF >= @SECOND_L and SECONDF <= @SECONDF_H "
-                + ";";
-                 * */
+            string sql = @"select avg(DATA)  from " + tbl_name_collect + sql_criterion;
             //SQL语句 计算发电量
-            string sql2 = @"select Max(DATA)  from " + tbl_name_collect + " where " + sql_hour + sql_hour_high + sql_hour_low + sql_hour_minute_high + sql_hour_minute_low;
-                /*
-                + " where VARIANTNAME=@VARIANTNAME and HOURF >= @HOUR_L and HOURF <= @HOUR_H "
-                + " and MINUTEF >= @MINUTE_L and MINUTEF <= @MINUTE_H "
-                + " and SECONDF >= @SECOND_L and SECONDF <= @SECONDF_H "
-                + " order by DATA desc ;";
-                 * */
+            string sql2 = @"select Max(DATA)  from " + tbl_name_collect + sql_criterion;
             //平行于光伏组件的太阳辐照度 总辐射 气象仪_3
             OleDbParameter[] parameters_1  = {
                 new OleDbParameter("@VARIANTNAME",  "气象仪_3"),
@@ -681,13 +690,15 @@ namespace RenewEDSenderM.DbManager
                                AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4_3)
                            };
                 dr = dr_tmp;
+                LogManager.Logger.WriteInfoLog("0020301:成功读取到采集数据");
             }
             catch (Exception ex)
             {
-                LogManager.Logger.WriteWarnLog("数据库查询异常，查看数据库配置是否正确");
+                LogManager.Logger.WriteWarnLog("数据库查询异常，查看数据库配置是否正确:" + ex);
                 return null;
             }
             Single[] s = new Single[6];
+            int count = 0;
             for (int i = 0; i < 6; i++)
             {
                 if (dr[i] != null)
@@ -699,6 +710,7 @@ namespace RenewEDSenderM.DbManager
                     else
                     {
                         s[i] = Convert.ToSingle(dr[i][0]);
+                        count++;
                     }
                 }
                 else
@@ -706,26 +718,19 @@ namespace RenewEDSenderM.DbManager
                     s[i] = 0;
                 }
             }
+            if(count < 1)
+            {
+                LogManager.Logger.WriteWarnLog("0020201:采集装置在此发送周期未取得数据");
+                return null;
+            }
+            LogManager.Logger.WriteInfoLog("0020302:计算出4个指标值：" + s);
             return s;
-            //存入发送数据库，准备发送 20130603
-            //foreach (DataRow d in dr)
-            //{
-            //    if (d == null)
-            //    {
-            //        LogManager.Logger.WriteWarnLog("采集数据出错，四个指标不全");
-            //        //d = new DataRow();
-            //        //return null;
-            //    }
-            //}
-            //return dr;
-            //WriteToHisDb(FixedTime, dr, out insertedHisData);
         }
 
         public static void WriteToHisDb(DateTime FixedTime, /*DataRow[]*/ Single[] dr, out History_Data insertedHisData)
         {
             if (dr == null)
             {
-                //
                 insertedHisData = null;
                 return;
             }
