@@ -1,594 +1,153 @@
-[Header]2013-06-12 03:49:02,064 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
-2013-06-12 03:49:02,592 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-12 03:49:02,595 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-12 03:49:02,642 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
-2013-06-12 03:49:02,644 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
-2013-06-12 03:49:02,650 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
-2013-06-12 03:49:02,661 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-12 03:49:02,663 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-12 03:49:02,664 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
-2013-06-12 03:49:02,665 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
-2013-06-12 03:49:02,667 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
-2013-06-12 03:49:02,704 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-12 03:49:02,706 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-12 03:49:02,714 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,721 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,004 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
-2013-06-12 03:49:02,009 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,041 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,043 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:02,130 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,133 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,137 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,146 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,167 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,236 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,259 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,268 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,272 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,274 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,281 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,316 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,322 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:49:02,327 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:02,331 [22] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:02,331 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
-2013-06-12 03:49:02,385 [22] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:02,387 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:02,457 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:02,459 [20] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:02,501 [20] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:02,503 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:02,589 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:02,590 [21] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:02,647 [21] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:02,665 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:02,751 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:02,752 [19] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:02,822 [19] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:02,822 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:02,907 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:02,907 [17] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:02,983 [17] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:02,985 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:03,095 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:03,097 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:03,220 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:03,224 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:03,278 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:03,279 [18] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:03,364 [18] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:03,366 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:03,459 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:03,461 [16] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:03,548 [16] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:49:03,552 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:49:03,617 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-[Header]2013-06-12 03:50:06,688 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
-2013-06-12 03:50:07,095 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-12 03:50:07,098 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-12 03:50:07,113 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
-2013-06-12 03:50:07,114 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
-2013-06-12 03:50:07,119 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
-2013-06-12 03:50:07,124 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:07,160 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:07,197 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:07,272 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:07,360 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:07,645 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-12 03:50:07,680 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-12 03:50:07,682 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
-2013-06-12 03:50:07,685 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
-2013-06-12 03:50:07,692 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
-2013-06-12 03:50:07,702 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:07,942 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,090 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,242 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,308 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-12 03:50:08,312 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-12 03:50:08,347 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,351 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,365 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,001 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
-2013-06-12 03:50:08,022 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,045 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,046 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,053 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,062 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,066 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,070 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,074 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,077 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,078 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,088 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,098 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,099 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,101 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,102 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,103 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,105 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,106 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,107 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,108 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,109 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,112 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,113 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,114 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,115 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,117 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,118 [9] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
-2013-06-12 03:50:08,120 [41] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,134 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:50:08,169 [41] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,170 [42] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,226 [42] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,228 [39] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,282 [39] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,285 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,332 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,334 [37] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,379 [37] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,382 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,454 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,456 [35] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,496 [35] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,497 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,593 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,594 [33] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,649 [33] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,651 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,698 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,700 [31] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,744 [31] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,745 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,789 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,792 [29] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,865 [29] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,867 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,921 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,922 [27] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:08,994 [27] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:08,996 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:09,042 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:09,043 [25] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-12 03:50:09,114 [25] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:50:09,115 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-[Header]2013-06-12 03:56:59,898 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
-2013-06-12 03:57:00,271 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-12 03:57:00,273 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-12 03:57:00,339 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
-2013-06-12 03:57:00,340 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
-2013-06-12 03:57:00,346 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
-2013-06-12 03:57:00,355 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:00,358 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:00,472 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:00,496 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-12 03:57:00,529 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-12 03:57:00,533 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
-2013-06-12 03:57:00,534 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
-2013-06-12 03:57:00,534 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
-2013-06-12 03:57:00,550 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:00,624 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:00,734 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:00,851 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,005 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,031 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-12 03:57:01,062 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-12 03:57:01,105 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,001 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
-2013-06-12 03:57:01,002 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,064 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,066 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,086 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,100 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,102 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,104 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,109 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,112 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,113 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,114 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,115 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,116 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,121 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,144 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,163 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,186 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,188 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,207 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,213 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,217 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,219 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,228 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,232 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,240 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,242 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,245 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,246 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,247 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,249 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,250 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,251 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,252 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,254 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,255 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,257 [47] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,261 [7] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
-2013-06-12 03:57:01,272 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 03:57:01,312 [47] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,314 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,356 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,357 [46] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,426 [46] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,426 [48] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,473 [48] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,474 [45] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,546 [45] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,547 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,590 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,591 [43] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,648 [43] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,650 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,716 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,717 [44] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,770 [44] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,772 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,827 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,829 [41] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,885 [41] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,886 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,939 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,941 [42] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:01,985 [42] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:01,986 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,032 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,033 [39] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,122 [39] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,124 [17] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,209 [17] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,215 [37] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,258 [37] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,259 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,331 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,332 [35] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,378 [35] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,380 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,454 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,457 [33] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,511 [33] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,515 [19] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,565 [19] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,567 [40] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,625 [40] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,635 [20] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,704 [20] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,706 [31] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,804 [31] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,808 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,851 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,852 [29] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,894 [29] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,898 [21] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:02,939 [21] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:02,941 [38] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,013 [38] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,014 [23] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,076 [23] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,077 [27] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,125 [27] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,126 [16] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,183 [16] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,184 [36] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,270 [36] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,288 [25] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,331 [25] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,336 [34] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,388 [34] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,390 [18] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,451 [18] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,453 [32] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,509 [32] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,510 [22] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,568 [22] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,570 [30] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,616 [30] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,616 [24] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,684 [24] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,684 [28] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,734 [28] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:57:03,735 [26] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 03:57:03,877 [26] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 03:58:01,077 [37997] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 03:58:01,139 [37997] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-2013-06-12 03:59:01,210 [37997] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 03:59:01,214 [37997] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-2013-06-12 04:00:01,271 [37997] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 04:00:01,303 [37997] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-2013-06-12 04:01:01,328 [37997] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 04:01:01,332 [37997] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-2013-06-12 04:02:01,495 [37997] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 04:02:01,497 [37997] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-[Header]2013-06-12 04:02:45,679 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
-2013-06-12 04:02:46,150 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-12 04:02:46,153 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-12 04:02:46,170 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
-2013-06-12 04:02:46,171 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
-2013-06-12 04:02:46,178 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
-2013-06-12 04:02:46,181 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:46,183 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:46,232 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:46,309 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:46,374 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:46,471 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:46,884 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-12 04:02:46,889 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:47,024 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:47,157 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:47,344 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:47,522 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:47,719 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:47,954 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:48,184 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:48,419 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:48,707 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:48,972 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:49,272 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:49,884 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:50,227 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:50,559 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:50,932 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:51,452 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-12 04:02:51,452 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
-2013-06-12 04:02:51,454 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
-2013-06-12 04:02:51,622 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
-2013-06-12 04:02:51,709 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:52,169 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:52,607 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,097 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,537 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,904 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-12 04:02:53,907 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-12 04:02:53,967 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:54,034 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:54,037 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,000 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
-2013-06-12 04:02:53,002 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,010 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,045 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,132 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,142 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,162 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,162 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,177 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,177 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,185 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,195 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,200 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,215 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,215 [10] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
-2013-06-12 04:02:53,225 [45] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,242 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:02:53,289 [45] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,296 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,344 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,346 [43] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,409 [43] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,410 [32] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,466 [32] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,467 [41] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,518 [41] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,519 [47] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,586 [47] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,590 [39] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,638 [39] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,639 [27] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,687 [27] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,689 [37] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,756 [37] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,759 [29] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,829 [29] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,832 [35] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,886 [35] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,887 [30] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,933 [30] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,935 [46] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:53,996 [46] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:53,998 [28] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,069 [28] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,070 [25] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,113 [25] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,114 [31] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,196 [31] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,197 [44] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,258 [44] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,259 [26] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,303 [26] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,306 [23] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,348 [23] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,348 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,393 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,396 [21] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,466 [21] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,466 [33] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,513 [33] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,515 [19] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,565 [19] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,567 [18] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,637 [18] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,638 [17] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,706 [17] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,707 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,763 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,764 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,815 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,816 [24] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,862 [24] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,863 [42] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,906 [42] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,907 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:54,980 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:54,981 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:55,022 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:55,024 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:55,095 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:55,102 [40] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:55,156 [40] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:55,157 [22] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:55,262 [22] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:55,263 [38] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:55,316 [38] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:55,317 [20] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:55,363 [20] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:55,364 [36] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:55,429 [36] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:55,430 [16] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:55,477 [16] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:55,478 [34] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:55,522 [34] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:55,523 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:55,568 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:02:55,570 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:02:55,658 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
-2013-06-12 04:03:53,023 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 04:03:53,024 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-2013-06-12 04:04:53,045 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 04:04:53,047 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-2013-06-12 04:05:45,156 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:05:45,308 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
-2013-06-12 04:05:45,310 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:05:45,408 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
-2013-06-12 04:05:45,409 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:05:45,506 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
-2013-06-12 04:05:45,508 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:05:45,591 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
-2013-06-12 04:05:45,592 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:05:45,681 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
-2013-06-12 04:05:45,682 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:05:45,759 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
-2013-06-12 04:05:45,760 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020301:成功读取到采集数据
-2013-06-12 04:05:45,761 [33200] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020201:采集装置在此发送周期未取得数据
-2013-06-12 04:05:45,762 [33200] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001057:Report Process: No data fetched from the database!
-2013-06-12 04:05:53,093 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 04:05:53,116 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-2013-06-12 04:06:53,150 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 04:06:53,156 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-2013-06-12 04:07:53,180 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 04:07:53,182 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-2013-06-12 04:08:45,144 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:08:45,249 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' -8917.14285714286'
-2013-06-12 04:08:45,250 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:08:45,338 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' -891.714307512556'
-2013-06-12 04:08:45,339 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:08:45,422 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' -891.714307512556'
-2013-06-12 04:08:45,423 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:08:45,517 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
-2013-06-12 04:08:45,518 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:08:45,583 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
-2013-06-12 04:08:45,585 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
-2013-06-12 04:08:45,681 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
-2013-06-12 04:08:45,681 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020301:成功读取到采集数据
-2013-06-12 04:08:45,681 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020302:计算出4个指标值：System.Single[]
-2013-06-12 04:08:45,686 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001049:Send Message
-2013-06-12 04:08:45,689 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001051:Message is sent!
-2013-06-12 04:08:45,706 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][WriteToHisDb]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:08:45,847 [33200] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][update_Upload]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=./database/info.mdb;'
-2013-06-12 04:08:45,910 [33200] INFO  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001059:The report is sent!
-2013-06-12 04:08:53,210 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 04:08:53,212 [33200] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-2013-06-12 04:08:57,087 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
-   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
-   在 RenewEDSenderM.CommManager.Client.SendCommunication() 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 669
-   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 260
-2013-06-12 04:08:57,228 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:57,287 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:57,337 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-12 04:08:57,340 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:57,340 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-12 04:08:57,430 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:57,510 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:57,632 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:57,762 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:57,942 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:58,117 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:58,307 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:58,492 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:58,730 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:58,990 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:59,080 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.45:13145
-   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
-   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
-   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 177
-2013-06-12 04:08:59,290 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:08:59,790 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:00,090 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:00,400 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:00,715 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:01,035 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:01,430 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:01,787 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:02,185 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:02,190 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-12 04:09:02,190 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-12 04:09:02,607 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:03,040 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:03,507 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:03,980 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:04,610 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:05,192 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:05,752 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:06,367 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:06,980 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:07,672 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:08,300 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:08,902 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:10,130 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:10,775 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:12,085 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:12,782 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:13,495 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:14,215 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:15,650 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:16,412 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:17,920 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:18,732 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:19,635 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:20,570 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:21,485 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:22,437 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:23,312 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:24,205 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:26,032 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:26,965 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:28,858 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:29,828 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:31,773 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:32,805 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:34,825 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:35,900 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:37,198 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 210.77.14.45:13145
-   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
-   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
-   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 177
-2013-06-12 04:09:38,110 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:39,363 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:40,580 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:41,713 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:42,805 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:44,013 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:45,173 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:46,383 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:47,583 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:48,805 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:48,900 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-12 04:09:48,903 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-12 04:09:50,130 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:51,438 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:52,738 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:54,033 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-12 04:09:55,743 [576] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
-2013-06-12 04:09:55,743 [576] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+[Header]2013-06-15 00:34:53,518 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 00:34:53,898 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 00:34:53,900 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 00:34:53,961 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 00:34:53,986 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 00:34:53,999 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 00:34:54,005 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:54,009 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:54,029 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 00:34:54,032 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
    在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
    在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
-   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\workspace\sunmit\svn\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
-2013-06-12 04:09:55,745 [576] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001056:Fail to send notify during Heartbeat!
-2013-06-12 04:09:56,525 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
+2013-06-15 00:34:54,049 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 00:34:54,053 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 00:34:54,127 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:54,179 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 00:34:54,199 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:54,269 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:54,302 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 00:34:54,386 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:54,709 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:54,891 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:55,033 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:55,212 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:55,407 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:55,408 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 00:34:55,410 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
+2013-06-15 00:34:55,412 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 00:34:55,614 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:55,821 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:56,063 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:56,302 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:56,569 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 00:34:56,574 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:56,841 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:57,146 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:57,466 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:57,820 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:58,052 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 00:34:58,170 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:58,571 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:59,341 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:34:59,760 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:00,171 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:00,623 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:01,111 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:01,596 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:02,077 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:02,590 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:03,634 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:04,221 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:04,768 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:05,359 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:05,969 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:06,575 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:07,186 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:07,824 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:08,471 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:09,143 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:10,495 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:11,190 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 00:35:14,880 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 00:35:15,234 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 00:35:15,236 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 00:35:15,290 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 00:35:15,291 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 00:35:15,303 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 00:35:15,309 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:15,312 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:15,353 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:15,426 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:15,500 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:15,612 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:15,823 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:15,877 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 00:35:15,880 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
+2013-06-15 00:35:16,025 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 00:35:16,069 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:16,211 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:16,385 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:17,068 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:17,208 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 00:35:17,279 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:17,494 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:17,741 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:17,979 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:18,265 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:18,464 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 00:35:18,560 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:18,854 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 00:35:18,882 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:19,204 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:19,560 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:19,913 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:20,300 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:20,623 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 00:35:20,626 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
+2013-06-15 00:35:20,628 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 00:35:21,076 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:35:21,559 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 00:53:59,851 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 00:54:00,239 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 00:54:00,239 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 00:54:00,319 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 00:54:00,329 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 00:54:00,339 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 00:54:00,359 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:00,399 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:00,408 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 00:54:00,409 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 00:54:00,410 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 00:54:00,411 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 00:54:00,417 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 474
+2013-06-15 00:54:00,476 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:00,563 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:00,653 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:00,656 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 00:54:00,803 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:00,942 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 00:54:34,936 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 00:54:35,304 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 00:54:35,306 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 00:54:35,366 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 00:54:35,367 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 00:54:35,377 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 00:54:35,396 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:35,437 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:35,472 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:35,553 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:35,626 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:35,660 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 00:54:35,662 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
+2013-06-15 00:54:35,669 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 00:54:35,741 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:35,973 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:36,117 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 00:54:36,366 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
