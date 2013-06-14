@@ -999,7 +999,7 @@ namespace RenewEDSenderWin
 
         private void txtBoxProId_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AllowNumInput(sender, e);
+            AllowNumChInput(sender, e);
         }
 
         private void txtBoxGateId_KeyPress(object sender, KeyPressEventArgs e)
@@ -1019,7 +1019,7 @@ namespace RenewEDSenderWin
 
         private void txtBoxProCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AllowNumInput(sender, e);
+            AllowNumChInput(sender, e);
         }
 
         private void txtBoxTechCode_KeyPress(object sender, KeyPressEventArgs e)
@@ -1084,7 +1084,18 @@ namespace RenewEDSenderWin
                 e.Handled = true;
             }
         }
-
+        //>>>>20130615
+        private void AllowNumChInput(object sender, KeyPressEventArgs e)
+        {
+            //判断按键是不是要输入的类型。
+            if (((int)e.KeyChar < 48 || (int)e.KeyChar > 57) && (int)e.KeyChar != 8 
+                && ((int)e.KeyChar < 65 || (int)e.KeyChar > 90)
+                && ((int)e.KeyChar < 97 || (int)e.KeyChar > 122))
+            {
+                e.Handled = true;
+            }
+        }
+        //<<<<
         private void btnKeyUpdate_Click(object sender, EventArgs e)
         {
             if (!isCompleteCheck)

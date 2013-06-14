@@ -474,9 +474,9 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(592, 64);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(59, 12);
+            this.label23.Size = new System.Drawing.Size(95, 12);
             this.label23.TabIndex = 30;
-            this.label23.Text = "(3位数字)";
+            this.label23.Text = "(3位数字或字母)";
             // 
             // label15
             // 
