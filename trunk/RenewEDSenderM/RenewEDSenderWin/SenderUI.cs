@@ -682,6 +682,8 @@ namespace RenewEDSenderWin
             config.programid = txtBoxProCode.Text;
             config.techtype = txtBoxTechCode.Text;
             config.syscode = txtBoxSysCode.Text;
+
+            config.areacode = txtBoxAreaCode.Text;
             
             config.meterInfo.MD_Code1 = txtBoxGen1.Text;
             config.meterInfo.MD_Code2 = txtBoxGen2.Text;
