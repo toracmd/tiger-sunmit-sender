@@ -1,0 +1,30 @@
+  <Server_Information>
+    <IP>202.85.222.196</IP>
+    <Port>5001</Port>
+  </Server_Information>
+  <Client_Information>
+    <Project_id>440300D11</Project_id>
+    <!--项目编号-->
+    <Gateway_id>1100000140202</Gateway_id>
+    <!--系统装置编号-->
+
+  <Server_Information>
+    <IP>221.226.0.179</IP>
+    <Port>5050</Port>
+  </Server_Information>
+  <Client_Information>
+    <Project_id>320200009</Project_id>
+    <!--项目编号-->
+    <Gateway_id>3202000090101</Gateway_id>
+    <!--系统装置编号-->
+
+
+  <Server_Information>
+    <IP>192.168.0.102</IP>
+    <Port>13145</Port>
+  </Server_Information>
+  <Client_Information>
+    <Project_id>320200009</Project_id>
+    <!--项目编号-->
+    <Gateway_id>3202000090101</Gateway_id>
+    <!--系统装置编号-->
