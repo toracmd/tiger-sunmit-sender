@@ -73,6 +73,11 @@ namespace RenewEDSenderM.XmlProcessManager
         public byte[] BOutput()
         {
             result = xmlDoc.OuterXml;
+            int len = result.Length;
+            if (len % 16 != 0)
+            {
+                result += new string('0', 16 - len % 16);
+            }
             byte[] sendBytes = Support.Encryption.EncryptStringToBytes_Aes(result, Encoding.ASCII.GetBytes(AES_KEY), Encoding.ASCII.GetBytes(AES_IV));
             Support.DataPackage dp = new Support.DataPackage() { DataLength = ((uint)sendBytes.Length + 4), Seq = 0x1692ec43, DataBlock = sendBytes, CRC = Support.Encryption.CRC16(sendBytes) };
             return dp.Package;
