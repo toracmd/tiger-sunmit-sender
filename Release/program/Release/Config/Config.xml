@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <config>
   <Server_Information>
-    <IP>202.85.222.196</IP>
-    <Port>5001</Port>
+    <IP>192.168.0.102</IP>
+    <Port>13145</Port>
   </Server_Information>
   <Client_Information>
     <Project_id>440300D11</Project_id>

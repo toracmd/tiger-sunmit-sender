@@ -108,46 +108,1097 @@
 2013-06-15 00:35:20,628 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
 2013-06-15 00:35:21,076 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
 2013-06-15 00:35:21,559 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-[Header]2013-06-15 00:53:59,851 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
-2013-06-15 00:54:00,239 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-15 00:54:00,239 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-15 00:54:00,319 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
-2013-06-15 00:54:00,329 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
-2013-06-15 00:54:00,339 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
-2013-06-15 00:54:00,359 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:00,399 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:00,408 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-15 00:54:00,409 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-15 00:54:00,410 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
-2013-06-15 00:54:00,411 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
-2013-06-15 00:54:00,417 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
-   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
-   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 474
-2013-06-15 00:54:00,476 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:00,563 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:00,653 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:00,656 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
-2013-06-15 00:54:00,803 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:00,942 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-[Header]2013-06-15 00:54:34,936 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
-2013-06-15 00:54:35,304 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-15 00:54:35,306 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-15 00:54:35,366 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
-2013-06-15 00:54:35,367 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
-2013-06-15 00:54:35,377 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
-2013-06-15 00:54:35,396 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:35,437 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:35,472 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:35,553 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:35,626 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:35,660 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-15 00:54:35,662 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+[Header]2013-06-15 11:35:42,372 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:35:42,876 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:35:42,878 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:35:42,939 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:35:42,940 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:35:42,955 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:35:42,972 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:42,977 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:42,988 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:35:43,085 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:43,181 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:43,336 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:43,449 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:43,677 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:43,728 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
    在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
    在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
    在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
-2013-06-15 00:54:35,669 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
-2013-06-15 00:54:35,741 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:35,973 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:36,117 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 00:54:36,366 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:35:43,736 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:35:43,825 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:44,123 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:44,311 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:44,499 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:44,942 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:44,948 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:35:45,384 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:45,641 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:46,158 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:35:46,281 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:35:46,453 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 11:36:00,018 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:36:00,552 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:36:00,553 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:36:00,631 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:36:00,634 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:36:00,654 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:36:00,762 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 11:36:33,157 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:36:33,688 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:36:33,690 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:36:33,759 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:36:33,762 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:36:33,776 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:36:33,818 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:36:33,902 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:36:33,944 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:36:34,022 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:36:34,026 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
+2013-06-15 11:36:34,027 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:36:34,037 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:36:34,187 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:36:34,307 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:36:34,425 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 11:37:11,175 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:37:11,697 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:37:11,699 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:37:11,752 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:37:11,752 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:37:11,768 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:37:11,780 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:11,783 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:11,794 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:37:11,796 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 11:37:11,797 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 11:37:11,798 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 11:37:11,801 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 474
+2013-06-15 11:37:11,868 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:11,951 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:12,126 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:12,147 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:37:12,276 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:12,399 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:12,557 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:13,002 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:13,202 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:13,402 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:13,483 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:37:13,621 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:13,819 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:37:14,121 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:14,389 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:14,930 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:15,180 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:37:15,182 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
+2013-06-15 11:37:15,184 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:37:15,235 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:15,529 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:15,854 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:16,544 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:16,877 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:37:16,918 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:17,671 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:18,343 [27] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:1
+2013-06-15 11:37:18,467 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:18,928 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:37:18,980 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+[Header]2013-06-15 11:37:26,406 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:37:26,876 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:37:26,877 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:37:28,004 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 202.85.222.197:5001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 177
+2013-06-15 11:37:28,022 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:37:28,023 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:37:59,148 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 202.85.222.197:5001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 177
+2013-06-15 11:37:59,230 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:37:59,232 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+[Header]2013-06-15 11:38:17,495 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:38:18,081 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:38:18,082 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:38:18,287 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:38:18,288 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:38:18,304 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:38:18,311 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:18,315 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:18,385 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:18,512 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:18,608 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:18,796 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:18,893 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:38:18,895 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
+2013-06-15 11:38:19,027 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:38:19,086 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:19,268 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:19,454 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:19,673 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:20,202 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:20,392 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:38:20,553 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:20,821 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:21,164 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:21,459 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:21,724 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:38:21,789 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:22,060 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:38:22,086 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:22,433 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:22,770 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:23,146 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:23,527 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:23,827 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:38:23,829 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
+2013-06-15 11:38:23,831 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:38:23,935 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:24,814 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:25,260 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:25,708 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:26,197 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:26,232 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:38:27,189 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:27,725 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:28,247 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:28,936 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:38:29,016 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:29,644 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:30,371 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:31,088 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:31,847 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:32,602 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:33,354 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:34,122 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:34,968 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:35,790 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:36,664 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:37,560 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:38,491 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:39,416 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:40,370 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:41,360 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:42,375 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:43,363 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:44,431 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 11:38:46,583 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:38:47,084 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:38:47,086 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:38:47,356 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:38:47,357 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:38:47,376 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:38:47,397 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:47,401 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:47,423 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:38:47,424 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 11:38:47,425 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 11:38:47,426 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 11:38:47,491 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:47,619 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:47,619 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 474
+2013-06-15 11:38:47,777 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:47,896 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:48,028 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:48,207 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:48,215 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:38:48,780 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:48,973 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:49,158 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:49,377 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:49,477 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:38:49,595 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:49,856 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:49,887 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:38:50,129 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:50,624 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:50,919 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:51,246 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:51,574 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:51,608 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:38:51,611 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 738
+2013-06-15 11:38:51,613 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:38:51,939 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:52,419 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:52,871 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:53,506 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:53,508 [29] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:1
+2013-06-15 11:38:54,094 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:38:54,556 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:55,063 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:55,964 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:56,440 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:56,521 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:38:57,386 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:57,894 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:58,382 [29] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:2
+2013-06-15 11:38:58,916 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:38:59,534 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:39:00,709 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:39:01,342 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:39:02,599 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:39:03,330 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:39:03,973 [29] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:3
+[Header]2013-06-15 11:40:52,431 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:40:53,028 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:40:53,030 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:40:53,088 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:40:53,089 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:40:53,105 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:40:53,125 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:40:53,127 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 11:40:53,127 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 11:40:53,128 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 11:40:53,135 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 475
+2013-06-15 11:40:53,153 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:40:53,159 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:40:53,170 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:53,177 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:53,229 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:53,268 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:40:53,278 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:40:53,279 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 11:40:53,280 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 11:40:53,281 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 11:40:53,315 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 475
+2013-06-15 11:40:53,321 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:40:53,328 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:40:53,384 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:53,573 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:53,721 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:53,916 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:54,094 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:54,275 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:54,460 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:54,682 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:55,179 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:55,503 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:55,800 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:56,190 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:56,502 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:56,800 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:57,143 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:57,887 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:58,251 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:58,756 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:58,910 [28] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:1
+2013-06-15 11:40:58,911 [28] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:2
+2013-06-15 11:40:59,276 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:40:59,737 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:00,231 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:00,824 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:01,312 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:01,958 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:02,550 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:03,196 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:03,877 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:04,142 [27] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:3
+2013-06-15 11:41:04,143 [27] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:4
+2013-06-15 11:41:04,583 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:05,272 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:05,991 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:06,773 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:07,497 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:08,394 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:09,268 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:09,972 [27] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:5
+2013-06-15 11:41:09,973 [27] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:6
+[Header]2013-06-15 11:41:12,397 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:41:12,876 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:41:12,878 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:41:12,930 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:41:12,931 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:41:12,943 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:41:12,961 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:41:12,963 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 11:41:12,964 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 11:41:12,965 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 11:41:12,970 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:12,978 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 475
+2013-06-15 11:41:13,011 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:13,052 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:13,129 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:13,206 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:13,308 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:41:13,327 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:13,553 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:14,179 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:14,179 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:41:14,440 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:41:14,484 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:14,672 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:14,862 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:15,089 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:15,455 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:41:15,457 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 739
+2013-06-15 11:41:15,460 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:41:15,544 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:15,805 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:16,336 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:16,644 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:17,257 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:17,546 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:41:17,598 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:18,286 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:18,663 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:41:18,754 [26] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:1
+2013-06-15 11:41:19,092 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 11:43:46,583 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:43:47,133 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:43:47,136 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:43:47,198 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:43:47,202 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:43:47,216 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:43:47,227 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:47,269 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:47,323 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:47,446 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:43:47,448 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 741
+2013-06-15 11:43:47,457 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:43:47,521 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:47,648 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:47,812 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:47,943 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:48,087 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:48,275 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:48,498 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:48,726 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:43:49,216 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:49,445 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:49,715 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:50,050 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:50,352 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:50,521 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:43:50,719 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:50,875 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:43:51,095 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:51,503 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:51,922 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:52,333 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:52,744 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:52,824 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:43:52,826 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 741
+2013-06-15 11:43:52,828 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:43:53,277 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:53,802 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:54,431 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:54,982 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:55,618 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 11:43:59,019 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:43:59,475 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:43:59,477 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:43:59,532 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:43:59,534 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:43:59,546 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:43:59,552 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:59,556 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:59,605 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:59,719 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:59,842 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:43:59,976 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:00,052 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:44:00,053 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 11:44:00,054 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 11:44:00,055 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 11:44:00,108 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:00,109 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 476
+2013-06-15 11:44:00,279 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:00,451 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:00,672 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:01,354 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:01,579 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:01,814 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:44:01,825 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:02,119 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:02,454 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:02,807 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:03,195 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:03,404 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:44:03,603 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:03,799 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:44:03,995 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:04,471 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:04,990 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 11:44:27,355 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:44:27,881 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:44:27,884 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:44:27,964 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:44:27,965 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:44:27,976 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:44:27,986 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:28,049 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:28,097 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:28,189 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:28,315 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:28,468 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:44:28,470 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 741
+2013-06-15 11:44:28,478 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:44:28,534 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:28,663 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:28,839 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:29,041 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:29,320 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:29,570 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:30,407 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:30,665 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:30,677 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:44:30,966 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:31,265 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:31,640 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:31,974 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:32,309 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:44:32,359 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:32,700 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:44:32,781 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:33,209 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:33,708 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:34,201 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:34,707 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:34,986 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:44:34,987 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 741
+2013-06-15 11:44:34,990 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:44:35,237 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:35,792 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:36,344 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:36,933 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:37,570 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:38,148 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:38,583 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:44:38,681 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:39,229 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:39,860 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:40,571 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:41,287 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:41,740 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:44:42,026 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:42,789 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:43,470 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:44,349 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:45,377 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:46,244 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 11:44:49,483 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:44:50,475 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:44:50,478 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:44:50,702 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:44:50,704 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:44:50,722 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:44:50,743 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:50,821 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:50,904 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:51,029 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:51,146 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:51,158 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:44:51,161 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 741
+2013-06-15 11:44:51,171 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:44:51,333 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:51,505 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:51,689 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:51,891 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:52,090 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:52,324 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:53,182 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:44:53,204 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:53,653 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:53,917 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:54,183 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:54,424 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:44:54,483 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:54,846 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:44:55,076 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:44:55,430 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 11:45:01,157 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:45:01,606 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:45:01,608 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:45:01,660 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:45:01,662 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:45:01,676 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:45:01,685 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:01,689 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:01,710 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:45:01,717 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 741
+2013-06-15 11:45:01,804 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:45:01,807 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:01,884 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:01,960 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:02,076 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:02,301 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:02,452 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:02,750 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:02,948 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:02,995 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:45:03,369 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:03,597 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:04,051 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:04,315 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:04,432 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:45:04,844 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:45:04,917 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:45:05,142 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 11:45:17,015 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:45:17,528 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:45:17,535 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:45:18,669 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 202.85.222.197:5001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 177
+2013-06-15 11:45:18,687 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:45:18,688 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+[Header]2013-06-15 11:48:36,094 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:48:36,558 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:48:36,560 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:48:37,740 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 202.85.222.197:5001
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 177
+2013-06-15 11:48:37,773 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:48:37,774 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+[Header]2013-06-15 11:48:50,487 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 11:48:51,007 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 11:48:51,009 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 11:48:51,310 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 11:48:51,311 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 11:48:51,340 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:48:51,348 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:51,351 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:51,431 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:51,515 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:51,598 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:51,720 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:51,832 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:51,968 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:48:51,970 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 741
+2013-06-15 11:48:51,980 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:51,981 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:48:52,289 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:52,477 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:52,851 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:53,349 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:53,788 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:54,048 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:54,123 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:48:54,572 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:54,872 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:55,488 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:55,821 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:56,066 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:48:56,499 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:56,569 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 11:48:56,889 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:57,664 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:58,109 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:58,984 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:48:59,167 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 11:48:59,169 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 741
+2013-06-15 11:48:59,171 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 11:48:59,449 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:49:00,381 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:49:00,890 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:49:01,884 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:49:02,405 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:49:03,038 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 11:49:03,488 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:49:04,060 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:49:05,215 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:49:06,001 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:49:06,488 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 11:49:07,221 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 11:49:07,889 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+[Header]2013-06-15 12:28:45,382 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 12:28:45,872 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 12:28:45,874 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 12:28:45,932 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 12:28:45,947 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 12:28:46,043 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 813
+2013-06-15 12:28:46,053 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 12:28:46,356 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 12:28:46,362 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 12:28:46,411 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 12:28:46,416 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 12:28:46,417 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 12:28:46,418 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 12:28:46,419 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 12:28:46,458 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 548
+2013-06-15 12:28:46,465 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 12:28:46,470 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 12:28:51,421 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:1
+2013-06-15 12:28:56,428 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:2
+2013-06-15 12:29:01,436 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:3
+[Header]2013-06-15 12:29:03,983 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 12:29:04,437 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 12:29:04,438 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 12:29:04,532 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 12:29:04,545 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 12:29:04,546 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 12:29:04,547 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 12:29:04,548 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 12:29:04,565 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 548
+2013-06-15 12:29:04,575 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 12:29:04,580 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 12:29:04,628 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 12:29:04,636 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 12:29:04,637 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 12:29:04,637 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 12:29:04,638 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 12:29:04,675 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 548
+2013-06-15 12:29:04,683 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 12:29:04,687 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 12:29:09,548 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:1
+2013-06-15 12:29:09,641 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:2
+2013-06-15 12:29:14,555 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:3
+2013-06-15 12:29:14,649 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:4
+[Header]2013-06-15 12:29:19,113 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 12:29:19,524 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 12:29:19,526 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 12:29:19,584 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 12:29:19,596 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 12:29:19,598 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 12:29:19,599 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 12:29:19,600 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 12:29:19,629 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 548
+2013-06-15 12:29:19,639 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 12:29:19,643 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 12:29:19,691 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 12:29:19,695 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 12:29:19,696 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 12:29:19,697 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 12:29:19,698 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 12:29:19,738 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 548
+2013-06-15 12:29:19,744 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 12:29:19,748 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 12:29:24,599 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:1
+2013-06-15 12:29:24,708 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:2
+2013-06-15 12:29:29,606 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:3
+2013-06-15 12:29:29,716 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:4
+2013-06-15 12:29:34,615 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:5
+2013-06-15 12:29:34,724 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:6
+2013-06-15 12:29:39,624 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:7
+2013-06-15 12:29:39,734 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:8
+[Header]2013-06-15 12:32:08,627 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 12:32:09,009 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 12:32:09,011 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 12:32:09,027 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 12:32:09,042 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 12:32:09,044 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 12:32:09,045 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 12:32:09,045 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 12:32:09,085 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-15 12:32:09,103 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 12:32:09,105 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 12:32:09,122 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+2013-06-15 12:32:09,137 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 12:32:09,138 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 12:32:09,141 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,145 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,152 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,160 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,171 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,188 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,274 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,281 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,286 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,311 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,314 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,318 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,320 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,322 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,324 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,325 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,329 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,331 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,334 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,336 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,338 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,339 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,341 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,342 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,344 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,345 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,347 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,348 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,353 [31] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,354 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
+2013-06-15 12:32:09,357 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 12:32:09,392 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,429 [29] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,474 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,542 [27] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,582 [33] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,622 [25] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,665 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,705 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,740 [32] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,784 [23] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,827 [30] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,868 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,930 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:09,967 [16] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,004 [28] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,041 [18] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,110 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,154 [21] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,202 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,239 [20] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,278 [26] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,321 [19] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,386 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,421 [22] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,460 [24] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 12:32:10,497 [17] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+[Header]2013-06-15 12:34:30,558 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 12:34:30,960 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 12:34:30,962 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 12:34:30,982 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 12:34:31,011 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 12:34:31,013 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 12:34:31,014 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 12:34:31,014 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 12:34:31,019 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-15 12:34:31,042 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 12:34:31,045 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 12:34:31,071 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+[Header]2013-06-15 13:00:37,916 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 13:00:38,390 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:00:38,392 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 13:00:38,429 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 13:00:38,460 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:00:38,461 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:00:38,464 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 13:00:38,465 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 13:00:38,496 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-15 13:00:38,532 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:00:38,533 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:00:38,566 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+2013-06-15 13:00:38,569 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 13:00:38,569 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 13:00:38,634 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:00:38,635 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:00:38,641 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:00:38,753 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:00:38,778 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:00:38,796 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:00:38,803 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
+2013-06-15 13:00:38,804 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:00:38,816 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:00:38,996 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:00:39,054 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:00:39,187 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:00:39,296 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+[Header]2013-06-15 13:01:03,365 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 13:01:03,787 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:01:03,789 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 13:01:05,082 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.0.103:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 177
+2013-06-15 13:01:05,105 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:01:05,106 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+[Header]2013-06-15 13:01:25,249 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 13:01:25,635 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:01:25,637 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 13:01:25,697 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 13:01:25,719 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:01:25,803 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 813
+2013-06-15 13:01:25,809 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 13:01:25,813 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 13:01:25,817 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 13:01:25,968 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 13:01:25,973 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:01:25,974 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:01:25,975 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 13:01:25,976 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 13:01:26,015 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 548
+2013-06-15 13:01:26,023 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 13:01:26,028 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 13:01:30,981 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:1
+[Header]2013-06-15 13:01:49,447 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 13:01:49,879 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:01:49,881 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 13:01:49,895 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 13:01:49,914 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:01:49,916 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:01:49,917 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 13:01:49,918 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 13:01:49,925 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-15 13:01:49,941 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:01:49,943 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:01:49,963 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+2013-06-15 13:01:49,966 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 13:01:49,967 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 13:01:50,020 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,024 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,061 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,064 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,065 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,114 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,116 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,126 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,128 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,130 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,131 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,134 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,136 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,138 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,139 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,141 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,142 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,143 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,145 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,150 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,152 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:01:50,153 [25] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,153 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
+2013-06-15 13:01:50,190 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,227 [23] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,279 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,314 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,361 [24] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,401 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,444 [22] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,495 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,531 [21] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,567 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,607 [19] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,649 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,690 [20] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,728 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,774 [18] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,890 [16] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,930 [17] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:01:50,982 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+[Header]2013-06-15 13:05:08,360 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 13:05:08,767 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:05:08,768 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 13:05:08,784 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 13:05:08,801 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:05:08,803 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:05:08,804 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 13:05:08,806 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 13:05:08,808 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-15 13:05:08,826 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:05:08,827 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:05:08,842 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+2013-06-15 13:05:08,848 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 13:05:08,849 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 13:05:08,857 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:05:08,887 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:05:08,888 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:05:08,971 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:05:09,022 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:05:09,048 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
+2013-06-15 13:05:09,048 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:05:09,092 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:05:09,134 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+[Header]2013-06-15 13:06:00,790 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 13:06:01,194 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:06:01,196 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 13:06:01,214 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 13:06:01,231 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:06:01,232 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:06:01,233 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 13:06:01,233 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 13:06:01,239 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-15 13:06:01,258 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:06:01,260 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:06:01,268 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+2013-06-15 13:06:01,285 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 13:06:01,286 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 13:06:01,290 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:06:01,293 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:06:01,309 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:06:01,331 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:06:01,341 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:06:01,372 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:06:01,430 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
+2013-06-15 13:06:01,430 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:06:01,434 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:06:01,471 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:06:01,529 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:06:01,574 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:06:01,613 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+[Header]2013-06-15 13:07:25,345 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 13:07:25,747 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:07:25,749 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 13:07:25,775 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 13:07:25,802 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:07:25,803 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:07:25,810 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 13:07:25,811 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 13:07:25,812 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-15 13:07:25,838 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:07:25,839 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:07:25,877 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+2013-06-15 13:07:25,879 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 13:07:25,880 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 13:07:25,938 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:07:25,983 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:07:26,060 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:07:26,100 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
+2013-06-15 13:07:26,122 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:08:25,948 [2658] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-15 13:08:25,950 [2658] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-15 13:09:25,999 [2658] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-15 13:09:26,000 [2658] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-15 13:10:25,948 [2658] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-15 13:10:26,029 [2658] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]数据库查询异常，查看数据库配置是否正确:System.Data.OleDb.OleDbException: 'D:\workspace\sunmit\svn\RenewEDSenderM\database\hisdb.mdb'不是一个有效的路径。 确定路径名称拼写是否正确，以及是否连接到文件存放的服务器。
+   在 System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   在 System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OleDb.OleDbConnection.Open()
+   在 RenewEDSenderM.DbManager.AccessData.ExecuteDataRow(String cmdText, String connString, OleDbParameter[] pa) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\DbManager\AccessData.cs:行号 320
+   在 RenewEDSenderM.DbManager.DataDump.CalculateAverage(DateTime FixedTime, TimeSpan FixedCycleT) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\DbManager\AccessData.cs:行号 682
+2013-06-15 13:10:26,030 [2146] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-15 13:10:26,031 [2658] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001057:Report Process: No data fetched from the database!
+2013-06-15 13:10:26,041 [2146] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+[Header]2013-06-15 13:42:56,220 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 13:42:57,149 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:42:57,152 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 13:42:57,503 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 13:42:57,573 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:43:00,329 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 813
+2013-06-15 13:43:00,349 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
+2013-06-15 13:43:00,366 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 13:43:00,374 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 13:43:00,548 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 13:43:00,564 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:43:00,565 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:43:00,566 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 13:43:00,567 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 13:43:00,663 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 548
+2013-06-15 13:43:00,670 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-15 13:43:00,689 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-15 13:43:05,584 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:1
+2013-06-15 13:43:10,583 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:2
+2013-06-15 13:43:15,592 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:3
+2013-06-15 13:43:20,598 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:4
+[Header]2013-06-15 13:43:39,123 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 13:43:39,964 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:43:39,966 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 13:43:40,975 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.0.102:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 177
+2013-06-15 13:43:40,998 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:43:41,000 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 13:44:12,007 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.0.102:13145
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 177
+2013-06-15 13:44:12,031 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:44:12,032 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+[Header]2013-06-15 13:44:19,956 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-15 13:44:20,792 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-15 13:44:20,794 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-15 13:44:20,825 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-15 13:44:20,881 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:44:20,886 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:44:20,888 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-15 13:44:20,889 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-15 13:44:20,931 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-15 13:44:20,952 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-15 13:44:20,953 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-15 13:44:21,026 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+2013-06-15 13:44:21,078 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:44:21,080 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-15 13:44:21,081 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-15 13:44:21,152 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:44:21,194 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:44:21,275 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:44:21,301 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-15 13:44:21,324 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
+2013-06-15 13:44:21,325 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:44:21,378 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-15 13:44:21,423 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
