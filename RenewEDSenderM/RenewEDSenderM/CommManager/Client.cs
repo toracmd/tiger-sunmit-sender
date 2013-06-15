@@ -179,74 +179,74 @@ namespace RenewEDSenderM.CommManager
                     // m_tryTimes清零 20130530
                     m_tryTimes = 0;
                     m_TryFirtst10Fail = true;
-                    // 创建失败数据重传线程
-                    if (m_isCreatThread == false)
-                    {
-                        Thread oThread = new Thread(new ThreadStart(ControlRereport));
-                        //Thread oThread = new Thread(new ThreadStart(Rereport));
-                        if (oThread != null)
-                        {
-                            m_isCreatThread = true;
-                            try
-                            {
-                                oThread.Start();
-                            }
-                            catch (ThreadStateException te)
-                            {
-                                LogManager.Logger.WriteWarnLog("001007:Fail to create Retransmission process:{0}", te);
-                                continue;
-                            }
-                            catch (OutOfMemoryException oe)
-                            {
-                                LogManager.Logger.WriteWarnLog("001008:Fail to create Retransmission process:{0}", oe);
-                                continue;
-                            }
-                            LogManager.Logger.WriteInfoLog("001009:Retransmission process is created!");
-                        }
-                        else
-                        {
-                            LogManager.Logger.WriteWarnLog("001010:Fail to create Retransmission process! null pointer");
-                            continue;
-                        }
-                    }
+                    //// 创建失败数据重传线程
+                    //if (m_isCreatThread == false)
+                    //{
+                    //    Thread oThread = new Thread(new ThreadStart(ControlRereport));
+                    //    //Thread oThread = new Thread(new ThreadStart(Rereport));
+                    //    if (oThread != null)
+                    //    {
+                    //        m_isCreatThread = true;
+                    //        try
+                    //        {
+                    //            oThread.Start();
+                    //        }
+                    //        catch (ThreadStateException te)
+                    //        {
+                    //            LogManager.Logger.WriteWarnLog("001007:Fail to create Retransmission process:{0}", te);
+                    //            continue;
+                    //        }
+                    //        catch (OutOfMemoryException oe)
+                    //        {
+                    //            LogManager.Logger.WriteWarnLog("001008:Fail to create Retransmission process:{0}", oe);
+                    //            continue;
+                    //        }
+                    //        LogManager.Logger.WriteInfoLog("001009:Retransmission process is created!");
+                    //    }
+                    //    else
+                    //    {
+                    //        LogManager.Logger.WriteWarnLog("001010:Fail to create Retransmission process! null pointer");
+                    //        continue;
+                    //    }
+                    //}
 
-                    // 创建定时上传Timer
-                    try
-                    {
-                        // 首次创建后即可
-                        if (m_isCreatReport == false)
-                        {
-                            System.Timers.Timer reportTimer = new System.Timers.Timer();
-                            if (reportTimer != null)
-                            {
-                                reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
-                                reportTimer.Interval = Convert.ToInt32(m_config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
-                                reportTimer.Enabled = true;
-                                m_isCreatReport = true;
-                                LogManager.Logger.WriteInfoLog("001011:Timer of fixed timing Report is created!");
-                            }
-                            else
-                            {
-                                LogManager.Logger.WriteInfoLog("001012:Fail to create timer of fixed timing Report! null pointer");
-                                continue;
-                            }
-                        }
-                    }
-                    catch (ArgumentException e)
-                    {
-                        LogManager.Logger.WriteWarnLog("001013:Fail to create timer of report! ArgumentException:{0}", e);
-                        continue;
-                    }
-                    catch (ObjectDisposedException e)
-                    {
-                        LogManager.Logger.WriteWarnLog("001014:Fail to create timer of report! ObjectDisposedException:{0}", e);
-                        continue;
-                    }
-                    catch (Exception e)
-                    {
-                        LogManager.Logger.WriteWarnLog("001015:Fail to create timer of report! Exception:{0}", e);
-                        continue;
-                    }
+                    //// 创建定时上传Timer
+                    //try
+                    //{
+                    //    // 首次创建后即可
+                    //    if (m_isCreatReport == false)
+                    //    {
+                    //        System.Timers.Timer reportTimer = new System.Timers.Timer();
+                    //        if (reportTimer != null)
+                    //        {
+                    //            reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
+                    //            reportTimer.Interval = Convert.ToInt32(m_config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
+                    //            reportTimer.Enabled = true;
+                    //            m_isCreatReport = true;
+                    //            LogManager.Logger.WriteInfoLog("001011:Timer of fixed timing Report is created!");
+                    //        }
+                    //        else
+                    //        {
+                    //            LogManager.Logger.WriteInfoLog("001012:Fail to create timer of fixed timing Report! null pointer");
+                    //            continue;
+                    //        }
+                    //    }
+                    //}
+                    //catch (ArgumentException e)
+                    //{
+                    //    LogManager.Logger.WriteWarnLog("001013:Fail to create timer of report! ArgumentException:{0}", e);
+                    //    continue;
+                    //}
+                    //catch (ObjectDisposedException e)
+                    //{
+                    //    LogManager.Logger.WriteWarnLog("001014:Fail to create timer of report! ObjectDisposedException:{0}", e);
+                    //    continue;
+                    //}
+                    //catch (Exception e)
+                    //{
+                    //    LogManager.Logger.WriteWarnLog("001015:Fail to create timer of report! Exception:{0}", e);
+                    //    continue;
+                    //}
                     // 开始收发交互
                     while (true)
                     {
@@ -256,12 +256,85 @@ namespace RenewEDSenderM.CommManager
                             // 清零20130530
                             m_tryTimes = 0;
                             m_TryFirtst10Fail = true;
+
+                            //>>>>
+                            // 创建失败数据重传线程
+                            if (m_isCreatThread == false)
+                            {
+                                Thread oThread = new Thread(new ThreadStart(ControlRereport));
+                                //Thread oThread = new Thread(new ThreadStart(Rereport));
+                                if (oThread != null)
+                                {
+                                    m_isCreatThread = true;
+                                    try
+                                    {
+                                        oThread.Start();
+                                    }
+                                    catch (ThreadStateException te)
+                                    {
+                                        LogManager.Logger.WriteWarnLog("001007:Fail to create Retransmission process:{0}", te);
+                                        continue;
+                                    }
+                                    catch (OutOfMemoryException oe)
+                                    {
+                                        LogManager.Logger.WriteWarnLog("001008:Fail to create Retransmission process:{0}", oe);
+                                        continue;
+                                    }
+                                    LogManager.Logger.WriteInfoLog("001009:Retransmission process is created!");
+                                }
+                                else
+                                {
+                                    LogManager.Logger.WriteWarnLog("001010:Fail to create Retransmission process! null pointer");
+                                    continue;
+                                }
+                            }
+
+                            // 创建定时上传Timer
+                            try
+                            {
+                                // 首次创建后即可
+                                if (m_isCreatReport == false)
+                                {
+                                    System.Timers.Timer reportTimer = new System.Timers.Timer();
+                                    if (reportTimer != null)
+                                    {
+                                        reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
+                                        reportTimer.Interval = Convert.ToInt32(m_config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
+                                        reportTimer.Enabled = true;
+                                        m_isCreatReport = true;
+                                        LogManager.Logger.WriteInfoLog("001011:Timer of fixed timing Report is created!");
+                                    }
+                                    else
+                                    {
+                                        LogManager.Logger.WriteInfoLog("001012:Fail to create timer of fixed timing Report! null pointer");
+                                        continue;
+                                    }
+                                }
+                            }
+                            catch (ArgumentException e)
+                            {
+                                LogManager.Logger.WriteWarnLog("001013:Fail to create timer of report! ArgumentException:{0}", e);
+                                continue;
+                            }
+                            catch (ObjectDisposedException e)
+                            {
+                                LogManager.Logger.WriteWarnLog("001014:Fail to create timer of report! ObjectDisposedException:{0}", e);
+                                continue;
+                            }
+                            catch (Exception e)
+                            {
+                                LogManager.Logger.WriteWarnLog("001015:Fail to create timer of report! Exception:{0}", e);
+                                continue;
+                            }
+                            //<<<<
+
                             // 认证成功
                             SendCommunication();//如果认证成功，则进行发送数据，包括心跳数据包等，如果连接失败，则从send状态跳出，重新进行认证
                         }
 
                         // 认证失败后重新连接
                         m_isConnected = false;
+						m_isPassAuthentication = false;
                         // 重连时更新失败重传线程状态
                         m_isHasFailedData = true;
                         //初始化各种参数，避免错误
@@ -470,6 +543,7 @@ namespace RenewEDSenderM.CommManager
                     if (try_count >= Convert.ToInt32(m_config.times))
                     {
                         LogManager.Logger.WriteWarnLog("001033:Try 5 times to wait sequence,Time Out!");
+						checkTimer.Enabled = false;
                         try_count = 0;
                         return false;
                     }
@@ -528,7 +602,8 @@ namespace RenewEDSenderM.CommManager
                 {
                     if (try_count >= Convert.ToInt32(m_config.times))
                     {
-                        LogManager.Logger.WriteWarnLog("001037:Try 5 times to wait authentication result,Time Out!");
+                        LogManager.Logger.WriteWarnLog("001037:Try 5 times to wait authentication result,Time Out!");	
+						checkTimer.Enabled = false;
                         try_count = 0;
                         return false;
                     }
@@ -1086,38 +1161,41 @@ namespace RenewEDSenderM.CommManager
 
             while (true)
             {
-                Thread oThread = new Thread(new ThreadStart(Rereport));
-                //如果线程建立成功，且有失败数据则开始数据重传
-                 if (oThread != null && m_isHasFailedData)
-                 {
-                    m_isCreatThread = true;
-                    try
-                    {
-                       oThread.Start();
-                     }
-                     catch (ThreadStateException te)
-                     {
-                        LogManager.Logger.WriteWarnLog("001007:Fail to create Retransmission process:{0}", te);
-                        continue;
-                      }
-                      catch (OutOfMemoryException oe)
-                      {
-                        LogManager.Logger.WriteWarnLog("001008:Fail to create Retransmission process:{0}", oe);
-                        continue;
-                       }
-                       LogManager.Logger.WriteInfoLog("001009:Retransmission process is created!");
-                   }
-                 else if (oThread == null)
-                 {
-                    LogManager.Logger.WriteWarnLog("001010:Fail to create Retransmission process! null pointer");
-                    continue;
-                 }
-                 else if(oThread.IsAlive) //如果没有失败数据则关闭失败重传线程
-                 {
-                     oThread.Abort();
-                     oThread.Join();
-                 }
-
+				if (m_isConnected && m_isPassAuthentication)
+				{
+                	Thread oThread = new Thread(new ThreadStart(Rereport));
+                	//如果线程建立成功，且有失败数据则开始数据重传
+                 	if (oThread != null && m_isHasFailedData)
+                 	{
+                    		m_isCreatThread = true;
+                    		try
+                    		{
+                       			oThread.Start();
+                     		}
+                     		catch (ThreadStateException te)
+                     		{
+                        		LogManager.Logger.WriteWarnLog("001007:Fail to create Retransmission process:{0}", te);
+                        		continue;
+                      		}
+                      		catch (OutOfMemoryException oe)
+                      		{
+                        		LogManager.Logger.WriteWarnLog("001008:Fail to create Retransmission process:{0}", oe);
+                        		continue;
+                       		}
+                       		LogManager.Logger.WriteInfoLog("001009:Retransmission process is created!");
+                   	}
+                 	else if (oThread == null)
+                 	{
+                    		LogManager.Logger.WriteWarnLog("001010:Fail to create Retransmission process! null pointer");
+                    		continue;
+                 	}
+                 	else if(oThread.IsAlive) //如果没有失败数据则关闭失败重传线程
+                 	{
+                     		oThread.Abort();
+                     		oThread.Join();
+                 	}
+	            }
+                Sleep(20);
             }
         }
         /// <summary>
