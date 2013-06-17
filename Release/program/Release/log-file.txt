@@ -1137,68 +1137,407 @@
 2013-06-15 13:10:26,030 [2146] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
 2013-06-15 13:10:26,031 [2658] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001057:Report Process: No data fetched from the database!
 2013-06-15 13:10:26,041 [2146] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
-[Header]2013-06-15 13:42:56,220 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
-2013-06-15 13:42:57,149 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-15 13:42:57,152 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-15 13:42:57,503 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
-2013-06-15 13:42:57,573 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-15 13:43:00,329 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][SendMsgB]001050:Fail to send message to server:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
-   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-   在 System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
-   在 RenewEDSenderM.CommManager.Client.SendMsgB(Byte[] sendByte) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 813
-2013-06-15 13:43:00,349 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001029:Fail to send request about authentication!
-2013-06-15 13:43:00,366 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
-2013-06-15 13:43:00,374 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
-2013-06-15 13:43:00,548 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
-2013-06-15 13:43:00,564 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-15 13:43:00,565 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-15 13:43:00,566 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
-2013-06-15 13:43:00,567 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
-2013-06-15 13:43:00,663 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001044:Fail to create timer of report! Exception:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+[Header]2013-06-17 10:18:06,442 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-17 10:18:06,846 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-17 10:18:06,847 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+[Header]2013-06-17 10:35:08,696 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-17 10:35:09,106 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-17 10:35:09,108 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-17 10:35:09,235 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-17 10:35:09,254 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 10:35:09,416 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 10:35:09,417 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-17 10:35:09,418 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-17 10:35:09,484 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-17 10:35:09,524 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 10:35:09,526 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 10:35:09,611 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001042:Fail to create timer of report! ArgumentException:System.ArgumentOutOfRangeException: 索引和长度必须引用该字符串内的位置。
+参数名: length
+   在 System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 647
+2013-06-17 10:35:09,649 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-17 10:35:09,681 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+2013-06-17 10:35:09,736 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-17 10:35:09,741 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 10:35:09,743 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 10:35:09,746 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-17 10:35:09,747 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-17 10:35:09,810 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-17 10:35:09,815 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 10:35:09,817 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 10:35:09,888 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001042:Fail to create timer of report! ArgumentException:System.ArgumentOutOfRangeException: 索引和长度必须引用该字符串内的位置。
+参数名: length
+   在 System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 647
+2013-06-17 10:35:09,895 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
+2013-06-17 10:35:09,901 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
+[Header]2013-06-17 11:46:24,886 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-17 11:46:25,371 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-17 11:46:25,373 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-17 11:46:25,453 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-17 11:46:25,476 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 11:46:25,557 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 11:46:25,558 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-17 11:46:25,558 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-17 11:46:26,092 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-17 11:46:26,112 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 11:46:26,113 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 11:46:26,716 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001073: Fail to SetLocalTime, There's no information system setting time
+2013-06-17 11:46:26,717 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+2013-06-17 11:46:26,719 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-17 11:46:26,721 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-17 11:46:26,727 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:26,783 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:26,805 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:26,826 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:26,847 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:26,868 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:26,891 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:26,913 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:26,938 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:26,962 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:26,985 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,007 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,016 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,030 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,147 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,168 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,231 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,294 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,315 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,337 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,380 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,412 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,433 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,454 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,476 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,526 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 11:46:27,528 [30] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,532 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
+2013-06-17 11:46:27,564 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,599 [28] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,634 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,671 [26] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,708 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,747 [29] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,783 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,821 [24] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,857 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,895 [27] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,933 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:27,975 [23] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:28,016 [16] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:28,053 [25] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:28,090 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:28,128 [22] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:28,165 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:28,203 [21] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:28,240 [18] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:28,278 [20] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:28,316 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:28,354 [19] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 11:46:28,393 [17] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+[Header]2013-06-17 17:20:01,287 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-17 17:20:01,989 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-17 17:20:01,991 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-17 17:20:02,067 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-17 17:20:02,082 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 17:20:02,200 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 17:20:02,201 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-17 17:20:02,202 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-17 17:20:02,273 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-17 17:20:02,442 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 17:20:02,443 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 17:20:02,519 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001073: Fail to SetLocalTime, There's no information system setting time
+2013-06-17 17:20:02,520 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+2013-06-17 17:20:02,522 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-17 17:20:02,523 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-17 17:20:02,529 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:20:02,604 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:20:02,608 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:20:02,641 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:20:02,664 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:20:02,681 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
+2013-06-17 17:20:02,681 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:20:02,691 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:20:02,720 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:20:02,755 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:20:02,790 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:21:02,593 [2965] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:21:02,595 [2965] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:22:02,694 [2965] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:22:02,698 [2965] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:23:02,539 [2965] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:23:02,670 [2965] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]数据库查询异常，查看数据库配置是否正确:System.Data.OleDb.OleDbException: 'D:\workspace\sunmit\svn\RenewEDSenderM\database\hisdb.mdb'不是一个有效的路径。 确定路径名称拼写是否正确，以及是否连接到文件存放的服务器。
+   在 System.Data.OleDb.OleDbConnectionInternal..ctor(OleDbConnectionString constr, OleDbConnection connection)
+   在 System.Data.OleDb.OleDbConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreateNonPooledConnection(DbConnection owningConnection, DbConnectionPoolGroup poolGroup)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OleDb.OleDbConnection.Open()
+   在 RenewEDSenderM.DbManager.AccessData.ExecuteDataRow(String cmdText, String connString, OleDbParameter[] pa) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\DbManager\AccessData.cs:行号 320
+   在 RenewEDSenderM.DbManager.DataDump.CalculateAverage(DateTime FixedTime, TimeSpan FixedCycleT) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\DbManager\AccessData.cs:行号 682
+2013-06-17 17:23:02,672 [2965] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001057:Report Process: No data fetched from the database!
+2013-06-17 17:23:02,957 [2965] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:23:02,958 [2965] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:24:03,190 [2965] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:24:03,192 [2965] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+[Footer][Header][Footer][Header]2013-06-17 17:25:10,226 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
+2013-06-17 17:25:10,708 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-17 17:25:10,710 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-17 17:25:10,835 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-17 17:25:10,856 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 17:25:10,858 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 17:25:10,860 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-17 17:25:10,864 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-17 17:25:10,977 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-17 17:25:11,002 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 17:25:11,003 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 17:25:11,083 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001073: Fail to SetLocalTime, There's no information system setting time
+2013-06-17 17:25:11,084 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+2013-06-17 17:25:11,087 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
+2013-06-17 17:25:11,089 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
+2013-06-17 17:25:11,094 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,122 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:11,122 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,144 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,167 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,198 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,220 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,254 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,277 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,298 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,330 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,353 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,416 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,437 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,458 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,480 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,502 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,523 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,544 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,565 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,813 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,835 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,859 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,883 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,904 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:25:11,907 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:11,908 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
+2013-06-17 17:25:11,908 [29] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:11,953 [29] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:11,954 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,004 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,007 [27] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,055 [27] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,057 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,099 [10] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,100 [25] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,141 [25] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,142 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,184 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,185 [28] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,229 [28] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,230 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,275 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,277 [26] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,323 [26] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,324 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,367 [11] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,368 [21] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,409 [21] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,410 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,452 [12] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,453 [24] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,495 [24] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,496 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,538 [13] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,540 [22] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,585 [22] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,586 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,627 [15] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,628 [20] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,669 [20] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,670 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,714 [14] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,715 [18] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,756 [18] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,758 [16] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,803 [16] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,804 [23] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,846 [23] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,848 [17] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,899 [17] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:25:12,901 [19] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:25:12,954 [19] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:26:11,098 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:26:11,100 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:27:27,474 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:27:27,476 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:28:11,167 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:28:11,498 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 9737.90697674419'
+2013-06-17 17:28:11,500 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:28:11,594 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 973.790719276251'
+2013-06-17 17:28:11,595 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:28:11,670 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 973.790719276251'
+2013-06-17 17:28:11,671 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:28:11,767 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:28:11,768 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:28:11,841 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:28:11,842 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:28:11,929 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:28:11,930 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020301:成功读取到采集数据
+2013-06-17 17:28:11,933 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020302:计算出4个指标值：System.Single[]
+2013-06-17 17:28:11,939 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001049:Send Message
+2013-06-17 17:28:11,941 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001051:Message is sent!
+2013-06-17 17:28:11,968 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][WriteToHisDb]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:28:12,082 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][update_Upload]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:28:12,153 [2788] INFO  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001059:The report is sent!
+2013-06-17 17:28:27,684 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:28:27,686 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:29:27,766 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:29:27,768 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:29:29,713 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
    在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
    在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
-   在 RenewEDSenderM.CommManager.Client.Authentication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 548
-2013-06-15 13:43:00,670 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Closing Used Link....
-2013-06-15 13:43:00,689 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]Connect again....
-2013-06-15 13:43:05,584 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:1
-2013-06-15 13:43:10,583 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:2
-2013-06-15 13:43:15,592 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:3
-2013-06-15 13:43:20,598 [5] WARN  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001054:Try Times:4
-[Header]2013-06-15 13:43:39,123 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
-2013-06-15 13:43:39,964 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-15 13:43:39,966 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-15 13:43:40,975 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.0.102:13145
+   在 RenewEDSenderM.CommManager.Client.SendCommunication() 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 751
+   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 332
+2013-06-17 17:29:29,891 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-17 17:29:29,892 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-17 17:29:31,078 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 221.226.0.186:7016
    在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
    在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
    在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 177
-2013-06-15 13:43:40,998 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-15 13:43:41,000 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-15 13:44:12,007 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001022:Fail on SocketException:System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.0.102:13145
-   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
-   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
-   在 RenewEDSenderM.CommManager.Client.Main(String[] args) 位置 D:\tiger-sunmit-sender\RenewEDSenderM\RenewEDSenderM\CommManager\Client.cs:行号 177
-2013-06-15 13:44:12,031 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-15 13:44:12,032 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-[Header]2013-06-15 13:44:19,956 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]Function Enterd...()
-2013-06-15 13:44:20,792 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
-2013-06-15 13:44:20,794 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
-2013-06-15 13:44:20,825 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
-2013-06-15 13:44:20,881 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-15 13:44:20,886 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-15 13:44:20,888 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
-2013-06-15 13:44:20,889 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
-2013-06-15 13:44:20,931 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
-2013-06-15 13:44:20,952 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
-2013-06-15 13:44:20,953 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
-2013-06-15 13:44:21,026 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
-2013-06-15 13:44:21,078 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 13:44:21,080 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001009:Retransmission process is created!
-2013-06-15 13:44:21,081 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001011:Timer of fixed timing Report is created!
-2013-06-15 13:44:21,152 [6] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-15 13:44:21,194 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 13:44:21,275 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 13:44:21,301 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
-2013-06-15 13:44:21,324 [6] WARN  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001068:未取到失败须重传数据01/01/1900 01:01:01-01/01/3000 01:01:01
-2013-06-15 13:44:21,325 [9] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-15 13:44:21,378 [7] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
-2013-06-15 13:44:21,423 [8] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/workspace/sunmit/svn/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:29:31,122 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001003:Complete reading the configuration!
+2013-06-17 17:29:31,124 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.LogManager.Logger][getMethodFromStack]001005:Connect...
+2013-06-17 17:30:01,189 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001026:Begin to request the authentication...
+2013-06-17 17:30:01,197 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 17:30:01,199 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 17:30:01,200 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001030:Success to send request about authentication
+2013-06-17 17:30:01,201 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001032:Timer of fixed timing Check is created!
+2013-06-17 17:30:01,276 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001034:Success to receive the response about authentication
+2013-06-17 17:30:01,281 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001049:Send Message
+2013-06-17 17:30:01,282 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Authentication]001051:Message is sent!
+2013-06-17 17:30:01,374 [1] WARN  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001073: Fail to SetLocalTime, There's no information system setting time
+2013-06-17 17:30:01,375 [1] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][Main]001039:Authentication process is successful!
+2013-06-17 17:30:01,385 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:30:01,386 [532] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:30:01,407 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:30:01,429 [532] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:30:01,431 [531] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:30:01,433 [5] INFO  AppSender.Logging - [:0,0,[System.Threading.ThreadHelper][ThreadStart_Context]001009:Retransmission process is created!
+2013-06-17 17:30:01,472 [531] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:30:01,473 [530] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:30:01,516 [530] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][FetchDataFail]002102: Fail to read data, params is :' System.Data.OleDb.OleDbParameter[]'
+2013-06-17 17:30:27,779 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:30:27,781 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:31:11,102 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:31:11,199 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 9737.90697674419'
+2013-06-17 17:31:11,200 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:31:11,274 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 973.790719276251'
+2013-06-17 17:31:11,275 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:31:11,350 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 973.790719276251'
+2013-06-17 17:31:11,351 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:31:11,423 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:31:11,424 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:31:11,498 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:31:11,499 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:31:11,572 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:31:11,573 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020301:成功读取到采集数据
+2013-06-17 17:31:11,574 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020302:计算出4个指标值：System.Single[]
+2013-06-17 17:31:11,576 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001049:Send Message
+2013-06-17 17:31:11,577 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001051:Message is sent!
+2013-06-17 17:31:11,581 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][WriteToHisDb]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:31:11,624 [2788] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][update_Upload]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:31:11,669 [2788] INFO  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001059:The report is sent!
+2013-06-17 17:31:27,792 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:31:27,794 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:31:27,854 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:31:27,855 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:32:27,806 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:32:27,808 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:33:27,819 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:33:27,820 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:33:27,881 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:33:27,883 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:34:11,112 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:34:11,194 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 9737.90697674419'
+2013-06-17 17:34:11,195 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:34:11,283 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 973.790719276251'
+2013-06-17 17:34:11,284 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:34:11,358 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 973.790719276251'
+2013-06-17 17:34:11,359 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:34:11,432 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:34:11,433 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:34:11,506 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:34:11,507 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:34:11,583 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:34:11,584 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020301:成功读取到采集数据
+2013-06-17 17:34:11,586 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020302:计算出4个指标值：System.Single[]
+2013-06-17 17:34:11,587 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001049:Send Message
+2013-06-17 17:34:11,588 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001051:Message is sent!
+2013-06-17 17:34:11,593 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][WriteToHisDb]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:34:11,635 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][update_Upload]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:34:11,677 [2017] INFO  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001059:The report is sent!
+2013-06-17 17:34:27,831 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:34:27,833 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:34:27,972 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:34:27,973 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:35:27,848 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:35:27,849 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:36:27,860 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:36:27,862 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:36:27,922 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:36:27,924 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:37:11,122 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:37:11,222 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 9737.90697674419'
+2013-06-17 17:37:11,223 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:37:11,306 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 973.790719276251'
+2013-06-17 17:37:11,307 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:37:11,381 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 973.790719276251'
+2013-06-17 17:37:11,382 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:37:11,456 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:37:11,457 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:37:11,551 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:37:11,553 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:37:11,660 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:37:11,661 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020301:成功读取到采集数据
+2013-06-17 17:37:11,662 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020302:计算出4个指标值：System.Single[]
+2013-06-17 17:37:11,663 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001049:Send Message
+2013-06-17 17:37:11,665 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001051:Message is sent!
+2013-06-17 17:37:11,670 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][WriteToHisDb]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:37:11,714 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][update_Upload]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:37:11,756 [2017] INFO  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001059:The report is sent!
+2013-06-17 17:37:27,875 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:37:27,876 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:38:27,887 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:38:27,889 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:39:27,901 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:39:27,903 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:39:27,963 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:39:27,965 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:40:11,134 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:40:11,250 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 9737.90697674419'
+2013-06-17 17:40:11,251 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:40:11,334 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 973.790719276251'
+2013-06-17 17:40:11,335 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:40:11,412 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' 973.790719276251'
+2013-06-17 17:40:11,413 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:40:11,489 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:40:11,490 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:40:11,566 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:40:11,567 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/hisdb.mdb;'
+2013-06-17 17:40:11,640 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][CalculateAverage]002101: success to read data :' '
+2013-06-17 17:40:11,641 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020301:成功读取到采集数据
+2013-06-17 17:40:11,641 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]0020302:计算出4个指标值：System.Single[]
+2013-06-17 17:40:11,644 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001049:Send Message
+2013-06-17 17:40:11,644 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][ReportEvent]001051:Message is sent!
+2013-06-17 17:40:11,650 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][WriteToHisDb]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:40:11,691 [2017] DEBUG AppSender.Logging - [:0,0,[RenewEDSenderM.DbManager.DataDump][update_Upload]002103: the next step is open the data: 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:/tiger-sunmit-sender/RenewEDSenderM/database/info.mdb;'
+2013-06-17 17:40:11,732 [2017] INFO  AppSender.Logging - [:0,0,[System.Timers.Timer][MyTimerCallback]001059:The report is sent!
+2013-06-17 17:40:27,914 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:40:27,915 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:41:27,927 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:41:27,929 [2788] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
+2013-06-17 17:41:27,990 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001049:Send Message
+2013-06-17 17:41:27,992 [2017] INFO  AppSender.Logging - [:0,0,[RenewEDSenderM.CommManager.Client][HeartbeatNotifyEvent]001051:Message is sent!
