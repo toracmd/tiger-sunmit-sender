@@ -643,21 +643,28 @@ namespace RenewEDSenderM.CommManager
 				    {
                         LogManager.Logger.WriteWarnLog("001038:{0}", mqex);
 				    }
-				    SystemTime systNew = new SystemTime();
-                    string years = order.time.Substring(0,4);
-                    string months = order.time.Substring(4, 2);
-                    string days = order.time.Substring(6,2);
-                    string hours = order.time.Substring(8, 2);
-                    string minutes = order.time.Substring(10, 2);
-                    string seconds = order.time.Substring(12, 2);
-                    systNew.wDay = short.Parse(days);
-                    systNew.wMonth = short.Parse(months);
-                    systNew.wYear = short.Parse(years);
-                    systNew.wHour = short.Parse(hours);
-                    systNew.wMinute = short.Parse(minutes);
-                    systNew.wSecond = short.Parse(seconds);
-                    // 认证成功后进行系统授时
-                    SetLocalTime(ref systNew);
+                    if (order.time.Length == 14)
+                    {
+                        SystemTime systNew = new SystemTime();
+                        string years = order.time.Substring(0, 4);
+                        string months = order.time.Substring(4, 2);
+                        string days = order.time.Substring(6, 2);
+                        string hours = order.time.Substring(8, 2);
+                        string minutes = order.time.Substring(10, 2);
+                        string seconds = order.time.Substring(12, 2);
+                        systNew.wDay = short.Parse(days);
+                        systNew.wMonth = short.Parse(months);
+                        systNew.wYear = short.Parse(years);
+                        systNew.wHour = short.Parse(hours);
+                        systNew.wMinute = short.Parse(minutes);
+                        systNew.wSecond = short.Parse(seconds);
+                        // 认证成功后进行系统授时
+                        SetLocalTime(ref systNew);
+                    }
+                    else
+                    {
+                        LogManager.Logger.WriteWarnLog("001073: Fail to SetLocalTime, There's no information system setting time");
+                    }
                     LogManager.Logger.WriteInfoLog("001039:Authentication process is successful!");
                     return true;
                 }
@@ -814,7 +821,7 @@ namespace RenewEDSenderM.CommManager
             int sendLength;
             try
             {
-                sendLength = m_socket.Send(sendByte, sendByte.Length, 0);//发送信息
+                sendLength = m_socket.Send(sendByte, sendByte.Length, SocketFlags.None);//发送信息
             }
             catch (Exception e)
             {
