@@ -1,3 +1,6 @@
+0、启动
+双击 “光伏发电可再生能源发送系统” 即可
+
 1、数据库配置
 文本打开文件：RenewEDSenderM.exe.config
 <add key="CONN_HISDB" value="D:/workspace/sunmit/svn/RenewEDSenderM/database/hisdb.mdb;"/>
