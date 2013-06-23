@@ -1006,7 +1006,7 @@ namespace RenewEDSenderWin
 
         private void txtBoxGateId_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AllowNumInput(sender, e);
+            AllowNumChInput(sender, e);
         }
 
         private void txtBoxPort_KeyPress(object sender, KeyPressEventArgs e)

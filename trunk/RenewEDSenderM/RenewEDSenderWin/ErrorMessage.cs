@@ -37,7 +37,7 @@ namespace RenewEDSenderWin
         /// <summary>
         /// 项目编码
         /// </summary>
-        public static readonly string REGEX_PROJECT_CODE = @"^[0-9]{3}$";
+        public static readonly string REGEX_PROJECT_CODE = @"^[0-9a-zA-Z]{3}$";
 
         /// <summary>
         /// 计数类型编码
