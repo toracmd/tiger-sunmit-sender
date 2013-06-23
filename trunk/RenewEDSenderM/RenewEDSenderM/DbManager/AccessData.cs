@@ -326,10 +326,11 @@ namespace RenewEDSenderM.DbManager
                 {
                     cmd.Parameters.AddRange(pa);
                 }
+                LogManager.Logger.WriteDebugLog("002105: Parameters:{0}", cmd.Parameters);
                 //create the DataAdapter &amp; DataSet
                 OleDbDataAdapter da = new OleDbDataAdapter(cmd);
                 DataSet myDS = new DataSet();
-
+                
                 da.Fill(myDS);
                 conn.Close();////////////////////
                 if (myDS.Tables[0].Rows.Count != 0)
@@ -544,12 +545,13 @@ namespace RenewEDSenderM.DbManager
         public static void Test()
         {
             int i = 1;
+            //AccessData.ExecuteDataRow("select avg(DATA)  from DAY20130623 where VARIANTNAME='气象仪_8' and (HOURF * 60 + MINUTEF) > (21 * 60 + 11) and (HOURF * 60 + MINUTEF) <= (21 * 60 + 17)", AccessData.CONN_STRING1, null);
             switch(i)
             {
                 case 1:
                 //测试计算平均值，并存入采集数据库
-                    DateTime date_send = new DateTime(2013, 4, 28, 19, 0, 0);   //2013-04-28 19:00:00
-                    TimeSpan ts = new TimeSpan(2, 0, 0);    //2小时的间隔
+                    DateTime date_send = DateTime.Now.ToLocalTime(); //2013-04-28 19:00:00
+                    TimeSpan ts = new TimeSpan(0, 6, 0);    //2小时的间隔
                     History_Data hd;
                     Single [] dr = DataDump.CalculateAverage(date_send, ts);
                     DataDump.WriteToHisDb(date_send, dr, out hd);
@@ -609,85 +611,114 @@ namespace RenewEDSenderM.DbManager
             int dt_start_sec = dt_start.Second;
             
             //获取此区间的监测指标值
-            
+            string var1 = " '气象仪_3' ", var2 = " '气象仪_8' ", var3 = " '气象仪_9' ", var4 = " 'nbq11_12' ", var5 = " 'nbq21_12' ", var6 = " 'nbq31_12' ";
+            string sql_criterion_pre = " where VARIANTNAME= ";
+            string sql_criterion_sub = String.Format(" and (HOURF * 60 + MINUTEF) > ({0} * 60 + {1}) and (HOURF * 60 + MINUTEF) <= ({2} * 60 + {3}) ",
+                dt_start_hour, dt_start_min, dt_end_hour, dt_end_min);
+            //string sql_criterion = " where VARIANTNAME=@VARIANTNAME and (HOURF * 60 + MINUTEF) > (@HOURF_L * 60 + @MINUTE_L) and (HOURF * 60 + MINUTEF) <= (@HOURF_H * 60 + @MINUTE_H)";
             string sql_criterion = " where VARIANTNAME=@VARIANTNAME and (HOURF * 60 + MINUTEF) > (@HOURF_L * 60 + @MINUTE_L) and (HOURF * 60 + MINUTEF) <= (@HOURF_H * 60 + @MINUTE_H)";
             //SQL语句 计算平均值
-            string sql = @"select avg(DATA)  from " + tbl_name_collect + sql_criterion;
+            //string sql = @"select avg(DATA)  from " + tbl_name_collect + sql_criterion;
+            //string sql = @"select DATA  from " + tbl_name_collect + sql_criterion;
+            string sql = @"select avg(DATA)  from " + tbl_name_collect;
             //SQL语句 计算发电量
-            string sql2 = @"select Max(DATA)  from " + tbl_name_collect + sql_criterion;
-            //平行于光伏组件的太阳辐照度 总辐射 气象仪_3
-            OleDbParameter[] parameters_1  = {
-                new OleDbParameter("@VARIANTNAME",  "气象仪_3"),
-                new OleDbParameter("@HOUR_L", dt_start_hour),
-                new OleDbParameter("@HOUR_H", dt_end_hour),
-                new OleDbParameter("@MINUTE_L", dt_start_min),
-                new OleDbParameter("@MINUTE_H", dt_end_min),
-                new OleDbParameter("@SECOND_L", dt_start_sec),
-                new OleDbParameter("@SECOND_H", dt_end_sec)
-            };
-            //室外温度 大气温度 气象仪_8
-            OleDbParameter[] parameters_2 = {
-                new OleDbParameter("@VARIANTNAME",  "气象仪_8"),
-                new OleDbParameter("@HOUR_L", dt_start_hour),
-                new OleDbParameter("@HOUR_H", dt_end_hour),
-                new OleDbParameter("@MINUTE_L", dt_start_min),
-                new OleDbParameter("@MINUTE_H", dt_end_min),
-                new OleDbParameter("@SECOND_L", dt_start_sec),
-                new OleDbParameter("@SECOND_H", dt_end_sec)
-            };
-            //光伏组件背面表面温度 大地温度 气象仪_9
-            OleDbParameter[] parameters_3 = {
-                new OleDbParameter("@VARIANTNAME",  "气象仪_8"),
-                new OleDbParameter("@HOUR_L", dt_start_hour),
-                new OleDbParameter("@HOUR_H", dt_end_hour),
-                new OleDbParameter("@MINUTE_L", dt_start_min),
-                new OleDbParameter("@MINUTE_H", dt_end_min),
-                new OleDbParameter("@SECOND_L", dt_start_sec),
-                new OleDbParameter("@SECOND_H", dt_end_sec)
-            };
-            //发电量 逆变器1 1633发电量 
-            OleDbParameter[] parameters_4_1 = {
-                new OleDbParameter("@VARIANTNAME",  "nbq11_12"),
-                new OleDbParameter("@HOUR_L", dt_start_hour),
-                new OleDbParameter("@HOUR_H", dt_end_hour),
-                new OleDbParameter("@MINUTE_L", dt_start_min),
-                new OleDbParameter("@MINUTE_H", dt_end_min),
-                new OleDbParameter("@SECOND_L", dt_start_sec),
-                new OleDbParameter("@SECOND_H", dt_end_sec)
-            };
-            //发电量 逆变器2 1633发电量
-            OleDbParameter[] parameters_4_2 = {
-                new OleDbParameter("@VARIANTNAME",  "nbq21_12"),
-                new OleDbParameter("@HOUR_L", dt_start_hour),
-                new OleDbParameter("@HOUR_H", dt_end_hour),
-                new OleDbParameter("@MINUTE_L", dt_start_min),
-                new OleDbParameter("@MINUTE_H", dt_end_min),
-                new OleDbParameter("@SECOND_L", dt_start_sec),
-                new OleDbParameter("@SECOND_H", dt_end_sec)
-            };
-            //发电量 逆变器3 1633发电量
-            OleDbParameter[] parameters_4_3 = {
-                new OleDbParameter("@VARIANTNAME",  "nbq31_12"),
-                new OleDbParameter("@HOUR_L", dt_start_hour),
-                new OleDbParameter("@HOUR_H", dt_end_hour),
-                new OleDbParameter("@MINUTE_L", dt_start_min),
-                new OleDbParameter("@MINUTE_H", dt_end_min),
-                new OleDbParameter("@SECOND_L", dt_start_sec),
-                new OleDbParameter("@SECOND_H", dt_end_sec)
-            };
+            //string sql2 = @"select Max(DATA)  from " + tbl_name_collect + sql_criterion;
+            string sql2 = @"select Max(DATA)  from " + tbl_name_collect;
+            string sqlvar1 = sql + sql_criterion_pre + var1 + sql_criterion_sub;
+            string sqlvar2 = sql + sql_criterion_pre + var2 + sql_criterion_sub;
+            string sqlvar3 = sql + sql_criterion_pre + var3 + sql_criterion_sub;
+            string sqlvar4 = sql2 + sql_criterion_pre + var4 + sql_criterion_sub;
+            string sqlvar5 = sql2 + sql_criterion_pre + var5 + sql_criterion_sub;
+            string sqlvar6 = sql2 + sql_criterion_pre + var6 + sql_criterion_sub;
+            ////平行于光伏组件的太阳辐照度 总辐射 气象仪_3
+            //OleDbParameter[] parameters_1  = {
+            //    new OleDbParameter("@VARIANTNAME",  "气象仪_3"),
+            //    new OleDbParameter("@HOUR_L", dt_start_hour),
+            //    new OleDbParameter("@HOUR_H", dt_end_hour),
+            //    new OleDbParameter("@MINUTE_L", dt_start_min),
+            //    new OleDbParameter("@MINUTE_H", dt_end_min),
+            //    //new OleDbParameter("@SECOND_L", dt_start_sec),
+            //    //new OleDbParameter("@SECOND_H", dt_end_sec)
+            //};
+            ////室外温度 大气温度 气象仪_8
+            //OleDbParameter[] parameters_2 = {
+            //                                    new OleDbParameter("@VARIANTNAME", OleDbType.VarChar),
+            //                                    new OleDbParameter("@HOUR_L", OleDbType.BigInt),
+            //                                    new OleDbParameter("@HOUR_H", OleDbType.BigInt),
+            //                                     new OleDbParameter("@MINUTE_L", OleDbType.BigInt),
+            //                                     new OleDbParameter("@MINUTE_H", OleDbType.BigInt),
+            //    //new OleDbParameter("@VARIANTNAME",  "气象仪_8"),
+            //    //new OleDbParameter("@HOUR_L", dt_start_hour),
+            //    //new OleDbParameter("@HOUR_H", dt_end_hour),
+            //    //new OleDbParameter("@MINUTE_L", dt_start_min),
+            //    //new OleDbParameter("@MINUTE_H", dt_end_min),
+            //    //new OleDbParameter("@SECOND_L", dt_start_sec),
+            //    //new OleDbParameter("@SECOND_H", dt_end_sec)
+            //};
+            //parameters_2[0].Value = "气象仪_8";
+            //parameters_2[1].Value = dt_start_hour;
+            //parameters_2[2].Value = dt_end_hour;
+            //parameters_2[3].Value = dt_start_min;
+            //parameters_2[4].Value = dt_end_min;
+            ////光伏组件背面表面温度 大地温度 气象仪_9
+            //OleDbParameter[] parameters_3 = {
+            //    new OleDbParameter("@VARIANTNAME",  "气象仪_9"),
+            //    new OleDbParameter("@HOUR_L", dt_start_hour),
+            //    new OleDbParameter("@HOUR_H", dt_end_hour),
+            //    new OleDbParameter("@MINUTE_L", dt_start_min),
+            //    new OleDbParameter("@MINUTE_H", dt_end_min),
+            //    //new OleDbParameter("@SECOND_L", dt_start_sec),
+            //    //new OleDbParameter("@SECOND_H", dt_end_sec)
+            //};
+            ////发电量 逆变器1 1633发电量 
+            //OleDbParameter[] parameters_4_1 = {
+            //    new OleDbParameter("@VARIANTNAME",  "nbq11_12"),
+            //    new OleDbParameter("@HOUR_L", dt_start_hour),
+            //    new OleDbParameter("@HOUR_H", dt_end_hour),
+            //    new OleDbParameter("@MINUTE_L", dt_start_min),
+            //    new OleDbParameter("@MINUTE_H", dt_end_min),
+            //    //new OleDbParameter("@SECOND_L", dt_start_sec),
+            //    //new OleDbParameter("@SECOND_H", dt_end_sec)
+            //};
+            ////发电量 逆变器2 1633发电量
+            //OleDbParameter[] parameters_4_2 = {
+            //    new OleDbParameter("@VARIANTNAME",  "nbq21_12"),
+            //    new OleDbParameter("@HOUR_L", dt_start_hour),
+            //    new OleDbParameter("@HOUR_H", dt_end_hour),
+            //    new OleDbParameter("@MINUTE_L", dt_start_min),
+            //    new OleDbParameter("@MINUTE_H", dt_end_min),
+            //    //new OleDbParameter("@SECOND_L", dt_start_sec),
+            //    //new OleDbParameter("@SECOND_H", dt_end_sec)
+            //};
+            ////发电量 逆变器3 1633发电量
+            //OleDbParameter[] parameters_4_3 = {
+            //    new OleDbParameter("@VARIANTNAME",  "nbq31_12"),
+            //    new OleDbParameter("@HOUR_L", dt_start_hour),
+            //    new OleDbParameter("@HOUR_H", dt_end_hour),
+            //    new OleDbParameter("@MINUTE_L", dt_start_min),
+            //    new OleDbParameter("@MINUTE_H", dt_end_min),
+            //    //new OleDbParameter("@SECOND_L", dt_start_sec),
+            //    //new OleDbParameter("@SECOND_H", dt_end_sec)
+            //};
             //取得平均值
             DataRow[] dr;
             try
             {
                 DataRow[] dr_tmp = {
                                //平均值
-                               AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_1),
-                               AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_2),
-                               AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_3),
+                               //AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_1),
+                               //AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_2),
+                               //AccessData.ExecuteDataRow(sql, AccessData.CONN_STRING1, parameters_3),
+                               AccessData.ExecuteDataRow(sqlvar1, AccessData.CONN_STRING1, null),
+                               AccessData.ExecuteDataRow(sqlvar2, AccessData.CONN_STRING1, null),
+                               AccessData.ExecuteDataRow(sqlvar3, AccessData.CONN_STRING1, null),
                                //发电量 20130603
-                               AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4_1),
-                               AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4_2),
-                               AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4_3)
+                               //AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4_1),
+                               //AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4_2),
+                               //AccessData.ExecuteDataRow(sql2, AccessData.CONN_STRING1, parameters_4_3)
+                               AccessData.ExecuteDataRow(sqlvar4, AccessData.CONN_STRING1, null),
+                               AccessData.ExecuteDataRow(sqlvar5, AccessData.CONN_STRING1, null),
+                               AccessData.ExecuteDataRow(sqlvar6, AccessData.CONN_STRING1, null)
                            };
                 dr = dr_tmp;
                 LogManager.Logger.WriteInfoLog("0020301:成功读取到采集数据");

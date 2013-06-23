@@ -91,7 +91,7 @@ namespace RenewEDSenderM.CommManager
 
         static void Main(string[] args)
         {
-
+            //DbManager.TestAccessData.Test();
             LogManager.Logger.FuncEntryLog(args);
             try
             {
@@ -1348,7 +1348,7 @@ namespace RenewEDSenderM.CommManager
         /// <summary>
         /// 采集指标编码-发电量
         /// </summary>
-        public static readonly string COLLECT_FACTOR_CODE_ELECTRICITY = "14";
+        public static readonly string COLLECT_FACTOR_CODE_ELECTRICITY = "15";
         //从配置文件中合成FunctionID
         /// <summary>
         /// 生成计量装置的具体采集功能编号
