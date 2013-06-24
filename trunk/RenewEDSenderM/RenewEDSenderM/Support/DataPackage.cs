@@ -149,6 +149,10 @@ namespace RenewEDSenderM.Support
             set
             {
                 m_seq = BitConverter.GetBytes(value);
+                //>>>> 20130624
+                Random rnd = new Random();
+                rnd.NextBytes(m_seq);
+                //<<<<
             }
         }
         /// <summary>
@@ -192,7 +196,14 @@ namespace RenewEDSenderM.Support
             }
             set
             {
-                m_crc16 = BitConverter.GetBytes(value);
+                //>>>> 20130624
+                byte[] data = new byte[m_head.Length + m_dataLength.Length + m_seq.Length + m_data.Length];
+                m_head.CopyTo(data, 0);
+                m_dataLength.CopyTo(data, m_head.Length);
+                m_seq.CopyTo(data, m_head.Length + m_dataLength.Length);
+                m_data.CopyTo(data, m_head.Length + m_dataLength.Length + m_seq.Length);
+                m_crc16 = BitConverter.GetBytes(Support.Encryption.CRC16(data));
+                //<<<<
             }
         }
         /// <summary>
