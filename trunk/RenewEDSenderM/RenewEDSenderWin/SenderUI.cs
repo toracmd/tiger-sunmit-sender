@@ -273,11 +273,17 @@ namespace RenewEDSenderWin
         }
         private void MoniterTimer_Elapsed(object sender, EventArgs e)
         {
-            if (m_isStart)
+            //if (m_isStart)
             {
                 if (!CheckProcessExists())
                 {
                     ManageControllerDelegate(SetBtnsAboutStopDisable);
+                    //>>>> 20130629
+                    if (checkBoxAutoRestart.Checked)
+                    {
+                        StartProcessSend();
+                    }
+                    //<<<<
                 }
             }
             ManageControllerDelegate(setTxtNetState);
@@ -328,7 +334,8 @@ namespace RenewEDSenderWin
                         //设置发送服务进程状态
                         m_isStart = true;
                         //设置UI按钮状态
-                        SetBtnsAboutStartDisable();
+                        //SetBtnsAboutStartDisable();
+                        ManageControllerDelegate(SetBtnsAboutStartDisable);
                         //btnSenderStart.Enabled = false;
                         //btnSenderStop.Enabled = true;
                         //btnSenderRestart.Enabled = true;

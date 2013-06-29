@@ -247,6 +247,43 @@ namespace RenewEDSenderM.CommManager
                     //    LogManager.Logger.WriteWarnLog("001015:Fail to create timer of report! Exception:{0}", e);
                     //    continue;
                     //}
+                    // 创建定时上传Timer 20130629 首次在这里创建
+                    try
+                    {
+                        // 首次创建后即可
+                        if (m_isCreatReport == false && m_config.autoReportTimerFlg)
+                        {
+                            System.Timers.Timer reportTimer = new System.Timers.Timer();
+                            if (reportTimer != null)
+                            {
+                                reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
+                                reportTimer.Interval = Convert.ToInt32(m_config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
+                                reportTimer.Enabled = true;
+                                m_isCreatReport = true;
+                                LogManager.Logger.WriteInfoLog("00101101:Timer of fixed timing Report is created!");
+                            }
+                            else
+                            {
+                                LogManager.Logger.WriteInfoLog("00101201:Fail to create timer of fixed timing Report! null pointer");
+                                continue;
+                            }
+                        }
+                    }
+                    catch (ArgumentException e)
+                    {
+                        LogManager.Logger.WriteWarnLog("001013:Fail to create timer of report! ArgumentException:{0}", e);
+                        continue;
+                    }
+                    catch (ObjectDisposedException e)
+                    {
+                        LogManager.Logger.WriteWarnLog("001014:Fail to create timer of report! ObjectDisposedException:{0}", e);
+                        continue;
+                    }
+                    catch (Exception e)
+                    {
+                        LogManager.Logger.WriteWarnLog("001015:Fail to create timer of report! Exception:{0}", e);
+                        continue;
+                    }
                     // 开始收发交互
                     while (true)
                     {
@@ -261,14 +298,14 @@ namespace RenewEDSenderM.CommManager
                             // 创建失败数据重传线程
                             if (m_isCreatThread == false)
                             {
-                                Thread oThread = new Thread(new ThreadStart(ControlRereport));
+                                Thread oThread_CtrlRereport = new Thread(new ThreadStart(ControlRereport));
                                 //Thread oThread = new Thread(new ThreadStart(Rereport));
-                                if (oThread != null)
+                                if (oThread_CtrlRereport != null)
                                 {
                                     m_isCreatThread = true;
                                     try
                                     {
-                                        oThread.Start();
+                                        oThread_CtrlRereport.Start();
                                     }
                                     catch (ThreadStateException te)
                                     {
@@ -289,7 +326,7 @@ namespace RenewEDSenderM.CommManager
                                 }
                             }
 
-                            // 创建定时上传Timer
+                            // 创建定时上传Timer 20130629 首次在这里创建
                             try
                             {
                                 // 首次创建后即可
@@ -302,6 +339,12 @@ namespace RenewEDSenderM.CommManager
                                         reportTimer.Interval = Convert.ToInt32(m_config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
                                         reportTimer.Enabled = true;
                                         m_isCreatReport = true;
+                                        //>>>> 20130629 修改config中<ReportTimerFlag>
+                                        SetConfig setcfg = new SetConfig();
+                                        Configuration config = new Configuration();
+                                        config.autoReportTimerFlg = true;
+                                        setcfg.WriteSpecailConfig(config, Commands.REPORT_TIMER_ENABLE_FLAG);
+                                        //<<<<
                                         LogManager.Logger.WriteInfoLog("001011:Timer of fixed timing Report is created!");
                                     }
                                     else
@@ -910,13 +953,13 @@ namespace RenewEDSenderM.CommManager
         private static void ReportEvent(object sender, ElapsedEventArgs e)
         {
             //如果通过了认证则进行相关操作，否则不进行任何操作
-            if (m_isPassAuthentication)
+            //if (m_isPassAuthentication)
             {
                 //数据写入数据库
 
                 //如果网络状况良好，则发送数据
-                if (m_isConnected)
-                {
+                //if (m_isConnected)
+                //{
                     //这部分需要采集数据进行数据录入
                     DateTime date_send = DateTime.Now.ToLocalTime();
                     //DateTime date_send = new DateTime(2013, 4, 28, 19, 0, 0);   //2013-04-28 19:00:00
@@ -970,7 +1013,7 @@ namespace RenewEDSenderM.CommManager
                     string sequenceStr = sequence.ToString();
                     xmlwrite.Report(sequenceStr, m_input_parse, date_send.ToString("yyyyMMddHHmmss"), input_info);
 
-                    if (SendMsgB(xmlwrite.BOutput()))
+                    if (m_isPassAuthentication && m_isConnected && SendMsgB(xmlwrite.BOutput()))
                     {
                         try
                         {
@@ -991,12 +1034,12 @@ namespace RenewEDSenderM.CommManager
                         LogManager.Logger.WriteWarnLog("001060:The report is failed to send!");
                         return;
                     }
-                }
+                //}
 
             }
-            else
+            //else
             {
-                return;
+                //return;
             }
         }
 
@@ -1165,11 +1208,11 @@ namespace RenewEDSenderM.CommManager
         /// </summary>
         private static void ControlRereport()
         {
-            Thread oThread = null;
+            Thread oThread_Rereport = null;
             while (true)
             {
-                if (oThread == null)
-                    oThread = new Thread(new ThreadStart(Rereport));
+                if (oThread_Rereport == null)
+                    oThread_Rereport = new Thread(new ThreadStart(Rereport));
 				if (m_isConnected && m_isPassAuthentication)
 				{
                 	 
@@ -1177,14 +1220,21 @@ namespace RenewEDSenderM.CommManager
                     //    oThread = new Thread(new ThreadStart(Rereport));
                     
                 	//如果线程建立成功，且有失败数据则开始数据重传
-                 	if (oThread != null && m_isHasFailedData)
+                 	if (oThread_Rereport != null && m_isHasFailedData)
                  	{
                     		m_isCreatThread = true;
-                            if (!oThread.IsAlive)
+                            if (!oThread_Rereport.IsAlive)
                             {
                                 try
                                 {
-                                    oThread.Start();
+                                    //>>>> 20130629
+                                    if(oThread_Rereport.ThreadState == ThreadState.Stopped)
+                                    {
+                                        oThread_Rereport = new Thread(new ThreadStart(Rereport));
+                                    }
+                                    //<<<<
+                                    oThread_Rereport.Start();
+                                    
                                 }
                                 catch (ThreadStateException te)
                                 {
@@ -1199,16 +1249,16 @@ namespace RenewEDSenderM.CommManager
                                 LogManager.Logger.WriteInfoLog("001009:Retransmission process is created!");
                             }
                    	}
-                 	else if (oThread == null)
+                 	else if (oThread_Rereport == null)
                  	{
                     		LogManager.Logger.WriteWarnLog("001010:Fail to create Retransmission process! null pointer");
                     		continue;
                  	}
-                 	else if(oThread.IsAlive) //如果没有失败数据则关闭失败重传线程
+                 	else if(oThread_Rereport.IsAlive) //如果没有失败数据则关闭失败重传线程
                  	{
-                     		oThread.Abort();
-                     		oThread.Join();
-                            oThread = null;
+                     		oThread_Rereport.Abort();
+                     		oThread_Rereport.Join();
+                            oThread_Rereport = null;
                             //GC.Collect();
                  	}
 	            }

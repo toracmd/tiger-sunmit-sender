@@ -40,5 +40,7 @@
     <!--MD5值-->
     <IV>0000000000123456</IV>
     <!--AES初始向量值-->
+    <ReportTimerFlag>0</ReportTimerFlag>
+    <!--链接授时成功一次后定时上传timer准备与否，可取1或者0-->
   </Client_Information>
 </config>
