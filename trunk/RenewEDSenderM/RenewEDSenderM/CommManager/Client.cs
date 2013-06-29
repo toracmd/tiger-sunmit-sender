@@ -1165,31 +1165,39 @@ namespace RenewEDSenderM.CommManager
         /// </summary>
         private static void ControlRereport()
         {
-
+            Thread oThread = null;
             while (true)
             {
+                if (oThread == null)
+                    oThread = new Thread(new ThreadStart(Rereport));
 				if (m_isConnected && m_isPassAuthentication)
 				{
-                	Thread oThread = new Thread(new ThreadStart(Rereport));
+                	 
+                    //if(oThread == null)
+                    //    oThread = new Thread(new ThreadStart(Rereport));
+                    
                 	//如果线程建立成功，且有失败数据则开始数据重传
                  	if (oThread != null && m_isHasFailedData)
                  	{
                     		m_isCreatThread = true;
-                    		try
-                    		{
-                       			oThread.Start();
-                     		}
-                     		catch (ThreadStateException te)
-                     		{
-                        		LogManager.Logger.WriteWarnLog("001007:Fail to create Retransmission process:{0}", te);
-                        		continue;
-                      		}
-                      		catch (OutOfMemoryException oe)
-                      		{
-                        		LogManager.Logger.WriteWarnLog("001008:Fail to create Retransmission process:{0}", oe);
-                        		continue;
-                       		}
-                       		LogManager.Logger.WriteInfoLog("001009:Retransmission process is created!");
+                            if (!oThread.IsAlive)
+                            {
+                                try
+                                {
+                                    oThread.Start();
+                                }
+                                catch (ThreadStateException te)
+                                {
+                                    LogManager.Logger.WriteWarnLog("001007:Fail to create Retransmission process:{0}", te);
+                                    continue;
+                                }
+                                catch (OutOfMemoryException oe)
+                                {
+                                    LogManager.Logger.WriteWarnLog("001008:Fail to create Retransmission process:{0}", oe);
+                                    continue;
+                                }
+                                LogManager.Logger.WriteInfoLog("001009:Retransmission process is created!");
+                            }
                    	}
                  	else if (oThread == null)
                  	{
@@ -1200,9 +1208,11 @@ namespace RenewEDSenderM.CommManager
                  	{
                      		oThread.Abort();
                      		oThread.Join();
+                            oThread = null;
+                            //GC.Collect();
                  	}
 	            }
-                Sleep(20);
+                Sleep(400);
             }
         }
         /// <summary>
@@ -1306,6 +1316,7 @@ namespace RenewEDSenderM.CommManager
                     }
                     
                 }
+                Sleep(20);
             }
         }
 

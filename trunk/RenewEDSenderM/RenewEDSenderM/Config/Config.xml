@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <config>
   <Server_Information>
-    <IP>10.46.75.31</IP>
-    <Port>13145</Port>
+    <!--<IP>10.46.75.31</IP>-->
+    <IP>202.85.222.196</IP>
+    <!--<Port>13145</Port>-->
+    <Port>5001</Port>
   </Server_Information>
   <Client_Information>
     <Project_id>440300D11</Project_id>
     <!--项目编号-->
-    <Gateway_id>1100000140202</Gateway_id>
+    <Gateway_id>440300D110101</Gateway_id>
     <!--系统装置编号-->
     <Area_code>440300</Area_code>
     <!--行政区编码-->
-    <Program_id>D02</Program_id>
+    <Program_id>D11</Program_id>
     <!--项目编码-->
     <Tech_type>104</Tech_type>
     <!--技术类型-->
@@ -22,7 +24,7 @@
     <!--Meter的相关参数:数据采集装置识别编码,数据采集点识别编码-->
     <NotifyTime>1</NotifyTime>
     <!--心跳数据包发送间隔-->
-    <ReportTime>30</ReportTime>
+    <ReportTime>1</ReportTime>
     <!--数据包定时发送间隔-->
     <VerifyTime>
     </VerifyTime>
