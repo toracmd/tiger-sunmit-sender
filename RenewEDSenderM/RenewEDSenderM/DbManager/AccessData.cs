@@ -771,15 +771,15 @@ namespace RenewEDSenderM.DbManager
                                                new OleDbParameter("@ValueB", OleDbType.Single),
                                                new OleDbParameter("@ValueC", OleDbType.Single),
                                                new OleDbParameter("@ValueD", OleDbType.Single),
-                                               new OleDbParameter("@timestamp_sendCycle", OleDbType.DBDate),
-                                               new OleDbParameter("@timestamp_upload", OleDbType.DBDate)
+                                               new OleDbParameter("@timestamp_sendCycle", FixedTime.ToString()),
+                                               new OleDbParameter("@timestamp_upload",  FixedTime.ToString())
                                            };
             params_dump[0].Value = (Single)dr[0];
             params_dump[1].Value = (Single)dr[1];
             params_dump[2].Value = (Single)dr[2];
             params_dump[3].Value = (Single)(dr[3] + dr[4] + dr[5]);
-            params_dump[4].Value = FixedTime;
-            params_dump[5].Value = FixedTime;
+            //params_dump[4].Value = FixedTime;
+            //params_dump[5].Value = FixedTime;
             int id;
             try
             {
@@ -839,7 +839,7 @@ namespace RenewEDSenderM.DbManager
         public static History_Data[] FetchDataFail(DateTime dt_begin, DateTime dt_end)
         {
             //string sql_region = "select id, ValueA, ValueB, ValueC, ValueD from tbl_his_upload where timestamp_sendCycle >= @dt_begin and timestamp_sendCycle <= @dt_end and isupload=false";
-            string sql_region = "select id, ValueA, ValueB, ValueC, ValueD from tbl_his_upload where timestamp_sendCycle between @dt_begin and  @dt_end and isupload=false";
+            string sql_region = "select id, ValueA, ValueB, ValueC, ValueD, timestamp_sendCycle  from tbl_his_upload where timestamp_sendCycle between @dt_begin and  @dt_end and isupload=false";
             OleDbParameter[] params_region = {
                                                  new OleDbParameter("@dt_begin", dt_begin),
                                                  new OleDbParameter("@dt_end", dt_end),
@@ -868,6 +868,8 @@ namespace RenewEDSenderM.DbManager
                 hd.ValueB = Convert.ToSingle(dr[2]);
                 hd.ValueC = Convert.ToSingle(dr[3]);
                 hd.ValueD = Convert.ToSingle(dr[4]);
+                hd.timestamp_sendCycle = Convert.ToDateTime(dr[5]);
+                
                 arrary_hd[i] = hd;
                 i++;   
             }
@@ -883,7 +885,7 @@ namespace RenewEDSenderM.DbManager
         public static History_Data[] FetchDataSuccess(DateTime dt_begin, DateTime dt_end)
         {
             //string sql_region = "select id, ValueA, ValueB, ValueC, ValueD from tbl_his_upload where timestamp_sendCycle >= @dt_begin and timestamp_sendCycle <= @dt_end and isupload=true";
-            string sql_region = "select id, ValueA, ValueB, ValueC, ValueD from tbl_his_upload where timestamp_sendCycle between @dt_begin and  @dt_end and isupload=true";
+            string sql_region = "select id, ValueA, ValueB, ValueC, ValueD, timestamp_sendCycle from tbl_his_upload where timestamp_sendCycle between @dt_begin and  @dt_end and isupload=true";
             OleDbParameter[] params_region = {
                                                  new OleDbParameter("@dt_begin", dt_begin),
                                                  new OleDbParameter("@dt_end", dt_end),
@@ -911,6 +913,7 @@ namespace RenewEDSenderM.DbManager
                 hd.ValueB = Convert.ToSingle(dr[2]);
                 hd.ValueC = Convert.ToSingle(dr[3]);
                 hd.ValueD = Convert.ToSingle(dr[4]);
+                hd.timestamp_sendCycle = Convert.ToDateTime(dr[5]);
                 arrary_hd[i] = hd;
                 i++;
             }
