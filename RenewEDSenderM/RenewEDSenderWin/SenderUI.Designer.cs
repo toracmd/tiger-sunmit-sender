@@ -96,6 +96,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.checkBoxAutoRestart = new System.Windows.Forms.CheckBox();
             this.groupBoxCtrl.SuspendLayout();
             this.groupBoxKey.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -136,12 +137,13 @@
             // 
             // groupBoxCtrl
             // 
+            this.groupBoxCtrl.Controls.Add(this.checkBoxAutoRestart);
             this.groupBoxCtrl.Controls.Add(this.btnSenderRestart);
             this.groupBoxCtrl.Controls.Add(this.btnSenderStop);
             this.groupBoxCtrl.Controls.Add(this.btnSenderStart);
             this.groupBoxCtrl.Location = new System.Drawing.Point(30, 13);
             this.groupBoxCtrl.Name = "groupBoxCtrl";
-            this.groupBoxCtrl.Size = new System.Drawing.Size(247, 175);
+            this.groupBoxCtrl.Size = new System.Drawing.Size(247, 202);
             this.groupBoxCtrl.TabIndex = 1;
             this.groupBoxCtrl.TabStop = false;
             this.groupBoxCtrl.Text = "数据发送服务";
@@ -723,9 +725,9 @@
             this.groupBox1.Controls.Add(this.txtBoxConnStatus);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Location = new System.Drawing.Point(26, 194);
+            this.groupBox1.Location = new System.Drawing.Point(26, 221);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(251, 307);
+            this.groupBox1.Size = new System.Drawing.Size(251, 280);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "服务状态";
@@ -785,6 +787,16 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // checkBoxAutoRestart
+            // 
+            this.checkBoxAutoRestart.AutoSize = true;
+            this.checkBoxAutoRestart.Location = new System.Drawing.Point(35, 160);
+            this.checkBoxAutoRestart.Name = "checkBoxAutoRestart";
+            this.checkBoxAutoRestart.Size = new System.Drawing.Size(144, 16);
+            this.checkBoxAutoRestart.TabIndex = 3;
+            this.checkBoxAutoRestart.Text = "停止自动重启发送服务";
+            this.checkBoxAutoRestart.UseVisualStyleBackColor = true;
+            // 
             // SenderUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -799,6 +811,7 @@
             this.Text = "太阳能光伏发送控制窗口";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SenderUI_FormClosed);
             this.groupBoxCtrl.ResumeLayout(false);
+            this.groupBoxCtrl.PerformLayout();
             this.groupBoxKey.ResumeLayout(false);
             this.groupBoxKey.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -881,6 +894,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox checkBoxAutoRestart;
     }
 }
 

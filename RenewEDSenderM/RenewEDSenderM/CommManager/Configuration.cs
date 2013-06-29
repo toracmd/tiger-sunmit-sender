@@ -36,6 +36,9 @@ namespace RenewEDSenderM.CommManager
         private static string m_client_programid = "";
         private static string m_client_techtype = "";
         private static string m_client_syscode = "";
+        //>>>> 20130629
+        private static string m_report_timer_enable_flag = "";
+        //<<<<
         
        
         private static string config_path = "./Config/Config.xml";
@@ -212,6 +215,14 @@ namespace RenewEDSenderM.CommManager
                             config.meterInfo = meterInfo;
                             continue;
                         }
+                        //>>>> 20130629
+                        if(xc.Name == Commands.REPORT_TIMER_ENABLE_FLAG)
+                        {
+                            m_report_timer_enable_flag = xc.InnerText;
+                            config.autoReportTimerFlg = (m_report_timer_enable_flag == "1") ? true : false;
+                            continue;
+                        }
+                        //<<<<
                     }
                 }
                 
@@ -410,6 +421,22 @@ namespace RenewEDSenderM.CommManager
                             continue;
 
                         }
+                        //>>>> 20130629
+                        if (xc.Name == Commands.REPORT_TIMER_ENABLE_FLAG)
+                        {
+                            XmlElement xct = (XmlElement)xc;
+                            if (config.autoReportTimerFlg)
+                            {
+                                m_report_timer_enable_flag = "1";
+                            }
+                            else
+                            {
+                                m_report_timer_enable_flag = "0";
+                            }
+                            xct.InnerText = m_report_timer_enable_flag;
+                            continue;
+                        }
+                        //<<<<
                     }
                 }
 
@@ -756,7 +783,32 @@ namespace RenewEDSenderM.CommManager
                                 }
                                 return true;
                             }
+                            //>>>> 20130629
+                            if (valueName == Commands.REPORT_TIMER_ENABLE_FLAG && xc.Name == Commands.REPORT_TIMER_ENABLE_FLAG)
+                            {
+                                XmlElement xct = (XmlElement)xc;
+                                if (config.autoReportTimerFlg)
+                                {
+                                    m_report_timer_enable_flag = "1";
+                                }
+                                else
+                                {
+                                    m_report_timer_enable_flag = "0";
+                                }
+                                xct.InnerText = m_report_timer_enable_flag;
+                                try
+                                {
+                                    xmlDoc.Save(config_path);
+                                }
+                                catch (XmlException xe)
+                                {
+                                    return false;
+                                }
+                                return true;
+                            }
+                            //<<<<
                         }
+
                     }
                 }
                    
@@ -816,6 +868,7 @@ namespace RenewEDSenderM.CommManager
         public string techtype = "";
         public  string syscode = "";
         public MeterInfo meterInfo;
+        public bool autoReportTimerFlg = false;
     }
     public class MeterInfo
     {
@@ -855,5 +908,8 @@ namespace RenewEDSenderM.CommManager
         public static string KEY = "Key";
         public static string MD5 = "MD5";
         public static string IV = "IV";
+        //>>>> 20130629
+        public static string REPORT_TIMER_ENABLE_FLAG = "ReportTimerFlag";
+        //<<<<
     }
 }
