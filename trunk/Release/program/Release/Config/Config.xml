@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <config>
   <Server_Information>
-    <!--<IP>10.46.75.31</IP>-->
     <IP>202.85.222.196</IP>
-    <!--<Port>13145</Port>-->
+    <!--<IP>10.46.92.181</IP>-->
     <Port>5001</Port>
+    <!--<Port>13145</Port>-->
   </Server_Information>
   <Client_Information>
     <Project_id>440300D11</Project_id>
@@ -19,7 +19,7 @@
     <!--技术类型-->
     <Sys_code>01</Sys_code>
     <!--系统编码-->
-    <Meter MA_ProgramId="11" MA_Code1="11" MA_Code2="11" MB_ProgramId="11" MB_Code1="11" MB_Code2="11" MC_ProgramId="11" MC_Code1="11" MC_Code2="11" MD_ProgramId="11" MD_Code1="11" MD_Code2="11">
+    <Meter MA_ProgramId="11" MA_Code1="01" MA_Code2="11" MB_ProgramId="11" MB_Code1="01" MB_Code2="01" MC_ProgramId="11" MC_Code1="01" MC_Code2="03" MD_ProgramId="11" MD_Code1="01" MD_Code2="04">
     </Meter>
     <!--Meter的相关参数:数据采集装置识别编码,数据采集点识别编码-->
     <NotifyTime>1</NotifyTime>
@@ -33,12 +33,14 @@
     <!--失败后尝试次数-->
     <Period>
     </Period>
-    <!--周期-->
+    <!--采集周期-->
     <Key>0000000000123456</Key>
     <!--AES的密钥-->
     <MD5>0000000000123456</MD5>
     <!--MD5值-->
     <IV>0000000000123456</IV>
     <!--AES初始向量值-->
+    <ReportTimerFlag>0</ReportTimerFlag>
+    <!--链接授时成功一次后定时上传timer准备与否，可取1或者0-->
   </Client_Information>
 </config>
