@@ -129,6 +129,43 @@ namespace RenewEDSenderM.CommManager
                         LogManager.Logger.WriteWarnLog("001004:Fail to read the configuration!Retrying....");
                         continue;
                     }
+                    // 创建定时上传Timer 20130629 首次在这里创建
+                    try
+                    {
+                        // 首次创建后即可
+                        if (m_isCreatReport == false && m_config.autoReportTimerFlg)
+                        {
+                            System.Timers.Timer reportTimer = new System.Timers.Timer();
+                            if (reportTimer != null)
+                            {
+                                reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
+                                reportTimer.Interval = Convert.ToInt32(m_config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
+                                reportTimer.Enabled = true;
+                                m_isCreatReport = true;
+                                LogManager.Logger.WriteInfoLog("00101101:Timer of fixed timing Report is created!");
+                            }
+                            else
+                            {
+                                LogManager.Logger.WriteInfoLog("00101201:Fail to create timer of fixed timing Report! null pointer");
+                                continue;
+                            }
+                        }
+                    }
+                    catch (ArgumentException e)
+                    {
+                        LogManager.Logger.WriteWarnLog("001013:Fail to create timer of report! ArgumentException:{0}", e);
+                        continue;
+                    }
+                    catch (ObjectDisposedException e)
+                    {
+                        LogManager.Logger.WriteWarnLog("001014:Fail to create timer of report! ObjectDisposedException:{0}", e);
+                        continue;
+                    }
+                    catch (Exception e)
+                    {
+                        LogManager.Logger.WriteWarnLog("001015:Fail to create timer of report! Exception:{0}", e);
+                        continue;
+                    }
                     // 设置ip地址、端口等信息
                     int port = int.Parse(m_config.port);
                     string host = m_config.ip;
@@ -247,43 +284,7 @@ namespace RenewEDSenderM.CommManager
                     //    LogManager.Logger.WriteWarnLog("001015:Fail to create timer of report! Exception:{0}", e);
                     //    continue;
                     //}
-                    // 创建定时上传Timer 20130629 首次在这里创建
-                    try
-                    {
-                        // 首次创建后即可
-                        if (m_isCreatReport == false && m_config.autoReportTimerFlg)
-                        {
-                            System.Timers.Timer reportTimer = new System.Timers.Timer();
-                            if (reportTimer != null)
-                            {
-                                reportTimer.Elapsed += new ElapsedEventHandler(ReportEvent);
-                                reportTimer.Interval = Convert.ToInt32(m_config.reportTime) * 60 * 1000; //配置文件中配置的秒数,30分钟一次
-                                reportTimer.Enabled = true;
-                                m_isCreatReport = true;
-                                LogManager.Logger.WriteInfoLog("00101101:Timer of fixed timing Report is created!");
-                            }
-                            else
-                            {
-                                LogManager.Logger.WriteInfoLog("00101201:Fail to create timer of fixed timing Report! null pointer");
-                                continue;
-                            }
-                        }
-                    }
-                    catch (ArgumentException e)
-                    {
-                        LogManager.Logger.WriteWarnLog("001013:Fail to create timer of report! ArgumentException:{0}", e);
-                        continue;
-                    }
-                    catch (ObjectDisposedException e)
-                    {
-                        LogManager.Logger.WriteWarnLog("001014:Fail to create timer of report! ObjectDisposedException:{0}", e);
-                        continue;
-                    }
-                    catch (Exception e)
-                    {
-                        LogManager.Logger.WriteWarnLog("001015:Fail to create timer of report! Exception:{0}", e);
-                        continue;
-                    }
+                   
                     // 开始收发交互
                     while (true)
                     {
@@ -798,6 +799,19 @@ namespace RenewEDSenderM.CommManager
                     //进行数据的接收，如果接收到数据则下一个阶段，并关闭定时器避免重传
                     if ((bytes = m_socket.Receive(recvBytes, recvBytes.Length, 0)) != 0)
                     {
+                        //>>>> Test
+                        if (false)
+                        {
+                            int i;
+                            //string teststr = "68681616240100007f315d7eAD4E729DCD81551ABC7C2983C86D3C6A58A862EAB7762371A0F6A3C83FBDC8EC0D81C9EDEC3688819457963564538A9AF2BC710625D1F700F80ACEDE47DE81ED6EE95AEF6FC54D21A610835918DB817793A4CF35A7A85CAB9AD90E3EFDC0E89654F722AE201D63B365D492CC6FCE9280F45406C71E468DDD814B73D69D95217CEAB762C6945EEA4FB3D437B83B502446A65AF7B448C2C8F17FE31FBD59DB478917D5B6CD13C47E1E6D7CBB87DFD49C821B84C17D88499A61E0E45F2F94A8DC1E9371E432BCDFAB54A6DD304C193C71E2E4A1C7F0B49CC16F8CC0FF8B5A5EC6978A4D190F3020ED8D38471B746B78743949E49FF9C53DF2056193FF434A187F055B26A6C7DDEDC1A760E0531BEBF1E9FB60C5B0BD0E2CB597AACAFB65629A25A4711d55aa55aa";
+                            //string teststr = "68681616f400000028f5e770AD4E729DCD81551ABC7C2983C86D3C6A58A862EAB7762371A0F6A3C83FBDC8EC0D81C9EDEC3688819457963564538A9AF2BC710625D1F700F80ACEDE47DE81ED6EE95AEF6FC54D21A610835918DB817793A4CF35A7A85CAB9AD90E3EFDC0E89654F722AE201D63B365D492CC6FCE9280F45406C71E468DDD814B73D69D95217C175A2C49521EA689A07062D925732ACB4545841451CD92F7E1573206C6D62430073295FF6588F37CDDBBF8A4E7A5F3FE9C21ED7630A917473F8E1A82E199F272C8CAD5616F65B223B12369B19A39CFDC590F9EE46BF043FCCA9D42EF2D372F26DD2C827861945AE9B7535F2766773CEC6b9055aa55aa";
+                            string teststr = "6868161604010000271d004cAD4E729DCD81551ABC7C2983C86D3C6A58A862EAB7762371A0F6A3C83FBDC8EC0D81C9EDEC3688819457963564538A9AF2BC710625D1F700F80ACEDE47DE81ED6EE95AEF6FC54D21A610835918DB817793A4CF35A7A85CAB9AD90E3EFDC0E89654F722AE201D63B365D492CC6FCE9280F45406C71E468DDD814B73D69D95217C84330F51CB6DD9710786C73A46506EC6D632582E7EA6556F5FDEA1E0422CBD0D4C46D17449E948F5B9E7374B5B037391E663AFD28028A9D4C8202A1762FFA240066257CA8EC976F77542FD2C69D19A33BF2B140744CC6A8378D4EB7F5E5A3E1B501737429F06AEF0BA9664F5A9F5CB00B14A9B5BC4DD5879DCE1444CE041EACDdcdc55aa55aa";
+                            byte[] test = Support.DataPackage.GetBytes(teststr, out i);
+                            Array.Clear(recvBytes, 0, bytes);
+                            bytes = test.Length;
+                            Array.Copy(test, recvBytes, bytes);
+                        }
+                        //<<<<
                         recvStr += Encoding.ASCII.GetString(recvBytes, 0, bytes);
                         HeartbeatNotifyTimer.Enabled = false;
                         m_timeout = 0;
@@ -1141,6 +1155,7 @@ namespace RenewEDSenderM.CommManager
                     }
                     else
                         LogManager.Logger.WriteWarnLog("001064:The reply is failed to send!");
+                    Sleep(20);
                 }
             }
         }

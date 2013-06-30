@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <config>
   <Server_Information>
-    <!--<IP>10.46.75.31</IP>-->
-    <IP>202.85.222.196</IP>
+    <!--<IP>202.85.222.196</IP>-->
+    <IP>10.46.92.181</IP>
     <!--<Port>13145</Port>-->
-    <Port>5001</Port>
+    <Port>13145</Port>
   </Server_Information>
   <Client_Information>
     <Project_id>440300D11</Project_id>
@@ -33,7 +33,7 @@
     <!--失败后尝试次数-->
     <Period>
     </Period>
-    <!--周期-->
+    <!--采集周期-->
     <Key>0000000000123456</Key>
     <!--AES的密钥-->
     <MD5>0000000000123456</MD5>

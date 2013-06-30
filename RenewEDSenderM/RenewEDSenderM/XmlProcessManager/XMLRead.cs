@@ -142,9 +142,15 @@ namespace RenewEDSenderM.XmlProcessManager
                     foreach (XmlNode xi in iList)
                     {
                         if (xi.Name == "type")
+                        {
                             keytype = xi.InnerText;
+                            keytype = keytype.Trim(new char[] { '\'', '\"', '\\', '\0', '\a', '\b', '\f', '\n', '\r', '\t', '\v' });
+                        }
                         if (xi.Name == "key")
+                        {
                             key = xi.InnerText;
+                            key = key.Trim(new char[] { '\'', '\"', '\\', '\0', '\a', '\b', '\f', '\n', '\r', '\t', '\v' });
+                        }
                     }
                 }
             }
