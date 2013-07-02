@@ -1048,6 +1048,7 @@ namespace RenewEDSenderM.CommManager
                         LogManager.Logger.WriteWarnLog("001060:The report is failed to send!");
                         return;
                     }
+                    xmlwrite = null;
                 //}
 
             }
@@ -1062,16 +1063,16 @@ namespace RenewEDSenderM.CommManager
 		///
         private static void Reply(XmlProcessManager.Order order)
         {
-            XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-            if (xmlwrite == null)
-            {
-                LogManager.Logger.WriteWarnLog("001061:Fail to create xmlwrite in Reply!");
-                return;
-            }
+            //XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
+            //if (xmlwrite == null)
+            //{
+            //    LogManager.Logger.WriteWarnLog("001061:Fail to create xmlwrite in Reply!");
+            //    return;
+            //}
 
-            //数据库查询，并输出相关历史数据的参数
-            xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id, m_config.key, m_config.iv);
-            Support.Encryption.MD5_KEY_STR = m_config.md5;
+            ////数据库查询，并输出相关历史数据的参数
+            //xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id, m_config.key, m_config.iv);
+            //Support.Encryption.MD5_KEY_STR = m_config.md5;
 
             //其中的sequence parse time和input_info应该从数据库中读取
             DataInfo[] input_info = new DataInfo[4];
@@ -1140,6 +1141,18 @@ namespace RenewEDSenderM.CommManager
                     Random random = new Random();
                     int sequence = random.Next(10000000, 99999999);
                     string sequenceStr = sequence.ToString();
+                    //>>>> 20130702
+                    XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
+                    if (xmlwrite == null)
+                    {
+                        LogManager.Logger.WriteWarnLog("001061:Fail to create xmlwrite in Reply!");
+                        return;
+                    }
+
+                    //数据库查询，并输出相关历史数据的参数
+                    xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id, m_config.key, m_config.iv);
+                    Support.Encryption.MD5_KEY_STR = m_config.md5;
+                    //<<<<
                     xmlwrite.Query(sequenceStr, m_input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
                     if (SendMsgB(xmlwrite.BOutput()))
                     {
@@ -1155,7 +1168,9 @@ namespace RenewEDSenderM.CommManager
                     }
                     else
                         LogManager.Logger.WriteWarnLog("001064:The reply is failed to send!");
-                    Sleep(20);
+                    xmlwrite = null;
+                    Sleep(500);
+
                 }
             }
         }
@@ -1290,14 +1305,14 @@ namespace RenewEDSenderM.CommManager
                 //如果网络状况良好则进行重传
                 if (m_isConnected && m_isPassAuthentication)
                 {
-                    XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
-                    if (xmlwrite == null)
-                    {
-                        LogManager.Logger.WriteWarnLog("001067:Fail to create xmlwrite in Rereport!");
-                        continue;
-                    }
-                    xmlwrite.Input(m_xmlStr,m_project_id,m_gateway_id,m_config.key,m_config.iv);
-                    Support.Encryption.MD5_KEY_STR = m_config.md5;
+                    //XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
+                    //if (xmlwrite == null)
+                    //{
+                    //    LogManager.Logger.WriteWarnLog("001067:Fail to create xmlwrite in Rereport!");
+                    //    continue;
+                    //}
+                    //xmlwrite.Input(m_xmlStr,m_project_id,m_gateway_id,m_config.key,m_config.iv);
+                    //Support.Encryption.MD5_KEY_STR = m_config.md5;
 
                     DataInfo[] input_info = new DataInfo[4];
                     if (input_info == null)
@@ -1362,6 +1377,16 @@ namespace RenewEDSenderM.CommManager
                             Random random = new Random();
                             int sequence = random.Next(10000000,99999999);
                             string sequenceStr = sequence.ToString();
+                            //>>>> 20130702
+                            XmlProcessManager.XMLWrite xmlwrite = new XmlProcessManager.XMLWrite();
+                            if (xmlwrite == null)
+                            {
+                                LogManager.Logger.WriteWarnLog("001067:Fail to create xmlwrite in Rereport!");
+                                continue;
+                            }
+                            xmlwrite.Input(m_xmlStr, m_project_id, m_gateway_id, m_config.key, m_config.iv);
+                            Support.Encryption.MD5_KEY_STR = m_config.md5;
+                            //<<<<
                             xmlwrite.Report(sequenceStr, m_input_parse, hd_array[i].timestamp_sendCycle.ToString("yyyyMMddHHmmss"), input_info);
                             if (SendMsgB(xmlwrite.BOutput()))
                             {
@@ -1377,11 +1402,12 @@ namespace RenewEDSenderM.CommManager
                             }
                             else
                                 LogManager.Logger.WriteWarnLog("001070:The reReport is failed to send!");
+                            xmlwrite = null;
                         }
                     }
                     
                 }
-                Sleep(20);
+                Sleep(500);
             }
         }
 
