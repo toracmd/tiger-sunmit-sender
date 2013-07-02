@@ -9,7 +9,7 @@
   <Client_Information>
     <Project_id>440300D11</Project_id>
     <!--项目编号-->
-    <Gateway_id>440300D110101</Gateway_id>
+    <Gateway_id>440300D110103</Gateway_id>
     <!--系统装置编号-->
     <Area_code>440300</Area_code>
     <!--行政区编码-->
@@ -40,7 +40,7 @@
     <!--MD5值-->
     <IV>0000000000123456</IV>
     <!--AES初始向量值-->
-    <ReportTimerFlag>0</ReportTimerFlag>
+    <ReportTimerFlag>1</ReportTimerFlag>
     <!--链接授时成功一次后定时上传timer准备与否，可取1或者0-->
   </Client_Information>
 </config>
