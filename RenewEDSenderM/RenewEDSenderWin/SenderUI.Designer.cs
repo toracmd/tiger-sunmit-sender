@@ -33,6 +33,7 @@
             this.btnSenderStop = new System.Windows.Forms.Button();
             this.btnSenderRestart = new System.Windows.Forms.Button();
             this.groupBoxCtrl = new System.Windows.Forms.GroupBox();
+            this.checkBoxAutoRestart = new System.Windows.Forms.CheckBox();
             this.groupBoxKey = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -96,7 +97,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.checkBoxAutoRestart = new System.Windows.Forms.CheckBox();
             this.groupBoxCtrl.SuspendLayout();
             this.groupBoxKey.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -147,6 +147,16 @@
             this.groupBoxCtrl.TabIndex = 1;
             this.groupBoxCtrl.TabStop = false;
             this.groupBoxCtrl.Text = "数据发送服务";
+            // 
+            // checkBoxAutoRestart
+            // 
+            this.checkBoxAutoRestart.AutoSize = true;
+            this.checkBoxAutoRestart.Location = new System.Drawing.Point(35, 160);
+            this.checkBoxAutoRestart.Name = "checkBoxAutoRestart";
+            this.checkBoxAutoRestart.Size = new System.Drawing.Size(144, 16);
+            this.checkBoxAutoRestart.TabIndex = 3;
+            this.checkBoxAutoRestart.Text = "发送服务失败自动重启";
+            this.checkBoxAutoRestart.UseVisualStyleBackColor = true;
             // 
             // groupBoxKey
             // 
@@ -786,16 +796,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // checkBoxAutoRestart
-            // 
-            this.checkBoxAutoRestart.AutoSize = true;
-            this.checkBoxAutoRestart.Location = new System.Drawing.Point(35, 160);
-            this.checkBoxAutoRestart.Name = "checkBoxAutoRestart";
-            this.checkBoxAutoRestart.Size = new System.Drawing.Size(144, 16);
-            this.checkBoxAutoRestart.TabIndex = 3;
-            this.checkBoxAutoRestart.Text = "停止自动重启发送服务";
-            this.checkBoxAutoRestart.UseVisualStyleBackColor = true;
             // 
             // SenderUI
             // 
