@@ -1169,7 +1169,7 @@ namespace RenewEDSenderM.CommManager
                     else
                         LogManager.Logger.WriteWarnLog("001064:The reply is failed to send!");
                     xmlwrite = null;
-                    Sleep(500);
+                    Sleep(1000 * 10);
 
                 }
             }
@@ -1403,11 +1403,12 @@ namespace RenewEDSenderM.CommManager
                             else
                                 LogManager.Logger.WriteWarnLog("001070:The reReport is failed to send!");
                             xmlwrite = null;
+                            Sleep(1000 * 10);
                         }
                     }
                     
                 }
-                Sleep(500);
+                //Sleep(1000 * 10);
             }
         }
 
