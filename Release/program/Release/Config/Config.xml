@@ -19,7 +19,7 @@
     <!--技术类型-->
     <Sys_code>01</Sys_code>
     <!--系统编码-->
-    <Meter MA_ProgramId="11" MA_Code1="01" MA_Code2="11" MB_ProgramId="11" MB_Code1="01" MB_Code2="01" MC_ProgramId="11" MC_Code1="01" MC_Code2="03" MD_ProgramId="11" MD_Code1="01" MD_Code2="04">
+    <Meter MA_ProgramId="11" MA_Code1="11" MA_Code2="11" MB_ProgramId="11" MB_Code1="11" MB_Code2="11" MC_ProgramId="11" MC_Code1="11" MC_Code2="11" MD_ProgramId="11" MD_Code1="11" MD_Code2="11">
     </Meter>
     <!--Meter的相关参数:数据采集装置识别编码,数据采集点识别编码-->
     <NotifyTime>1</NotifyTime>
